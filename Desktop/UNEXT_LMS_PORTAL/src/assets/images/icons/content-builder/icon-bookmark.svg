@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8" height="11" viewBox="0 0 8 11">
+  <defs>
+    <clipPath id="clip-bookmark_">
+      <rect width="8" height="11"/>
+    </clipPath>
+  </defs>
+  <g id="bookmark_" data-name="bookmark " clip-path="url(#clip-bookmark_)">
+    <path id="Union_53" data-name="Union 53" d="M-10276.854-5898.447a.573.573,0,0,1-.149-.32v-9.761a.464.464,0,0,1,.467-.472h7.069a.463.463,0,0,1,.464.472v9.724a.487.487,0,0,1-.464.472.463.463,0,0,1-.335-.151l-3.2-3.36-3.2,3.379a.44.44,0,0,1-.328.145A.484.484,0,0,1-10276.854-5898.447Z" transform="translate(10277.003 5909)" fill="rgba(85,85,85,0.5)"/>
+  </g>
+</svg>

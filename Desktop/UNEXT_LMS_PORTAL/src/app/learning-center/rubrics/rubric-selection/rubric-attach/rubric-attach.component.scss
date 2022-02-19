@@ -1,0 +1,88 @@
+.modal-content-container {
+    .modal-header {
+        color: #000000;
+        font-size: 20px;
+        line-height: 24px;
+        font-family: "Proxima Nova W05 Bold";
+        padding: 0.9896vw 1.66666vw 1.093782vw;
+        background: #FFDDB0;
+        max-height: 62px;
+    }
+    .modal-content-inner {
+        padding: 0.9896vw 1.66666vw 1.093782vw;
+        .char-count {
+            top: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .forumType {
+            .forumType-label {
+                margin-bottom: 2.0541%;
+                span {
+                    cursor: pointer;
+                    font-style: italic;
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #fff;
+                    width: 20px;
+                    height: 20px;
+                    background: #4FA8FF 0% 0% no-repeat padding-box;
+                    border-radius: 64px;
+                    text-align: center;
+                    margin-left: 8px;
+                    line-height: 11px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            } 
+            .custome-radiobutton {
+                span {
+                    color: #000;
+                }
+            }
+            
+        }
+        .form-check.form-switch {
+            padding-left: 0;
+            .form-check-input {
+                margin-left: 16px;
+            }
+        }
+        ::ng-deep select {
+            width: 72px;
+            height: 40px;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            border: 0.5px solid #FF6600;
+            border-radius: 6px;
+        }
+        .maxMark {
+            margin-right: 11.72%;
+        }
+        .addTags {
+            .dropdown-toggle {
+                width: 50px;
+                max-width: 50px;
+                height: 32px;
+                background: #55555500;
+                border: 1px dashed #FF6600;
+                border-radius: 4px;
+                padding: 0;
+                color: #f60;
+                font-size: 24px;
+                line-height: 18px;
+                &::after {
+                    border: none;
+                }
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+        
+        
+    }
+    
+}

@@ -1,0 +1,280 @@
+<perfect-scrollbar class="ps-show-always">
+  <div class="login-settings-layout" id="login-settings-con">
+    <form [formGroup]="form" id="login-settings-form">
+      <div class="form-group col-12 col-md-12 col-lg-12">
+        <label class="form-label required login-header" for="header" translate="admin.loginSettings.header"></label>
+        <div class="position-relative">
+        <app-ckeditor id="login-settings-header-editor" [ckeditorFormControl]="form.controls['header']" [characterCountLimit]="headerTextLengthMax"
+          [lineCountLimit]=2
+          [config]="{toolbar: ['bold', 'italic', 'underline', 'fontfamily', 'fontcolor']}">
+        </app-ckeditor>
+        <span class="char-count header-text-count">{{ headerLengthText }}</span>
+      </div>
+      </div>
+      <div class="mb16">
+        <div class="col-md-12">
+          <label class="form-label required login-logo-url" translate="admin.loginSettings.logoUploadTitle"></label>
+        </div>
+        <div class="col-md-12 layout uploadLogo-container">
+          <div [hidden]="!showLogoUpload" class="upload-img-outer-container" id="login-settings-logoUploadTitle-con">
+            <app-file-upload id="login-settings-logoUploadTitle" [outputWidth]="logoOutputWidth" [outputHeight]="logoOutputHeight"
+              (fileSaved)="logoFileSaveHandler($event)" [fileType]="logoFileType" [acceptedFiles]="logoAcceptedFiles"
+              [savedImage]="logoSavedImage" uploadTitle="admin.loginSettings.logoUploadTitle"
+              buttonText="admin.loginSettings.logoButton" dragDropText="admin.loginSettings.logoDragDrop"
+              noteText="admin.loginSettings.logoNote">
+            </app-file-upload>
+          </div>
+          <div class="layout layout-item-center uploaded-img uploaded-logo-img" id="login-settings-uploaded-logo-img" [ngClass]="{'ml-0': !showLogoUpload}">
+            <img *ngIf="logoImageSrc != '' && !showEditLogo" class="preview-image" [src]="logoImageSrc"
+              alt="selectedImage">
+            <div class="uploaded-logo height-auto" *ngIf="logoImageSrc != '' && showEditLogo">
+              <div class="uploaded-logo-overlay"></div>
+              <img *ngIf="logoImageSrc != ''" class="preview-image" [src]="logoImageSrc" alt="selectedImage">
+              <div class="logo-options">
+                <a (click)="uploadNewLogo()" id="login-settings-uploadNewLogo">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100"
+                    height="83" viewBox="0 0 100 83">
+                    <defs>
+                      <clipPath id="clip-upload_new">
+                        <rect width="100" height="83" />
+                      </clipPath>
+                    </defs>
+                    <g id="upload_new" data-name="upload new" clip-path="url(#clip-upload_new)">
+                      <g id="Group_27031" data-name="Group 27031" transform="translate(-517.676 -287.684)">
+                        <path id="Path_14560" data-name="Path 14560"
+                          d="M88.521,91.735H10.706A10.931,10.931,0,0,1-.386,81V37.006A10.935,10.935,0,0,1,10.705,26.268H25.822l6.34-11a11.173,11.173,0,0,1,9.688-5.5H57.4a11.168,11.168,0,0,1,9.69,5.509l6.329,10.992h15.1A10.931,10.931,0,0,1,99.614,37.005V81A10.932,10.932,0,0,1,88.521,91.735ZM10.706,30.143a7.057,7.057,0,0,0-7.218,6.863V81a7.056,7.056,0,0,0,7.218,6.864H88.521A7.056,7.056,0,0,0,95.739,81V37.006a7.053,7.053,0,0,0-7.218-6.861H72.3a1.941,1.941,0,0,1-1.68-.97L63.728,17.212A7.282,7.282,0,0,0,57.4,13.644H41.849a7.288,7.288,0,0,0-6.331,3.564l-6.9,11.966a1.934,1.934,0,0,1-1.678.969ZM49.613,84.558c-14.95,0-27.112-11.724-27.112-26.134S34.663,32.29,49.613,32.29,76.726,44.014,76.726,58.424,64.563,84.558,49.613,84.558Zm0-48.393-.411,0c-4.124.006-8.026,1.109-13.229,4.188-4.955,2.706-9.6,9.877-9.6,18.068,0,12.274,10.424,22.259,23.237,22.259S72.851,70.7,72.851,58.424,62.428,36.165,49.613,36.165Z"
+                          transform="translate(518.062 277.916)" fill="#7e7e7e" stroke="#7e7e7e" stroke-width="0.5" />
+                        <path id="Path_14561" data-name="Path 14561"
+                          d="M57.166,51.225H45.684V40.284a1.443,1.443,0,0,0-2.884,0v10.94H30.762a1.443,1.443,0,0,0,0,2.884H42.8v11.55a1.443,1.443,0,0,0,2.884,0V54.109H57.166a1.443,1.443,0,0,0,0-2.884Z"
+                          transform="translate(523.712 283.367)" fill="#7e7e7e" />
+                      </g>
+                    </g>
+                  </svg>
+
+                </a>
+                <a (click)="editLogoImage()" id="login-settings-editLogoImage">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100"
+                    height="100" viewBox="0 0 100 100">
+                    <defs>
+                      <clipPath id="clip-path">
+                        <rect id="Rectangle_7872" data-name="Rectangle 7872" width="101.533" height="101.533"
+                          transform="translate(0)" fill="#7e7e7e" stroke="#7e7e7e" stroke-width="0.25" />
+                      </clipPath>
+                      <clipPath id="clip-edit">
+                        <rect width="100" height="100" />
+                      </clipPath>
+                    </defs>
+                    <g id="edit" clip-path="url(#clip-edit)">
+                      <g id="Mask_Group_123" data-name="Mask Group 123" transform="translate(0 -0.767)"
+                        clip-path="url(#clip-path)">
+                        <path id="edit-2" data-name="edit"
+                          d="M86.708,3.942a13.49,13.49,0,0,0-19.061,0l-4.771,4.8L12.086,59.5l-.108.109c-.026.026-.026.054-.054.054-.054.081-.135.161-.188.242,0,.027-.028.027-.028.054-.054.081-.08.135-.135.216-.026.027-.026.053-.053.081-.027.081-.054.135-.082.216,0,.026-.026.026-.026.054L.143,94.415A2.653,2.653,0,0,0,.79,97.164a2.712,2.712,0,0,0,1.914.783,3.18,3.18,0,0,0,.863-.135l33.861-11.3c.026,0,.026,0,.054-.026a.977.977,0,0,0,.242-.109.1.1,0,0,0,.055-.026c.08-.054.188-.109.269-.163s.162-.134.243-.188c.027-.028.053-.028.053-.054.028-.027.082-.053.109-.108L94.014,30.28a13.489,13.489,0,0,0,0-19.06ZM36.565,80.18,17.8,61.417,64.764,14.456,83.527,33.218ZM15.159,66.4,31.551,82.8l-24.614,8.2Zm75.054-39.9L87.355,29.39,68.591,10.626l2.886-2.884a8.086,8.086,0,0,1,11.43,0l7.332,7.332a8.113,8.113,0,0,1-.026,11.431Zm0,0"
+                          transform="translate(1.788 1.794)" fill="#7e7e7e" stroke="#7e7e7e" stroke-width="0.25" />
+                      </g>
+                    </g>
+                  </svg>
+
+                </a>
+                <a (click)="logoDeleteConfirm()" id="login-settings-logoDeleteConfirm">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="88"
+                    height="100" viewBox="0 0 88 100">
+                    <defs>
+                      <clipPath id="clip-delete">
+                        <rect width="88" height="100" />
+                      </clipPath>
+                    </defs>
+                    <g id="delete" clip-path="url(#clip-delete)">
+                      <g id="delete-2" data-name="delete">
+                        <path id="Path_13743" data-name="Path 13743"
+                          d="M224.935,154.7a2.537,2.537,0,0,0-2.537,2.537v47.946a2.537,2.537,0,0,0,5.074,0V157.24A2.537,2.537,0,0,0,224.935,154.7Zm0,0"
+                          transform="translate(-165.978 -116.638)" fill="#7e7e7e" stroke="#7e7e7e" stroke-width="0.25" />
+                        <path id="Path_13744" data-name="Path 13744"
+                          d="M106.935,154.7a2.537,2.537,0,0,0-2.537,2.537v47.946a2.537,2.537,0,1,0,5.074,0V157.24A2.537,2.537,0,0,0,106.935,154.7Zm0,0"
+                          transform="translate(-77.913 -116.638)" fill="#7e7e7e" stroke="#7e7e7e" stroke-width="0.25" />
+                        <path id="Path_13745" data-name="Path 13745"
+                          d="M7.2,29.769v57.7a12.388,12.388,0,0,0,3.721,8.911A13,13,0,0,0,19.987,100h48a13,13,0,0,0,9.064-3.618,12.388,12.388,0,0,0,3.721-8.911v-57.7a8.993,8.993,0,0,0,7.123-9.8c-.63-4.455-4.742-7.788-9.609-7.789H65.3V9.249a8.855,8.855,0,0,0-2.927-6.565A10.41,10.41,0,0,0,55.249,0H32.723A10.41,10.41,0,0,0,25.6,2.685a8.855,8.855,0,0,0-2.927,6.565v2.927H9.688C4.82,12.178.709,15.51.079,19.965a8.993,8.993,0,0,0,7.123,9.8ZM67.985,95.315h-48a7.685,7.685,0,0,1-7.712-7.845V29.975H75.7V87.469a7.685,7.685,0,0,1-7.712,7.845ZM27.75,9.249A4.337,4.337,0,0,1,29.19,6a5.107,5.107,0,0,1,3.533-1.313H55.249A5.107,5.107,0,0,1,58.782,6a4.336,4.336,0,0,1,1.44,3.254v2.927H27.75ZM9.688,16.861h68.6a4.4,4.4,0,0,1,4.566,4.215,4.4,4.4,0,0,1-4.566,4.215H9.688a4.4,4.4,0,0,1-4.566-4.215A4.4,4.4,0,0,1,9.688,16.861Zm0,0"
+                          transform="translate(0.003 0.002)" fill="#7e7e7e" stroke="#7e7e7e" stroke-width="0.25" />
+                        <path id="Path_13746" data-name="Path 13746"
+                          d="M165.935,154.7a2.537,2.537,0,0,0-2.537,2.537v47.946a2.537,2.537,0,1,0,5.074,0V157.24A2.537,2.537,0,0,0,165.935,154.7Zm0,0"
+                          transform="translate(-121.946 -116.638)" fill="#7e7e7e" stroke="#7e7e7e" stroke-width="0.25" />
+                      </g>
+                    </g>
+                  </svg>
+
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12 col-lg-12">
+        <label class="form-label required web-greetings-text"
+        translate="admin.loginSettings.logoUrl" id="login-settings-support-text"></label>
+          <div class="position-relative">
+            <input type="text" class="form-control char-limit" id="login-settings-support-text" formControlName="logoRedirectUrl"  name="logoRedirectUrl"
+            [ngClass]="{'form-field-error' : form.controls['logoRedirectUrl'].invalid}">
+        </div>
+      </div>
+      <div class="mb16">
+        <div class="col-md-12">
+          <label class="form-label required login-logo-url" id="login-settings-bannerUploadTitle" translate="admin.loginSettings.bannerUploadTitle"></label>
+        </div>
+        <div class="col-md-12 layout uploadBanner-container">
+          <div [hidden]="!showBannerUpload" class="upload-img-outer-container" id="login-settings-upload-ImgOuter-con">
+            <app-file-upload [outputWidth]="bannerOutputWidth" id="login-settings-upload-ImgOuter" [outputHeight]="bannerOutputHeight"
+              (fileSaved)="bannerFileSaveHandler($event)" [fileType]="bannerFileType"
+              [acceptedFiles]="bannerAcceptedFiles" [savedImage]="bannerSavedImage"
+              uploadTitle="admin.loginSettings.bannerUploadTitle" buttonText="admin.loginSettings.bannerButton"
+              dragDropText="admin.loginSettings.bannerDragDrop" noteText="admin.loginSettings.bannerNote">
+            </app-file-upload>
+          </div>
+          <div class="uploaded-img uploaded-banner-img" id="login-settings-uploaded-banner-img" [ngClass]="{'ml-0': !showBannerUpload}">
+            <img *ngIf="bannerImageSrc != '' && !showEditBanner" class="preview-image" [src]="bannerImageSrc"
+              alt="selectedImage">
+            <div class="uploaded-logo" *ngIf="bannerImageSrc != '' && showEditBanner">
+              <div class="uploaded-logo-overlay"></div>
+              <img *ngIf="bannerImageSrc != ''" class="preview-image" [src]="bannerImageSrc" alt="selectedImage">
+              <div class="logo-options">
+                <a (click)="uploadNewBanner()" id="login-settings-uploadNewBanner">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100"
+                    height="83" viewBox="0 0 100 83">
+                    <defs>
+                      <clipPath id="clip-upload_new">
+                        <rect width="100" height="83" />
+                      </clipPath>
+                    </defs>
+                    <g id="upload_new" data-name="upload new" clip-path="url(#clip-upload_new)">
+                      <g id="Group_27031" data-name="Group 27031" transform="translate(-517.676 -287.684)">
+                        <path id="Path_14560" data-name="Path 14560"
+                          d="M88.521,91.735H10.706A10.931,10.931,0,0,1-.386,81V37.006A10.935,10.935,0,0,1,10.705,26.268H25.822l6.34-11a11.173,11.173,0,0,1,9.688-5.5H57.4a11.168,11.168,0,0,1,9.69,5.509l6.329,10.992h15.1A10.931,10.931,0,0,1,99.614,37.005V81A10.932,10.932,0,0,1,88.521,91.735ZM10.706,30.143a7.057,7.057,0,0,0-7.218,6.863V81a7.056,7.056,0,0,0,7.218,6.864H88.521A7.056,7.056,0,0,0,95.739,81V37.006a7.053,7.053,0,0,0-7.218-6.861H72.3a1.941,1.941,0,0,1-1.68-.97L63.728,17.212A7.282,7.282,0,0,0,57.4,13.644H41.849a7.288,7.288,0,0,0-6.331,3.564l-6.9,11.966a1.934,1.934,0,0,1-1.678.969ZM49.613,84.558c-14.95,0-27.112-11.724-27.112-26.134S34.663,32.29,49.613,32.29,76.726,44.014,76.726,58.424,64.563,84.558,49.613,84.558Zm0-48.393-.411,0c-4.124.006-8.026,1.109-13.229,4.188-4.955,2.706-9.6,9.877-9.6,18.068,0,12.274,10.424,22.259,23.237,22.259S72.851,70.7,72.851,58.424,62.428,36.165,49.613,36.165Z"
+                          transform="translate(518.062 277.916)" fill="#7e7e7e" stroke="#7e7e7e" stroke-width="0.5" />
+                        <path id="Path_14561" data-name="Path 14561"
+                          d="M57.166,51.225H45.684V40.284a1.443,1.443,0,0,0-2.884,0v10.94H30.762a1.443,1.443,0,0,0,0,2.884H42.8v11.55a1.443,1.443,0,0,0,2.884,0V54.109H57.166a1.443,1.443,0,0,0,0-2.884Z"
+                          transform="translate(523.712 283.367)" fill="#7e7e7e" />
+                      </g>
+                    </g>
+                  </svg>
+
+                </a>
+                <a (click)="editBannerImage()" id="login-settings-editBannerImage">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100"
+                    height="100" viewBox="0 0 100 100">
+                    <defs>
+                      <clipPath id="clip-path">
+                        <rect id="Rectangle_7872" data-name="Rectangle 7872" width="101.533" height="101.533"
+                          transform="translate(0)" fill="#7e7e7e" stroke="#7e7e7e" stroke-width="0.25" />
+                      </clipPath>
+                      <clipPath id="clip-edit">
+                        <rect width="100" height="100" />
+                      </clipPath>
+                    </defs>
+                    <g id="edit" clip-path="url(#clip-edit)">
+                      <g id="Mask_Group_123" data-name="Mask Group 123" transform="translate(0 -0.767)"
+                        clip-path="url(#clip-path)">
+                        <path id="edit-2" data-name="edit"
+                          d="M86.708,3.942a13.49,13.49,0,0,0-19.061,0l-4.771,4.8L12.086,59.5l-.108.109c-.026.026-.026.054-.054.054-.054.081-.135.161-.188.242,0,.027-.028.027-.028.054-.054.081-.08.135-.135.216-.026.027-.026.053-.053.081-.027.081-.054.135-.082.216,0,.026-.026.026-.026.054L.143,94.415A2.653,2.653,0,0,0,.79,97.164a2.712,2.712,0,0,0,1.914.783,3.18,3.18,0,0,0,.863-.135l33.861-11.3c.026,0,.026,0,.054-.026a.977.977,0,0,0,.242-.109.1.1,0,0,0,.055-.026c.08-.054.188-.109.269-.163s.162-.134.243-.188c.027-.028.053-.028.053-.054.028-.027.082-.053.109-.108L94.014,30.28a13.489,13.489,0,0,0,0-19.06ZM36.565,80.18,17.8,61.417,64.764,14.456,83.527,33.218ZM15.159,66.4,31.551,82.8l-24.614,8.2Zm75.054-39.9L87.355,29.39,68.591,10.626l2.886-2.884a8.086,8.086,0,0,1,11.43,0l7.332,7.332a8.113,8.113,0,0,1-.026,11.431Zm0,0"
+                          transform="translate(1.788 1.794)" fill="#7e7e7e" stroke="#7e7e7e" stroke-width="0.25" />
+                      </g>
+                    </g>
+                  </svg>
+
+                </a>
+                <a (click)="bannerDeleteConfirm()" id="login-settings-bannerDeleteConfirm">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="88"
+                    height="100" viewBox="0 0 88 100">
+                    <defs>
+                      <clipPath id="clip-delete">
+                        <rect width="88" height="100" />
+                      </clipPath>
+                    </defs>
+                    <g id="delete" clip-path="url(#clip-delete)">
+                      <g id="delete-2" data-name="delete">
+                        <path id="Path_13743" data-name="Path 13743"
+                          d="M224.935,154.7a2.537,2.537,0,0,0-2.537,2.537v47.946a2.537,2.537,0,0,0,5.074,0V157.24A2.537,2.537,0,0,0,224.935,154.7Zm0,0"
+                          transform="translate(-165.978 -116.638)" fill="#7e7e7e" stroke="#7e7e7e" stroke-width="0.25" />
+                        <path id="Path_13744" data-name="Path 13744"
+                          d="M106.935,154.7a2.537,2.537,0,0,0-2.537,2.537v47.946a2.537,2.537,0,1,0,5.074,0V157.24A2.537,2.537,0,0,0,106.935,154.7Zm0,0"
+                          transform="translate(-77.913 -116.638)" fill="#7e7e7e" stroke="#7e7e7e" stroke-width="0.25" />
+                        <path id="Path_13745" data-name="Path 13745"
+                          d="M7.2,29.769v57.7a12.388,12.388,0,0,0,3.721,8.911A13,13,0,0,0,19.987,100h48a13,13,0,0,0,9.064-3.618,12.388,12.388,0,0,0,3.721-8.911v-57.7a8.993,8.993,0,0,0,7.123-9.8c-.63-4.455-4.742-7.788-9.609-7.789H65.3V9.249a8.855,8.855,0,0,0-2.927-6.565A10.41,10.41,0,0,0,55.249,0H32.723A10.41,10.41,0,0,0,25.6,2.685a8.855,8.855,0,0,0-2.927,6.565v2.927H9.688C4.82,12.178.709,15.51.079,19.965a8.993,8.993,0,0,0,7.123,9.8ZM67.985,95.315h-48a7.685,7.685,0,0,1-7.712-7.845V29.975H75.7V87.469a7.685,7.685,0,0,1-7.712,7.845ZM27.75,9.249A4.337,4.337,0,0,1,29.19,6a5.107,5.107,0,0,1,3.533-1.313H55.249A5.107,5.107,0,0,1,58.782,6a4.336,4.336,0,0,1,1.44,3.254v2.927H27.75ZM9.688,16.861h68.6a4.4,4.4,0,0,1,4.566,4.215,4.4,4.4,0,0,1-4.566,4.215H9.688a4.4,4.4,0,0,1-4.566-4.215A4.4,4.4,0,0,1,9.688,16.861Zm0,0"
+                          transform="translate(0.003 0.002)" fill="#7e7e7e" stroke="#7e7e7e" stroke-width="0.25" />
+                        <path id="Path_13746" data-name="Path 13746"
+                          d="M165.935,154.7a2.537,2.537,0,0,0-2.537,2.537v47.946a2.537,2.537,0,1,0,5.074,0V157.24A2.537,2.537,0,0,0,165.935,154.7Zm0,0"
+                          transform="translate(-121.946 -116.638)" fill="#7e7e7e" stroke="#7e7e7e" stroke-width="0.25" />
+                      </g>
+                    </g>
+                  </svg>
+
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12 col-lg-12" id="login-settings-welcomeText-con">
+        <label class="form-label required logo-welcome-text" for="welcomeText"
+          translate="admin.loginSettings.welcomeText"></label>
+          <div class="position-relative">
+        <app-ckeditor id="login-settings-welcomeText-editor" [ckeditorFormControl]="form.controls['welcomeText']" [characterCountLimit]="welcomeTextLengthMax"
+          [lineCountLimit]=2 [config]="{toolbar: ['bold', 'italic', 'underline', 'fontfamily', 'fontcolor']}">
+        </app-ckeditor>
+        <span class="char-count welcome-text-count">{{ welcomeLengthText }}</span>
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12 col-lg-12" id="login-settings-sso-text">
+        <label class="form-label login-sso-text" for="ssoText" translate="admin.loginSettings.ssoText"></label>
+        <div class="position-relative">
+        <app-ckeditor id="login-settings-sso-editor" [ckeditorFormControl]="form.controls['ssoText']" [characterCountLimit]="ssoTextLengthMax"
+          [lineCountLimit]=2 [config]="{toolbar: ['bold', 'italic', 'underline', 'fontfamily', 'fontcolor']}">
+        </app-ckeditor>
+        <span class="char-count sso-text-count">{{ ssoLengthText }}</span>
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12 col-lg-12" id="login-settings-support-text">
+        <label class="form-label login-support-text" for="supportText" name="supportText"
+          translate="admin.loginSettings.supportText"></label>
+          <div class="position-relative">
+        <app-ckeditor id="login-settings-support-editor" [ckeditorFormControl]="form.controls['supportText']" [characterCountLimit]="supportTextLengthMax"
+          [lineCountLimit]=2 [config]="{toolbar: ['bold', 'italic', 'underline', 'fontfamily', 'fontcolor']}">
+        </app-ckeditor>
+        <span class="char-count support-text-count">{{ supportLengthText }}</span>
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-lg-12 layout layout-item-center">
+        <label class="form-label mr-3 mb-0 login-display-logo" translate="admin.loginSettings.displayLogo"></label>&nbsp;
+
+
+        <div class="form-check form-switch ml8">
+          <input class="form-check-input" id="login-settings-dispLogoSwitch"  type="checkbox" id="dispLogoSwitch" name="displayLogo" formControlName="poweredByUnextLogo">
+          <label class="circle-switch d-inline-block" for="dispLogoSwitch"></label>
+        </div>
+
+      </div>
+      <app-toast class="forgot-success-toaster" style="right: 0;" *ngIf="validationToast" id="login-settings-validationToast"
+        message="{{ 'admin.loginSettings.errorMsg.formInvalid' | translate }}" type="error" [toastNumber]="200"
+        (toastClick)="closeToast()"></app-toast>
+      <app-toast class="forgot-success-toaster" style="right: 0;" *ngIf="publishFailToast" id="login-settings-publishFailToast"
+        message="{{ 'admin.loginSettings.failedPublish' | translate }}" type="error" [toastNumber]="200"
+        (toastClick)="closeToast()"></app-toast>
+      <app-toast class="forgot-success-toaster" style="right: 0;" *ngIf="publishSuccessToast" id="login-settings-publishSuccessToast"
+        message="{{ 'admin.loginSettings.successPublish' | translate }}" type="success" [toastNumber]="200"
+        (toastClick)="closeToast()"></app-toast>
+      <app-toast class="forgot-success-toaster" style="right: 0;" *ngIf="somethingWrongToast" id="login-settings-somethingWrongToast"
+        message="{{ 'admin.loginSettings.somethingWrong' | translate }}" type="error" [toastNumber]="200"
+        (toastClick)="closeToast()"></app-toast>
+      <hr class="solid">
+      <div class="col-12 col-md-12 col-lg-12">
+        <div class="note"><span translate="admin.loginSettings.note"></span>&nbsp;<span class="preview-msg-note"
+            translate="admin.loginSettings.noteText" id="login-settings-note"></span></div>
+      </div>
+      <div class="col-12 col-md-12 col-lg-12 layout mt24 mb24">
+        <button class="cancel-btn mr24 login-clear-button" id="login-settings-clearChangesConfirm" (click)="clearChangesConfirm()"
+          translate="admin.loginSettings.button.clear"></button>
+        <button class="primary-btn login-preview-button" id="login-settings-showPreview"  [disabled]="this.form.invalid"
+          (click)="showPreview()"
+          translate="admin.loginSettings.button.preview"></button>
+      </div>
+    </form>
+  </div>
+  <app-preview-layout *ngIf="showPreviewComponent" (previewEvent)="saveSettings($event)"></app-preview-layout>
+</perfect-scrollbar>

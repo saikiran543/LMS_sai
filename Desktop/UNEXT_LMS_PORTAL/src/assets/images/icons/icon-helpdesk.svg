@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-helpdesk">
+      <rect width="20" height="20"/>
+    </clipPath>
+  </defs>
+  <g id="helpdesk" clip-path="url(#clip-helpdesk)">
+    <path id="Exclusion_3" data-name="Exclusion 3" d="M14635,22543a10,10,0,1,1,7.074-2.928A9.936,9.936,0,0,1,14635,22543Zm0-5.811a.931.931,0,1,0,.934.934A.931.931,0,0,0,14635,22537.189Zm0-9.906a2.569,2.569,0,0,1,2.568,2.563,2.9,2.9,0,0,1-1.867,2.443,2.1,2.1,0,0,0-1.4,1.975v.945a.7.7,0,1,0,1.4,0v-.939a.7.7,0,0,1,.47-.662,4.294,4.294,0,0,0,2.795-3.762,3.963,3.963,0,0,0-7.926,0,.7.7,0,1,0,1.4,0A2.566,2.566,0,0,1,14635,22527.283Z" transform="translate(-14625 -22523)" fill="#b8b8b8"/>
+  </g>
+</svg>

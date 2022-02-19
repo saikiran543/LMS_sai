@@ -1,0 +1,33 @@
+<div class="container layout layout-item-center layout-justify-center layout-flex-direction-column" id="rubrics-dialog-con">
+    <div class="container-elements">
+        <div class="options layout layout-item-center layout-justify-space-between">
+            <div class="layout layout-item-center structure-item">
+                <label >Criteria:</label>
+                <div class="quantity">
+                    <input [value]='criteriaValue' (keypress)="onKeyPress($event)" (keyup)="changeValue('criteria', $event)">
+                    <div class="quantity__btn quantity__btn--up" (click)="selectCriteria('plus')">
+                        <svg-icon src="assets/images/icons/rubric/arrow-up.svg"></svg-icon>
+                    </div>
+                    <div class="quantity__btn quantity__btn--down" (click)="selectCriteria('minus')">
+                        <svg-icon src="assets/images/icons/rubric/arrow-down.svg"></svg-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="layout layout-item-center structure-item">
+                <label >Grade Level:</label>
+                <div class="quantity">
+                    <input [value]='gradedLevelValue' (keypress)="onKeyPress($event)" (keyup)="changeValue('gradedLevel', $event)">
+                    <div class="quantity__btn quantity__btn--up" (click)="selectGradeLevel('plus')">
+                        <svg-icon src="assets/images/icons/rubric/arrow-up.svg"></svg-icon>
+                    </div>
+                    <div class="quantity__btn quantity__btn--down" (click)="selectGradeLevel('minus')">
+                        <svg-icon src="assets/images/icons/rubric/arrow-down.svg"></svg-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button class="yes-btn rubric-button" [disabled]="levelSelect || criteriaSelect" type="submit" (click)="onClick(true)">Ok</button>
+    </div>   
+</div>

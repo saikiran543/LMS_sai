@@ -1,0 +1,38 @@
+.checkmark {
+    height: 22px;
+    width: 22px;
+    top: 5px;
+    border: 1px solid #DDDDDD;
+}
+.alert-popup {
+    .modal-content {
+        padding: 7.35% 7.35%;
+        img {
+            margin-bottom: 4%;
+        }
+    }
+    .no-btn {
+        margin-right: 6.1%;
+    } 
+    button {
+        font-size: calc(16px + 0.21vw);
+    }   
+    .publish-radio-content {
+        label.custome-radiobutton {
+            font-size: calc(16px + 0.21vw);
+            line-height: inherit;
+            color: #363436;
+        }
+        .custome-radiobutton .checkmark::after {
+            width: 20px;
+            height: 20px;
+        }
+        div:last-child {
+            margin: 4.78% 0%;
+        }
+        
+    }
+}
+.disabledCheckbox{
+    cursor: not-allowed
+}

@@ -1,0 +1,96 @@
+.sidebar-component {
+    min-width: 60px;
+    width: 3.75vw;
+    height: 100%;
+    position: relative;
+}
+.sidenav-logo {
+    display: none;
+}
+.sidebar-menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    margin-top: 0px !important;
+}
+.sidebar-menu li {
+    margin: 0 0 16px 0;
+    text-align: center;
+    position: relative;
+    display: block;
+    font-size: 10px;
+    color: #555555;
+}
+.sidebar-menu li:first-child {
+    margin-top: 12px;
+}
+.sidebar-menu li div {
+    padding: 0 4px;
+    line-height: 12px;
+    margin-top: 2px;
+}
+.sidebar-bottom-menu {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.sidebar-bottom-menu li:last-child {
+    margin-bottom: 60px;
+}
+#sidebar {
+    transition: all 0.3s;
+    z-index: 91;
+}
+#sidebar.active {
+    left: 0;
+}
+#sidebarCollapse {
+    display: none;
+}
+#sidebarCollapse button {
+    background-color: transparent;
+    border: 0;
+}
+.overlay {
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 9;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+.overlay.active {
+    display: block;
+    opacity: 1;
+    top: 0px;
+}
+.sidebar-top-menu .active{
+    color: #FF6600;
+}
+.sidebar-top-menu-icon, .sidebar-bottom-menu .sidebar-bottom-menu-icon{
+    height: 36px;
+    width: 36px;
+    padding: 8px;
+    margin: 0px auto;
+    border-radius: 4px;
+    display: block;
+}
+.sidebar-bottom-menu .active .sidebar-bottom-menu-icon, .sidebar-bottom-menu li:hover .sidebar-bottom-menu-icon{
+    background-color: #cfcdcd;
+}
+.sidebar-bottom-menu li.active .sidebar-bottom-menu-icon path, .sidebar-bottom-menu li:hover .sidebar-bottom-menu-icon svg path {
+    fill: #555555;
+}
+.sidebar-top-menu li.active .sidebar-top-menu-icon, .sidebar-top-menu li:hover .sidebar-top-menu-icon {
+    background-color: #f5f5f5;
+}
+.sidebar-top-menu li.active .sidebar-top-menu-icon path, .sidebar-top-menu li:hover .sidebar-top-menu-icon svg path {
+    fill: #ff6600;
+}
+.disabled {
+    pointer-events:none; 
+    opacity:0.6;
+}

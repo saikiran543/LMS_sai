@@ -1,0 +1,165 @@
+.notes-header {
+    margin-bottom: 1.6%;
+    h1 {
+        font-size: 20px;
+        font-family: "Proxima Nova W05 Bold";
+        color: #000000;
+        border-bottom: #FF6600 4px solid;
+        border-radius: 2px;
+        margin-bottom: 0px;
+        align-self: center;
+    }
+    .filter-btn {
+        height: 36px;
+        font-family: "Proxima Nova W05 Regular";
+        border: none;
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: none;
+        color: #555555;
+        width: 100px;
+        &:hover {
+            color: #FF6600;
+            background: #F7F8F9;
+        }
+    }
+    .filter-btn::after {
+        width: 7px;
+        height: 7px;
+        content: "";
+        // background-image: url("../../assets/images/icons/icon-dropdown.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+    }
+    .filter-btn.show::after {
+        transform: rotate(180deg);
+    }
+}
+.notes-pane {
+    
+    .notes-left-pane {
+        display: inline-block;
+        width: 30%;
+        vertical-align: top;
+        @media only screen and ( max-width: 1024px){
+            width: 100%;
+        }
+    }
+    .notes-right-pane {
+        display: inline-block;
+        width: calc(70% - 16px);
+        margin-left: 16px;
+        vertical-align: top;
+    }
+}
+.content-area{
+    display: none;
+}
+.empty-note{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100vh - 23vh);
+}
+::ng-deep figure  {
+    table {
+        td {
+            padding: inherit !important;
+        }
+    }
+}
+
+#notes-filer-dropdown-con {
+    &::after {
+        background-image: url("../../../../assets/images/icons/arrow-down.svg");
+        width: 7px;
+        height: 7px;
+        content: "";
+        background-repeat: no-repeat;
+        background-size: contain;
+        vertical-align: 6px;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        margin-left: 2px;
+    }
+}
+
+.option-container {
+    display: none;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px){ 
+    .notes-header {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        svg-icon {
+            margin-right: 12px;
+            svg {
+                width: 16px;
+            }
+        }
+        h1 {
+            margin-left: 0px;
+            font-size: 16px;
+            line-height: 18px;
+        }
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 1024px){ 
+    .notes-header {
+        margin-top: 22px;
+        margin-bottom: 16px;
+        svg-icon {
+            svg {
+                width: 21px;
+            }
+        }
+        h1 {
+            margin-left: 12px;
+            font-size: 18px;
+            line-height: 18px;
+        }
+    }
+    .option-container {
+        display: flex;
+        margin-bottom: 16px;
+        .content-area-dropdown {
+            height: 32px;
+            width: 118px;
+            border: 1px solid #E7ECF2;
+            font-size: 12px;
+            font-family: "Proxima Nova W05 Regular";
+            line-height: 17px;
+            color: #000000;
+            padding: 0px 8px;
+            text-align: left;
+            &::after {
+                border: none;
+                background-image: url("../../../../assets/images/icons/icon-arrow-down1.svg");
+                background-repeat: no-repeat;
+                position: absolute;
+                width: 10px;
+                top: 14px;
+                height: 6px;
+                margin-left: 10px;
+            }
+        }
+        .searchField {
+            margin-right: 12px;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1024px){
+    .notes-pane .notes-right-pane {
+        width: 100%;
+        margin-left: 0!important;
+    }
+    
+}

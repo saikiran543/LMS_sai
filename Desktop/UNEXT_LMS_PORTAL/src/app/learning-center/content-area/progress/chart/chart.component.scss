@@ -1,0 +1,58 @@
+.chart-container {
+    width: 174px;
+    height: 236px;
+    background-image: url("../../../../../assets/images/icons/progress/icon-bg-my-progress.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 8px;
+    opacity: 1;
+    padding: 16px;
+    h4 {
+        margin-bottom: 24px;
+        font-size: 12px;
+        line-height: 12px;
+        color: #FFFFFFCC;
+        font-family: "Proxima Nova W05 Regular";
+    }
+    img {
+        width: 100%;
+        height: auto;
+
+    }
+    h6 {
+        margin-bottom: 8px;
+        font-size: 8px;
+        line-height: 12px;
+        color: #FFFFFFCC;
+        font-family: "Proxima Nova W05 Regular";
+        span {
+            font-size: 12px;
+            line-height: 12px;
+            font-family: "Proxima Nova W05 Bold";
+        }
+    }
+    p {
+        font-size: 10px;
+        line-height: 12px;
+        color: #FFFFFFCC;
+        font-family: "Proxima Nova W05 Regular";
+        margin-bottom: 0px;
+    }
+}
+.chart-container-chart{
+    background-image: url("../../../../../assets/images/icons/progress/icon-bg-class-average.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    h4{
+        color: #0A0A25!important;
+    }
+    h6{
+        color: #0A0A25!important;
+    }
+    p{
+        color: #0A0A25!important;
+    }
+}
+::ng-deep .gauge-chart{
+    width: 100px !important;
+}

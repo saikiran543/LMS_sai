@@ -1,0 +1,82 @@
+<!-- <rubrics-list-view></rubrics-list-view> -->
+
+<div class="rubrics-header">
+    <div class="content-title" translate="admin.rubrics.rubricsComponent.title"></div>
+    
+    <div class="layout align-items-center justify-content-between">
+        <div class="input-group" id="rubrics-search-con">
+            <input type="search" id="rubrics-search-input" placeholder="Search" aria-describedby="button-addon5" class="form-control">
+            <div class="input-group-append">
+                <button id="rubrics-search-button" type="submit" class="btn btn-primary"><img _ngcontent-syr-c138="" src="assets/images/icons/icon-search-white.svg"></button>
+            </div>
+        </div>
+        <div class="layout layout-item-center">
+            <div class="dropdown">
+                <button disabled class="flat-btn dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+                aria-expanded="false" translate="admin.rubrics.rubricsComponent.buttons.filter">
+                </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><button class="dropdown-item" type="button" translate="admin.rubrics.rubricsComponent.buttons.action"></button></li>
+                <li><button class="dropdown-item" type="button" translate="admin.rubrics.rubricsComponent.buttons.anotherAction"></button></li>
+                <li><button class="dropdown-item" type="button" translate="admin.rubrics.rubricsComponent.buttons.somethingElseHere"></button></li>
+            </ul>
+        </div>
+        <div class="layout layout-item-center rows-per-page">
+            <label translate="admin.rubrics.rubricsComponent.label"></label>
+            <div class="quantity">
+                <input [value]="rowsPerPage"  (change)="onChange($event)">
+                <div class="quantity__btn quantity__btn--up"
+                (click)="modifyRecordsPerPage('plus')">
+                <svg-icon src="assets/images/icons/rubric/arrow-up.svg"></svg-icon>
+            </div>
+            <div class="quantity__btn quantity__btn--down"
+                (click)="modifyRecordsPerPage('minus')">
+                <svg-icon src="assets/images/icons/rubric/arrow-down.svg"></svg-icon>
+            </div>
+              </div>
+        </div>
+        <button *ngIf="rubricLevelType === 'course'" class="create-rubric" (click)="ClickEvent('Create Rubric')"><img src="assets/images/icons/rubric/icon-createrubric.svg">Create Rubric</button>
+    </div>
+
+</div>
+</div>
+
+
+
+
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" [ngClass]="{'active': rubricLevelType === 'program'}" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button"
+        role="tab" aria-controls="overview" aria-selected="true" (click)="ClickEvent('ProgramLevel')"
+        translate="admin.rubrics.rubricsComponent.category.programLevel"></button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" [ngClass]="{'active': rubricLevelType === 'course'}" id="createNote-tab" data-bs-toggle="tab" data-bs-target="#createNote" type="button"
+        role="tab" aria-controls="createNote" aria-selected="false" (click)="ClickEvent('CourseLevel')"
+        translate="admin.rubrics.rubricsComponent.category.courseLevel"></button>
+    </li>
+</ul>
+<div class="tab-content mt24" id="myTabContent">
+    <div *ngIf="rows.length > 0"  class="tab-pane fade show active"  role="tabpanel">
+        <rubrics-list-view [rubricLevelType]='rubricLevelType' [rows]='rows' [rowsPerPage]="rowsPerPage" [ContextMenuOperation]='ContextMenuOperation' [courseId]='courseId' [totalRecords]='totalRecords' [isSelection]='false' (previewClick)="onClickView($event)"></rubrics-list-view>
+    </div>
+    <div *ngIf="rows.length === 0" class="empty-rubrics">
+    <img src="assets/images/icons/rubric/emptyrubric.svg">
+    <p translate="admin.rubrics.rubricsComponent.emptyRubrics"></p>
+</div>
+    <!-- <div *ngIf="rubricLevelType === 'course'" class="tab-pane fade" id="createNote" role="tabpanel" aria-labelledby="createNote-tab">
+        <rubrics-list-view></rubrics-list-view>
+    </div> -->
+    
+</div>
+
+
+
+
+
+
+
+
+

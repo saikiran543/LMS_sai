@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="12" viewBox="0 0 15 12">
+  <defs>
+    <clipPath id="clip-add_learning_objective">
+      <rect width="15" height="12"/>
+    </clipPath>
+  </defs>
+  <g id="add_learning_objective" data-name="add learning objective" clip-path="url(#clip-add_learning_objective)">
+    <g id="noun_objective_social_wifi_3505706" data-name="noun_objective social wifi_3505706" transform="translate(0)">
+      <g id="Capa_2" data-name="Capa 2" transform="translate(0 0)">
+        <path id="Path_14947" data-name="Path 14947" d="M14.432,18.974a2.278,2.278,0,0,0,2.992-1.186,1.914,1.914,0,0,0,.121-.37.48.48,0,0,1,.931.23,3.272,3.272,0,0,1-.172.517,3.3,3.3,0,1,1-2.3-4.421,3.19,3.19,0,0,1,.606.191,4.058,4.058,0,0,1,.478.262.478.478,0,0,1-.536.785,2.1,2.1,0,0,0-.332-.185,2.552,2.552,0,0,0-.427-.134,2.277,2.277,0,0,0-1.365,4.312Z" transform="translate(-9.588 -11.142)" fill="#555"/>
+        <path id="Path_14948" data-name="Path 14948" d="M15.935,10.193a5.627,5.627,0,0,1,2.137,1.62.488.488,0,0,1-.74.638,4.625,4.625,0,0,0-1.812-1.378,4.81,4.81,0,1,0,2.909,4.057.48.48,0,0,1,.957-.064,5.607,5.607,0,0,1-.453,2.679,5.744,5.744,0,1,1-3-7.553Z" transform="translate(-7.914 -9.722)" fill="#555"/>
+        <path id="Path_14949" data-name="Path 14949" d="M10.721,14.053,4.2,16.642a.427.427,0,0,1-.179.038.478.478,0,0,1-.172-.925l6.526-2.583h0l.5-1.167a.479.479,0,0,1,.88.376l-.389.9.919.376a.478.478,0,0,1-.185.919.51.51,0,0,1-.191-.038l-1.167-.5Z" transform="translate(1.695 -10.443)" fill="#555"/>
+      </g>
+    </g>
+  </g>
+</svg>

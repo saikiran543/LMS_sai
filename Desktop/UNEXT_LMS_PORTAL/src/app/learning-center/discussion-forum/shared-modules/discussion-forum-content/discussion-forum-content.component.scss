@@ -1,0 +1,286 @@
+@import "~src/variables";
+.grey-txt-sm {
+    font-size: 0.8rem;
+    color: #555555cc;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.grey-txt-sm.full-text {
+    white-space: normal;
+    text-overflow: unset;
+    overflow: initial;
+}
+.content-header {
+    color: #000;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 18px;
+    font-family:"Proxima Nova W01 Semibold";
+}
+.grey-txt-lg {
+    color: #555555cc;
+    max-height: 7vh;
+    overflow-y: hidden;
+    position: relative;
+    line-height: 3.5vh;
+}
+.label-row {
+    .download-btn-con {
+        cursor: pointer;
+        a {
+            width: 12vw;
+            min-width: 200px;
+            border: 1px solid #cfdae6;
+            border-radius: 8px;
+            padding: 10px 10px;
+            .file-name {
+                color: #262626;
+                font-family: "Proxima Nova W05 Regular";
+                font-size: 14px;
+                display: inline-block;
+                margin-left: 8px;
+                display: inline-block;
+                width: 160px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+    .label {
+        margin-right: 1rem;
+        &:last-child {
+            margin-right: 0;
+        }
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    .label-txt {
+        font-size: 14px;
+        font-family: "Proxima Nova W05 Regular";
+        color: #000;
+        padding: 2px 19px;
+        border-radius: 12px;
+    }
+    .label-txt-prefix {
+        color: #000;
+        font-family: "Proxima Nova W05 Regular";
+        margin-right: 7px;
+        text-transform: capitalize;
+    }
+    .created-label {
+        font-size: 0.88rem;
+        .created-label-txt {
+            background-color: #e9fffb;
+            color: #00c29b;
+        }
+    }
+    .switch-con {
+        /*margin-left: 1rem;*/
+        margin-right: 1rem;
+        .form-check.form-switch {
+            display: flex;
+            align-items: center;
+            input.form-check-input {
+                position: relative;
+            }
+            .circle-switch {
+                pointer-events: none;
+            }
+            label {
+                margin-left: 8px;
+                text-transform: capitalize;
+            }
+        }
+    }
+    .graded-forum-label {
+        .graded-label-txt {
+            background-color: #fceeff;
+            color: #aa00ff;
+        }
+        .non-graded-label-txt{
+            background-color: #fceeff;
+            color: red;
+        }
+    }
+    .draft-forum-label {
+        .draft-label-txt {
+            background-color: #FFF4E7;
+            color: #FFAA00;
+        }
+    }
+    .ongoing-forum-label {
+        .ongoing-label-txt {
+            background-color: #F0F1FF;
+            color: #0020FF;
+        }
+    }
+    .expired-forum-label {
+        .expired-label-txt {
+            background-color: #5555551A;
+            color: #555555;
+        }
+    }
+}
+.enable-hover:hover{
+    cursor: pointer;
+}
+::ng-deep .show-more-btn{
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: -15px;
+    color: #ff6600;
+    cursor: pointer;
+}
+::ng-deep .show-more-btn.show{
+    display: block;
+}
+.forum-description.height-auto{
+    max-height: initial !important;
+}
+.forum-description span.df-description{
+    word-break: break-word;
+    height: auto;
+    float: left;
+}
+.visibilityCriteria-badge {
+    border: 0;
+    background: #ECECEC ;
+    border-radius: 12px;
+    opacity: 1;
+    font-size: 12px;
+    color: #555555;
+    font-family: "Proxima Nova W05 Regular";
+    padding: 3.5px 16px;
+    display: flex;
+    align-items: center;
+    margin-left: 1.66667vw;
+    img {
+        margin-right: 8px;
+    }
+}
+::ng-deep .datatable-footer-inner{
+    .page-count{
+      display: none !important;
+    }
+  }
+::ng-deep .pager {
+    li.pages {
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      background: #F5F6FA;
+      a {
+        color: #555555cc;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+    }
+    .pages.active {
+      background: #FF6600;
+      a {
+        color: #fff;
+      }
+      &:hover {
+        a {
+          color: #fff !important;
+        }
+      }
+    }
+  }
+@media only screen and (max-width: 1700px){
+    .label-row{
+        .download-btn-con{
+            a{
+                width: 11vw;
+                min-width: 190px;
+                .file-name{
+                    width: 130px;
+                }
+            }
+        }
+        .label{
+            &:last-child{
+                margin-left: 0px;
+                margin-right: 0px;
+            }
+        }
+        .switch-con{
+            margin-left: 0px;
+        }
+    }
+}
+@media only screen and (max-width: 1600px){
+    .label-row{
+        .download-btn-con{
+            a{
+                width: 11vw;
+                min-width: 170px;
+                .file-name{
+                    width: 110px;
+                }
+            }
+        }
+        .label-txt{
+            padding: 2px 10px;
+            font-size: 12px;
+        }
+    }
+}
+@media only screen and (max-width: 1399px){
+    .label-row{
+        .download-btn-con{
+            a{
+                width: 10vw;
+                min-width: 125px;
+                padding: 5px 5px;
+                .file-name{
+                    width: 80px;
+                    font-size: 12px;
+                }
+                img{
+                    width: 11px;
+                }
+            }
+        }
+        .label-txt{
+            padding: 2px 7px;
+            font-size: 12px;
+            margin-left: 0px !important;
+        }
+        .label-txt-prefix{
+            font-size: 12px;
+            margin-right: 5px;
+        }
+        .label{
+            margin-right: 0.4rem;
+        }
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .grey-txt-sm{
+        font-size: $font-14;
+    }
+    .book-mark-icon img{
+        width: 16px;
+        height: auto;
+    }
+    .content-text{ margin-top: 0px !important;}
+    .label-row{
+        .label-txt-prefix,.label-txt{
+            font-size: $font-14;
+        }
+        .label-txt-prefix{
+            margin-right: 10px;
+        }
+        .label{
+            margin-right: 1.4rem;
+        }
+    }
+}

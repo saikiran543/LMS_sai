@@ -1,0 +1,4 @@
+<div id="inner-container" class="content-layout-component" [ngClass]="(isSlideMenu | async)?'content-layout-padding-with-slide-menu':'content-layout-padding-without-slide-menu'">
+    <app-content-header></app-content-header>
+    <router-outlet></router-outlet>
+</div>

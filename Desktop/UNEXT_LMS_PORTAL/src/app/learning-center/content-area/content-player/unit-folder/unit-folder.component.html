@@ -1,0 +1,35 @@
+<div>
+    <div class="unit-content-player" id="unit-folder-con">
+        <div class="row g-0 player-header">
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8 px-0">
+                <h1>{{elementData.title}}</h1>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4  px-0 layout align-items-start layout-item-end button-container">
+                <button class="bookmark-btn" id="unit-folder-bookmark-btn" (click)="toggleBookmark()">
+                    <img *ngIf="bookmarked; else unBookmarkedState" src="assets/images/icons/content-player/icon-bookmark-filled-orange.svg" />
+                    <ng-template #unBookmarkedState>
+                        <img  src="assets/images/icons/content-player/icon-bookmark-dark.svg">
+                    </ng-template>
+                    <div translate="admin.learningCenter.bookmark"></div>
+                </button>
+                <button class="prev-btn" id="unit-folder-prev-btn" mat-raised-button #tooltip="matTooltip"
+                    [matTooltip]="elementData.previousElement !== null ? elementData.previousElement.title : ''"
+                    [matTooltipPosition]="position.value"   
+                    aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+                    (click)="getPreviousElement()" [disabled]="!elementData.previousElement">Prev</button>
+                <button class="next-btn" id="unit-folder-next-btn" mat-raised-button #tooltip="matTooltip"
+                    [matTooltip]="elementData.nextElement != null ? elementData.nextElement.title : ''"
+                    [matTooltipPosition]="position.value"   
+                    aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+                    (click)="getNextElement()" [disabled]="!elementData.nextElement">Next</button>
+            </div>
+        </div>
+        <div class="player-content" id="unit-folder-player-content">
+            <div class="unit-player-text" [innerHtml]="elementData.description | safe:'html'">
+            </div>
+            <div class="unit-player-img">
+                <img [src]="elementData.banner">
+            </div>
+        </div>
+    </div>
+</div>

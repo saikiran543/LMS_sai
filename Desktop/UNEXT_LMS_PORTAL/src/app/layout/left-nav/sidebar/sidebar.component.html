@@ -1,0 +1,14 @@
+<div class="sidebar-component" id="sidebar-con">
+  <ul class="sidebar-menu sidebar-top-menu" *ngIf="topMenu" id="sidebar-topMenu-con">
+    <li class="cursor-pointer" *ngFor="let item of topMenu" (click)="onClick(item)" [ngClass]="{'disabled': item.disable}" [class.active]="item.active">
+      <svg-icon src="{{item.icon}}" class="sidebar-top-menu-icon"></svg-icon>
+      <div translate="{{item.displayName}}"></div>
+    </li>
+  </ul>
+  <ul class="sidebar-menu sidebar-bottom-menu" *ngIf="bottomMenu" id="sidebar-bottomMenu-con">
+    <li class="cursor-pointer" *ngFor="let item of bottomMenu" (click)="onClick(item)" [ngClass]="{'disabled': item.disable}" [class.active]="item.active">
+      <svg-icon src="{{item.icon}}" class="sidebar-bottom-menu-icon"></svg-icon>
+      <div translate="{{item.displayName}}"></div>
+    </li>
+  </ul>
+</div>

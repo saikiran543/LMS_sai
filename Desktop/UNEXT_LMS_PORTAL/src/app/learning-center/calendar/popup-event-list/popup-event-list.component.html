@@ -1,0 +1,41 @@
+<div class="event-list-responsive-con">
+    <div class="event-list-header layout layout-item-center layout-justify-space-between">
+        <span>{{params.eventData.date| date}}</span>
+        <span (click)="closePopup()"><img src="../../../../assets/images/icons/icon-close.svg"></span>
+    </div>
+    <div class="event-list-content">
+        <div class="event-inner-block {{event.meta.type}}-event" *ngFor = "let event of params?.eventData?.events"
+            [ngbPopover]="popContent" triggers="manual" #p1="ngbPopover" [popoverTitle]="popTitle" (click)="openPopover(p1, event)">
+            <h3>{{event.title}}</h3>
+            <span *ngIf="!event.allDay">{{event.start | date :'hh.mm a'}} - {{event.end | date :'hh.mm a'}} until {{event.end | date}}</span>
+            <span *ngIf="event.allDay">All Day until {{event.end | date}}</span>
+        </div>
+    </div>
+</div>
+
+<ng-template #popTitle let-event="event">
+    <div class="popup-event-detail {{event.meta.type}}">
+      <h5 (click)="$event.stopPropagation();goToPopup(event)">{{event.title}}</h5>
+      <div class="event-date">Validity: {{event.start|date}} {{event.start| date:"hh:mm a"}} - {{event.end|date}} {{event.end| date:"hh:mm a"}}</div>
+    </div>
+  </ng-template>
+  <ng-template #popContent let-event="event">
+    <div class="popup-event-detail {{event.meta.type}}">
+      <div *ngIf="event.meta.eventDescription !== undefined" class="description">
+        <div class="inner-description" >
+          <p [innerHtml]="event.meta.eventDescription | safe: 'html'"></p>
+        </div>
+      </div>
+      <div *ngIf="event.meta.reminder" class="reminder">
+        {{'calendar.reminder' | translate: charactersRemaining(event.meta.reminder)}} 
+      </div>
+      <div class="events-action-btn">
+          <a id="calendar-popover-editIcon" (click)="$event.stopPropagation();editSelfTask(event.id)"  *ngIf="event.meta.type === 'self-task'">
+            <svg-icon class="editIcon" src="assets/images/icons/icon-edit.svg"></svg-icon>
+          </a>
+          <a id="calendar-popover-deleteIcon" (click)="$event.stopPropagation();deleteSelfTask(event.id)" *ngIf="event.meta.type === 'self-task'">
+            <svg-icon class="deleteIcon" src="assets/images/icons/icon-delete.svg"></svg-icon>
+          </a>
+      </div>
+    </div>
+  </ng-template>

@@ -1,0 +1,208 @@
+<div class="content calendar-content">
+  <div class="mobile calendar-mobile-block">
+    <div class="row header-block">
+        <div class="col-6">
+          <div class="recurrenceInput-block col-9 col-md-12 col-lg-8">
+            <div class="select-dropdown">
+              <input type="text"  class="form-control recurrenceInput" value="Content Area">
+              <svg-icon src="./../../../assets/images/icons/arrow-down.svg" class="dropdown-svg"></svg-icon>
+              <ul class="recurrenceOptions">
+                <li value="Never" >Content Area</li>
+                  <li value="Daily" >Content Area</li>
+                  <li value="Weekly">Content Area</li>
+                  <li value="Monthly">Content Area</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+            <div class="right-block">
+              <div class="dropdown mobile-view">
+                <button class="program-dropdown" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <svg-icon src="./../../../assets/images/icons/icon-calendar.svg"></svg-icon>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><span class="dropdown-item" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">Day</span></li>
+                  <li><span class="dropdown-item" (click)="setView(CalendarView.Week)" [class.active]="view === CalendarView.Week">Week</span></li>
+                  <li><span class="dropdown-item" (click)="setView(CalendarView.Month)" [class.active]="view === CalendarView.Month">Month</span></li>
+                </ul>
+              </div>
+              <div class="dropdown">
+                <button type="button">
+                    <svg-icon src="./../../../assets/images/icons/calendar/icon-filter.svg"></svg-icon>
+                </button>
+              </div>
+              <div class="self-task-block dropdown">
+                <button (click)="createSelfTask()" class="tablet-view"><span>+</span>Create Self Task</button>
+                <button (click)="createSelfTask()" class="mobile-view"><span>+</span></button>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="calendar-header-block desktop">
+    <div class="row ">
+      <div class="col-md-2">
+        <div class="today-button">
+          <span class="today-Btn" (click)="goToPresentDay()" translate="calendar.today"></span>
+          <div class="today-prev-next">
+            <span class="prev-Btn" (click)="switchDate('previous')"></span>
+            <span class="next-Btn" (click)="switchDate('next')"></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="calendar-mobile-title">
+          <div class="today-button mobile-today-button">
+            <div class="today-prev-next">
+              <span class="prev-Btn" (click)="switchDate('previous')"></span>
+              <span class="next-Btn" (click)="switchDate('next')"></span>
+            </div>
+          </div>
+            <div class="calendar-result">
+              <div class="calendar-title">
+                <h3 *ngIf="view !== 'week'">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+                <h3 *ngIf="view == 'week'&& viewPeriod">{{ viewPeriod.start | date:('dd'):'en'}} - {{ viewPeriod.end | date:('dd MMMM YYYY'):'en'}}</h3>
+                <span (click)="triggerPicker()">
+                  <svg-icon src="./../../../assets/images/icons/calendar/calendar-dropdown.svg"></svg-icon>
+                </span>
+              </div>
+              <div class="calendar-date-picker">
+                <dp-date-picker #datePicker [mode]='mode' theme="dp-material" [(ngModel)]="time" (ngModelChange)="ontimeChange(time)">
+                </dp-date-picker>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="col-md-4 text-right">
+        <div class="btn-group calendar-btn-block">
+          <div class="btn btn-primary" (click)="setView(CalendarView.Month)"
+            [class.active]="view === CalendarView.Month" translate="calendar.view.month">
+          </div>
+          <div class="btn btn-primary" (click)="setView(CalendarView.Week)" [class.active]="view === CalendarView.Week" translate="calendar.view.week">
+          </div>
+          <div class="btn btn-primary" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day" translate="calendar.view.day">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div [ngSwitch]="view" class="calendar-view-block">
+    <mwl-calendar-month-view
+      *ngSwitchCase="CalendarView.Month"
+      [cellTemplate]="customCellTemplate"
+      [viewDate]="viewDate"
+      [events]="events"
+      [refresh]="refresh"
+      (dayClicked)="dayClicked($event)"
+      (beforeViewRender)="updateCalendarEvents($event)">
+    </mwl-calendar-month-view>
+    <mwl-calendar-week-view
+      *ngSwitchCase="CalendarView.Week"
+      [viewDate]="viewDate"
+      [events]="events"
+      [eventTemplate]="customWeeklyTemplate"
+      [refresh]="refresh"
+      [allDayEventsLabelTemplate] = "allDayEventsLabelTemplate"
+      (dayHeaderClicked)="eventsListForWeekAndDay($event.day.date, events)"
+      (beforeViewRender)="updateCalendarEvents($event)"
+      (hourSegmentClicked)="hourSegmentClicked($event)">
+    </mwl-calendar-week-view>
+    <mwl-calendar-day-view
+      *ngSwitchCase="CalendarView.Day"
+      [viewDate]="viewDate"
+      [events]="events"
+      [refresh]="refresh"
+      [eventTemplate]="customWeeklyTemplate"
+      [allDayEventsLabelTemplate] = "allDayEventsLabelTemplate"
+      (hourSegmentClicked)="hourSegmentClicked($event)"
+      (beforeViewRender)="updateCalendarEvents($event)">
+    </mwl-calendar-day-view>
+  </div>
+</div>
+
+<ng-template #customCellTemplate let-day="day" let-locale="locale">
+  <div class="cal-cell-top events-data-list">
+    <span class="cal-day-number"
+      >{{ day.date | calendarDate:'monthViewDayNumber':locale }}
+    </span>
+    <ng-container *ngFor="let event of day.events; let i = index">
+      <div *ngIf="i < 2"   [ngbPopover]="popContent"
+      triggers="manual" #p1="ngbPopover" placement="left" [popoverTitle]="popTitle"  popoverClass="caledar-popover" (mouseenter)='togglePopover(p1, event,"over",$event)' (click)="$event.stopPropagation();togglePopover(p1, event,'click',$event)">
+        <h4 class="event-title {{event.meta.type}}">{{event.title}}</h4>
+      </div>
+    </ng-container>
+    <div class="events-count" *ngIf="day.events ? day.events.length> 2? true : false : false" (click)="$event.stopPropagation();showMore(day)" >{{'calendar.moreEvents' | translate: charactersRemaining(day.events.length -2)}} </div>
+  </div>
+</ng-template>
+<ng-template
+      #customWeeklyTemplate
+      let-weekEvent="weekEvent"
+      let-tooltipPlacement="tooltipPlacement"
+      let-eventClicked="eventClicked"
+      let-tooltipTemplate="tooltipTemplate"
+      let-tooltipAppendToBody="tooltipAppendToBody"
+      let-tooltipDisabled="tooltipDisabled"
+      let-tooltipDelay="tooltipDelay"
+      let-column="column"
+      let-daysInWeek="daysInWeek"
+    >
+      <div
+        class="cal-event events-data-list weekly-data-list {{weekEvent.event.meta.type}}"
+        [ngStyle]="{
+          backgroundColor: weekEvent.event.color?.secondary,
+          borderColor: weekEvent.event.color?.primary
+        }"
+        tabindex="0"
+        role="application"
+        [attr.aria-label]="
+          { event: weekEvent.tempEvent || weekEvent.event}
+            | calendarA11y: 'eventDescription'
+        "
+        [ngbPopover]="popContent" [popoverTitle]="popTitle"  placement="left" triggers="manual" #p1="ngbPopover"  popoverClass="caledar-popover" (mouseenter)='togglePopover(p1, weekEvent.event,"over",$event)' (click)="$event.stopPropagation();togglePopover(p1, weekEvent.event,'click',$event)">
+
+        <mwl-calendar-event-actions
+          [event]="weekEvent.tempEvent || weekEvent.event"
+        >
+        </mwl-calendar-event-actions>
+        &ngsp;
+        <span *ngIf="weekEvent.event.allDay&&((weekEvent.event.start | date:'HH:mm')!=='00:00'||(weekEvent.event.end | date:'HH:mm')!=='23:59')">{{weekEvent.event.start | date:"HH:mm"}}</span>
+        <mwl-calendar-event-title class="event-title"
+          [event]="weekEvent.tempEvent || weekEvent.event"
+          [view]="daysInWeek === 1 ? 'day' : 'week'"
+        >
+        </mwl-calendar-event-title>
+        <span *ngIf="weekEvent.event.allDay&&((weekEvent.event.start | date:'HH:mm')!=='00:00'||(weekEvent.event.end | date:'HH:mm')!=='23:59')">{{weekEvent.event.end | date:"HH:mm"}}</span>
+      </div>
+    </ng-template>
+    <ng-template #popTitle let-event="event">
+      <div class="popup-event-detail {{event.meta.type}}">
+        <h5 (click)="$event.stopPropagation();goToPopup(event)">{{event.title}}</h5>
+        <div class="event-date">Validity: {{event.start|date}} {{event.start| date:"hh:mm a"}} - {{event.end|date}} {{event.end| date:"hh:mm a"}}</div>
+      </div>
+    </ng-template>
+    <ng-template #popContent let-event="event">
+      <div class="popup-event-detail {{event.meta.type}}">
+        <div *ngIf="event.meta.eventDescription !== undefined" class="description">
+          <div class="inner-description" >
+            <p [innerHtml]="event.meta.eventDescription | safe: 'html'"></p>
+          </div>
+        </div>
+        <div *ngIf="event.meta.reminder" class="reminder">
+          {{'calendar.reminder' | translate: charactersRemaining(event.meta.reminder)}} 
+        </div>
+        <div class="events-action-btn">
+            <a id="calendar-popover-editIcon" (click)="$event.stopPropagation();editSelfTask(event.id)"  *ngIf="event.meta.type === 'self-task'">
+              <svg-icon class="editIcon" src="assets/images/icons/icon-edit.svg"></svg-icon>
+            </a>
+            <a id="calendar-popover-deleteIcon" (click)="$event.stopPropagation();deleteSelfTask(event.id)" *ngIf="event.meta.type === 'self-task'">
+              <svg-icon class="deleteIcon" src="assets/images/icons/icon-delete.svg"></svg-icon>
+            </a>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #allDayEventsLabelTemplate>
+      <div class="cal-time-label-column" > All day </div>
+    </ng-template>
+

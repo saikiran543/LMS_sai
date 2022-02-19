@@ -1,0 +1,139 @@
+@import "~src/variables";
+  
+    .header-my-performance {
+        font-family: $font-bold;
+        border-bottom: 2px solid $active_colour;
+        margin-bottom: $font-30;
+    }
+    #my-performance-stats-body {
+        border: 1px solid #CFDAE6;
+        border-radius: 8px 8px 0px 0px;
+        // padding: $font-24;
+        background-color: $hover_grey;
+        font-family: $font-regular;
+        .layout.stat-box-con {
+            position: relative;
+            right: -1.6vw;
+        }
+        #myperformance-no-feedback-con {
+            margin: 24px;
+            .myperformance-no-feedback-box {
+                background: #FFF9E7 0% 0% no-repeat padding-box;
+                border: 1px solid #FFBC00;
+                border-radius: 8px;
+                padding: $font-16;
+                .no-feedback-header {
+                    font-family: $font-semi-bold;
+                    font-size: $font-14;
+                }
+                .no-feedback-text {
+                    font-family: $font-semi-bold;
+                    font-size: $font-24;
+                    margin-top: $font-40;
+                }
+            }
+        }
+        .action-row {
+            padding: $font-24;
+        }
+        .my-performanceuser-name {
+            font-size: $font-18;
+            font-family: "Proxima Nova W05 Bold";
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #myperformance-validity-con {
+            margin-left: 7vw;
+            
+            .myperformance-validity-icon {
+                position: absolute;
+                left: -16px;
+                top: -3px;
+            }
+            .header-validity {
+                font-size: $font-14;
+                color: #55555599;
+            }
+            .content-validity {
+                font-family: $font-semi-bold;
+                font-size: $font-16;
+            }
+        }
+       .actions-row .rows-per-page {
+         margin-right: 0;
+       }
+   
+       .stat-box {
+           margin: 0px 0px 0px 10px;
+           .stat-box-text {
+               color: #ff6600;
+               font-family: "Proxima Nova W05 Bold";
+               font-size: $font-20;
+               display: inline-block;
+               min-height: 30px;
+           }
+           .stat-box-label {
+               font-family: "Proxima Nova W05 Regular";
+               font-size: $font-16;
+               color: #707070;
+           }
+           .stat-box-text.select-box-text {
+               @extend .stat-box-label;
+               color: #ff6600;
+           }
+           .records-per-page {
+               font-size: 1vw;
+           }
+       }
+    }
+
+   .myperformance-body-con#my-performance-stats-body {
+        .actions-row{
+            padding: 10px $font-24 15px $font-24;
+
+        }
+        .dotted-bottom-border{
+            background-image: linear-gradient(to right, $active_colour 50%, rgba(255, 255, 255, 0) 0%);
+            background-position: bottom;
+            background-repeat: repeat-x;
+            background-size: 22px 1px, 0px 0px;
+            border-bottom: none;
+        }
+        #myperformance-feedback-con {
+            border: 1px solid #FFBC00;
+            border-radius: 8px;
+            background-color: #fff9e7;
+            padding: $font-16;
+            color: #555555;
+            position: relative;
+            font-size: $font-14;
+            margin: $font-24;
+            margin-top: 29px!important;
+            .feedback-header {
+                font-family: $font-bold;
+            }
+            .more-lesss-btn {
+                color: $active_colour;
+                cursor: pointer;
+                position: absolute;
+                right: 30px;
+                bottom: 2px;
+            }
+            .feedback-content {
+                max-height: 6.4vh;
+                overflow-y: hidden;
+                line-height: 3.2vh;
+            }
+            .feedback-content-more{
+                max-height: 200vh;
+            }
+        }
+        ::ng-deep circle-progress text > tspan {
+            font-size: 13px;
+        }
+   }
+   
+
+   

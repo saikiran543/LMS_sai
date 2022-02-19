@@ -1,0 +1,60 @@
+.modalContentInner {
+    .modalInnerHeader {
+        max-height: 62px;
+        background: #807F7B;
+        padding: 1.88% 3.16% 1.88%;
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+        display: flex;
+        align-items: center;
+        span {
+            font-size: calc(16px + 0.2088vw);
+            line-height: 24px;
+            color: #fff;
+            font-family: "Proxima Nova W05 Bold";
+        }
+    }
+    .modalInnercontent {
+        padding: 3.16%;
+        button {
+            max-width: 220px;
+            width: 23.12% !important;
+            height: 6.415vh;
+            font-size: calc(16px + 0.2088vw);
+            min-height: 40px;
+        }
+        .primary-btn {
+            margin-left: 1vw;
+        }
+        .position-relative {
+            .form-control {
+                padding-right: 150px !important;
+            }
+            .char-count {
+                top: 0px !important;
+                right: 16px !important;
+                height: 100%;
+            }
+        }
+
+    }
+}
+
+.ng-invalid.ng-touched {
+    border-color: #ee3923 !important;
+  }
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .modalContentInner{
+        .modalInnerHeader{
+            background: #FFDDB0;
+            span{
+                color: #000000;
+            }
+        }
+        .modalInnercontent{
+            button{
+                height: 4.415vh;
+            }
+        }
+    }
+}  

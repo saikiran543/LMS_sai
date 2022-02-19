@@ -1,0 +1,605 @@
+.preview-content.left-menu-open {
+  width: 100%;
+}
+.preview-content {
+  // position: absolute;
+  // top: 125px;
+  // background-color: #fff;
+  // height: 100vh;
+  // width: calc(100% - 132px);
+  width: 82.52%;
+  margin: 0 auto;
+  z-index: 10;
+  h1 {
+    color: #363436;
+    font-family: "Proxima Nova W05 Bold";
+    font-size: 24px;
+    line-height: 27px;
+    border-bottom: #ff6600 2px solid;
+    width: -webkit-max-content;
+    width: max-content;
+    margin-bottom: 0px;
+  }
+  .preview-btn {
+    color: #ff6600;
+    font-size: 16px;
+    font-family: "Proxima Nova W05 Bold";
+    line-height: 20px;
+    border: 1px solid #ff6600;
+    border-radius: 4px;
+    padding: 12px 26px;
+    background-color: #fff;
+  }
+}
+app-student-course-view {
+
+
+
+.drop-above {
+  border-top: 10px solid rgb(111, 114, 255);
+  margin-top: -10px;
+  background-color: #ccc;
+}
+
+.drop-below {
+  border-bottom: 10px solid rgb(115, 252, 144);
+  margin-bottom: -10px;
+  background-color: #ccc;
+}
+
+.drop-center {
+  background-color: #ccc;
+  border-top: 3px solid rgb(116, 1, 1);
+  border-bottom: 3px solid rgb(116, 1, 1);
+}
+
+.mat-tree {
+  background: transparent;
+  max-height: calc(100vh - 280px);
+  overflow-y: auto;
+}
+.mat-tree-node {
+  flex-wrap: wrap;
+}
+.mat-tree-node:last-child .tree-column-wrapper {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.form-label {
+  font-family: "Proxima Nova W05 Regular";
+}
+
+.title {
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+  font-family: "Proxima Nova W05 Bold";
+}
+
+.base-tree-container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid #cfdae6;
+  border-radius: 8px;
+
+  .tree-header {
+    display: flex;
+    border-bottom: 1px solid #cfdae6;
+    border-radius: 8px 8px 0px 0px;
+
+    .tree-column {
+      color: #000;
+      vertical-align: bottom;
+      font-size: 18px;
+      font-family: "Proxima Nova W05 Bold";
+      align-items: center;
+    }
+  }
+
+  .tree-wrapper {
+    flex: 1;
+    max-height: calc(80vh - 0.2rem);
+  }
+
+  .tree-node-wrapper {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    padding-left: 0.2rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .node-content-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    flex: 1;
+    margin-right: 0.25rem;
+  }
+
+  .tree-header {
+    width: 100% !important;
+    background-color: #ebeef6;
+    border-bottom: 0px;
+    align-items: center !important;
+
+    span {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+
+  .tree-column-wrapper,
+  .tree-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 16px 20px;
+
+    span {
+      text-overflow: ellipsis;
+      // overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .tree-column {
+      flex-grow: 1;
+      display: flex;
+      align-items: flex-start;
+
+      &:nth-child(1) {
+        overflow: hidden;
+        margin-right: auto;
+        flex-shrink: 1;
+        min-width: 0;
+
+        span {
+          white-space: initial;
+        }
+      }
+
+      &:not(:nth-child(1)) {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 250px;
+        font-size: 16px;
+        line-height: 20px;
+        color: #000;
+
+        @media (max-width: 1440px - 1px) {
+          width: 160px;
+        }
+      }
+    }
+  }
+}
+
+.tree-header-column:last-child {
+  width: 50px !important;
+}
+
+.tree-column.tree-column-last {
+  width: 50px !important;
+  visibility: hidden;
+}
+
+.tree-column-wrapper:hover {
+  background: #f7f8f9 0% 0% no-repeat padding-box;
+
+  .tree-column.tree-column-last {
+    visibility: visible;
+  }
+}
+
+.list-badge {
+  button {
+    border: 0;
+    margin-right: 24px;
+    background: #f7f8f9 0% 0% no-repeat padding-box;
+    border-radius: 12px;
+    font-size: 12px;
+    line-height: normal;
+    color: #555555;
+    font-family: "Proxima Nova W05 Regular";
+    padding: 4px 16px;
+
+    &:last-child {
+      margin-right: 0px;
+    }
+
+    &:hover {
+      color: #ff6600;
+    }
+  }
+
+  .mandatory {
+    background: #dac1bc 0% 0% no-repeat padding-box;
+    font-size: 12px;
+    color: #fff;
+
+    &:hover {
+      color: #fff;
+      cursor: default;
+    }
+  }
+
+  .optional {
+    background: #eae5df 0% 0% no-repeat padding-box;
+    font-size: 12px;
+    color: #fff;
+  }
+
+  .more-info {
+    img {
+      margin-left: 4px;
+    }
+  }
+}
+.active-text{
+  color: #FF6600 !important;
+}
+.preview {
+  &:hover {
+    color: #555555 !important;
+  }
+}
+.dropdown-toggle {
+  border: 0px;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &::after {
+    display: none;
+  }
+}
+
+a.dropdown-item {
+  font-size: 12px;
+  color: #555555;
+
+  &:hover {
+    background-color: #ebeef6;
+    cursor: pointer;
+  }
+}
+
+.yet-to-start {
+  border: 0;
+  background: #d2d8ff 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: normal;
+  color: #6071de;
+  font-family: "Proxima Nova W05 Regular";
+  padding: 4px 16px;
+}
+
+.incomplete {
+  border: 0;
+  background: #ffdcdc 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: normal;
+  color: #ff0000;
+  font-family: "Proxima Nova W05 Regular";
+  padding: 4px 16px;
+}
+
+.inprogress {
+  border: 0;
+  background: #ffe6d1 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: normal;
+  color: #ff7600;
+  font-family: "Proxima Nova W05 Regular";
+  padding: 4px 16px;
+}
+
+.completed {
+  border: 0;
+  background: #9affd1 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: normal;
+  color: #1da668;
+  font-family: "Proxima Nova W05 Regular";
+  padding: 4px 16px;
+}
+
+.ideal-time {
+  color: #555555;
+  opacity: 0.7;
+  font-size: 16px;
+  line-height: normal;
+}
+
+.student-progress {
+  display: block !important;
+  text-align: center;
+  .progress-status {
+    font-size: 14px;
+    line-height: normal;
+    color: #555555;
+    opacity: 0.7;
+    margin-top: 8px;
+  }
+}
+
+.progress-header {
+  align-items: center !important;
+
+  .progress-tooltip {
+    width: 12px;
+    height: 12px;
+    background: #555555 0% 0% no-repeat padding-box;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 10px !important;
+    display: block;
+    line-height: 13px !important;
+    text-align: center;
+    margin-left: 4px;
+    cursor: pointer;
+  }
+}
+
+.mt8 {
+  margin-top: 8px;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.more-info-container {
+  width: 100%;
+  background: #f7f8f9;
+  padding: 24px 8px;
+  p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #000;
+    a {
+      cursor: pointer;
+      color: #ff6600;
+      font-size: 16px;
+      &:hover {
+        color: #ff6600 !important;
+      }
+    }
+  }
+}
+.description-text{
+  pointer-events: none;
+  &.active{
+    pointer-events: none;
+    p{
+      pointer-events: none;
+    }
+    p:last-of-type{
+        position: relative;
+        width: max-content;
+        margin: 0;
+        padding-bottom: 1rem;
+        width: 100%;
+        &::after{
+          position: absolute;
+          content: " ...View More";
+          pointer-events: all;
+          color: #FF6600;
+          font-size: 16px;
+          cursor: pointer;
+        }
+    }
+  };
+  &.preview{
+    pointer-events: none;
+    p{
+      pointer-events: none;
+    }
+    p:last-of-type{
+        position: relative;
+        width: max-content;
+        margin: 0;
+        padding-bottom: 1rem;
+        width: 100%;
+        &::after{
+          position: absolute;
+          content: " ...View More";
+          pointer-events: none;
+          color: #FF6600;
+          font-size: 16px;
+          cursor: default;
+          width: 100%;
+        }
+    }
+  }
+}
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 1024px) { 
+  #student-course-view-con {
+    .tree-header {
+      flex-direction: column;
+      .tree-header-column:not(:nth-child(1)) {
+        display: none;
+      }
+    }
+    mat-tree {
+      .mat-tree-node {
+        .tree-column-wrapper {
+          flex-direction: column;
+          .tree-column {
+            .title {
+              .list-badges {
+                .list-badge {
+                  display: flex;
+                  align-items: center;
+                }
+              }
+            }
+            .student-progress {
+              display: flex!important;
+              align-items: center;
+              margin-top: 12px;
+              .progress-status {
+                margin: 0 0 0 10px;
+              }
+            }
+            .layout {
+              margin-top: 6px;
+            }
+          }
+          .tree-column-last {
+            display: none;
+          }
+        }
+      }
+    }
+  } 
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) { 
+  #student-course-view-con {
+    .tree-header {
+      padding: 3px 8px;
+      .tree-header-column {
+        span {
+          font-size: 14px;
+        }
+        
+      }
+    }
+    mat-tree {
+      .mat-tree-node {
+        .tree-column-wrapper {
+          padding: 8px;
+          .tree-column {
+            .cursor-pointer img {
+              width: 10px;
+            }
+            .title {
+              margin-top: 3px;
+            }
+            .ml8.mr12 {
+              margin: 0 12px 0 8px;
+              img {
+                width: 16px;
+              }
+            }
+            .layout {
+              .ideal-time {
+                font-size: 12px;
+              }
+            }
+            
+            .title {
+              .cursor-pointer {
+                font-size: 12px;
+              }
+              .list-badges {
+                .list-badge {
+                  button {
+                    margin-right: 5px!important;
+                    padding: 4px 5px;
+                    font-size: 8px;
+                  }
+                }
+              }
+            }
+            .student-progress 
+              .completed {
+                padding: 4px 8px;
+                font-size: 8px;
+              }
+              .progress-status {
+                font-size: 8px;
+              }
+          }
+
+        }
+      }
+    }
+  } 
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  #student-course-view-con {
+    .tree-header {
+      padding: 3px 8px;
+      .tree-header-column {
+        span {
+          font-size: 14px;
+        }
+        
+      }
+    }
+    mat-tree {
+      .mat-tree-node {
+        .tree-column-wrapper {
+          padding: 8px;
+          .tree-column {
+            &:nth-child(1) span {
+              margin-top: 0!important;
+              img {
+                width: 10px;
+              }
+            }
+            .cursor-pointer img {
+              width: 10px;
+            }
+            .title {
+              margin-top: 3px;
+            }
+            .ml8.mr12 {
+              margin: 0 12px 0 8px;
+              img {
+                width: 20px;
+              }
+            }
+            .layout {
+              margin-top: 12px;
+              .ideal-time {
+                font-size: 14px!important;
+              }
+            }
+            .title {
+              .cursor-pointer {
+                font-size: 16px;
+              }
+              
+              .list-badges {
+                .list-badge {
+                  button {
+                    margin-right: 5px!important;
+                    padding: 4px 11px;
+                    font-size: 12px;
+                  }
+                }
+              }
+            }
+            .student-progress 
+              .completed {
+                padding: 4px 12px;
+                font-size: 12px;
+              }
+              .progress-status {
+                font-size: 12px;
+              }
+          }
+
+        }
+      }
+    }
+  } 
+}

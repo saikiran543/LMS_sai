@@ -1,0 +1,126 @@
+<div class="base-tree-container" id="student-course-view-con">
+  <div class="tree-header">
+    <div class="tree-column tree-header-column"><span translate="admin.learningCenter.title"></span></div>
+    <div class="tree-column tree-header-column progress-header"><span translate="admin.learningCenter.progress"></span> <span
+        class="progress-tooltip">i</span></div>
+    <div class="tree-column tree-header-column ideal-time-header"><span translate="admin.learningCenter.idealTime"></span></div>
+    <div class="tree-column tree-header-column"><span></span></div>
+  </div>
+  <mat-tree id="student-course-view-tree-con"  *ngIf="dataSource" [dataSource]="dataSource" [treeControl]="treeControl">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle [id]="node._id">
+      <div class="tree-column-wrapper">
+        <div class="tree-column" [ngStyle]="applyStyles(node)">
+          <span class="mt8">
+            <img src="assets/images/icons/content-builder/icon-nothingtoexpand.svg">
+          </span>
+          <span class="ml8 mr12">
+            <img src="assets/images/icons/content-builder/icon-{{getNodeIconType(node)}}-hover.svg">
+          </span>
+          <div class="checklist-leaf-node title">
+            <div [ngClass]="isPreview?'cursor-pointer-default disabled':'cursor-pointer'"  (click)="clickNode(node)">
+              {{node.name}}
+            </div>
+            <div class="list-badges mt8">
+              <div class="list-badge">
+                <button class="mandatory" *ngIf="node.type!='unit'&&node.type!='folder'">{{ node.contentStatus }}</button>
+                <button class="more-info" [ngClass]="{'active-text': moreInfo===node.name}" (click)="toggleMoreInfo(node)" [ngClass]="{'preview cursor-pointer-default':isPreview}" translate="admin.learningCenter.moreInfo"> <img
+                    src="assets/images/icons/content-builder/icon-dropdown.svg"></button>
+                <img *ngIf="node.isBookMarked" src="/assets/images/icons/toc/icon-color-bookmark.svg" class="cursor-pointer" (click)="toggleBookmark(node)"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tree-column">
+          <div class="student-progress">
+            <div *ngIf="node.progress" [ngClass]="applyProgressStyle(node)">{{ node.progress | number : '1.0-2'}}% Completed</div>
+            <div *ngIf="!node.progress" class="yet-to-start" translate="admin.learningCenter.yetToStart"></div>
+            <div class="progress-status">{{node.completedContent}} / {{node.numberOfContent}}</div>
+          </div>
+        </div>
+        <div class="tree-column">
+          <div class="layout layout-item-center">
+            <p class="ideal-time">{{ node.idealTime | time }}</p>
+          </div>
+        </div>
+        <div class="tree-column tree-column-last">
+          <span class="layout layout-item-center layout-justify-space-between dropdown-toggle" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="assets/images/icons/content-builder/icon-ellipses.svg">
+          </span>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+            <li   *ngFor="let item of ContextMenuOperation" [ngClass]="isPreview?'cursor-pointer-default disabled':'cursor-pointer'">
+              <a *ngIf="item.conditionFunc?displayContextMenuItem(item.event,node):true" class="dropdown-item" (click)="treeOperations(item.event,node)">
+                <img class="mr8" [src]="'assets/images/icons/content-builder/'+item.icon+'.svg'">
+                {{item.name}}
+              </a>
+            </li>
+            </ul>
+        </div>
+      </div>
+      <div *ngIf="moreInfo===node.name" class="more-info-container" [ngStyle]="applyStylesForMoreInfo(node)">
+      <div  [innerHTML]="description"  class="description-text"  [ngClass]="{'active': viewMore,'preview':viewMore&&isPreview}" (click)="clickNode(node)"> </div> 
+      <!-- <p *ngIf="viewMore">...<a (click)="clickNode(node)"> View More</a></p> -->
+      <div *ngIf="lastAccessedTime"><span>Last accessed on:</span> <span>{{lastAccessedTime}}</span></div>
+    </div>
+    </mat-tree-node>
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" [id]="node._id" (change)="todoItemSelectionToggle(node)">
+      <div class="tree-column-wrapper">
+        <div class="tree-column" [ngStyle]="applyStyles(node)">
+          <div mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.filename">
+            <div class="cursor-pointer">
+              <img
+                [src]="treeControl.isExpanded(node) ? 'assets/images/icons/content-builder/icon-collapse.svg' : 'assets/images/icons/content-builder/icon-expand.svg'">
+            </div>
+          </div>
+          <span class="ml8 mr12">
+            <img src="assets/images/icons/content-builder/icon-{{getNodeIconType(node)}}-hover.svg">
+          </span>
+          <div class="title">
+            <div [ngClass]="isPreview?'cursor-pointer-default disabled':'cursor-pointer'" class="" (click)="clickNode(node)">
+              {{node.name}}
+            </div>
+            <div class="list-badges mt8">
+              <div class="list-badge">
+                <button class="more-info" [ngClass]="{'active-text': moreInfo===node.name}" (click)="toggleMoreInfo(node)" [ngClass]="{'preview cursor-pointer-default':isPreview}" translate="admin.learningCenter.moreInfo"> <img
+                    src="assets/images/icons/content-builder/icon-dropdown.svg"></button>
+                <img *ngIf="node.isBookMarked" src="/assets/images/icons/toc/icon-color-bookmark.svg" class="cursor-pointer" (click)="toggleBookmark(node)" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tree-column">
+          <div class="student-progress">
+            <div *ngIf="node.progress" [ngClass]="applyProgressStyle(node)">{{ node.progress | number : '1.0-2' }}% Completed</div>
+            <div *ngIf="!node.progress" class="yet-to-start" translate="admin.learningCenter.yetToStart"></div>
+            <div class="progress-status">{{node.completedContent}} / {{node.numberOfContent}}</div>
+          </div>
+        </div>
+        <div class="tree-column">
+          <div class="layout layout-item-center">
+            <p class="ideal-time">{{ node.idealTime | time }}</p>
+          </div>
+        </div>
+        <div class="tree-column tree-column-last">
+          <span class="layout layout-item-center layout-justify-space-between dropdown-toggle" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="assets/images/icons/content-builder/icon-ellipses.svg">
+          </span>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+            <li   *ngFor="let item of ContextMenuOperation" [ngClass]="isPreview?'cursor-pointer-default disabled':'cursor-pointer'" >
+              <a *ngIf="item.conditionFunc?displayContextMenuItem(item.event,node):true" class="dropdown-item" (click)="treeOperations(item.event,node)">
+                <img class="mr8" [src]="'assets/images/icons/content-builder/'+item.icon+'.svg'">
+                {{item.name}}
+              </a>
+            </li>
+            </ul>
+        </div>
+      </div>
+      <div *ngIf="moreInfo===node.name" class="more-info-container" [ngStyle]="applyStylesForMoreInfo(node)">
+        <div  [innerHTML]="description" class="description-text" [ngClass]="{'active': viewMore,'preview': viewMore && isPreview}" (click)="clickNode(node)"> </div>
+        <!-- <p *ngIf="viewMore">...<a (click)="clickNode(node)"> View More</a></p> -->
+        <div *ngIf="lastAccessedTime"><span>Last accessed on:</span> <span>{{lastAccessedTime}}</span></div>
+      </div>
+    </mat-tree-node>
+  </mat-tree>
+  <span #emptyItem></span>
+</div>

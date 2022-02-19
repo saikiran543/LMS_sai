@@ -1,0 +1,97 @@
+<div class="self-task-modal" *ngIf="isInitialized">
+    <div *ngIf="params.operation ==='create'"class="content-builder-modal-header" translate="selfTask.creationAndManipulation.createSelfTask"></div>
+    <div *ngIf="params.operation ==='edit'"class="content-builder-modal-header" translate="selfTask.creationAndManipulation.editSelfTask"></div>
+    <form [formGroup]="selfNoteForm">
+        <div class="content-component-modal-content">
+            <div class="row">
+                <div class="form-group col-12 col-md-12 col-lg-12">
+                  <label class="form-label required" translate="selfTask.creationAndManipulation.title"></label>
+                  <div class="position-relative">
+                    <input type="text" class="form-control char-limit" placeholder="Title" id="title" maxlength="500" formControlName="title" maxlength="500"
+                    [ngClass]="{'form-field-error' : selfNoteForm.controls['title'].invalid}">
+            <span class="char-count">{{ selfNoteTitleLengthText }}</span>
+
+                  </div>
+                  <div *ngIf="(selfNoteForm.controls['title'].errors?.required || selfNoteForm.controls['title'].errors?.blankSpaceValid) && (selfNoteForm.controls['title'].dirty || selfNoteForm.controls['title'].touched)"
+            class="error-text" translate="contentBuilder.content.errorMsg.requiredField"></div>
+          <div *ngIf="selfNoteForm.controls['title'].errors?.alphaNumericValid && (selfNoteForm.controls['title'].dirty || selfNoteForm.controls['title'].touched)" class="error-text"
+            translate="contentBuilder.content.errorMsg.onlySomeCharacters"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-12 col-md-12 col-lg-12">
+                  <label class="form-label"  translate="selfTask.creationAndManipulation.description"></label>
+                  <app-ckeditor [ckeditorFormControl]="selfNoteForm.controls['description']"></app-ckeditor>
+                </div>
+            </div>
+            <div class="row mobile" *ngIf="previousDatePicker">
+              <div class="mobile-duration">
+                <div class="row">
+                  <div class="col-6">
+                    <label class="form-label required"  translate="selfTask.creationAndManipulation.duration"></label>
+                  </div>
+                  <div class="col-6">
+                    <div class="all-day-block">
+                      <label class="form-check-label mr16" for="allDay"  translate="selfTask.creationAndManipulation.allDay"></label>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="allDay" name="allDay" formControlName="allDay" (change)="allDaysToggle($event)">
+                          <span class="circle-switch d-inline-block"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <label class="form-label required desktop"  translate="selfTask.creationAndManipulation.duration"></label>
+                <div class="form-group col-12 col-md-4 col-lg-4 width50">
+                  <label class="" for="startDate"  translate="selfTask.creationAndManipulation.startDate"></label>
+                  <app-date-time-picker className="self-task-time-picker" (dateTimeEmitter)="dateTimeEmitter($event, 'startDate')" [maxStartDate]="currentDate" [defaultDisplayValue]="selfNoteForm.value.startDate"></app-date-time-picker>
+
+                </div>
+                <div class="form-group col-12 col-md-4 col-lg-4 width50">
+                  <label class="" for="endDate"  translate="selfTask.creationAndManipulation.endDate"></label>
+                  <app-date-time-picker className="self-task-time-picker" (dateTimeEmitter)="dateTimeEmitter($event, 'endDate')" [maxStartDate]="selfNoteForm.value.startDate" [defaultDisplayValue]="selfNoteForm.value.endDate"></app-date-time-picker>
+
+                </div>
+                <div class="form-group desktop col-12 col-md-4 col-lg-4">
+                  <label>&nbsp;</label>
+                    <div class="layout layout-item-center all-day-block">
+                        <label class="form-check-label mr16" for="allDay"  translate="selfTask.creationAndManipulation.allDay"></label>
+                        <div class="form-check form-switch mr16">
+                          <input class="form-check-input" type="checkbox" id="allDay" name="allDay" formControlName="allDay" (change)="allDaysToggle($event)">
+                            <span class="circle-switch d-inline-block"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group recurrenceInput-block col-12 col-md-4 col-lg-4 width50">
+                  <label class="form-label"  translate="selfTask.creationAndManipulation.addRecurrence"></label>
+                  <div class="select-dropdown position-relative">                   
+                    <input type="text"  class="form-control recurrenceInput" readonly formControlName="recurrence" (click)="recurrenceDropdown()">
+                    <svg-icon src="./../../../assets/images/icons/arrow-down.svg" class="dropdown-svg"></svg-icon>
+                    <ul *ngIf="recurrenceOptions" class="recurrenceOptions">
+                      <li value="Never" translate="selfTask.creationAndManipulation.recurrence.never" (click)="recurrencePopup('Never')"></li>
+                        <li value="Daily"  translate="selfTask.creationAndManipulation.recurrence.daily" (click)="recurrencePopup('Daily')"></li>
+                        <li value="Weekly"  translate="selfTask.creationAndManipulation.recurrence.weekly" (click)="recurrencePopup('Weekly')"></li>
+                        <li value="Monthly"  translate="selfTask.creationAndManipulation.recurrence.monthly" (click)="recurrencePopup('Monthly')"></li>
+                    </ul>                  
+                  </div>    
+                </div>
+                <div class="form-group col-12 col-md-4 col-lg-4 width50">
+                    <div class="layout layout-item-center forum-type">
+                        <label class="form-label required mr12 mb0" for="endDate"  translate="selfTask.creationAndManipulation.reminder"></label>
+                        <span class="forum-info-cta" #tooltip="matTooltip" matTooltip="{{'selfTask.creationAndManipulation.reminderTooltip' | translate}}" [matTooltipPosition]="'above'">i</span>
+                    </div>    
+                    <div class="reminder-block">
+                        <input type="number" name="max-mark" id="maxMarks" min="0" class="mr8" formControlName="reminderInMinutes">
+                        <span  translate="selfTask.creationAndManipulation.minutes"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-builder-modal-footer text-end">
+            <button class="no-btn" (click)="cancelSelfTask(true)" translate="selfTask.creationAndManipulation.buttons.cancel"></button>
+            <button class="yes-btn" (click)="saveSelfTask()" [disabled]="selfNoteForm.invalid" translate="selfTask.creationAndManipulation.buttons.save"></button>
+        </div>
+    </form>
+</div>

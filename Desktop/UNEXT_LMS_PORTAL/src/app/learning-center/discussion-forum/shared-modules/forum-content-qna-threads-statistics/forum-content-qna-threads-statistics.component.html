@@ -1,0 +1,97 @@
+<div class="img-boxes discussion-forum-img-boxes mt-3 mb-2 d-flex justiy-content-between">
+    <div class="img-box thread-box d-flex flex-column align-items-center justify-content-center me-3">
+        <span class="img-con d-inline-flex mb-1">
+            <img src="./../../../assets/images/icons/discussion-forum/SDF_threads.svg" alt="">
+        </span>
+        <div class="img-box-con">
+            <span class="box-label-txt mb-1" translate="discussionForums.forumList.threads" *ngIf="widgetData.type === forumType.STANDARD_DISCUSSION_FORUM"></span>
+            <span class="box-label-txt mb-1" translate="discussionForums.forumList.questions" *ngIf="widgetData.type === forumType.DOUBT_CLARIFICATION_FORUM"></span>
+            <span class="label-count">{{widgetData.threads}}</span>
+        </div>
+    </div>
+    <div class="img-box replies-box d-flex flex-column align-items-center justify-content-center me-3">
+        <span class="img-con d-inline-flex mb-1">
+            <img src="./../../../assets/images/icons/discussion-forum/SDF_replies.svg" alt="">
+        </span>
+        <div class="img-box-con">
+            <span class="box-label-txt mb-1" translate="discussionForums.forumList.replies" *ngIf="widgetData.type === forumType.STANDARD_DISCUSSION_FORUM"></span>
+            <span class="box-label-txt mb-1" translate="discussionForums.forumList.answers" *ngIf="widgetData.type === forumType.DOUBT_CLARIFICATION_FORUM"></span>
+            <span class="label-count">{{widgetData.replies}}</span>
+        </div>
+    </div>
+    <div class="img-box participant-box d-flex flex-column align-items-center justify-content-center">
+        <span class="img-con d-inline-flex mb-1">
+            <img src="./../../../assets/images/icons/discussion-forum/Latest_Participation.svg" alt="">
+        </span>
+        <div class="img-box-con">
+            <span class="box-label-txt mb-1" translate="discussionForums.forumList.lastestParticipation"></span>
+            <span class="participant-name mb-1" *ngIf="widgetData.lastAccessedBy">{{widgetData.lastAccessedBy}}</span>
+            <span class="participant-name mb-1" *ngIf="!widgetData.lastAccessedBy">-</span>
+            <span class="label-count" *ngIf="widgetData.lastAccessedBy">{{widgetData.lastAccessedAt | timesAgo}}</span>
+        </div>
+    </div>
+    <div class="dropdown-dots-con" *ngIf="widgetData.options && userCurrentView === userRole.ADMIN || userCurrentView === userRole.FACULTY">
+        <span class="layout layout-item-center layout-justify-space-between dropdown-toggle dots-dropdown"
+            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="assets/images/icons/content-builder/icon-ellipses.svg">
+        </span>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+            <li>
+                <a class="dropdown-item" (click)="edit(widgetData.activityId, widgetData.type)">
+                    <svg-icon src="./../../../../../assets/images/icons/discussion-forum/Edit.svg"></svg-icon>
+                    <span translate="discussionForums.forumList.actions.edit"></span>    
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item" (click)="deleteForum(widgetData.activityId, $event, widgetData.parentElementId, widgetData.type)">
+                    <svg-icon src="./../../../../../assets/images/icons/discussion-forum/Delete.svg"></svg-icon>
+                    <span translate="discussionForums.forumList.actions.delete"></span>
+                </a>
+            </li>
+            <li [class.disable-option] = "widgetData.status !== forumStatuses.PUBLISHED || !widgetData.graded">
+                <a class="dropdown-item" (click)="evaluate(widgetData.activityId)">
+                    <svg-icon src="./../../../../../assets/images/icons/discussion-forum/Evaluate.svg"></svg-icon>
+                    <span translate="discussionForums.forumList.actions.evaluate"></span>
+                </a>
+            </li>
+            <li class="disable-option">
+                <a class="dropdown-item">
+                    <svg-icon src="./../../../../../assets/images/icons/discussion-forum/Add-visibility-criteria.svg"></svg-icon>
+                    <span translate="discussionForums.forumList.actions.addVisibiltyCriteria"></span>
+                </a>
+            </li>
+            <li [class.disable-option] = "widgetData.status === 'draft'">
+                <a class="dropdown-item" (click)="statistics(widgetData.activityId)">
+                    <svg-icon src="./../../../../../assets/images/icons/discussion-forum/view-statistics.svg"></svg-icon>
+                    <span translate="discussionForums.forumList.actions.viewStatistics"></span>   
+                </a>
+            </li>
+            <li [class.disable-option] = "widgetData.status !== forumStatuses.PUBLISHED || !widgetData.graded || !validityExpired">
+                <a class="dropdown-item" (click)="publishAllGradeFeedback(widgetData.activityId,'grade')">
+                    <svg-icon src="./../../../../../assets/images/icons/discussion-forum/publish-grade.svg"></svg-icon>
+                    <span translate="discussionForums.forumList.actions.publishGrade"></span>
+                </a>
+            </li>
+            <li [class.disable-option] = "widgetData.status !== forumStatuses.PUBLISHED || !widgetData.graded || !validityExpired">
+                <a class="dropdown-item" (click)="publishAllGradeFeedback(widgetData.activityId,'feedback')">
+                    <svg-icon src="./../../../../../assets/images/icons/discussion-forum/publish-feedback.svg"></svg-icon>
+                    <span translate="discussionForums.forumList.actions.publishFeedback"></span>
+                </a>
+            </li>
+            <li [class.disable-option] = "widgetData.status !== forumStatuses.PUBLISHED || !widgetData.graded || !validityExpired">
+                <a class="dropdown-item"(click)="publishAllGradeFeedback(widgetData.activityId,'both')">
+                    <svg-icon src="./../../../../../assets/images/icons/discussion-forum/publish-gradefeedback.svg"></svg-icon>
+                    <span translate="discussionForums.forumList.actions.publishGradeAndFeedback"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="cursor-pointer dropdown-dots-con desktop-device" *ngIf="userCurrentView === userRole.STUDENT">
+        <img src="./../../../assets/images/icons/toc/icon-color-bookmark.svg"  *ngIf="widgetData.isBookMarked" (click)="removeBookmark(widgetData.activityId)">
+        <img src="assets/images/icons/content-builder/icon-bookmark-grey.svg" *ngIf="!widgetData.isBookMarked" (click)="bookmark(widgetData.activityId)">
+    </div>
+</div>
+
+<app-toast *ngIf="forumToast" [message]="toastMessage" [type]="toastType"
+            [toastNumber]="200" (toastClick)="closeToast()"></app-toast>

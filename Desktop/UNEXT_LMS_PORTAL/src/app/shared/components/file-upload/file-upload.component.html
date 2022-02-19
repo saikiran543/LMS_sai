@@ -1,0 +1,82 @@
+<div>
+
+  <div class="upload-img-container">
+
+    <div class="upload-box" id="upload-box-content">
+      <form method="post" action="#" id="#">
+        <div class="form-group files color dropzone uploader-or" appDrag (files)="filesDropped($event)">
+         <div class="or-text">{{ 'fileUpload.or' | translate }}</div> 
+          <div class="row">
+            <div class="col-12 drag-and-drop"
+              [ngClass]="{'col-md-4': contentCollectionBrowse, 'col-md-6': !contentCollectionBrowse}">
+              <img src="../../../assets/images/icons/icon-drop.svg" width="29">
+              <p class="file-drag-drop-text uploader-drag-text mb-0" [translate]="dragDropText"></p>
+            </div>
+            <div class="col-12 upload-button"
+              [ngClass]="{'col-md-4': contentCollectionBrowse, 'col-md-6': !contentCollectionBrowse}">
+              <input type="file" class="form-control" #imageCropperFile (change)="onFileSelect($event.target)" id="file"
+              [accept]="acceptedFiles">
+              <button class="upload-btn">
+                <img src="../../../assets/images/icons/icon-upload.svg" width="15">
+                <span class="file-button-text uploader-button-text" [translate]="buttonText"></span>
+              </button>
+            </div>
+            <div class="col-12 col-md-4" *ngIf="contentCollectionBrowse">
+              <button class="upload-btn" (click)="browseContentCollection($event)">
+                <img src="../../../assets/images/icons/icon-upload.svg" width="15">
+                <span class="file-button-text uploader-button-text"
+                  translate="fileUpload.button.browseContentCollection"></span>
+              </button>
+            </div>
+            <div *ngIf="isInvalid" class="invalid-file">
+              <img src="../../../../assets/images/icons/invalid-file-format.svg" width="17">
+              <span class="file-format">{{'fileUpload.invalidFileFormat' | translate}}</span></div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="note"><span class="uploader-note" translate="fileUpload.note"
+      class="file-note-pref"></span>&nbsp;<span class="file-note-text uploader-note-text"
+      translate="{{ noteText | translate }}"></span>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="img-cropper-modal">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title" translate="fileUpload.modalTitle"></h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true"> <img src="../../../assets/images/icons/icon-close-white.svg"></span>
+      </button>
+    </div>
+    <div class="modal-body image-modal">
+      <div class="imgContainer" style="position: relative; width: 100%; max-height: 500px;">
+        <img id="imageCropperContent" [src]="chosenImage" class="cropper-content-image" crossorigin>
+      </div>
+      <div class="divider-line"></div>
+      <div class="layout layout-justify-space-between">
+        <a (click)="rotate()"><img src="../../../assets/images/icons/icon-rotate.svg"></a>
+        <a (click)="flipHorizontal()"><img src="../../../assets/images/icons/icon-flip-horizontal.svg"></a>
+        <a (click)="flipVertical()"><img src="../../../assets/images/icons/icon-flip-vertical.svg"></a>
+        <a (click)="reset()"><img src="../../../assets/images/icons/icon-reset.svg"></a>
+      </div>
+      <div class="range-wrap">
+        <div class="range-value" id="rangeV" [style.left.%]="positionPercentage">
+          <span>{{positionPercentage}}</span></div>
+      </div>
+      <input #imageScrollerElement class="slider" *ngIf="imageZoomMaxLevel > 0" type="range" [min]="imageZoomMinLevel"
+        [max]="imageZoomMaxLevel" [value]="imageZoomFitContainer" step="0.1" (input)="onInputChange($event)">
+      <div style="color: white;"></div>
+
+    </div>
+    <div class="modal-footer image-modal">
+      <button type="button" class="flat-cancel-btn" (click)="modal.close()"
+        translate="fileUpload.button.cancel"></button>
+      <button type="button" class="btn btn-image-modal save-btn" (click)="upload();modal.close()"
+        translate="fileUpload.button.save"></button>
+    </div>
+  </div>
+</ng-template>
+
+<img *ngIf="savedImage != ''" [src]="savedImage" style="max-width: 200px;" />

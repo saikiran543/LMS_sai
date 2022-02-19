@@ -1,0 +1,13 @@
+.left-nav-component {
+    display: flex;
+    position: fixed;
+    height: calc(100% - 72px);
+    top: 72px;
+    left: 0px;
+    background-color: #ebebeb;
+}
+@media screen and (max-width: 1050px) {
+    .left-nav-component {
+      display: none;
+    }
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="55" height="76" viewBox="0 0 55 76">
+  <defs>
+    <filter id="Ellipse_2345" x="0" y="0" width="50" height="50" filterUnits="userSpaceOnUse">
+      <feOffset dx="-4" dy="4" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#c2c2c2" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_30869" data-name="Group 30869" transform="translate(-1174 -1053)">
+    <path id="Path_15304" data-name="Path 15304" d="M4,0H48a4,4,0,0,1,4,4V48a4,4,0,0,1-4,4H4a4,4,0,0,1-4-4V4A4,4,0,0,1,4,0Z" transform="translate(1177 1077)" fill="#eb7275"/>
+    <g transform="matrix(1, 0, 0, 1, 1174, 1053)" filter="url(#Ellipse_2345)">
+      <circle id="Ellipse_2345-2" data-name="Ellipse 2345" cx="13" cy="13" r="13" transform="translate(16 8)" fill="#fff"/>
+    </g>
+    <path id="Path_15308" data-name="Path 15308" d="M13.926,960.408a.361.361,0,0,0-.328.25l-1.7,5.269-5.535-.011a.361.361,0,0,0-.212.653l4.485,3.246-1.722,5.264a.361.361,0,0,0,.556.4l4.472-3.264,4.474,3.264a.361.361,0,0,0,.556-.4l-1.722-5.264,4.485-3.246a.361.361,0,0,0-.212-.653l-5.535.011-1.7-5.269a.361.361,0,0,0-.359-.25Z" transform="translate(1189.059 106.02)" fill="#f60" fill-rule="evenodd"/>
+    <path id="Rectangle_8917" data-name="Rectangle 8917" d="M0,0H52a0,0,0,0,1,0,0V11a4,4,0,0,1-4,4H4a4,4,0,0,1-4-4V0A0,0,0,0,1,0,0Z" transform="translate(1177 1114)" fill="#a93e41"/>
+    <text id="_2" data-name="2" transform="translate(1197 1108)" font-size="20" font-family="ProximaNova-Bold, Proxima Nova" font-weight="700" letter-spacing="0.01em"><tspan x="0" y="0">2</tspan></text>
+  </g>
+</svg>

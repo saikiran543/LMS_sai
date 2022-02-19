@@ -1,0 +1,6 @@
+<div *ngIf='params.rubricId'>
+    <img (click)="ClickEvent('close')" style="float: right;" src="assets/images/icons/icon-close.svg">
+</div>
+<div *ngIf="initializeStructure">
+    <app-rubric-structure [canEdit]='true' [status]='status' [rubricData]='rubricData'[isSelection]='params.isSelection' [rubricLevelsData]='levelNames' [rubricTitle]='rubricTitle' (onSaveRubric)="ClickEvent($event)"></app-rubric-structure>
+</div>

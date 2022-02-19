@@ -1,0 +1,36 @@
+<div class="createRubric" id="rubric-manipulation-con" [ngClass]="{'rubric-input-container': initializeStructure }">
+    <div class="content-title">{{rubricOperation}}</div>
+    <div [formGroup]="myForm" class="form-group">
+        <label class="form-label required" translate="admin.rubrics.rubricsManipulation.title"></label>
+        <div class='position-relative'>
+            <input type="text" class="form-control" formControlName="rubricTitle" matInput #input [(ngModel)]="rubricTitle" placeholder="Enter Rubric Title" maxlength="500">
+            <mat-hint class="char-count" *ngIf="myForm.controls['rubricTitle']?.invalid">Max of 500 Characters</mat-hint>
+            <mat-hint class="char-count" *ngIf="!myForm.controls['rubricTitle']?.invalid && rubricTitle.length < 499">{{input.value?.length | charactersCount : 500}} Characters Left</mat-hint>
+            <mat-hint class="char-count" *ngIf="!myForm.controls['rubricTitle']?.invalid && rubricTitle.length === 499">{{input.value?.length | charactersCount : 500}} Character Left</mat-hint>
+            <mat-hint class="char-count" *ngIf="!myForm.controls['rubricTitle']?.invalid && rubricTitle.length === 500">{{input.value?.length | charactersCount : 500}} Character Left</mat-hint>
+        </div>
+        <div [ngClass]="{ active: myForm.controls['rubricTitle']?.invalid }" 
+        *ngIf="isValid && myForm.controls.rubricTitle.errors?.required " translate="admin.rubrics.rubricsManipulation.thisIsARequiredField"></div>
+        <div *ngIf="myForm.controls.rubricTitle.errors?.alphaNumericValid" class="error-text"
+          translate="contentBuilder.content.errorMsg.onlySomeCharacters"></div>
+    </div> 
+</div>
+
+<div *ngIf="!initializeStructure && operation === 'create'" class="selectRubricStructure">
+    <div class="layout layout-item-center selectRubricStructure-label">
+        <label class="form-label required m-0" translate="admin.rubrics.rubricsManipulation.selectRubricsStructure"></label>
+        <span (click)="openInfo()">i</span>
+    </div>
+
+    <div *ngFor ="let i of firstArr(num); let rowIndex = index"  class="layout selectRubric" [ngClass]="{'active': selectedRow > rowIndex}">
+        <div *ngFor ="let j of second(no); let columnIndex = index" class="singleRubric" [ngClass]="{'active': selectedColumn > columnIndex}"></div>
+        <br>
+    </div>
+</div>
+<div *ngIf="initializeStructure" class="selectRubricStructure">
+    <div class="layout layout-item-center selectRubricStructure-label">
+        <label class="form-label required m-0" translate="admin.rubrics.rubricsManipulation.rubricsStructure"></label>
+        <span (click)="openInfo()">i</span>
+    </div>
+    <app-rubric-structure [canEdit]='false' [status]='status' [rubricData]='rubricDetails' [rubricTitle]='rubricTitle' [operation]='operation' (onSaveRubric)="clickEvent($event)" (titleValid)="validateTitle($event)" [rubricLevelsData]='rubricLevelsData'></app-rubric-structure>
+</div>

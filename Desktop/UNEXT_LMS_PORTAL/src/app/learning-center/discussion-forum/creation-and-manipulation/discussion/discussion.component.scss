@@ -1,0 +1,194 @@
+@import "~src/variables";
+.discussion-modal {
+  .form-switch.form-check .circle-switch {
+    left: 3px;
+    top: 6px;
+    pointer-events: none;
+  }
+  .content-builder-modal-header {
+    background: #FFDDB0;
+    color: #000000;
+  }
+  .custome-radiobutton{
+    font-size: $font-16;
+    color: #000;
+    font-weight: 400;
+    .checkmark{
+      border: 1px solid #DDDDDD;
+      &::after{
+        background: #DDDDDD;
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+      }
+    }
+    input:checked ~ .checkmark{
+      border: 1px solid #FF6600;
+    }
+    input:checked ~ .checkmark::after{
+      background: #FF6600;
+    }
+  }
+  .content-component-modal-content {
+    padding: 32px;
+    .row {
+      .form-group {
+        margin-bottom: 24px;
+        .forum-type {
+          margin-bottom: 0.5rem;
+          label {
+            margin-bottom: 0;
+          }
+          .forum-info-cta {
+            width: 20px;
+            height: 20px;
+            background: #4fa8ff 0% 0% no-repeat padding-box;
+            border-radius: 50%;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+          }
+        }
+        .attach-rubric-cta {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 200px;
+          height: 100%;
+          border: 2px dashed #ff6600;
+          border-radius: 4px;
+          cursor: pointer;
+          p {
+            font-family: "Proxima Nova W05 Bold";
+            margin-bottom: 0;
+            font-size: 16px;
+          }
+        }
+        input[type="number"] {
+          border-radius: 4px;
+          max-width: 60px;
+          font-size: 16px;
+          font-weight: 600;
+          padding: 4px;
+          text-indent: 4px;
+          &.invalid {
+            border: 1px solid #ff6600;
+          }
+        }
+        button.btn.dropdown-toggle {
+          width: 50px;
+          height: 32px;
+          background: #55555500;
+          border: 1px dashed #ff6600;
+          border-radius: 4px;
+          padding: 0;
+          color: #ff6600;
+          font-size: 24px;
+          line-height: 18px;
+
+          &::after {
+            display: none;
+          }
+
+          &:focus {
+            box-shadow: none;
+          }
+        }
+      }
+    }
+    .form-check-label.disabled {
+      pointer-events: none;
+      filter: none;
+      opacity: 0.5;
+    }
+    .form-check.form-switch {
+      input.disabled {
+        pointer-events: none;
+        filter: none;
+        opacity: 0.5;
+      }
+    }
+  }
+  .content-builder-modal-footer {
+    position: relative;
+    .mandatory-error-notifier {
+      background: #FFDCDC 0% 0% no-repeat padding-box;
+      border-radius: 4px;
+      box-shadow: 0px 0px 8px #C6C6C673;
+      opacity: 1;
+      padding: 16px 48px 16px 20px;
+      position: absolute;
+      top: -68px;
+      right: 32px;
+      text-align: left;
+      font: normal normal normal 16px/20px;
+      letter-spacing: 0px;
+      color: #FF0000;
+      opacity: 1;
+      display: flex;
+      justify-content: center;
+      img.icon-warning {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+      }
+      .toast-close-button {
+        right: 0.5em;
+        top: 0em;
+        position: absolute;
+        color: #FF0000;
+      }
+    }
+    .basic-btn.modal-btn {
+      &.disabled {
+        cursor: none;
+        pointer-events: none;
+        opacity: 0.7;
+      }
+    }
+  }
+}
+.grading-block {
+  align-items: center;
+  .attach-rubric-cta {
+    min-height: 48px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .upload-progess {
+    padding: 10px !important;
+  }
+  .grading-block {
+    .attach-rubric-cta {
+      width: 170px !important;
+    }
+    .max-quanity-block {
+      .form-label {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.attach-objective-cta {
+  width: 18.33vw;
+  min-width: 200px;
+  height: 48px;
+  background: #55555505;
+  border: 1px dashed #ff6600;
+  border-radius: 2px;
+  cursor: pointer;
+  p {
+    font-family: "Proxima Nova W05 Bold";
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    margin-left: 8px;
+  }
+}

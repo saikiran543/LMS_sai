@@ -1,0 +1,194 @@
+@import "~src/variables";
+#component-view{
+  height: 100%;
+}
+.context-menu{
+  cursor: pointer;
+}
+
+.rubrics-header {
+  margin-bottom: 2.195%;
+  .content-title {
+      color: #363436;
+      font-family: "Proxima Nova W05 Bold";
+      font-size: 1.25rem;
+      line-height: 18px;
+      border-bottom: #FF6600 4px solid;
+      width: -webkit-max-content;
+      width: max-content;
+      margin: 1.644% 0;
+  }
+  .input-group {
+      width: 20.8333vw;
+  }
+  .rows-per-page {
+      margin-right: 1.25vw;
+      margin-left: 1.25vw;
+      label {
+          color: #63686C;
+          margin-right: 8px;
+          font-size: $font-14;
+      }  
+  
+      .quantity {
+        position: relative;
+        width: 100%;
+        max-width: 51px;
+        height: 30px;
+        opacity: 0.7;
+        .quantity__btn {
+            position: absolute;
+            right: 8px;
+            cursor: pointer;
+            text-align: center;
+            svg-icon {
+              display: flex;
+          }
+      }
+      .quantity__btn--up {
+          top: 8px;
+          
+      }
+      .quantity__btn--down {
+          bottom: 8px;
+      }
+        input {
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding-left: 8px;
+            border: 0.25px solid #63686C!important;
+            border-radius: 3px;
+            opacity: 1;
+            color: #00182D;
+            font-size: 12px;
+            line-height: 15px;
+            &:focus-visible {
+                outline: none;
+            }
+        }
+    }
+  }
+  .form-control {
+      border-top-right-radius: 0px !important;
+      border-bottom-right-radius: 0px !important;
+      max-height: 46px;
+      @media only screen and (max-width: 1450px) {
+        max-height: 40px;
+      }
+  }
+  .form-control::placeholder {
+      font-size: 13px;
+      letter-spacing: 0.13px;
+      color: #555555;
+      opacity: 0.5;
+  }
+  .btn-primary {
+      background-color: #FF6600 !important;
+      border-color: #FF6600 !important;
+      border-radius: 0px 4px 4px 0px!important;
+      height: 46px;
+      min-height: 40px;
+      @media only screen and (max-width: 1450px) {
+        height: 40px;
+      }
+  }
+  
+  .create-rubric {
+      min-width: 130px;
+      height: 36px;
+      background: #FF6600 0% 0% no-repeat padding-box;
+      border: none;
+      border-radius: 4px;
+      opacity: 1;
+      color: #fff;
+      font-size: $font-16;
+      display: flex;
+      align-items: center;
+      img {
+          margin-right: 8px;
+      }
+  }
+  .flat-btn {
+      max-height: 36px;
+      border: 0px solid #555555;
+      border-radius: 4px;
+      background: #fff;
+      box-shadow: none;
+      font-family: "Proxima Nova W05 Regular";
+      color: #555555;
+      padding: 6px 14px;
+      font-size: $font-16;
+  }
+  .dropdown-toggle {
+      &::after {
+          width: 7px;
+          height: 7px;
+          content: "";
+          background-image: url(../../../assets/images/icons/icon-dropdown.svg);
+          background-repeat: no-repeat;
+          background-size: contain;
+          border: none;
+          display: inline-flex;
+          align-items: center;
+      }
+  }
+}
+
+.nav-tabs {
+  li {
+      margin-right: 2.71vw;
+      .nav-link  {
+          background: 0 0;
+          border: 1px solid transparent;
+          border-top-left-radius: .25rem;
+          border-top-right-radius: .25rem;
+          border: 0px;
+          color: #AAAAAA;
+          padding: 0px;
+          font-size: $font-16;
+      }
+      .nav-link.active {
+          border-color: transparent; 
+          color: #000;
+          background-color: #fff;
+          border-bottom: 3px solid #FF6600;
+          font-family: "Proxima Nova W05 Bold";
+      }
+      &:last-child {
+          margin-right: 0;
+      }
+  }
+  
+}
+
+.empty-rubrics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+  p {
+      margin-top: 3.416vh;
+      margin-bottom: 0;
+      font-size: $font-20;
+      font-weight: 600;
+      color: #000000;
+  }
+}
+@media screen and (max-width: 1450px) {
+    .breadcrumb-component{
+        padding:19px 15px 8px 0px;
+        a{
+            font-size: 11px;
+            padding-right: 5px;
+        }
+        span{
+            font-size: 11px;
+        }
+    }
+}
+
+
+
+

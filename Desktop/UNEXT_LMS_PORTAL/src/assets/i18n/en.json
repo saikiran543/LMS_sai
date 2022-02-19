@@ -1,0 +1,1206 @@
+{
+  "admin": {
+    "loginSettings": {
+      "title": "Login Page",
+      "header": "Header",
+      "headerPlaceHolder": "Welcome to your online learning environment. Wish you an amazing experience ahead !!",
+      "logoUrl": "Logo Click URL",
+      "welcomeText": "Welcome Text",
+      "welcomeDefaultText": "To UNext Learning Portal",
+      "ssoText": "SSO Text",
+      "ssoTextPlaceHolder": "Type your text here...",
+      "supportText": "Support Text",
+      "supportTextPlaceHolder": "Type your text here...",
+      "displayLogo": "Display UNext Logo",
+      "logoUploadTitle": "Logo",
+      "logoButton": "Upload Logo Image",
+      "logoDragDrop": "Drag & drop image here",
+      "logoNote": "You can only choose jpg, jpeg, img, png file types. Max image size should be 52 x 168",
+      "bannerUploadTitle": "Banner",
+      "bannerButton": "Upload Banner Image",
+      "bannerDragDrop": "Drag & drop image here",
+      "bannerNote": "You can only choose jpg, jpeg, img, png file types. Max image size should be 588 x 1008",
+      "note": "Note:",
+      "noteText": "You have to preview the page to publish. Click on the Preview button below if you want to publish the changes",
+      "maxOfCharacter": "Max of {{length}} Characters",
+      "charactersLeft": "{{length}} Characters Left",
+      "characterLeft": "{{length}} Character Left",
+      "button": {
+        "preview": "Preview",
+        "clear": "Clear Changes",
+        "logoDeleteConfirm": "Yes",
+        "logoDeleteCancel": "No",
+        "bannerDeleteConfirm": "Yes",
+        "bannerDeleteCancel": "No"
+      },
+      "logoDeleteConfirm": "Deleting current logo will retain default logo.<br />Do you want to proceed?",
+      "bannerDeleteConfirm": "Deleting current banner will retain default banner.<br />Do you want to proceed?",
+      "confirmFormClear": "You have changed the data for login page.<br/>Do you want to cancel all the changes?",
+      "successPublish": "Settings published successfully",
+      "failedPublish": "Failed to publish the settings",
+      "errorMsg": {
+        "formInvalid": "Please complete all the required fields"
+      },
+      "webVerticalImageText": "You can only choose jpg, jpeg, img file types. Max image size should be 1048 X 1080",
+      "webHorizontalImageText": "You can only choose jpg, jpeg, img file types. Max image size should be 1920 X 1080",
+      "webHorizontalSplitImageText": "You can only choose jpg, jpeg, img file types. Max image size should be 1920 X 652",
+      "somethingWrong": "Something went wrong. Please try again."
+    },
+    "learningCenter": {
+      "moreInfo": "More Info",
+      "title": "Title",
+      "progress": "Progress",
+      "idealTime": "Ideal Time",
+      "yetToStart": "Yet to start",
+      "createdDate": "Created Date",
+      "status": "Status",
+      "unpublishedContent": "Unpublished Content",
+      "visibilityCriteria": "Visibility Criteria",
+      "exitPreview": "Exit Preview",
+      "classPerformance": "Class Performance",
+      "classProgress": "Class Progress",
+      "myPerformance": "My Performance",
+      "myLearningStreak": "My Learning Streak",
+      "myProgress": "My Progress",
+      "bookmark": "Bookmark",
+      "download": "Download",
+      "rotate": "Rotate",
+      "overview": "Overview",
+      "qA": "Q&A",
+      "rating": "Rating",
+      "prev": "Prev",
+      "next": "Next",
+      "notes": "Notes",
+      "contentBuilder": "Content Builder",
+      "publishAll": "Publish All",
+      "preview": "Preview",
+      "resume": "Resume",
+      "filter": "Filter"
+    },
+    "brandingSettings": {
+      "forWeb": "For Web",
+      "webTitle": "Banner Type",
+      "webVertical": "Branding - Vertical",
+      "webHorizontal": "Branding - Horizontal",
+      "webHorizontalSplit": "Branding - Horizontal Split",
+      "webImgUploadTitle": "Upload Banner",
+      "webImgButton": "Upload Banner Image",
+      "webImgDragDrop": "Drag & drop image here",
+      "webImgNote": "You can only choose jpg, jpeg, img, png file types. Max image size should be 588 x 1008",
+      "maxOfCharacter": "Max of {{length}} Characters",
+      "charactersLeft": "{{length}} Characters Left",
+      "characterLeft": "{{length}} Character Left",
+      "noteText": "You have to preview the page to publish. Click on the Preview button below if you want to publish the changes",
+      "headerText": "Header Text",
+      "greetingsText": "Greetings Text",
+      "screenDuration": {
+        "title": "Screen Duration",
+        "default": "Choose Duration",
+        "twoSecond": "02 sec",
+        "fiveSecond": "05 sec",
+        "eightSecond": "08 sec",
+        "tenSecond": "10 sec"
+      },
+      "announcement": "Announcement",
+      "displayLogo": "Display UNext Logo",
+      "note": "Note:",
+      "button": {
+        "preview": "Preview",
+        "clear": "Clear Changes",
+        "webBannerDeleteConfirm": "Yes",
+        "webBannerDeleteCancel": "No"
+      },
+      "webBannerDeleteConfirm": "Deleting current image will retain default image.<br />Do you want to proceed?",
+      "forMobile": "For Mobile",
+      "mobTitle": "Banner Type",
+      "mobFullScreen": "Branding - Full Screen",
+      "mobHorizontalSplit": "Branding - Horizontal Split",
+      "mobImgUploadTitle": "Upload Banner",
+      "mobImgButton": "Upload Banner Image",
+      "mobImgDragDrop": "Drag & drop image here",
+      "mobImgNote": "You can only choose jpg, jpeg, img, png file types. Max image size should be 588 x 1008",
+      "mobMaxOfCharacter": "Max of {{length}} Characters",
+      "mobCharactersLeft": "{{length}} Characters Left",
+      "mobCharacterLeft": "{{length}} Character Left",
+      "mobNoteText": "You have to preview the page to publish. Click on the Preview button below if you want to publish the changes",
+      "mobHeaderText": "Header Text",
+      "mobGreetingsText": "Greetings Text",
+      "mobScreenDuration": {
+        "title": "Screen Duration",
+        "default": "Choose Duration",
+        "twoSecond": "02 sec",
+        "fiveSecond": "05 sec",
+        "eightSecond": "08 sec",
+        "tenSecond": "10 sec"
+      },
+      "mobAnnouncement": "Announcement",
+      "mobDisplayLogo": "Display UNext Logo",
+      "mobNote": "Note",
+      "mobButton": {
+        "preview": "Preview",
+        "clear": "Clear Changes"
+      },
+      "successPublish": "Settings published successfully",
+      "failedPublish": "Failed to publish the settings",
+      "errorMsg": {
+        "formInvalid": "Please complete all the required fields"
+      },
+      "somethingWrong": "Something went wrong. Please try again.",
+      "confirmFormClear": "You have changed the data for branding page.<br/>Do you want to cancel all the changes?"
+    },
+    "previewLayout": {
+      "button": {
+        "back": "Back",
+        "publish": "Publish",
+        "publishing": "Publishing..."
+      },
+      "note": "Note: ",
+      "noteText": "This is a preview of your changes. Are you sure you want to publish these changes?"
+    },
+    "facultyCourseView": {
+      "locationModal": {
+        "confirmBtn": "Save",
+        "cancelBtn": "Cancel"
+      },
+      "treeOperationWarnings": {
+        "addLearningObjective": "Are you sure you want to add learning objective at the Unit/Folder level? Adding it at the Unit/Folder level would by default add this learning objective to all its Content/Activity.",
+        "move": "Are you sure, you want to move the",
+        "delete": "Are you sure you want to delete ",
+        "stillDelete": "Are you sure you want to still delete?",
+        "proceedToDelete": "Do you want to proceed?",
+        "publish": {
+          "dialogTitle": "Publish {{type}}",
+          "dialogOptions": {
+            "publishWithChild": "Publish the {{type}} with all its sub-folders and contents",
+            "publishWithoutChild": "Publish the {{type}} only, not its child elements"
+          }
+        },
+        "publishContent": "Are you sure, you want to publish the content?",
+        "unpublishContent": "Are you sure, you want to Unpublish the content?",
+        "unpublish": "Taking this action will also hide all the published content elements inside it. Are you sure you want to Unpublish this {{type}}?",
+        "publishAll": "Publishing All content will make it visible to all the eligible learners. Are you sure you want to publish all unpublished content?"
+      },
+      "treeOperationErrors": {
+        "sameName": "A content with the same name is already present in this",
+        "unpublishedParent": "in which you are trying to move is unpublished",
+        "publishChildWhenParentUnpublished": "Publish the {{type}} before publishing the content"
+      },
+      "successToastMessagesOnMove": {
+        "movedSuccessfully": "was successfully moved",
+        "shuffledSuccessfully": "was successfully shuffled"
+      },
+      "resumeOperations": {
+        "courseCompleted": "Course Successfully Completed!"
+      },
+      "treeOperationsSuccess": {
+        "publish": "Unit/Folder published successfully",
+        "unPublish": "Unit/Folder un-published successfully",
+        "publishContent": "Content published successfully",
+        "unPublishContent": "Content un-published successfully",
+        "publishAll": "All Units and Folders published successfully"
+      },
+      "directions": {
+        "up": "up",
+        "down": "down",
+        "into": "into"
+      }
+    },
+    "rubrics": {
+      "deleteRubric": "Are you sure, you want to Delete",
+      "copyRubric": "Are you sure you want to Copy this Rubric?",
+      "alreadyExist": "already exists, Please choose some different Criteria",
+      "alreadyExistLevel": "already exists, Please choose some different Grade level title",
+      "rubricCreated": "Rubric Created Successfully",
+      "rubricDraft": "Rubric created successfully as a draft",
+      "rubricUpdate": "updated Successfully",
+      "mandatoryFields": "Please complete all the mandatory fields",
+      "percentageValidation": "Please verify the Points at each level. They have to be in a progression",
+      "percentageValueValidation": "The Percentage value cannot be more than 100 or less than 0",
+      "weightagesValidation": "Sum of weightages should be 100",
+      "rubricDuplicateTitleMessage": "already exists, Please choose some different title for rubric",
+      "rubricEvaluationError": "The changed marks cannot be more or less than the maximum and minimum possible marks for that criterion",
+      "rubricsManipulation": {
+        "title": "Title",
+        "rubrics": "Rubrics",
+        "thisIsARequiredField": "This is a required field",
+        "rubricsStructure": "Rubrics Structure",
+        "selectRubricsStructure": "Select Rubrics Structure"
+      },
+      "rubricsComponent": {
+        "title": "Rubrics",
+        "label": "Rows per page",
+        "emptyRubrics": "Looks like there are no rubrics yet!",
+        "buttons": {
+          "filter": "Filters",
+          "action": "Action",
+          "anotherAction": "Another action",
+          "somethingElseHere": "Something else here"
+        },
+        "category": {
+          "programLevel": "Program Level",
+          "courseLevel": "Course Level"
+        }
+      },
+      "rubricsStructure": {
+        "addLevel": "Add Level",
+        "addCriteria": "Add Criteria",
+        "weightage": "Weightage",
+        "percentage": "Percentage",
+        "dropDowns": {
+          "insertLeft": "Insert Left",
+          "insertRight": "Insert Right",
+          "removeGradeLevel": "Remove Grade Level",
+          "criteria": {
+            "title": "Criteria",
+            "copyCriteria": "Copy Row",
+            "addCriteriaAbove": "Add Criteria Above",
+            "addCriteriaBelow": "Add Criteria Below",
+            "removeCriteria": "Remove Row"
+          }
+        },
+        "buttons": {
+          "save": "Save",
+          "saveAsDraft": "Save as Draft",
+          "cancel": "Cancel"
+        }
+      }
+    },
+    "progress": {
+      "KeepItUp": "Keep it up, you are doing great.",
+      "DoNotLose": "Don't lose ground. Let's catch up.",
+      "ViewAll": "View All",
+      "Bottom": "Bottom 5",
+      "Top": "Top 5",
+      "ClassProgress": "Class Progress",
+      "option1": "option1",
+      "option2": "option2",
+      "option3": "option3",
+      "RecordsPerPage": "Records Per Page",
+      "TrackerMessage": "This tracker is for {{description}} progress tracking"
+    }
+  },
+  "lms": {
+    "termsAndConditions": "Terms and Conditions",
+    "copyRight": "Copyright © UNext Learning",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "home": {
+    "label": "Home",
+    "title": "Home",
+    "button": {
+      "settings": "Settings"
+    }
+  },
+  "login": {
+    "welcome": "Welcome!",
+    "label": "Login",
+    "username": "Username",
+    "usernamePlaceholder": "Username",
+    "password": "Password",
+    "passwordPlaceholder": "Password",
+    "button": {
+      "signup": "Signup"
+    },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "subTitle": "Enter your Email id/Username below and we will send you a password reset link to the registered email address associated with your username",
+      "usernamePlaceholder": "Email/Username",
+      "emailOrUsernameIsRequired": "Email / Username is required",
+      "button": {
+        "submit": "Submit",
+        "cancel": "Cancel"
+      }
+    },
+    "loginForm": {
+      "title": "Welcome!",
+      "subtitle": "To UNext Learning Portal",
+      "rememberMe": "Remember Me",
+      "forgotPassword": "Forgot password?",
+      "button": {
+        "login": "Login"
+      },
+      "errorMsg": {
+        "invalidCredentials": "Invalid Username/Password"
+      },
+      "contactSupport": {
+        "text1": "If you have any issues with login,",
+        "text2": "please contact us at"
+      }
+    },
+    "resetPassword": {
+      "title": "Enter New Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm Password",
+      "passwordPolicies": "Password Policies",
+      "successfullChanged": "Your password has been successfully changed.",
+      "button": {
+        "cancel": "Cancel",
+        "submit": "Submit"
+      },
+      "errorMsg": {
+        "resetFailed": "Login Error, please reach out to <a href = 'mailto: techsupport@u-next.com'>techsupport@u-next.com</a> for assistance",
+        "oldPasswordError": "The new password entered is the same as your old password. Please enter a different password..",
+        "passwordDoesntMatch": "Password doesn't match",
+        "minLength": "At least 8 characters in length",
+        "hasSmallCase": "lower case letters (a-z)",
+        "hasCapitalCase": "upper case letters (A-Z)",
+        "hasNumber": "numbers (i.e. 0-9)",
+        "hasSpace": "cannot contain space",
+        "hasSpecial": "special characters"
+      }
+    }
+  },
+  "branding": {
+    "skipToDashboard": "Skip to Dashboard"
+  },
+  "signup": {
+    "formTitle": "Signup Form",
+    "username": "Username :",
+    "email": "Email :",
+    "password": "Password :",
+    "reenterPassword": "Re-enter Password :",
+    "gender": "Select Gender :",
+    "male": "Male",
+    "female": "Female",
+    "or": "OR",
+    "button": {
+      "submit": "Submit",
+      "login": "Login"
+    },
+    "errorMsg": {
+      "passwordMismatch": "Password and Confirm Password didn't match."
+    },
+    "successMsg": {
+      "passwordMatch": "Passwords Match!."
+    }
+  },
+  "fileUpload": {
+    "note": "Note:",
+    "or": "OR",
+    "modalTitle": "Edit Image",
+    "invalidFileFormat": "Invalid File Format",
+    "button": {
+      "save": "Save",
+      "browseContentCollection": "Browse from Content Collection",
+      "cancel": "Cancel"
+    }
+  },
+  "confirmModal": {
+    "text": "Are you sure?",
+    "confirmButton": "Yes",
+    "cancelButton": "No"
+  },
+  "locationSelectionModal": {
+    "text": "Are you sure?",
+    "confirmButton": "Create",
+    "cancelButton": "Cancel"
+  },
+  "leftMenu": {
+    "sidebarItems": {
+      "configSettings": "Config & Settings",
+      "communities": "Communities",
+      "learningCenter": "Learning Center",
+      "dashboard": "Dashboard",
+      "gamification":"Gamification"
+    },
+    "slideMenuItems": {
+      "configAndSettings": {
+        "loginPage": "Login Page",
+        "brandingPage": "Branding Page",
+        "emailTemplatePage": "Email Template Page"
+      },
+      "communities": {
+        "loginSettings": "Login Settings",
+        "brandingSettings": "Branding Settings"
+      },
+      "learningCenter": {
+        "contentArea": "Content Area",
+        "recordedSessions": "Recorded Sessions",
+        "quiz": "Quiz",
+        "assignments": "Assignments",
+        "survey": "Survey",
+        "discussionForums": "Discussion Forums",
+        "programmingLab": "Programming Lab",
+        "whatsNew": "What's New",
+        "todaysTask": "Today's Task",
+        "calendar": "Calendar",
+        "gamification": "Gamification",
+        "announcements": "Announcements",
+        "blogs": "Blogs",
+        "rubrics": "Rubrics",
+        "learningOutcomes": "Learning Outcome",
+        "goals": "Goals",
+        "notes": "Notes",
+        "allNotes": "All Notes",
+        "q&a": "Q&A",
+        "allQ&a": "All Q&A",
+        "downloadedFiles": "Downloaded Files",
+        "bookmarkList": "Bookmark List"
+      }
+    }
+  },
+  "toc": {
+    "deleteConfirm": "Are you sure, you want to delete ",
+    "contentArea": "Content Area",
+    "goToRootLevel": "Go to Root Level",
+    "minutes": "Minutes",
+    "visibilityCriteria": "Visibility Criteria",
+    "unpublishedContent": "Unpublished Content",
+    "publishedContent": "Published Content",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "resume": "Resume",
+    "play": "Play",
+    "deletedSuccessfully": "Deleted Successfully",
+    "deleteContent": "Delete Content",
+    "editContent": "Edit Content"
+  },
+  "contentBuilder": {
+    "title": "Content Builder",
+    "tab": {
+      "createNew": "Create New",
+      "addExisting": "Add Existing"
+    },
+    "contentTypes": "Content Types",
+    "activityTypes": "Activity Types",
+    "unit": {
+      "name": "unit",
+      "bannerNote": "Accepted image extension are jpg, jpeg, img, png, svg file types. Max image size should be 360 x 480",
+      "maxOfCharacter": "Max of {{length}} Characters",
+      "charactersLeft": "{{length}} Characters Left",
+      "characterLeft": "{{length}} Character Left",
+      "webImgUploadTitle": "Upload Banner",
+      "webImgButton": "Upload Banner Image",
+      "webImgDragDrop": "Drag & drop image here",
+      "webBannerDeleteConfirm": "Are you sure, you want to delete this image?",
+      "successMessage": "Unit created successfully. Please publish the Unit to make it visible to the Learners",
+      "completeMandatoryFields": "Please complete all mandatory fields",
+      "visibilityCriteria": "Visibility Criteria",
+      "createNewUnit": "Create New Unit",
+      "editUnit": "Edit Unit",
+      "thisIsARequiredField": "This is a required field",
+      "description": "Description",
+      "bannerImage": "Banner Image",
+      "updatedSuccess": "Unit Updated Successfully",
+      "title": "Title",
+      "button": {
+        "cancel": "Cancel",
+        "save": "Save"
+      }
+    },
+    "folder": {
+      "createNewFolder": "Create New Folder",
+      "editFolder": "Edit Folder",
+      "title": "Title",
+      "titlePlaceholder": "Enter Title",
+      "maxOfCharacter": "Max of {{length}} Characters",
+      "charactersLeft": "{{length}} Characters Left",
+      "characterLeft": "{{length}} Character Left",
+      "titleMaxOfCharacter": "Max of {{length}} Characters",
+      "titleCharactersLeft": "{{length}} Characters Left",
+      "titleCharacterLeft": "{{length}} Character Left",
+      "description": "Description",
+      "visibilityCriteria": "Visibility Criteria",
+      "completeMandatoryFields": "Please complete all mandatory fields",
+      "successMessage": "Folder Created Successfully. Please Publish the Folder to make it Visible to the Learners",
+      "updatedSuccess": "Folder Updated Successfully",
+      "button": {
+        "save": "Save",
+        "cancel": "Cancel"
+      }
+    },
+    "content": {
+      "title": "Title",
+      "titlePlaceholder": "Enter Title",
+      "description": "Description",
+      "contentStatus": "Content Status",
+      "mandatory": "Mandatory",
+      "optional": "Optional",
+      "idealTime": "Ideal Time Required",
+      "visibilityCriteria": "Visibility Criteria",
+      "allowDownload": "Allow Download",
+      "enableOfflineAccess": "Enable Offline Access",
+      "forMobileUsers": "For Mobile Users Only",
+      "sendEmail": "Send Email Notification",
+      "completeMandatoryFields": "Please complete all mandatory fields",
+      "addTags": "Add Tags",
+      "button": {
+        "save": "Save",
+        "draft": "Save as Draft",
+        "cancel": "Cancel",
+        "saving": "Saving..."
+      },
+      "errorMsg": {
+        "formInvalid": "Please complete all the required fields",
+        "fileUploadFailed": "Failed to upload the file. Please try again",
+        "requiredField": "This field is required",
+        "onlySomeCharacters": "Characters allowed: alphabets, numbers, space, -, _, (, )",
+        "duplicateTitle": "Title name already exists"
+      },
+      "saveSuccessMessage": "Content created successfully. Please publish the content to make it visible to the learners",
+      "saveFailedMessage": "Failed to save the content. Please try again",
+      "updateSuccessMessage": "Content updated successfully.",
+      "updateFailedMessage": "Failed to update the content. Please try again",
+      "sameNameExists": "A content with the same name is already existing. <br>Please try with another name</br>"
+    },
+    "video": {
+      "header": "Edit Video",
+      "create": "Create a new Image",
+      "titleMaxOfCharacter": "Max of {{length}} Characters",
+      "titleCharactersLeft": "{{length}} Characters Left",
+      "titleCharacterLeft": "{{length}} Character Left",
+      "uploadTitle": "Upload File",
+      "uploadDragDrop": "Drag & drop file here",
+      "uploadButton": "Browse from Computer",
+      "note": "Note:",
+      "uploadNote": "Accepted document extensions are: mp4, mpeg",
+      "fileDeleteConfirm": "Are you sure to delete this video?",
+      "saveSuccessMessage": "Video created successfully. Please publish the video to make it visible to the learners",
+      "saveFailedMessage": "Failed to save the video. Please try again",
+      "updateSuccessMessage": "Video updated successfully.",
+      "updateFailedMessage": "Failed to update the Video. Please try again",
+      "sameNameExists": "A video with the same name is already existing. <br>Please try with another name</br>"
+    },
+    "document": {
+      "header": "Edit Document",
+      "create": "Create a new Document",
+      "titleMaxOfCharacter": "Max of {{length}} Characters",
+      "titleCharactersLeft": "{{length}} Characters Left",
+      "titleCharacterLeft": "{{length}} Character Left",
+      "uploadTitle": "Upload File",
+      "uploadDragDrop": "Drag & drop file here",
+      "uploadButton": "Browse from Computer",
+      "note": "Note:",
+      "uploadNote": "Accepted document extensions are: txt, doc/docx, ppt/pptx, pps/ppsx, xls/xlsx, pdf",
+      "fileDeleteConfirm": "Are you sure to delete this document?",
+      "saveSuccessMessage": "Document created successfully. Please publish the document to make it visible to the learners",
+      "saveFailedMessage": "Failed to save the document. Please try again",
+      "updateSuccessMessage": "Document updated successfully.",
+      "updateFailedMessage": "Failed to update the document. Please try again",
+      "sameNameExists": "A document with the same name is already existing. <br>Please try with another name</br>"
+    },
+    "epub": {
+      "header": "Edit ePub",
+      "create": "Create a new ePub",
+      "titleMaxOfCharacter": "Max of {{length}} Characters",
+      "titleCharactersLeft": "{{length}} Characters Left",
+      "titleCharacterLeft": "{{length}} Character Left",
+      "uploadTitle": "Upload File",
+      "uploadDragDrop": "Drag & drop file here",
+      "uploadButton": "Browse from Computer",
+      "note": "Note:",
+      "uploadNote": "Accepted ePub extensions is: epub",
+      "fileDeleteConfirm": "Are you sure to delete this epub?",
+      "saveSuccessMessage": "Epub created successfully. Please publish the epub to make it visible to the learners",
+      "saveFailedMessage": "Failed to save the epub. Please try again",
+      "updateSuccessMessage": "Epub updated successfully.",
+      "updateFailedMessage": "Failed to update the epub. Please try again",
+      "sameNameExists": "An epub with the same name is already existing. <br>Please try with another name</br>"
+    },
+    "scorm": {
+      "header": "Create New Scorm",
+      "create": "Create a new Scorm",
+      "titleMaxOfCharacter": "Max of {{length}} Characters",
+      "titleCharactersLeft": "{{length}} Characters Left",
+      "titleCharacterLeft": "{{length}} Character Left",
+      "uploadTitle": "Upload File",
+      "uploadDragDrop": "Drag & drop file here",
+      "uploadButton": "Browse from Computer",
+      "note": "Note:",
+      "uploadNote": "Accepted scorm extensions are: SCORM 1.1, 1.2 & 2004 editions. File name of the entry point of the package should be index_lms_html5.html",
+      "fileDeleteConfirm": "Are you sure to delete this scorm?",
+      "saveSuccessMessage": "Scorm created successfully. Please publish the scorm to make it visible to the learners",
+      "saveFailedMessage": "Failed to save the scorm. Please try again",
+      "updateSuccessMessage": "Scorm updated successfully.",
+      "updateFailedMessage": "Failed to update the scorm. Please try again",
+      "sameNameExists": "A scorm with the same name is already existing. <br>Please try with another name</br>"
+    },
+    "audio": {
+      "header": "Edit Audio",
+      "create": "Create a new Audio",
+      "titleMaxOfCharacter": "Max of {{length}} Characters",
+      "titleCharactersLeft": "{{length}} Characters Left",
+      "titleCharacterLeft": "{{length}} Character Left",
+      "uploadTitle": "Upload File",
+      "uploadDragDrop": "Drag & drop file here",
+      "uploadButton": "Browse from Computer",
+      "note": "Note:",
+      "uploadNote": "Accepted audio extensions are: MP3, WAV",
+      "fileDeleteConfirm": "Are you sure to delete this audio?",
+      "saveSuccessMessage": "Audio created successfully. Please publish the audio to make it visible to the learners",
+      "saveFailedMessage": "Failed to save the audio. Please try again",
+      "updateSuccessMessage": "Audio updated successfully.",
+      "updateFailedMessage": "Failed to update the audio. Please try again",
+      "sameNameExists": "An audio with the same name is already existing. <br>Please try with another name</br>"
+    },
+    "image": {
+      "header": "Edit Image",
+      "create": "Create a new Image",
+      "titleMaxOfCharacter": "Max of {{length}} Characters",
+      "titleCharactersLeft": "{{length}} Characters Left",
+      "titleCharacterLeft": "{{length}} Character Left",
+      "uploadTitle": "Upload File",
+      "uploadDragDrop": "Drag & drop file here",
+      "uploadButton": "Browse from Computer",
+      "note": "Note:",
+      "uploadNote": "Accepted image extensions are: JPEG, JPG, PNG, BMP, SVG",
+      "fileDeleteConfirm": "Are you sure to delete this image?",
+      "saveSuccessMessage": "Image created successfully. Please publish the image to make it visible to the learners",
+      "createSuccessMessage": "Image created successfully",
+      "saveFailedMessage": "Failed to save the image. Please try again",
+      "updateSuccessMessage": "Image updated successfully.",
+      "updateFailedMessage": "Failed to update the image. Please try again",
+      "sameNameExists": "An image with the same name is already existing. <br>Please try with another name</br>"
+    },
+    "html": {
+      "header": "Edit HTML",
+      "create": "Create a new HTML",
+      "titleMaxOfCharacter": "Max of {{length}} Characters",
+      "titleCharactersLeft": "{{length}} Characters Left",
+      "titleCharacterLeft": "{{length}} Character Left",
+      "uploadTitle": "Upload File",
+      "uploadDragDrop": "Drag & drop file here",
+      "uploadButton": "Browse from Computer",
+      "note": "Note:",
+      "uploadNote": "Accepted HTML extensions are: HTML, HTM. File name of the entry point of the package should be index.html",
+      "fileDeleteConfirm": "Are you sure to delete this html?",
+      "saveSuccessMessage": "HTML created successfully. Please publish the HTML to make it visible to the learners",
+      "saveFailedMessage": "Failed to save the HTML. Please try again",
+      "updateSuccessMessage": "HTML updated successfully.",
+      "updateFailedMessage": "Failed to update the HTML. Please try again",
+      "sameNameExists": "An HTML with the same name is already existing. <br>Please try with another name</br>"
+    },
+    "weblink": {
+      "header": "Edit Weblink",
+      "create": "Create a new Weblink",
+      "url": "URL",
+      "enterUrl": "Enter URL",
+      "titleMaxOfCharacter": "Max of {{length}} Characters",
+      "titleCharactersLeft": "{{length}} Characters Left",
+      "titleCharacterLeft": "{{length}} Character Left",
+      "saveSuccessMessage": "Weblink created successfully. Please publish the weblink to make it visible to the learners",
+      "saveFailedMessage": "Failed to save the weblink. Please try again",
+      "updateSuccessMessage": "Weblink updated successfully.",
+      "updateFailedMessage": "Failed to update the weblink. Please try again",
+      "sameNameExists": "A weblink with the same name is already existing. <br>Please try with another name</br>"
+    },
+    "otherattachements": {
+      "header": "Edit Attachment",
+      "create": "Create a new Attachment",
+      "titleMaxOfCharacter": "Max of {{length}} Characters",
+      "titleCharactersLeft": "{{length}} Characters Left",
+      "titleCharacterLeft": "{{length}} Character Left",
+      "uploadTitle": "Upload File",
+      "uploadDragDrop": "Drag & drop file here",
+      "uploadButton": "Browse from Computer",
+      "note": "Note:",
+      "uploadNote": "Accepted document extensions are: all",
+      "fileDeleteConfirm": "Are you sure to delete this attachment?",
+      "saveSuccessMessage": "Attachment created successfully. Please publish the attachment to make it visible to the learners",
+      "saveFailedMessage": "Failed to save the attachment. Please try again",
+      "updateSuccessMessage": "Attachment updated successfully.",
+      "updateFailedMessage": "Failed to update the attachment. Please try again",
+      "sameNameExists": "An attachment with the same name is already existing. <br>Please try with another name</br>"
+    }
+  },
+  "alertModal": {
+    "confirmButton": "Ok"
+  },
+  "notes": {
+    "deleteConfirmation": "Are you sure you want to Delete the Note?",
+    "deletedSuccessMessage": "Notes Deleted successfully",
+    "updatedSuccessMessage": "Notes Updated successfully",
+    "createdSuccessMessage": "Note Added Successfully",
+    "description": "Description",
+    "editTitle": "Edit Note",
+    "emptyNotes": "Looks like there are no notes yet!",
+    "buttons": {
+      "yes": "Yes",
+      "no": "No",
+      "save": "Save",
+      "saveNote": "Save Note",
+      "cancel": "Cancel"
+    }
+  },
+  "httpInterceptor": {
+    "unauthorizedErrorMessage": "Something went wrong. Please try again.",
+    "versionMismatchErrorMessage": "Someone has changed the contents of the course. The page will now reload.",
+    "courseContentUpdated": "The course content has been updated."
+  },
+  "discussionForums": {
+    "standardDiscussionForum": "Standard Discussion Forum",
+    "doubtClarificationForum": "Doubt Clarification Forum",
+    "creationAndManipulation": {
+      "createNew": "Create New",
+      "edit": "Edit",
+      "forumType": "Forum Type",
+      "title": "Title",
+      "enterTitle": "Enter Title",
+      "description": "Description",
+      "typeHere": "Type here...",
+      "grading": "Grading",
+      "graded": "Graded",
+      "attachRubric": "Attach Rubric",
+      "attachLearningObjective": "Attach Learning Outcomes",
+      "maxMark": "Max. Mark: ",
+      "passMark": "Pass. Mark: ",
+      "validity": "Validity",
+      "startDate": "Start Date and Time: ",
+      "endDate": "End Date and Time: ",
+      "visibilityCriteria": "Visibility Criteria",
+      "learningOutcome": "Learning Outcome",
+      "charactersLeft": "{{length}} Characters Left",
+      "characterLeft": "{{length}} Character Left",
+      "maxOfCharacter": "Max of {{length}} Characters",
+      "uploadTitle": "Attachment",
+      "uploadDragDrop": "Drag & drop",
+      "uploadButton": "Browse from Computer",
+      "uploadNote": "Accepted attachment extensions are: PDF, PPT, PPTX, DOC, DOCX, XLS, XLSX, PNG, JPEG, JPG, TXT",
+      "fileDeleteConfirm": "Are you sure to delete this attachment?",
+      "invalidEndDateError": "Please enter a Different End Date",
+      "editChangeValidity": "Are you sure, you want to change the Validity?",
+      "alertMessageChangeValidityStartDate": "Preponement of date is restricted as Learners are already participating in the Discussion Forum",
+      "alertMessageChangeValidityEndDate": "Preponement of End date is restricted as Learners are already participating in the Discussion Forum",
+      "creationSuccess": "Discussion forum created successfully",
+      "editSuccess": "{{forumTitle}} updated Successfully",
+      "confirmActivityStatusChangeToOptional": "Are you sure, you want to change it to Optional?",
+      "confirmActivityStatusChangeToMandatory": "Are you sure, you want to change it to Mandatory?",
+      "confirmParticipateActivityStatusChangeToMandatory": "As learners already started participating in the Discussion Forum, Are you sure, you want to change it to Mandatory?",
+      "errorActivityStatusChangeToOptionalVisibilityAttached": "You cannot edit it as there is a criterion attached to {{forumTitle}}"
+    },
+    "forumInfoPopup": {
+      "title": "Types of Discussion Forum",
+      "standardDiscussionInfo": "This is a generic discussion forum where a topic will be given, and learners start discussing on that by starting a thread and replying to it.",
+      "doubtClarificationInfo": "This is used as a holding entity for the Q&A of Contents. For example, If this is created at a Unit level then It will hold the Q&A related to all the contents under it.",
+      "closeCta": "Close"
+    },
+    "forumList": {
+      "errorEvaluationBeforeExpiry": "Forum cannot be evaluated before expiry",
+      "publishForumConfirmation": "Are you sure you want to publish the Discussion Forum?",
+      "unpublishForumConfirmation": "Are you sure you want to Unpublish the Discussion Forum?",
+      "unPublishForumConfirmationSDF": "Are you sure you want to unpublish the Standard Discussion Forum",
+      "unPublishForumConfirmationSDFParticipated": "Learners have already started Participating in the Standard Discussion Forum, Are you sure you want to unpublish it?",
+      "unPublishForumConfirmationDCF": "Are you sure you want to unpublish the Doubt Clarification forum",
+      "unPublishForumConfirmationDCFParticipated": "Learners have already started Participating in the Doubt Clarification Forum, Are you sure you want to unpublish it?",
+      "deleteConfirmationSDF": "Are you sure you want to delete the Standard Discussion Forum?",
+      "deleteConfirmationDCF": "Are you sure you want to delete the Doubt Clarification Forum?",
+      "deleteConsumedActivityConfirmationSDF": "Learners have already Participated in the Standard Discussion Forum. Deleting the Standard Discussion Forum will also delete their responses and grades if graded. Are you sure you want to delete the Standard Discussion Forum?",
+      "deleteConsumedActivityConfirmationDCF": "Learners have already Participated in the Doubt clarification Forum. Deleting the Doubt clarification Forum will also delete their responses and grades if graded. Are you sure you want to delete the Doubt clarification Forum?",
+      "createdSuccessMessage": "Discussion Forum created successfully",
+      "deletedSuccessMessage": "Discussion Forum deleted successfully",
+      "updatedSuccessMessage": "Discussion Forum updated successfully",
+      "publishErrorMessageForOngoingSDF": "The validity of this activity has already started, please edit the validity of the Standard Discussion Forum to publish it",
+      "publishErrorMessageForOngoingDCF": "The validity of this activity has already started, please edit the validity of the Doubt Clarification forum to publish it",
+      "publishErrorMessageForExpiredSDF": "The validity of this activity has already ended, please edit the validity of the Standard Discussion Forum to publish it",
+      "publishErrorMessageForExpiredDCF": "The validity of this activity has already ended, please edit the validity of the Doubt Clarification forum to publish it",
+      "publishedSuccessMessage": "Discussion Forum published successfully",
+      "publishForumConfirmationValidityStartedNoteSDF": "Note: The validity of this Standard Discussion Forum has already started, please edit the validity If required",
+      "publishForumConfirmationValidityStartedNoteDCF": "Note: The validity of this Doubt Clarification forum has already started, please edit the validity If required",
+      "publishForumConfirmationValidityExpiredNoteSDF": "Note: The validity of this Standard Discussion Forum has already ended, please edit the validity If required",
+      "publishForumConfirmationValidityExpiredNoteDCF": "Note: The validity of this Doubt Clarification forum has already ended, please edit the validity If required",
+      "unPublishedSuccessMessage": "Discussion Forum unpublished successfully",
+      "discussionForums": "Discussion Forums",
+      "standardDiscussion": "Standard Discussion",
+      "doubtClarification": "Doubt Clarification",
+      "more": "more",
+      "less": "less",
+      "created": "Created:",
+      "ago": "Ago",
+      "draft": "Draft",
+      "gradedForum": "Graded Forum",
+      "nonGradedForum": "Non-Graded Forum",
+      "emptyForum": "Looks like there are no discussions yet!",
+      "emptyThread": "There are no Threads Initiated/Threads Participated Under this Forum",
+      "emptyContent": "There are no Questions Posted/Answers Given Under this Content",
+      "createDiscussionForum": "Create Discussion Forum",
+      "startANewThread": "Start a New Thread",
+      "askANewQuestion": "Ask a New Question",
+      "goToContent": "Go to Content",
+      "exportData": "Export Data",
+      "exportDataAsPDF": "Export Data as PDF",
+      "exportDataAsXLSX": "Export Data as XLSX",
+      "selected": "Selected",
+      "upvotesReceived": "Upvotes Received",
+      "verifiedAnswers": "Verified Answers",
+      "answersGiven": "Answers Given",
+      "questionsPosted": "Questions Posted",
+      "learningObjective": "Learning Objective",
+      "validity": "Validity:",
+      "threadsInitiated": "Threads Initiated",
+      "threadParticipated": "Thread Participated",
+      "threads": "Threads",
+      "replies": "Replies",
+      "lastestParticipation": "Latest Participation",
+      "questions": "Questions",
+      "answers": "Answers",
+      "graded": "Graded",
+      "notGraded": "Not-Graded",
+      "ongoing": "Ongoing",
+      "expired": "Expired",
+      "emptyFeedback": "Looks like there is no feedback given!",
+      "feedback":"Feedback",
+      "feedbackTitle":"Feedback:",
+      "myPerformance": "My Performance",
+      "bookMarkedSuccessMessage": "Bookmark Added Successfully",
+      "bookMarkedRemovedMessage": "Bookmark Removed Successfully",
+      "options": {
+        "sort": "Sort",
+        "filter": "Filter",
+        "sortByNewestFirst": "Sort by Newest First",
+        "sortByOldestFirst": "Sort by Oldest First",
+        "sortByNumberOfThreads": "Sort by Number of Threads",
+        "sortByNumberOfReplies": "Sort by Number of Replies",
+        "sortByNumberOfQuestions": "Sort by Number of Questions",
+        "sortByNumberOfAnswers": "Sort by Number of Answers",
+        "recordsPerPage": "Records per page",
+        "createNew": "Create New",
+        "sortByMostUpvoted": "Sort by Most Upvoted",
+        "sortByMostRecent": "Sort by Most Recent"
+      },
+      "actions": {
+        "edit": "Edit",
+        "delete": "Delete",
+        "evaluate": "Evaluate",
+        "addVisibiltyCriteria": "Add Visibility Criteria",
+        "viewStatistics": "View Statistics",
+        "publishGrade": "Publish Grade",
+        "publishFeedback": "Publish Feedback",
+        "publishGradeAndFeedback": "Publish Grade and Feedback",
+        "unpublishFeedback": "Unpublish Feedback"
+      }
+    },
+    "dialog":{
+      "publishGrade":"Are you sure you want to publish grade/feedback to the selected learners ?",
+      "publishAllGrade":"Are you sure you want to publish grade/feedback to all the learners ?"
+    },
+    "forumContent": {
+      "questionCreatedSuccessMessage": "Question Posted Successfully",
+      "threadCreatedSuccessMessage": "Thread Posted Successfully"
+    }
+  },
+  "timesAgoPipe": {
+    "minuteAgo": "{{dateTimeContext}} min ago",
+    "minutesAgo": "{{dateTimeContext}} mins ago",
+    "hourAgo": "{{dateTimeContext}} hour ago",
+    "hoursAgo": "{{dateTimeContext}} hours ago",
+    "dayAgo": "{{dateTimeContext}} day ago",
+    "daysAgo": "{{dateTimeContext}} days ago",
+    "yearAgo": "{{dateTimeContext}} year ago",
+    "yearsAgo": "{{dateTimeContext}} years ago"
+  },
+  "learningOutcome": {
+    "creationAndManipulation": {
+      "title": "Title",
+      "enterTitle": "Enter Title",
+      "description": "Description",
+      "typeHere": "Type here...",
+      "createNew": "Create New {{type}}",
+      "maxOfCharacter": "Max of {{length}} Characters",
+      "characterLeft": "Max of {{length}} Character",
+      "createLearningObjective": " Create {{title}}"
+    },
+    "status": {
+      "title": "Status",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "applicableTo": {
+      "title": "Applicable to",
+      "content": "Applicable to: Content",
+      "activity": "Applicable to: Activity",
+      "both": "Applicable to: Content and Activity"
+    },
+    "types": {
+      "content": "Content",
+      "activity": "Activity",
+      "both": "Both"
+    },
+    "buttons": {
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "criterias": {
+      "completion": "Completion Criteria",
+      "evaluation": "Evaluation Criteria"
+    },
+    "ranges": {
+      "start": "Start Range",
+      "end": "End Range"
+    },
+    "achieved": {
+      "complete": "Achieved",
+      "partiallyAchieved": "Partially Achieved",
+      "notAchieved": "Not Achieved"
+    }
+  },
+  "learningOutcomeListView": {
+    "buttons": {
+      "createNew": "Create New",
+      "edit": "Edit",
+      "copy": "Copy",
+      "delete": "Delete",
+      "unlink": "Unlink Learning Objectives",
+      "addLearningObjective": "Add Learning Objective",
+      "learningObjective": "Learning Objective",
+      "viewReport": "View Report"
+    },
+    "badges": {
+      "inUse": "In Use",
+      "active": "Active",
+      "inactive": "Inactive",
+      "applicableTo": "Applicable to {{learningOutcome}}",
+      "totalLinks": "Total Links: {{number}}"
+    },
+    "category": {
+      "programLevel": "Program Level",
+      "courseLevel": "Course Level"
+    },
+    "titles": {
+      "learningOutcome": "Learning Outcome",
+      "learningCategory": "Category",
+      "learningObjective": "Learning Objective"
+    },
+    "tooltipMessages": {
+      "evaluationCriteria": "It tracks the %age of marks scored by user in that activity",
+      "completionCriteria": "It tracks the progress of the content for the user"
+    },
+    "errorMessages": {
+      "delete": {
+        "learningOutcome": "Learning Outcome Cannot be deleted in “In Use” State. Please un-link all the objectives of this Learning Outcome",
+        "learningCategory": "Category Cannot be deleted. Please un-link all the objectives of this Category",
+        "learningObjective": "Learning Objective Cannot be deleted. Please un-link this objective first"
+      }
+    },
+    "sucessMessageLearningOutcome": "Learning Outcome created successfully",
+    "deleteOutcomeWarningMessage": "Are you sure you want to delete this Learning Outcome?  Deleting this will also delete its associated Categories and Objectives.",
+    "deleteCategoryWarningMessage": "Are you sure you want to delete this Category?  Deleting this will also delete  its associated Objectives.",
+    "deleteObjectiveWarningMessage": "Are you sure you want to delete this Learning Ojective?",
+    "deleteSucessMessage": "deleted successfully",
+    "removeSucessMessage": "Learning Objective removed successfully",
+    "copyWarningMessage": "Are you sure you want to Copy this {{type}}?",
+    "copySucessMessage": "created successfully",
+    "unlinkWarning": "Are you sure you want to unlink this Learning Objective?",
+    "unlinkSucess": "Objective Unlinked Succesfully",
+    "removeObjective": "Are you sure you want to remove this Objective?",
+    "editObjective": "Are you sure you want to update this Objectives?",
+    "editSuccess":"Learning Objective edited successfully",
+    "attachSucces":"Learning Objective attached successfully",
+    "unlinkUnitWarning": "Are you sure you want to delink this learning objective? Unlinking it at the Unit/Folder level would remove it from all the content & activities it has been attached to."
+  },
+  "learningOutcomeModel": {
+    "successMessages": {
+      "create": {
+        "learningOutcome": "Learning Outcome created successfully",
+        "learningCategory": "Category created successfully",
+        "learningObjective": "Objective created successfully"
+      },
+      "edit": {
+        "learningOutcome": "Learning Outcome edited successfully",
+        "learningCategory": "Category edited successfully",
+        "learningObjective": "Learning Objective edited successfully"
+      }
+    },
+    "tooltipMessages": {
+      "inUse": {
+        "statusMessage": "Status cannot be edited in In Use state.",
+        "applicableTo": {
+          "content": {
+            "firstPoint": "Please unlink the content first to change the applicability to only Activity.",
+            "secondPoint": "Still you can change the applicability to \"Both\" without unlinking the content."
+          },
+          "activity": {
+            "firstPoint": "Please unlink the activity first to change the applicability to only Content.",
+            "secondPoint": "Still you can change the applicability to \"Both\" without unlinking the activity."
+          },
+          "both": {
+            "firstPoint": "Please unlink the content/activity first to change the applicability to only Content/Activity."
+          }
+        }
+      },
+      "activity": {
+        "statusMessage": {
+          "firstPoint": "Learning Objective can only be attached to Content/Activity in an Active State.",
+          "secondPoint": "Learning Objective in an Inactive state would not be displayed on Learning Objective attachment modal."
+        }
+      }
+    }
+  },
+  "contentRating": {
+    "maxOfCharacter": "Max of {{length}} Characters",
+    "charactersLeft": "{{length}} Characters Left",
+    "characterLeft": "{{length}} Character Left",
+    "emptyRating": "Looks like there are no Ratings given yet!",
+    "thisIsARequiredField": "This is a required field.",
+    "titles": {
+      "ratingOverview": "Rating Overview",
+      "comments": "Comments",
+      "goodRating": "We are pleased to hear that!",
+      "badRating": "We are sorry to hear that!"
+    },
+    "placeholders": {
+      "goodRating": "Please elaborate on what went well...",
+      "badRating": "Please elaborate on what went wrong..."
+    },
+    "ratingMessages": {
+      "level1": "Awful, not what I expected",
+      "level2": "Poor, pretty disappointed",
+      "level3": "Average, could be better",
+      "level4": "Good, What I expected!",
+      "level5": "Amazing, above expectations!"
+    },
+    "createRating": {
+      "title": "We encourage you to rate this content. Your rating will be anonymous",
+      "subtitle": "Rate your experience by clicking on the appropriate level"
+    },
+    "buttons": {
+      "edit": "Edit",
+      "cancel": "Cancel",
+      "submit": "Submit"
+    }
+  },
+  "qna": {
+    "question": {
+      "questionHeading": "Ask a Question",
+      "threadHeading": "Start a Thread",
+      "editQuestionHeading": "Edit Q & A",
+      "editThreadHeading": "Edit a Thread",
+      "title": "Title",
+      "titlePlaceholder": "Enter Title",
+      "titleRequiredErrorMessage": "Please type a title",
+      "titleMaxCharactersErrorMessage": "Title should not be more than 250 characters",
+      "deleteQuestionWarningMessage": "Are you sure, you want to Delete this Question?",
+      "descriptionPlaceholder": "Type here...",
+      "maxCharacters": "Max of 250 Characters",
+      "contentDeleted": "Content no longer exists.",
+      "cancelButtonText": "Cancel",
+      "submitButtonText": "Submit",
+      "saveButtonText": "Save",
+      "addedQuestionSuccessMessage": "Question Posted Successfully",
+      "updatedQuestionSuccessMessage": "Updated Successfully",
+      "deletedQuestionSuccessMessage": "Question Deleted successfully"
+    },
+    "answerReply": {
+      "unverifyWarningMessage": "Are you sure, you want to Unverify this Answer?",
+      "deleteReplyWarningMessage": "Are you sure, you want to Delete this Reply?",
+      "title": "Reply",
+      "editTitle": "Edit Reply",
+      "replyErrorMessage": "Please type a reply",
+      "cancelButtonText": "Cancel",
+      "saveButtonText": "Save",
+      "addedReplySuccessMessage": "Reply Posted Successfully",
+      "updatedReplySuccessMessage": "Reply updated successfully",
+      "deletedReplySuccessMessage": "Reply Deleted successfully",
+      "verifiedReplySuccessMessage": "Reply Verified successfully",
+      "unverifiedReplySuccessMessage": "Reply Unverified successfully"
+    },
+    "addQuestion": {
+      "backToAllQuestions": "Back to all questions",
+      "qnaInfo": {
+        "heading": "How to have your questions answered more quickly",
+        "infoItemOne": "Please ask content or academic related questions only.",
+        "infoItemTwo": "For technical related questions, raise a ticket through",
+        "helpDeskModule": "helpdesk module."
+      },
+      "form": {
+        "title": "Title",
+        "titlePlaceholder": "e.g. What does having negative working capital mean?",
+        "titleErrorMessage": "Please type a title",
+        "description": "Description",
+        "descriptionPlaceholder": "e.g. At 02:20, It was this portion which I didn't get. Here's a screenshot of what I worked with.",
+        "cancel": "Cancel",
+        "save": "Save",
+        "submit": "Submit",
+        "successMessage": "Question Posted Successfully"
+      }
+    }
+  },
+  "selfTask": {
+    "creationAndManipulation": {
+      "createSelfTask": "Create Self Task",
+      "editSelfTask": "Edit Self Task",
+      "edit": "Edit",
+      "title": "Title",
+      "enterTitle": "Enter Title",
+      "description": "Description",
+      "startDate": "Start Date and Time: ",
+      "endDate": "End Date and Time: ",
+      "charactersLeft": "{{length}} Characters Left",
+      "characterLeft": "{{length}} Character Left",
+      "maxOfCharacter": "Max of {{length}} Characters",
+      "enterDifferentEndTime": "Please enter a Different End Time",
+      "createSuccess": "Self Task Created successfully",
+      "updateSuccess": "Self Task Edited successfully",
+      "deleteSuccess": "Self Task Deleted successfully",
+      "duration": "Duration",
+      "allDay": "All Day",
+      "addRecurrence": "Add Recurrence",
+      "reminder": "Select Reminder",
+      "minutes": "Minutes",
+      "repeat": "Repeat",
+      "repeatEvery": "Repeat every",
+      "onDay": "On day",
+      "occursEveryDayUntil": "Occurs every day until",
+      "removeEndDate": "Remove end date",
+      "reminderTooltip": "An alert will be sent to you before the starting of the task based on the reminder setting",
+      "recurrence": {
+        "never": "Never",
+        "daily": "Daily",
+        "weekly": "Weekly",
+        "monthly": "Monthly"
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "save": "Save"
+      }
+    },
+    "deleteAlert":"Are you sure you want to Delete the Self Task?"
+  },
+  "todaysTask": {
+    "todaysTask": "Today's Task",
+    "taskList": "Task List",
+    "liveClassroomScheduled": "Live Classroom is scheduled at",
+    "quiz": " Quiz",
+    "assignment": " Assignment",
+    "discussionForum": " Discussion Forum",
+    "personalNote": " Personal Note",
+    "gradingDueToday": " grading is due today",
+    "noOf": "No. of ",
+    "toBeGraded": "to be graded:",
+    "gradingDueDate":" grading is due on ",
+    "gradable":"Gradable",
+    "nonGradable":"Non Gradable",
+    "students": "students",
+    "gradable":"Gradable",
+    "nonGradable":"Non Gradable",
+    "assignments": "assignments",
+    "completedTasks": "Completed Tasks",
+    "emptyCompletedTasks": "Looks like you are yet to start with the daily tasks!",
+    "totalNoOf": "Total no. of ",
+    "reminder" :"Reminder in {{remainder}} min"
+  },
+
+  "calendar":{
+    "calendar":"Calendar",
+    "reminder" :"Reminder in {{remainder}} min",
+    "moreEvents": "+{{remainder}} more",
+    "view": {
+      "month":"Month",
+      "week": "Week",
+      "day": "Day"
+    },
+    "today":"Today",
+    "createselftask":"Create Self Task",
+    "plus":"+",
+    "legendandfilter":"Legend and Filter",
+    "selectAll":"Select All",
+    "quiz": " Quiz",
+    "assignment": " Assignment",
+    "discussionForum":"Discussion Forum",
+    "survey":"Survey",
+    "liveClassroom":"Live Classroom",
+    "selfTask":"Self Task",
+    "allDayUntil":"All Day until"
+    
+  }
+}

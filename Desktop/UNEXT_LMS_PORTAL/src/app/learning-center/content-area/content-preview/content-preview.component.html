@@ -1,0 +1,11 @@
+<div class="preview-content" id="content-preview-con" [ngClass]="{'left-menu-open': isLeftOpen}">
+  <div class="row mb24">
+    <div class="col-6">
+      <h1>Previewing Crash Course in Account & Finance</h1>
+    </div>
+    <div class="col-6 text-end">
+      <button (click)="closePreview()" id="content-closePreview" class="preview-btn" translate="admin.learningCenter.exitPreview"></button>
+    </div>
+  </div>
+  <app-student-course-view [isPreview]=true></app-student-course-view>
+</div>

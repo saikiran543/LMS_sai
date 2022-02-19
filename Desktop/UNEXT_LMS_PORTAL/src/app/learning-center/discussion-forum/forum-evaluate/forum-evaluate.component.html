@@ -1,0 +1,189 @@
+<span id="page_back_btn" style="cursor: pointer;" (click)="backToList()"><img
+        src="./../../../../assets/images/icons/discussion-forum/Back-arrow.svg" alt=""></span>
+<div class="page-layout">
+    <div class="layout-header-con d-flex">
+
+    </div>
+    <div class="discussion-forum-stats-body layout-body-con" *ngIf="forumEvaluateItem">
+        <div class="actions-row discussion-forum-list-con align-items-center justify-content-between">
+            <div class="lms-input-group input-group">
+                <input type="search" placeholder="Search" aria-describedby="button-addon5" class="form-control">
+                <div class="input-group-append">
+                    <button id="button-addon5" type="submit" class="btn btn-primary d-flex align-items-center"><img
+                            src="assets/images/icons/icon-search-white.svg"></button>
+                </div>
+            </div>
+            <div class="layout stat-box-con layout-item-center align-item-center">
+
+                <div class="stat-box flex-center-align flex-column text-center">
+                    <span class="stat-box-text select-box-text">{{allRowsSelected ? page.totalElements - unselected.length : selected.length
+                        }} <span translate="discussionForums.forumList.selected"></span></span>
+                </div>
+                    <div class="dropdown">
+                        <button  class="flat-btn arrow-btn dropdown-toggle" type="button" id="content-area-filter" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          Bulk Actions
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                          <li><button class="dropdown-item" id="content-area-filter-action" type="button" (click)="exportData('pdf')" translate="discussionForums.forumList.exportDataAsPDF"></button></li>
+                          <li><button class="dropdown-item" id="content-area-filter-action" type="button" (click)="exportData('xlsx')" translate="discussionForums.forumList.exportDataAsXLSX"></button></li>
+                          <li><button class="dropdown-item" id="content-area-filter-action1" type="button" (click)="publishGradeFeedback('feedback')" translate="discussionForums.forumList.actions.publishFeedback"></button></li>
+                          <li><button class="dropdown-item" id="content-area-filter-action1" type="button" (click)="publishGradeFeedback('grade')" translate="discussionForums.forumList.actions.publishGrade"></button></li>
+                          <li><button class="dropdown-item" id="content-area-filter-action1" type="button" (click)="publishGradeFeedback('both')" translate="discussionForums.forumList.actions.publishGradeAndFeedback"></button></li>
+                          <li><button class="dropdown-item" id="content-area-filter-action2" type="button"  (click)="unpublishFeedback('feedback')" translate="discussionForums.forumList.actions.unpublishFeedback"></button></li> 
+                        </ul>
+                      </div>
+                <div class="layout layout-item-center rows-per-page me-0">
+                    <label class="records-per-page me-1"
+                        translate="discussionForums.forumList.options.recordsPerPage"></label>
+                    <div class="quantity">
+                        <input [value]='recordsPerPage' readonly>
+                        <div class="quantity__btn quantity__btn--up" (click)="modifyRecordsPerPage('-')">
+                            <svg-icon src="assets/images/icons/rubric/arrow-up.svg"></svg-icon>
+                        </div>
+                        <div class="quantity__btn quantity__btn--down" (click)="modifyRecordsPerPage('+')">
+                            <svg-icon src="assets/images/icons/rubric/arrow-down.svg"></svg-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="discussion-forum-content-con mt-4 mb-4">
+            <div class="discussion-forum-content-box d-flex row">
+                <div class="content-text col-12 col-lg-12">
+                    <app-discussion-forum-content [forumDetail]='{breadcrumbTitle: forumEvaluateItem?.breadcrumbTitle,
+                        title: forumEvaluateItem?.activitymetadata[0]?.title,
+                        description: forumEvaluateItem?.activitymetadata[0]?.description,
+                        type: forumEvaluateItem?.subType,
+                        startDate: forumEvaluateItem?.activitymetadata[0]?.startDate,
+                        endDate: forumEvaluateItem?.activitymetadata[0]?.endDate,
+                        learningObjectives: forumEvaluateItem?.isLearningObjectiveLinked,
+                        showValidity: true,
+                        clickable: false}'></app-discussion-forum-content>
+                </div>
+            </div>
+        </div>
+        <div class="data-table-holder" *ngIf="studentActivities?.length">
+            <div class="stats-table-con standard-discussion-data-table" *ngIf="standardDiscussionDataTable">
+                <ngx-datatable #datatable [footerHeight]="50" class="material" [rows]="rows" [columns]="columns" [scrollbarH]="true" 
+                    [columnMode]="'force'" [selected]="selected" [selectionType]="selection" [externalPaging]="true" [count]="page.totalElements" [sorts]="[{prop: 'Username', dir: 'asc'}]"
+                    [offset]="page.pageNumber - 1" [limit]="page.size" (page)="setPage($event)" id="standard-discussion-datatable" [rowIdentity]="getRowId" (sort)="sortCallback($event)">
+                    <ngx-datatable-column prop='selected' name='' [frozenLeft]="true" [sortable]=false [canAutoResize]=false
+                        [draggable]=false [resizeable]=false [width]=30>
+                        <ng-template ngx-datatable-header-template>
+                            <label class="datatable-checkbox">
+                                <input type="checkbox" [checked]="allRowsSelected" (change)="selectAllRows($event)">
+                            </label>
+                        </ng-template>
+                        <ng-template ngx-datatable-cell-template let-row="row">
+                            <label class="datatable-checkbox">
+                                <input type="checkbox" [checked]="checkSelection(row.id)" (change)="onSelect($event, row)">
+                            </label>                    
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Username" [frozenLeft]="true" prop="Username">
+                        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                            let-row="row">
+                            <span class="username" (click)="navigateToStudentDetailsPage(row)">{{value}}</span>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="ParticipationStatus" [sortable]=false>
+                        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                            let-row="row">
+                            <span class="value-con p-relative d-inline-block">
+                                <span class="colour-dot blue-dot" *ngIf="value ==='Participated'"></span>
+                                <span class="colour-dot grey-dot" *ngIf="value ==='Not Participated'"></span>
+                                {{value}}
+                            </span>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="SubmittedDate" [sortable]=false>
+                        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                            let-row="row">
+                            <span class="">{{(value) && (value | date: 'dd MMM yyyy') || '-'}}</span>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="ThreadsInitiated" [sortable]=false></ngx-datatable-column>
+                    <ngx-datatable-column prop="ThreadsParticipated" [sortable]=false></ngx-datatable-column>
+                    <ngx-datatable-column prop="UpvotesReceived" [sortable]=false></ngx-datatable-column>
+                    <ngx-datatable-column prop="GradeStatus" [sortable]=false>
+                        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                            let-row="row">
+                            <span class="datatable-label-txt label-not-graded" *ngIf="!value"><span
+                                    translate="discussionForums.forumList.notGraded"></span></span>
+                            <span class="datatable-label-txt label-graded" *ngIf="value"><span
+                                    translate="discussionForums.forumList.graded"></span></span>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="OverallScore" [sortable]= false></ngx-datatable-column>
+                    <ngx-datatable-column prop="PublishStatus" [sortable]= false></ngx-datatable-column>
+                </ngx-datatable>
+            </div>
+            <div class="stats-table-con doubt-clarification-data-table" *ngIf="!standardDiscussionDataTable">
+                <div id="dc_scroll_left_btn" *ngIf="scrollIconCheck('left')" (click)="scrollDatatableBody('left')">
+                    <svg-icon src="./../../../../assets/images/icons/arrow-down.svg"></svg-icon>
+                </div>
+                <div id="dc_scroll_right_btn" *ngIf="scrollIconCheck('right')" (click)="scrollDatatableBody('right')">
+                    <svg-icon src="./../../../../assets/images/icons/arrow-down.svg"></svg-icon>
+                </div>
+                <ngx-datatable #datatable [footerHeight]="50" style="width: 100%" class="material" [rows]="rows" [scrollbarH]="true"
+                    [columns]="doubtClarificationColumns" [columnMode]="'force'" [selected]="selected" [sorts]="[{prop: 'Username', dir: 'asc'}]"
+                    [selectionType]="selection" [externalSorting]="true" [externalPaging]="true" [count]="page.totalElements" [offset]="page.pageNumber - 1"
+                    [limit]="page.size" (sort)="sortCallback($event)" (page)="setPage($event)" [rowIdentity]="getRowId" id="doubt-clarification-datatable">
+                    <ngx-datatable-column prop='selected' name='' [cellClass]="'option-cell rightmost-cell'" [frozenLeft]="true" [sortable]=false [canAutoResize]=false
+                        [draggable]=false [resizeable]=false [width]=30>
+                        <ng-template ngx-datatable-header-template>
+                            <label class="datatable-checkbox">
+                                <input type="checkbox" [checked]="allRowsSelected" (change)="selectAllRows($event)">
+                            </label>
+                        </ng-template>
+                        <ng-template ngx-datatable-cell-template let-row="row">
+                            <label class="datatable-checkbox">
+                                <input type="checkbox" [checked]="checkSelection(row.id)" (change)="onSelect($event, row)">
+                            </label>                    
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Username" prop="Username" [frozenLeft]="true">
+                        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                            let-row="row">
+                            <span class="username" (click)="navigateToStudentDetailsPage(row)">{{value}}</span>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="ParticipationStatus" [sortable]=false>
+                        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                            let-row="row">
+                            <span class="value-con p-relative d-inline-block">
+                                <span class="colour-dot blue-dot" *ngIf="value ==='Participated'"></span>
+                                <span class="colour-dot grey-dot" *ngIf="value ==='Not Participated'"></span>
+                                {{value}}
+                            </span>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="ContentAccessible" [sortable]=false>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="SubmittedDate" [sortable]=false>
+                        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                            let-row="row">
+                            <span class="">{{(value) && (value | date: 'dd MMM yyyy') || '-'}}</span>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="QuestionsPosted" [sortable]= false></ngx-datatable-column>
+                    <ngx-datatable-column prop="AnswersGiven" [sortable]= false></ngx-datatable-column>
+                    <ngx-datatable-column prop="UpvotesReceived" [sortable]= false></ngx-datatable-column>
+                    <ngx-datatable-column prop="VerifiedAnswers" [sortable]= false></ngx-datatable-column>
+                    <ngx-datatable-column prop="GradeStatus" [sortable]= false>
+                        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                            let-row="row">
+                            <span class="datatable-label-txt label-not-graded" *ngIf="!value"><span
+                                    translate="discussionForums.forumList.notGraded"></span></span>
+                            <span class="datatable-label-txt label-graded" *ngIf="value"><span
+                                    translate="discussionForums.forumList.graded"></span></span>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="OverallScore" [sortable]= false></ngx-datatable-column>
+                    <ngx-datatable-column prop="PublishStatus" [sortable]= false></ngx-datatable-column>
+                </ngx-datatable>
+            </div>
+        </div>
+    </div>
+</div>

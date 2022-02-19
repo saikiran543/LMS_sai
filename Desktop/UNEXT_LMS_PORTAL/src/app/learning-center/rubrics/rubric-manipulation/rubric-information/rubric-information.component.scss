@@ -1,0 +1,240 @@
+.rubricInstructions {
+    padding: 3.16%;
+    height: calc(100vh - 115px);
+    overflow-y: scroll;
+    h3 {
+        color: #000000;
+        font-size: 18px;
+        line-height: 24px;
+        font-family: "Proxima Nova W05 Bold";
+        margin-bottom: 2.525%;
+    }
+    ul {
+        padding: 0;
+        li {
+            list-style: none;
+            margin-bottom: 14px;
+            color: #555555;
+            font-size: 16px;
+            line-height: 24px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    h5 {
+        color: #000000;
+        font-size: 18px;
+        line-height: 24px;
+        margin: 3.364% 0 2.525% 0;
+    }
+    .close-info {
+        min-width: 130px;
+        width: 6.8vw;
+        height: 60px;
+        background: #FF6600;
+        border-radius: 4px;
+        opacity: 1;
+        color: #fff;
+        font-size: 16px;
+        border: none;
+    }
+}
+
+
+.rubricsStructuretable {
+    .rubricStructure-label {
+        margin-bottom: 16px;
+        .form-label{
+            border-bottom: #FF6600 4px solid;
+        }
+        span {
+            font-style: italic;
+            font-size: 8px;
+            font-weight: bold;
+            color: #fff;
+            width: 11px;
+            height: 11px;
+            background: #4FA8FF 0% 0% no-repeat padding-box;
+            display: block;
+            border-radius: 64px;
+            text-align: center;
+            margin-left: 8px;
+            line-height: 11px;
+        }
+    }
+    table {
+        thead {
+            background: #EBEEF6 0% 0% no-repeat padding-box;
+            border-radius: 8px 8px 0px 0px;
+            opacity: 1;
+            height: 112px;
+            tr {
+                th {
+                    vertical-align: middle;
+                    text-align: center;
+                    padding: 10px 12px;
+                    width: 276px;
+                    div.title {
+                        background-color: #fff;
+                        border-radius: 6px;
+                        padding: 10px 18px;
+                        text-align: left;
+                        font-family: "Proxima Nova W05 Regular";
+                    }
+                    .addlevel {
+                        color: #FF6600;
+                        font-size: 16px;
+                        font-weight: normal;
+                        button {
+                            background-color: #FF6600;
+                            border: none;
+                            border-radius: 50%;
+                            width: 32px;
+                            height: 32px;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            &:focus {
+                                box-shadow: none;
+                            }
+                        }
+                        img {
+                            cursor: pointer;
+                        }
+                        span {
+                            cursor: pointer;
+                        }
+                        
+                    }
+                    .top-level-div {
+                        margin-bottom: 12px;
+                        div {
+                            flex: 1;
+                            text-align: right;
+                        }
+                        .dropdown-toggle {
+                            width: 12px;
+                            height: 12px;
+                            background: #FFFFFF 0% 0% no-repeat padding-box;
+                            border: 0.5px solid #FF6600;
+                            border-radius: 3px;
+                            opacity: 1;
+                            padding: 0;
+                            &::after {
+                                border: none;
+                            }
+                            img {
+                                margin-top: -18px;
+                                margin-left: 1px;
+                            }
+                            
+                            &:focus {
+                                box-shadow: none;
+                            }
+                            
+                        }
+                    }
+                    
+                }
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    width: 276px;
+                    padding: 24px 16px;
+                    &:first-child {
+                        // padding: 0 5.27%;
+                    }
+                    .criteria {
+                        margin-bottom: 16px;
+                        .criteriaText {
+                            color: #555555;
+                        }
+                        
+                        input {
+                            width: 80px;
+                            height: 40px;
+                            border: 0.5px solid #CFDAE6 !important;
+                            border-radius: 8px !important;
+                            opacity: 1;
+                            margin-left: 12px;
+                        }
+                        .weightage {
+                            margin-top: 24px;
+                            label {
+                                margin-bottom: 0;
+                                font-family: "Proxima Nova W05 Regular";
+                            }
+                        }
+                        .error{
+                            border-color: #FF4646 !important;
+                        }
+                        .dropdown-toggle {
+                            width: 12px;
+                            height: 12px;
+                            background: #FFFFFF 0% 0% no-repeat padding-box;
+                            border: 0.5px solid #FF6600;
+                            border-radius: 3px;
+                            opacity: 1;
+                            padding: 0;
+                            &::after {
+                                border: none;
+                            }
+                            img {
+                                margin-top: -18px;
+                                margin-left: 1px;
+                            }
+                            
+                            &:focus {
+                                box-shadow: none;
+                            }
+                            
+                        }
+                    }
+                    .level {
+                        input {
+                            width: 80px;
+                            height: 40px;
+                            border: 0.5px solid #CFDAE6 !important;
+                            border-radius: 8px !important;
+                            opacity: 1;
+                            margin-right: 12px;
+                        }
+                        .percentage {
+                            margin-bottom: 16px;
+                            label {
+                                margin-bottom: 0;
+                                font-family: "Proxima Nova W05 Regular";
+                            }
+                            .error{
+                                border-color: #FF4646 !important;
+                            }
+                        }
+                        .description-box {
+                            height: 105px;
+                            border: 0.5px solid #CFDAE6;
+                            opacity: 1;
+                            overflow: hidden;
+                            padding: 12px;
+                            font-size: 14px;
+                            line-height: 20px;
+                            color: #555555CC;
+                            &.active{
+                                pointer-events: none;
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+        
+    }
+    
+}
+.close-button-container{
+    padding-right: 3.16%;
+    padding-bottom: 3.16%;
+}

@@ -1,0 +1,186 @@
+<div *ngIf="isInitialize">
+  <div *ngIf="bannerConfig.bannerType == 'vertical'" id="branding-bannerType-vertical" class="layout branding-vertical-layout">
+    <div class="vertical-img-component" id="branding-bannerType-vertical-img-con">
+      <img [src]="bannerConfig.brandingBannerVerticalImage">
+    </div>
+    <div id="branding-bannerType-vertical-welcome-con" class=""
+    [ngClass]="bannerConfig.announcementStatus?'vertical-welcome-component-two':'vertical-welcome-component'">
+    <div [ngClass]="bannerConfig.announcementStatus?'text-center':''">
+      <div id="branding-bannerType-vertical-showwelcome" class="layout layout-item-center welcome-container" [ngClass]="!bannerConfig.announcementStatus?'welcome-msg':''">
+        <img class="user-img" [src]="bannerConfig.profilePic">
+        <div>
+          <div class="hello-text">{{bannerConfig.headerText}} Ryan</div>
+          <div class="branding-text">{{bannerConfig.greetingsText}}</div>
+        </div>
+      </div>
+      <div *ngIf="bannerConfig.announcementStatus" id="branding-bannerType-vertical-announcement" class="announcement-text"
+      (mouseenter)="pausePlayCountdownAnnouncement($event)" (mouseleave)="pausePlayCountdownAnnouncement($event)"
+      [innerHtml]="bannerConfig.announcementMessage">
+
+    </div>
+  </div>
+  <div id="branding-bannerType-vertical-unext-logo" *ngIf="bannerConfig.poweredByUnextLogo" class="powered-by-unext">
+    <img src="assets/images/powered-by-unext-logo.png">
+  </div>
+
+
+      <div class="skip" id="branding-bannerType-vertical-skip">
+        <div class="progressbar" id="branding-bannerType-vertical-progressbar" (mouseenter)="pauseResumeIconsHover('mouseenter')"
+        (mouseleave)="pauseResumeIconsHover('mouseleave')">
+        <div class="progressbar-action-btn pause" id="branding-bannerType-vertical-action-pause" *ngIf="iconType == 'pause'"><img
+            src="../assets/images/icons/icon-pause.svg" (click)="pauseResumeCountdown(true, '')"></div>
+        <div class="progressbar-action-btn play" id="branding-bannerType-vertical-action-play" *ngIf="iconType == 'resume'"><img
+            src="../assets/images/icons/icon-play.svg" (click)="pauseResumeCountdown(false, '')"></div>
+        <circle-progress [percent]="progress" [radius]="15" [maxPercent]="100" [space]="-2" [backgroundPadding]="7"
+          [outerStrokeWidth]="2" [innerStrokeWidth]="2" [outerStrokeColor]="'#ff6600'" [innerStrokeColor]="'#e7e8ea'"
+          [animation]="false" [clockwise]="false" [animationDuration]="duration" [subtitle]="''" [title]="percentageTitle"
+          [titleFontSize]="'12'" [unitsColor]="'red'" [titleColor]="'#ff6600'" [subtitleColor]="'black'"
+          [renderOnClick]="true" [units]="''" [showSubtitle]="false" [showUnits]="false"></circle-progress>
+      </div>
+        <div class="skip-to-dashboard" id="branding-bannerType-vertical-skipToDashboard" [ngClass]="{'skip-to-dashboard-disabled':isPreview}">
+          <button id="branding-bannerType-vertical-preview" (click)="isPreview ? 'javascript:void(0)':  skipToDashBoard()" translate="branding.skipToDashboard"><svg
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="6" height="9.801"
+              viewBox="0 0 6 9.801">
+              <defs>
+                <clipPath id="clip-arrow">
+                  <rect width="6" height="9.8" />
+                </clipPath>
+              </defs>
+              <g id="arrow" clip-path="url(#clip-arrow)">
+                <path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down"
+                  d="M4.746,3.79,8.334.2a.675.675,0,0,1,.958,0,.684.684,0,0,1,0,.961L5.227,5.228a.677.677,0,0,1-.935.02L.2,1.163A.678.678,0,0,1,1.155.2Z"
+                  transform="translate(0 9.488) rotate(-90)" />
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+  
+  </div>
+  
+</div>
+</div>
+
+  <div *ngIf="bannerConfig.bannerType == 'horizontal'" id="branding-bannerType-horizontal" class="branding-card-layout">
+    <div class="layout hero-overlay-component"
+      [ngStyle]="{'background-image': ' url(' + bannerConfig.brandingBannerHorizontalImage  + ') '}">
+      <div id="branding-bannerType-horizontal-welcome-con" class="layout layout-item-center layout-justify-center layout-flex-direction-column"
+        [ngClass]="bannerConfig.announcementStatus?'card-welcome-component-two':'card-welcome-component'">
+        <div>
+          <div class="layout layout-item-center" id="branding-bannerType-horizontal-status" [ngClass]="!bannerConfig.announcementStatus?'welcome-msg':''">
+            <img class="user-img" [src]="bannerConfig.profilePic">
+            <div>
+              <div class="hello-text">{{bannerConfig.headerText}} Ryan</div>
+              <div class="branding-text">{{bannerConfig.greetingsText}}</div>
+            </div>
+          </div>
+          <div id="branding-bannerType-horizontal-status-text" *ngIf="bannerConfig.announcementStatus" class="announcement-text"
+            (mouseenter)="pausePlayCountdownAnnouncement($event)" (mouseleave)="pausePlayCountdownAnnouncement($event)"
+            [innerHtml]="bannerConfig.announcementMessage">
+          </div>
+        </div>
+        <div id="branding-bannerType-horizontal-unext-logo" *ngIf="bannerConfig.poweredByUnextLogo" class="powered-by-unext">
+          <img src="assets/images/powered-by-unext-logo.png">
+        </div>
+
+        <div class="skip"  id="branding-bannerType-horizontal-skip">
+          <div  id="branding-bannerType-horizontal-progressbar" class="progressbar" (mouseenter)="pauseResumeIconsHover('mouseenter')"
+          (mouseleave)="pauseResumeIconsHover('mouseleave')">
+          <div class="progressbar-action-btn pause" id="branding-bannerType-horizontal-pause" *ngIf="iconType == 'pause'"><img
+              src="../assets/images/icons/icon-pause.svg" (click)="pauseResumeCountdown(true, '')"></div>
+          <div class="progressbar-action-btn play" id="branding-bannerType-horizontal-play"  *ngIf="iconType == 'resume'"><img
+              src="../assets/images/icons/icon-play.svg" (click)="pauseResumeCountdown(false, '')"></div>
+          <circle-progress [percent]="progress" [radius]="15" [maxPercent]="100" [space]="-2" [backgroundPadding]="7"
+            [outerStrokeWidth]="2" [innerStrokeWidth]="2" [outerStrokeColor]="'#ff6600'" [innerStrokeColor]="'#e7e8ea'"
+            [animation]="false" [clockwise]="false" [animationDuration]="duration" [subtitle]="''" [title]="percentageTitle"
+            [titleFontSize]="'12'" [unitsColor]="'red'" [titleColor]="'#ff6600'" [subtitleColor]="'black'"
+            [renderOnClick]="true" [units]="''" [showSubtitle]="false" [showUnits]="false"></circle-progress>
+        </div>
+        <div class="skip-to-dashboard" id="branding-bannerType-horizontal-skiptoDashboard" [ngClass]="{'skip-to-dashboard-disabled':isPreview}">
+          <button id="branding-bannerType-horizontal-skiptoDashboard-btn" (click)="isPreview ? 'javascript:void(0)':  skipToDashBoard()" translate="branding.skipToDashboard"><svg
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="6" height="9.801"
+                viewBox="0 0 6 9.801">
+                <defs>
+                  <clipPath id="clip-arrow">
+                    <rect width="6" height="9.8" />
+                  </clipPath>
+                </defs>
+                <g id="arrow" clip-path="url(#clip-arrow)">
+                  <path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down"
+                    d="M4.746,3.79,8.334.2a.675.675,0,0,1,.958,0,.684.684,0,0,1,0,.961L5.227,5.228a.677.677,0,0,1-.935.02L.2,1.163A.678.678,0,0,1,1.155.2Z"
+                    transform="translate(0 9.488) rotate(-90)" />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="bannerConfig.announcementStatus" id="branding-bannerType-horizontal-announcementStatus" class="announcement-text"
+    (mouseenter)="pausePlayCountdownAnnouncement($event)" (mouseleave)="pausePlayCountdownAnnouncement($event)"
+    [innerHtml]="bannerConfig.announcementMessage">
+  </div>
+</div>
+
+<div *ngIf="bannerConfig.bannerType == 'horizontalSplit'" id="branding-bannerType-horizontalSplit" class="branding-horizontal-layout">
+  <div class="horizontal-img-component" id="branding-bannerType-horizontalSplit-img-con">
+    <img [src]="bannerConfig.brandingBannerHorizontalSplitImage">
+  </div>
+  
+  <div class="layout layout-item-center" id="branding-bannerType-horizontalSplit-content"
+  [ngClass]="bannerConfig.announcementStatus?'horizontal-content-component-two':'horizontal-content-component'">
+  
+  <div class="welcome-msg-and-announcement" id="branding-bannerType-horizontalSplit-msgCon">
+
+    <div class="layout layout-item-flex-start welcome-msg">
+      <div class="layout">
+        <img class="user-img" [src]="bannerConfig.profilePic">
+        <div id="branding-bannerType-horizontalSplit-greetingTxt" [ngClass]="bannerConfig.announcementStatus?'div-column':'div-row layout-item-center'">
+          <div>
+            <div class="hello-text">{{bannerConfig.headerText}} Ryan</div>
+            <div class="branding-text">{{bannerConfig.greetingsText}}</div>
+          </div>
+          <div id="branding-bannerType-horizontalSplit-unext-logo" *ngIf="bannerConfig.poweredByUnextLogo" class="powered-by-unext">
+            <img src="assets/images/powered-by-unext-logo.png">
+          </div>
+        </div>
+      </div>
+      <div *ngIf="bannerConfig.announcementStatus" [innerHtml]="bannerConfig.announcementMessage" class="announcement-text"></div>
+    </div>
+
+    <div class="skip" id="branding-bannerType-skip-con">
+      <div class="progressbar" id="branding-bannerType-progressbar-con" (mouseenter)="pauseResumeIconsHover('mouseenter')"
+      (mouseleave)="pauseResumeIconsHover('mouseleave')">
+      <div class="progressbar-action-btn pause" *ngIf="iconType == 'pause'"><img
+          src="../assets/images/icons/icon-pause.svg" id="branding-bannerType-pause" (click)="pauseResumeCountdown(true, '')"></div>
+      <div class="progressbar-action-btn play" *ngIf="iconType == 'resume'"><img
+          src="../assets/images/icons/icon-play.svg" id="branding-bannerType-play" (click)="pauseResumeCountdown(false, '')"></div>
+      <circle-progress [percent]="progress" [radius]="15" [maxPercent]="100" [space]="-2" [backgroundPadding]="7"
+        [outerStrokeWidth]="2" [innerStrokeWidth]="2" [outerStrokeColor]="'#ff6600'" [innerStrokeColor]="'#e7e8ea'"
+        [animation]="false" [clockwise]="false" [animationDuration]="duration" [subtitle]="''" [title]="percentageTitle"
+        [titleFontSize]="'12'" [unitsColor]="'red'" [titleColor]="'#ff6600'" [subtitleColor]="'black'"
+        [renderOnClick]="true" [units]="''" [showSubtitle]="false" [showUnits]="false"></circle-progress>
+    </div>
+    <div class="skip-to-dashboard" [ngClass]="{'skip-to-dashboard-disabled':isPreview}">
+      <button (click)="isPreview ? 'javascript:void(0)':  skipToDashBoard()" id="branding-bannerType-skip-to-dashboard" translate="branding.skipToDashboard"><svg
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="6" height="9.801"
+            viewBox="0 0 6 9.801">
+            <defs>
+              <clipPath id="clip-arrow">
+                <rect width="6" height="9.8" />
+              </clipPath>
+            </defs>
+            <g id="arrow" clip-path="url(#clip-arrow)">
+              <path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down"
+                d="M4.746,3.79,8.334.2a.675.675,0,0,1,.958,0,.684.684,0,0,1,0,.961L5.227,5.228a.677.677,0,0,1-.935.02L.2,1.163A.678.678,0,0,1,1.155.2Z"
+                transform="translate(0 9.488) rotate(-90)" />
+            </g>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+</div>

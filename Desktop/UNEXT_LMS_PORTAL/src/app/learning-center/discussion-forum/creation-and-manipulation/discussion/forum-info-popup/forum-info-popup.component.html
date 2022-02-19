@@ -1,0 +1,17 @@
+<div class="forum-info-popup">
+  <div class="heading row layout layout-item-center">
+    <p>{{ 'discussionForums.forumInfoPopup.title' | translate}}</p>
+  </div>
+  <ul class="row">
+    <li class="row">
+      <p><span>{{ 'discussionForums.standardDiscussionForum' | translate }}</span> – {{ 'discussionForums.forumInfoPopup.standardDiscussionInfo' | translate}}</p>
+      <p><span>{{ 'discussionForums.doubtClarificationForum' | translate}}</span> – {{ 'discussionForums.forumInfoPopup.doubtClarificationInfo' | translate }}</p>
+    </li>
+    <li class="row"></li>
+  </ul>
+  <div class="row">
+    <button class="yes-btn confirm-yes" (click)="closeModal()">
+      {{ 'discussionForums.forumInfoPopup.closeCta' | translate}}
+    </button>
+  </div>
+</div>

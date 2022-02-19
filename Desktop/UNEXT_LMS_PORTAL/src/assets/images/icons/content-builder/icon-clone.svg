@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="11" height="14" viewBox="0 0 11 14">
+  <defs>
+    <clipPath id="clip-clone">
+      <rect width="11" height="14"/>
+    </clipPath>
+  </defs>
+  <g id="clone" clip-path="url(#clip-clone)">
+    <g id="Group_27306" data-name="Group 27306" transform="translate(1 1)">
+      <path id="Path_14612" data-name="Path 14612" d="M55.109,85.4h-5.52a.939.939,0,0,0-.939.939v7.921a.939.939,0,0,0,.939.939h5.52a.939.939,0,0,0,.939-.939V86.339A.942.942,0,0,0,55.109,85.4Zm.28,8.857a.282.282,0,0,1-.282.282h-5.52a.282.282,0,0,1-.282-.282V86.339a.282.282,0,0,1,.282-.282h5.52a.282.282,0,0,1,.282.282Z" transform="translate(-48.65 -83.323)" fill="#555" stroke="#555" stroke-width="0.25"/>
+      <path id="Path_14613" data-name="Path 14613" d="M141.909,0h-5.52a.939.939,0,0,0-.939.939.328.328,0,1,0,.657,0,.282.282,0,0,1,.282-.282h5.52a.282.282,0,0,1,.282.282V8.859a.282.282,0,0,1-.282.282.328.328,0,1,0,0,.657.939.939,0,0,0,.939-.939V.939A.939.939,0,0,0,141.909,0Z" transform="translate(-133.339)" fill="#555" stroke="#555" stroke-width="0.25"/>
+    </g>
+  </g>
+</svg>

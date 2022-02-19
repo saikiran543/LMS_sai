@@ -1,0 +1,78 @@
+.branding-layout {
+    max-width: calc(80% + 32px);
+    .nav-tabs {
+        border-bottom: 1px solid #55555533;
+        margin-bottom: 2.67%;
+        .nav-link {
+            border: 0px;
+            color: #55555580;
+            padding: 0px;
+            margin-right: 1.667vw;
+            font-size: 16px;
+            line-height: 20px;
+        }
+        .active {
+            color: #000;
+            background-color: #fff;
+            border-bottom: 3px solid #FF6600;
+            font-family: "Proxima Nova W05 Bold";
+        }
+    }
+    .banner-type {
+        margin-right: 32px;
+        img {
+            border: 1px solid #55555533;
+            border-radius: 4px;
+            box-shadow: inset 0px 0px 0px 10px #55555533;
+        }
+        p {
+            font-size: 12px;
+            text-align: center;
+            margin-bottom: 0px;
+        }
+        .custome-radiobutton{
+            margin-top: 10%;
+        }
+    }
+    .form-switch.form-check .circle-switch {
+        top: 6px;
+        right: 28px;
+    }
+}
+.upload-img-outer-container {
+    flex: 1;
+}
+.web-clear-button, .web-preview-button {
+    width: 13.15%;
+    height: 7.67vw;
+    padding: initial;
+    font-size: calc(12px + 0.4169vw);
+}
+select {
+    height: 5.123vh;
+    max-height: 48px;
+}
+
+
+@media only screen and (min-width: 1366px) and (max-width: 1919px) {
+    .branding-layout {
+        max-width: calc(88% + 32px) !important;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+    .branding-layout {
+        max-width: calc(95% + 32px) !important;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .branding-layout {
+        max-width: calc(100% + 32px) !important;
+    }
+}
+@media only screen and (max-width: 573px) {
+    .uploaded-img {
+        margin-top: 12px;
+        margin-left: 0px;
+        flex-basis: auto;
+    }
+}

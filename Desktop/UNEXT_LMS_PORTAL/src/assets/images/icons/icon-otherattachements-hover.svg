@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31" height="39" viewBox="0 0 31 39">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.883" y1="0.098" x2="0.088" y2="0.973" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#9fb5eb"/>
+      <stop offset="1" stop-color="#5b6e9e"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <path id="Path_15363" data-name="Path 15363" d="M.01.244,12.6.261V13.273H.01Z" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Path_15355" data-name="Path 15355" d="M522.016-107.99l-7.49.3A4.689,4.689,0,0,1,510-112.217l.328-7.511Z" transform="translate(-509.999 120)" fill="none" clip-rule="evenodd"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <path id="Path_15354" data-name="Path 15354" d="M-50-285.376H196.182V-470H-50Z" transform="translate(50 470)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-attachment_hover">
+      <rect width="31" height="39"/>
+    </clipPath>
+  </defs>
+  <g id="attachment_hover" data-name="attachment hover" clip-path="url(#clip-attachment_hover)">
+    <g id="Group_29405" data-name="Group 29405" transform="translate(0.666 0.354)">
+      <path id="Subtraction_7" data-name="Subtraction 7" d="M20896,14673.607h-24a3.5,3.5,0,0,1-3.5-3.5v-31a3.5,3.5,0,0,1,3.5-3.5h15.861c2.094,2.118,10.23,10.286,11.641,11.7v22.8A3.505,3.505,0,0,1,20896,14673.607Z" transform="translate(-20868.5 -14635.359)" fill="url(#linear-gradient)"/>
+      <g id="Group_29387" data-name="Group 29387" transform="translate(18.4)">
+        <g id="Mask_Group_421" data-name="Mask Group 421" transform="translate(0 0)" clip-path="url(#clip-path)">
+          <image id="Rectangle_6600" data-name="Rectangle 6600" width="13.54" height="13.539" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAALKADAAQAAAABAAAALAAAAADfpsWZAAABt0lEQVRYCc3YiVLDMAxFUUrZpvz/z7IV3ZYX1EB2yZFnhJ3Udk4UNTPlcHdth5+e7uzG5Yb3JhJWUB2XwwICTFNfHq0MH6/uy9/SaGW2XwZl0QK7BHfDkugxMPJy6ClwOfQccCn0XHAZ9BJwCfRS8O7oNeBd0WvBu6G3gHdBbwU3R0eAm6KjwM3QkeAm6GhwOjoDnIrOAqehM8Ep6GxwOLoFOBTtwf0folwosoX83PJgP46E+r02oz0yO8OCb0J7sP9nijbP6lejAbOYeMjSDey7Cq0Ms5iS0PHANcJPL0YL+GUU4iWcNL3hIrTALPq0eLRoXRrc0mx0/4vGDTxbvLHLDo2yHH1bCaxJ9MpySbTAPpmgnyzI9rv/oOEYg5J4c1kP1gTVE19A6rkU2oN1JwJzTKap6Q8L3iKt259M/wcGBVpBlk8WzOVN4m/IDtPbDXoIjEJgAYG/WpBx6lslZMP01qHHLqpJ4LgxwARjDx7bw6aubpQgT5S3FXF5ugCGmjLLRC2mlgUWWmD1Q/stPa8nzLpu724wsZvm0RN97MTyTR8DV8J+5TO3FFzT+8c6H9nrSbPn+RvNqEq/LGWpPAAAAABJRU5ErkJggg=="/>
+        </g>
+      </g>
+      <g id="Group_29389" data-name="Group 29389" transform="translate(19.016)" clip-path="url(#clip-path-2)">
+        <g id="Group_29388" data-name="Group 29388" transform="translate(-172.326 -107.697)" clip-path="url(#clip-path-3)">
+          <path id="Path_15353" data-name="Path 15353" d="M520.386-109.615H505V-125h15.386Z" transform="translate(-334.211 231.159)" fill="rgba(255,255,255,0.4)"/>
+        </g>
+      </g>
+      <g id="noun_attach_file_1540289" data-name="noun_attach file_1540289" transform="translate(11.365 12.961)">
+        <g id="Group_28450" data-name="Group 28450" transform="translate(0 0)">
+          <path id="Path_15143" data-name="Path 15143" d="M8.3,13.215a.47.47,0,1,1-.939,0V3.755A3.217,3.217,0,0,0,5.633,1.3a3.533,3.533,0,0,0-2.961,0A3.061,3.061,0,0,0,.939,3.755V16.248A2.17,2.17,0,0,0,2.311,18.2a2.639,2.639,0,0,0,2.094,0,2.288,2.288,0,0,0,1.372-1.95V3.972a1.528,1.528,0,0,0-.939-1.3h0a1.686,1.686,0,0,0-1.444,0h0a1.353,1.353,0,0,0-.867,1.3v9.243a.506.506,0,0,1-1.011,0V3.972A2.518,2.518,0,0,1,3.033,1.805H2.961a2.6,2.6,0,0,1,2.311,0h0A2.567,2.567,0,0,1,6.716,3.972V16.248a3.1,3.1,0,0,1-1.878,2.816,3.535,3.535,0,0,1-2.961,0A3.062,3.062,0,0,1,0,16.321V3.683A3.965,3.965,0,0,1,2.239.433a4.443,4.443,0,0,1,3.827,0A4.088,4.088,0,0,1,8.3,3.611Z" transform="translate(0 0)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

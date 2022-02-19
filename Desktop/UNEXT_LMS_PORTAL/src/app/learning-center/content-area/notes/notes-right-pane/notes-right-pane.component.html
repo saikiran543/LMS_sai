@@ -1,0 +1,138 @@
+<div class="notes-right-panel" id="notes-right-pane-con" [class.height-auto] = "configurationOfNotes.height === 'auto'">
+    <div *ngIf="configurationOfNotes.contentPlayerView">
+        <div class="create-note" *ngIf="configurationOfNotes.isCreateNotesRequired">
+            <div class="note-form-group" id="notes-right-pane-showCreateForm" (click)="showCreateForm()" *ngIf="!createForm">
+                <input type="text" class="form-control note-form-input"
+                value="Create a note" readonly *ngIf="configurationOfNotes.type !== contentTypes.PDF">
+                <input type="text" class="form-control note-form-input"
+                value="Create a note at {{notePositionInContent}}" readonly *ngIf="configurationOfNotes.type === contentTypes.PDF">
+                <img class="input-icon" src="assets/images/icons/notes/dummy/plus.PNG" />
+            </div>
+            <form [formGroup]="noteCreateForm" *ngIf="createForm">
+                <span *ngIf="notePositionInContent && configurationOfNotes.type !== contentTypes.EPUB">{{notePositionInContent}}</span>
+                <div class="type-note">
+                    <app-ckeditor [ckeditorFormControl]="noteCreateForm.controls['description']"></app-ckeditor>
+                    <input type="hidden" formControlName="notesPositionInContent" id="notesPositionInContent">
+                </div>
+                <div class="text-end">
+                    <button id="notes-right-pane-cancelCreateNote" (click)="cancelCreateNote()" translate="notes.buttons.cancel"></button>
+                    <button type="submit" (click)="sumbitNoteCreateForm()" id="notes-right-pane-sumbitNoteCreate-btn"  [disabled]="noteCreateForm.invalid || submiting"
+                    translate="notes.buttons.saveNote"  ></button>
+                </div>
+            </form>
+        </div>
+        <div *ngIf="configurationOfNotes.contentPlayerRelatedNotes">
+            <div class="created-note" *ngFor="let note of specificContentNotes" [ngClass]="{'mt15': configurationOfNotes.isCreateNotesRequired}">
+                <div class="edit-tools text-end" id="notes-right-pane-actionsBtnCon">
+                    <a>
+                        <svg-icon class="editIcon" src="assets/images/icons/icon-edit.svg"  (click)="editNote(note, $event, editNoteModal)"></svg-icon>
+                    </a>
+                    <a>
+                        <svg-icon class="deleteIcon" src="assets/images/icons/icon-delete.svg"  (click)="deleteNote(note, $event, 'player')"></svg-icon>  
+                    </a>
+                </div>
+                <div class="created-note-card">
+                    <span *ngIf="notePositionInContent && configurationOfNotes.type !== contentTypes.EPUB">{{notePositionInContent}}</span>
+                    <p [innerHtml]="note.description | safe: 'html'"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="configurationOfNotes.relatedNotesDashboard" class="" id="notes-right-panel">
+        <div class="course">
+            <div class="mb15">
+                <img *ngIf="currentNote.contentType" src="assets/images/icons/content-builder/icon-{{currentNote.contentType | lowercase}}-hover.svg" class="parent-content-type-icon">
+                <span class="main-notes-title" (click)="goToContent(currentNote)">{{currentNoteTitle}}</span>
+            </div>
+            <div class="course-content" *ngIf="currentNote">
+                
+                <div class="course-toolbar layout layout-justify-space-between">
+                    <div>
+                        <span>{{currentNote.updatedOn | date: 'dd-MMMM-yyyy'}}</span>
+                        <span *ngIf="currentNote.contentType === 'pdf' || currentNote.contentType === 'document'"> Page {{currentNote.notesPositionInContent}}</span>
+                        <span *ngIf="currentNote.contentType === 'audio' || currentNote.contentType === 'video'"> At {{currentNote.notesPositionInContent}}</span>
+                    </div>
+                    <div>
+                        <a *ngIf="currentNote.isPinned; else unPinnedIcon" id="notes-right-pane-pin"><img
+                            src="assets/images/icons/notes/icon-pin.svg"
+                            (click)="pin(currentNote.noteId, $event, 'active')"></a>
+                            <ng-template #unPinnedIcon>
+                                <a id="notes-right-pane-pin-black"><img src="assets/images/icons/notes/icon-pin-black.svg"
+                                    (click)="pin(currentNote.noteId, $event, 'active')"></a>
+                                </ng-template>
+                                <a id="notes-right-pane-editIcon">
+                                    <svg-icon class="editIcon" src="assets/images/icons/icon-edit.svg"   (click)="editNote(currentNote, $event, editNoteModal)"></svg-icon>
+                                </a>
+                                <a id="notes-right-pane-deleteIcon">
+                                    <svg-icon class="deleteIcon" src="assets/images/icons/icon-delete.svg"  (click)="deleteNote(currentNote, $event, 'active')"></svg-icon>
+                                </a>
+                            </div>
+                        </div>
+                        <p *ngIf="currentNote.description" [innerHtml]="currentNote.description | safe: 'html'"></p>
+                    </div>
+                </div>
+            <div class="related-notes" *ngIf="relatedNotes?.length > 0">
+                <h3>Related Notes</h3>
+                <div id="notes-right-pane-related-notesCon">
+                    <div class="related-notes-card" *ngFor="let note of relatedNotes"
+                    (click)="loadNote(note.noteId, $event)">
+                    <div class="layout">
+                        <div class="calendar">
+                            <span>
+                                <img src="assets/images/icons/notes/icon-notes.svg">
+                            </span>
+                        </div>
+                        <div style="width:100%;">
+                            <div class="related-note-description layout layout-justify-space-between">
+                                <h5 [innerHtml]="note.description | safe: 'html'"></h5>
+                                <div class="related-note-toolbar">
+                                    <a *ngIf="note.isPinned"><img src="assets/images/icons/notes/icon-pin.svg"
+                                        (click)="pin(note.noteId, $event, 'related')"></a>
+                                        <a *ngIf="!note.isPinned"><img src="assets/images/icons/notes/icon-pin-black.svg"
+                                            (click)="pin(note.noteId, $event, 'related')"></a>
+                                            <a>
+                                                <svg-icon class="editIcon" src="assets/images/icons/icon-edit.svg"  (click)="editNote(note, $event, editNoteModal)"></svg-icon>
+                                            </a>
+                                            <a>
+                                                <svg-icon class="deleteIcon" src="assets/images/icons/icon-delete.svg"  (click)="deleteNote(note, $event, 'related')"></svg-icon>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <p>{{note.updatedOn | date: 'dd-MMMM-yyyy'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+</div>
+            <app-toast id="notes-right-pane-note-toaster" *ngIf="notesToast" [message]="toastMessage" [type]="toastType"
+            [toastNumber]="200" (toastClick)="closeToast()"></app-toast>
+            <ng-template #editNoteModal let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title" translate="notes.editTitle"></h4>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="noteEditForm">
+                        <div>
+                            <div class="row" [hidden]="!notePositionInContent">
+                                <div class="form-group col-12 col-md-12 col-lg-12 my-0">
+                                    <span class="time-stamp"><input readonly type="text" id="notes-right-pane-notesPositionInContent"  formControlName="notesPositionInContent"
+                                        id="notesPositionInContent"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-12 col-md-12 col-lg-12">
+                                        <app-ckeditor id="notes-right-pane-noteEditForm"  [ckeditorFormControl]="noteEditForm.controls['description']"></app-ckeditor>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-end">
+                                <button class="no-btn" id="notes-right-pane-cancelNote"  (click)="cancelNote()" translate="notes.buttons.cancel"></button>
+                                <button class="primary-btn" id="notes-right-pane-submit"  type="submit" (click)="sumbitNoteEditForm()"
+                                [disabled]="noteEditForm.invalid || submiting" translate="notes.buttons.saveNote" ></button>
+                            </div>
+                        </form>
+                    </div>
+                </ng-template>

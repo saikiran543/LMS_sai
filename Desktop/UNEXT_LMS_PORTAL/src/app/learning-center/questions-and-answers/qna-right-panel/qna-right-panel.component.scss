@@ -1,0 +1,103 @@
+.qa-right-panel {
+    padding: 2.315%;
+    border: 1px solid #cdd4e7;
+    border-radius: 8px;
+    opacity: 1;
+    height: calc(100vh - 209px);
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .course {
+        .main-notes-title{
+            margin-left: 10px;
+            font-size: 12px;
+            font-family: "Proxima Nova W05 Bold";
+            color: #000000;
+            cursor: pointer;
+        }
+        .qnaSection {
+            margin-top: 2.725%;
+        }
+    }
+   ::ng-deep .question-container {
+        padding: 1.365%;
+    }
+    ::ng-deep  .intend-level1 {
+        padding-left: 2.5vw;
+    }
+    ::ng-deep  .intend-level2 {
+        padding-left: 5vw;
+    }
+    ::ng-deep .question-container .question .question-details .question-description {
+        .question-title {
+            font-size: 24px !important;
+            font-family: "Proxima Nova W05 Bold" !important;
+        }
+
+    }
+}
+::ng-deep .question-container.qc-li.dark {
+    border-bottom: none!important;
+}
+
+::ng-deep .question-container.dark.intend-level1.verifiedAnswer {
+    .qc-li {
+        .question-item-info {
+            border-bottom: none!important;
+        }
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px){ 
+    .qa-right-panel {
+        padding: 6px 8px 6px 6px;
+        ::ng-deep .question-container {
+            padding: 6px 10px;
+        }
+        .course {
+            img.parent-content-type-icon {
+                width: 16px;
+                height: 19px;
+            }
+            .main-notes-title {
+                margin-left: 6px;
+                position: relative;
+                top: 1px;
+                font-size: 8px;
+            }
+            .qnaSection {
+                margin-top: 12px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1024px){ 
+    .qa-right-panel {
+        padding: 16px;
+        ::ng-deep .question-container {
+            padding: 16px!important;
+            border-bottom: 1px solid #ebeced;
+            padding-bottom: 0px!important;
+            border-radius: 0;
+        }
+    }
+    ::ng-deep .question-container.qc-li.dark {
+        padding-bottom: 16px!important;
+    }
+    .course {
+        img.parent-content-type-icon {
+            width: 20px;
+            height: 24px;
+        }
+        .main-notes-title {
+            margin-left: 8px!important;
+            position: relative;
+            top: 1px;
+            font-size: 14px!important;
+        }
+        .qnaSection {
+            margin-top: 16px;
+        }
+    }
+ }

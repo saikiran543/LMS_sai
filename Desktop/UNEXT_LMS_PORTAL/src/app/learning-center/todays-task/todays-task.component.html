@@ -1,0 +1,116 @@
+<div class="content-title" translate="todaysTask.todaysTask"></div>
+<div id="todays-task-container" class="todays-task-container layout flex-wrap">
+    <div id="task-list-container" class="task-list-container">
+        <div class="task-list-header">
+            <div translate="todaysTask.taskList"></div> <span>({{todaysPendingTasks?.length}})</span>
+        </div>
+        <ng-container [ngTemplateOutlet]="taskList" [ngTemplateOutletContext]="{taskList:todaysPendingTasks}"></ng-container>
+        <!-- <div class="task-list">
+            <div class="task {{task.eventType}}-task layout" *ngFor="let task of todaysPendingTasks" (click)="goToContent(task)" [class.selected] = "(task.endDate | date: 'dd/MM/yyyy') === (today | date: 'dd/MM/yyyy')">
+                <div class="task-icon">
+                    <span>
+                        <img src="../../../assets/images/icons/todays-task/icon-{{task.eventType}}.svg">
+                    </span>
+                </div>                
+                <div>
+                    <div class="task-name">
+                        <span *ngIf="task.eventType === 'live-classroom'"><div translate="todaysTask.liveClassroomScheduled"></div> {{task.startDate | date: 'dd/MM/yyyy'}} <a *ngIf="task.link" href="{{task.link}}">{{task.link}}</a></span>
+                        <span *ngIf="task.eventType === 'quiz'" translate="todaysTask.quiz"> </span>
+                        <span *ngIf="task.eventType === 'assignment'" translate="todaysTask.assignment"></span>                        
+                        <span *ngIf="task.eventType === 'discussion-forum'" translate="todaysTask.discussionForum"></span>
+                        <span *ngIf="task.eventType !== 'live-classroom' && task.eventType !== 'self-task'"> {{task.eventname}}</span>
+                        <span *ngIf="task.eventType === 'self-task'" translate="todaysTask.personalNote"></span>
+                        <span *ngIf="task.eventType === 'quiz' || task.eventType === 'assignment' || task.eventType === 'discussion-forum'" translate="todaysTask.gradingDueToday"> </span>
+                    </div>
+                    <div class="task-description" [innerHTML]="task.eventDescription">
+                    </div>
+                    <div class="graded" *ngIf="task.totalStudents">                         
+                        <span translate="todaysTask.noOf"></span>&nbsp;
+                        <span *ngIf="task.eventType === 'quiz'">{{task.eventType}}</span>
+                        <span *ngIf="task.eventType === 'assignment'" translate="todaysTask.assignments"></span>                        
+                        <span *ngIf="task.eventType === 'discussion-forum'" translate="todaysTask.students"></span>&nbsp;
+                        <div translate="todaysTask.toBeGraded"></div> {{task.totalStudents}}
+                    </div>
+                </div>
+                <div class="custom-dash" *ngIf="(task.endDate | date: 'dd/MM/yyyy') === (today | date: 'dd/MM/yyyy')"></div>
+            </div>
+        </div> -->
+    </div>
+    <div id="completed-tasks-container" class="completed-tasks-container">
+        <div [class.empty] = "todaysCompletedTasks?.length === 0" [class.completed-tasks-list] = "todaysCompletedTasks?.length">
+            <div class="completed-tasks-header ">
+                <div translate="todaysTask.completedTasks"></div> <span>({{todaysCompletedTasks?.length}})</span>
+            </div>
+            <div class="completed-tasks" *ngIf="todaysCompletedTasks?.length === 0">
+                <img src="../../../assets/images/icons/todays-task/icon-empty-task.svg">
+                <h4 translate="todaysTask.emptyCompletedTasks"></h4>
+            </div>
+            <div  class="completed-tasks" *ngIf="todaysCompletedTasks?.length">
+                <ng-container [ngTemplateOutlet]="taskList" [ngTemplateOutletContext]="{taskList:todaysCompletedTasks}"></ng-container>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="todays-task-tab">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="taskList-tab" data-bs-toggle="tab" data-bs-target="#taskList" type="button" role="tab" aria-controls="taskList" aria-selected="true">Task List<span>({{todaysPendingTasks?.length}})</span></button>
+        </li>
+        <li class="nav-item" role="presentation" [class.empty] = "todaysCompletedTasks?.length === 0" [class.completed-tasks-list] = "todaysCompletedTasks?.length">
+            <button class="nav-link" id="completedTask-tab" data-bs-toggle="tab" data-bs-target="#completedTask" type="button" role="tab" aria-controls="completedTask" aria-selected="false">Completed Tasks<span>({{todaysCompletedTasks?.length}})</span></button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="taskList" role="tabpanel" aria-labelledby="taskList-tab">
+            <ng-container [ngTemplateOutlet]="taskList" [ngTemplateOutletContext]="{taskList:todaysPendingTasks}"></ng-container>
+        </div>
+        <div class="tab-pane fade" id="completedTask" role="tabpanel" aria-labelledby="completedTask-tab">
+            <ng-container [ngTemplateOutlet]="taskList" [ngTemplateOutletContext]="{taskList:todaysCompletedTasks}"></ng-container>
+        </div>
+    </div>
+</div>
+
+<ng-template #taskList let-taskList="taskList">
+    <div class="task-list">                    
+        <div class="task {{task.eventType}}-task layout" *ngFor="let task of taskList" (click)="goToContent(task)" >
+            <div class="task-icon">
+                <span>
+                    <img src="../../../assets/images/icons/todays-task/icon-{{task.eventType}}.svg">
+                    
+                </span>
+            </div> 
+            
+            <div style="width: 100%;">
+                <div class="task-name">
+                    <span *ngIf="task.eventType === 'live-classroom'"><div translate="todaysTask.liveClassroomScheduled"></div> {{task.startDate | date: 'dd/MM/yyyy'}} <a *ngIf="task.link" href="{{task.link}}">{{task.link}}</a></span>
+                    <span *ngIf="task.eventType === 'quiz'" translate="todaysTask.quiz"> </span>
+                    <span *ngIf="task.eventType === 'assignment'" translate="todaysTask.assignment"></span>                        
+                    <span *ngIf="task.eventType === 'discussion-forum'" translate="todaysTask.discussionForum"><span> {{task.eventName}}</span></span>
+                    <span *ngIf="task.eventType === 'self-task'" translate="todaysTask.personalNote"></span>
+                    <span *ngIf="(task.eventType === 'quiz' || task.eventType === 'assignment' || task.eventType === 'discussion-forum')&&view !='student'" translate="todaysTask.gradingDueToday"> </span>
+                    <span *ngIf="(task.eventType === 'quiz' || task.eventType === 'assignment' || task.eventType === 'discussion-forum')&&view =='student'">{{'todaysTask.gradingDueDate'|translate}}{{task.endDate | date: 'dd/MM/yyyy'}} </span>
+                    <div *ngIf="(task.eventType === 'quiz' || task.eventType === 'assignment' || task.eventType === 'discussion-forum')&&view =='student' && (task.endDate|date:'dd:MM:yyyy')===(today|date:'dd:MM:yyyy')"></div>
+                    <ng-template translate="todaysTask.gradingDueToday"></ng-template>
+                    <ng-template >{{'todaysTask.gradingDueDate'|translate}}{{task.endDate | date: 'dd/MM/yyyy'}}</ng-template>
+                </div>
+                <div *ngIf="task.eventDescription" class="task-description" [innerHTML]="task.eventDescription">
+                </div>
+                <div class="grade-block">
+                    <div class="gradable">
+                        <span class="gradable-con" *ngIf="task.isGradable &&(task.eventType === 'quiz' || task.eventType === 'assignment' || task.eventType === 'discussion-forum')" translate="todaysTask.gradable"></span>
+                        <span class="non-gradable-con" *ngIf="!task.isGradable &&(task.eventType === 'quiz' || task.eventType === 'assignment' || task.eventType === 'discussion-forum')" translate="todaysTask.nonGradable"></span>
+                    </div>
+                    <div class="graded" *ngIf="task.totalStudents">                         
+                        <span translate="todaysTask.totalNoOf"> </span>&nbsp;
+                        <span *ngIf="task.eventType === 'quiz'"> {{task.eventType}} </span>
+                        <span *ngIf="task.eventType === 'assignment'" translate="todaysTask.assignments"></span>                        
+                        <span *ngIf="task.eventType === 'discussion-forum'" translate="todaysTask.students"> </span>&nbsp;
+                        <div translate="todaysTask.toBeGraded"></div> {{task.gradedStudents}}/{{task.totalStudents}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

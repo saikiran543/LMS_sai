@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Group" width="14" height="14" viewBox="0 0 14 14">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:rgba(0,0,0,.65)}
+        </style>
+    </defs>
+    <path id="Rectangle" d="M0 0h14v14H0z" class="cls-1"/>
+    <g id="left" transform="translate(3.512 1.755)">
+        <path id="Shape" d="M6.392 10.491a.6.6 0 0 1-.375-.131L.223 5.7a.6.6 0 0 1 0-.931L5.992.132a.6.6 0 0 1 .748.931l-5.19 4.17 5.216 4.2a.6.6 0 0 1-.375 1.062z" class="cls-2"/>
+    </g>
+</svg>

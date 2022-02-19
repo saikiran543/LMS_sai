@@ -1,0 +1,292 @@
+<div class="modal-content-inner">
+    <div *ngIf="params.viewType === 'addLearningObjective'" class="modal-content-inner-header layout layout-justify-space-between layout-item-center">
+        <span translate="learningOutcomeListView.buttons.addLearningObjective"></span>
+        <img (click)="sendConfirmStatus(false)" src="assets/images/icons/modal-close.svg">
+    </div>
+    <div *ngIf="params.viewType === 'viewLearningObjective'" class="modal-content-inner-header layout layout-justify-space-between layout-item-center">
+        <span translate="learningOutcomeListView.buttons.learningObjective"></span>
+        <img (click)="sendConfirmStatus(false)" src="assets/images/icons/modal-close.svg">
+    </div>
+    <div class="inner-content">
+        <div class="search-container">
+            <div class="layout align-items-center justify-content-between flex-wrap">
+                <div *ngIf="params.viewType !== 'viewLearningObjective'" class="input-group">
+                        <input type="search" placeholder="Search" aria-describedby="button-addon5" class="form-control">
+                        <div class="input-group-append">
+                            <button id="button-addon5" type="submit" class="btn btn-primary"><img _ngcontent-syr-c138=""
+                                src="assets/images/icons/icon-search-white.svg"></button>
+                            </div>
+                    </div>
+                    <div class="lcTitle" *ngIf="params.viewType === 'viewLearningObjective'">
+                        <img *ngIf="type"src="assets/images/icons/content-builder/icon-{{type}}-hover.svg">
+                        {{elementDetail?.title}}
+                    </div>
+                    <button disabled="true" translate="learningOutcomeListView.buttons.viewReport" 
+                    *ngIf="!params.viewType" class="view-report-btn"></button>
+                    <button translate="learningOutcomeListView.buttons.addLearningObjective" 
+                    *ngIf="params.viewType" class="add-objective-btn" (click)="click('attach','learning-objective')"></button>
+                </div>
+            </div>
+            <div class="level-tabs">
+                <ul *ngIf="params.viewType !== 'viewLearningObjective'" class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="program-level-tab" data-bs-toggle="tab" data-bs-target="#program" type="button"
+                        role="tab" aria-controls="program" aria-selected="true" translate="learningOutcomeListView.category.programLevel"></button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="course-level-tab" data-bs-toggle="tab" data-bs-target="#course"
+                        type="button" role="tab" aria-controls="course" aria-selected="false" translate="learningOutcomeListView.category.courseLevel"></button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade" id="program" role="tabpanel" aria-labelledby="program-level-tab">
+                        <div class="empty-container layout layout-item-center layout-justify-center">
+                            <img src="assets/images/icons/learning-outcome/icon-empty-learning-outcome.svg">
+                        </div>
+                    </div>
+                    <div class="tab-pane fade show active" id="course" role="tabpanel" aria-labelledby="course-level-tab">
+                        
+                        <div class="course-level-container">
+                            <div class="learning-outcome">
+                                <div class="learning-header layout layout-item-center layout-justify-space-between">
+                                    <div translate="learningOutcomeListView.titles.learningOutcome"></div>
+                                    <button translate="learningOutcomeListView.buttons.createNew" *ngIf="!params.viewType" (click)="click('create','learning-outcome')">
+                                        <span>+</span></button>
+                                    </div>
+                                    <div class="learning-body" infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollThrottle]="throttle" [scrollWindow]="false"
+                                    (scrolled)="onScrollDown('learning-outcome')">
+                                    <div class="learning-outcome-card" [ngClass]="{'selected': previousQueryParams.outcomeId === outcome.outcomeId}" *ngFor="let outcome of learningOutcomes">
+                                        <div  class="layout layout-item-flex-start layout-justify-space-between">
+                                        <div class="learning-outcome-card-header" (click)="click('select','learning-outcome',outcome)">
+                                            <h4>{{outcome.title}}</h4>
+                                            <p [innerHtml]="sanetize.bypassSecurityTrustHtml(outcome.description)"></p>
+                                        </div>
+                                        <div *ngIf="!params.viewType">
+                                            <div class="dropdown">
+                                                <button class="dropdown-toggle" type="button" id="dropdownMenu2"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                ...
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu2">
+                                                <li><button class="dropdown-item" type="button" translate="learningOutcomeListView.buttons.copy"
+                                                    (click)="click('copy','learning-outcome',outcome)"></button></li>
+                                                    <li><button class="dropdown-item" type="button" translate="learningOutcomeListView.buttons.edit"
+                                                        (click)="click('edit','learning-outcome',outcome)"></button></li>
+                                                        <li><button class="dropdown-item" type="button" translate="learningOutcomeListView.buttons.delete"
+                                                            (click)="click('delete','learning-outcome',outcome)"></button></li>
+                                                        </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="learning-outcome">
+                                    <div class="learning-header layout layout-item-center layout-justify-space-between">
+                                        <div translate="learningOutcomeListView.titles.learningCategory"></div>
+                                        <button class="create-new-disabled" translate="learningOutcomeListView.buttons.createNew" *ngIf="!params.viewType" [disabled]="!previousQueryParams.outcomeId" (click)="click('create','learning-category')">
+                                            <span>+</span></button>
+                                        </div>
+                                        <div class="learning-body" infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollThrottle]="throttle" [scrollWindow]="false"
+                                        (scrolled)="onScrollDown('learning-category')">
+                                        <div class="learning-outcome-card" [ngClass]="{'selected': previousQueryParams.categoryId === category.categoryId}" *ngFor="let category of learningCategories">
+                                            <div class="layout layout-item-flex-start layout-justify-space-between">
+                                            <div class="learning-outcome-card-header" (click)="click('select','learning-category',category)">
+                                                <h4>{{category.title}}</h4>
+                                                <p [innerHtml]="sanetize.bypassSecurityTrustHtml(category.description)"></p>
+                                            </div>
+                                            <div *ngIf="!params.viewType">
+                                                <div class="dropdown">
+                                                    <button class="dropdown-toggle" type="button" id="dropdownMenu2"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    ...
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu2">
+                                                    <li><button class="dropdown-item" type="button" translate="learningOutcomeListView.buttons.copy"
+                                                        (click)="click('copy','category',category)"></button></li>
+                                                        <li><button class="dropdown-item" type="button" translate="learningOutcomeListView.buttons.edit"
+                                                            (click)="click('edit','learning-category',category)"></button></li>
+                                                            <li><button class="dropdown-item" type="button" translate="learningOutcomeListView.buttons.delete"
+                                                                (click)="click('delete','learning-category',category)"></button></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="learning-outcome">
+                                        <div class="learning-header layout layout-item-center layout-justify-space-between">
+                                            <div translate="learningOutcomeListView.titles.learningObjective"></div>
+                                            <button class="create-new-disabled" translate="learningOutcomeListView.buttons.createNew" *ngIf="!params.viewType" [disabled]="!previousQueryParams.categoryId" (click)="click('create','learning-objective')">
+                                                <span>+</span></button>
+                                            </div>
+                                            <div class="learning-body" infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollThrottle]="throttle" [scrollWindow]="false"
+                                            (scrolled)="onScrollDown('learning-objective')">
+                                            <div *ngFor="let objective of learningObjectives" >
+                                                <div class="learning-outcome-card" [ngClass]="{'opacity': params.viewType === 'addLearningObjective'&&isAttachedToElement(objective)}" *ngIf="displayObjective(objective)">
+                                                    <div class="layout" [ngClass]="{'justify-content-between': params.viewType !== 'addLearningObjective'}" >
+                                                        <span *ngIf="params.viewType === 'addLearningObjective'">
+                                                            <div class="form-check">
+                                                                <input type="checkbox" (click)="click('select','learning-objective',objective)"
+                                                                [checked] ="isAttachedToElement(objective) || getCriteriaFormGroup(objective)"
+                                                                [disabled]="isAttachedToElement(objective)"
+                                                                name="rememberMe" value="" id="rememberMe" class="form-check-input">
+                                                                <label for="rememberMe" class="form-check-label"></label>
+                                                            </div>
+                                                        </span>
+                                                        <span *ngIf="params.viewType === 'viewLearningObjective'">
+                                                            <div class="form-check">
+                                                                <input type="checkbox" [checked]="objective.checked"
+                                                                (click) ="selectObjectiveElement($event,objective)"
+                                                                name="rememberMe" value="" id="rememberMe" class="form-check-input">
+                                                                <label for="rememberMe" class="form-check-label"></label>
+                                                            </div>
+                                                        </span>
+                                                        <div class="learning-outcome-card-header" >
+                                                            <h4>{{objective.title}}</h4>
+                                                            <p [innerHtml]="sanetize.bypassSecurityTrustHtml(objective.description)"></p>
+                                                        </div>
+                                                        <div *ngIf="!params.viewType">
+                                                            <div class="dropdown">
+                                                                <button class="dropdown-toggle" type="button" id="dropdownMenu2"
+                                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                                ...
+                                                            </button>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu2">
+                                                                <li><button class="dropdown-item" type="button" translate="learningOutcomeListView.buttons.copy"
+                                                                    (click)="click('copy','learning-objective',objective)"></button></li>
+                                                                    <li><button class="dropdown-item" type="button" translate="learningOutcomeListView.buttons.edit"
+                                                                        (click)="click('edit','learning-objective',objective)"></button></li>
+                                                                        <li><button class="dropdown-item" type="button" translate="learningOutcomeListView.buttons.delete"
+                                                                            (click)="click('delete','learning-objective',objective)"></button></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div *ngIf="!params.viewType"
+                                                            class="badges layout layout-item-center layout-justify-space-between">
+                                                            <span>{{getApplicableTo(objective.canBeLinkedTo)| translate}}</span> 
+                                                            <span class="{{getClassNameForStatus(objective)}}" >{{getStatusType(objective.status,objective.elements.length) | translate}} </span>
+                                                        </div>
+                                                        <div *ngIf="!params.viewType" class="total-links">
+                                                            <div class="total-links-container" *ngIf="objective.status !== 'inactive'">
+                                                                <h6>{{ 'learningOutcomeListView.badges.totalLinks' | translate:getNumberOfLinks(filteredElement(objective.elements)) }}</h6>
+                                                                <span class="unlink-cta" [hidden]=!objective.isElementSelected (click)="unlinkSelectedElement(objective)">Unlink Learning Objectives</span>
+                                                            </div>
+                                                            <div class="single-link layout layout-item-flex-start layout-justify-space-between" *ngFor="let element of filteredElement(objective.elements)">
+                                                                <div class="layout layout-item-flex-start">
+                                                                    <span>
+                                                                        <div class="form-check">
+                                                                            <input type="checkbox" name="rememberMe" value="" id="rememberMe"
+                                                                            class="form-check-input" (click)="selectContentToRemove(element.elementId,objective)">
+                                                                            <label for="rememberMe" class="form-check-label"></label>
+                                                                        </div>
+                                                                    </span>
+                                                                    <span>
+                                                                        <img src="assets/images/icons/content-builder/icon-{{
+                                                                            getNodeIconType(element) | lowercase
+                                                                        }}-hover.svg"
+                                                                    />
+                                                                    </span>
+                                                                    <span (click)="navigateToContent(element.elementId,element.type)">
+                                                                    {{truncateObjectiveBreadcrum(element.breadcrum)}}
+                                                                    <span class="breadcrum-title" > {{breadCrumTitle(element.breadcrum)}}</span> 
+                                                                    </span>
+                                                                </div>
+                                                                <div>
+                                                                    <img class="cursor-pointer" width="10" src="assets/images/icons/icon-close.svg" (click)="deleteLinkedElement([element.elementId],objective)">
+                                                                </div>
+                                                            </div>
+                                                    
+                                                        </div>
+                                                        <div [formGroup]="getCriteriaFormGroup(objective)"
+                                                        *ngIf="(params.viewType === 'addLearningObjective' || params.viewType === 'viewLearningObjective') &&getCriteriaFormGroup(objective)"
+                                                        class="learningObjectiveCriteria">
+                                                        <div [formGroupName]="criteriaForm.key"
+                                                        *ngFor="let criteriaForm of getCriteriaFormGroup(objective).controls | keyvalue">
+                                                        <div class="layout layout-item-center">
+                                                            <label translate="learningOutcome.criterias.completion" *ngIf="criteriaForm.key === 'completionCriteria'"class="form-label required m-0"></label>
+                                                            <label translate="learningOutcome.criterias.evaluation" *ngIf="criteriaForm.key === 'evaluationCriteria'" class="form-label required m-0"></label>
+                                                           
+                                                           <div class="position-relative">
+                                                            <span class="custome-tooltip-container" (mouseover)='showToolTip(criteriaForm.key)' (mouseleave)='showToolTip(criteriaForm.key)' >i</span>
+                                                            <div *ngIf="criteriaForm.key === 'evaluationCriteria' && evaluationCriteriaToolTip" class="custom-tooltip" translate="learningOutcomeListView.tooltipMessages.evaluationCriteria">
+                                                            </div>
+                                                            <div *ngIf="criteriaForm.key === 'completionCriteria' && completionCriteriaToolTip" class="custom-tooltip" translate="learningOutcomeListView.tooltipMessages.completionCriteria">
+                                                            </div>
+                                                        </div>
+                                                           </div>
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th translate="learningOutcome.ranges.start"></th>
+                                                                    <th translate="learningOutcome.ranges.end"></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr formGroupName="achieved">
+                                                                    <td translate="learningOutcome.achieved.complete"></td>
+                                                                    <td>
+                                                                        <input type="text" formControlName="min" [ngClass]="{'form-field-error': this.getFormControls(objective,'achieved', criteriaForm.key)?.controls?.min.status === 'INVALID'}" class="form-control"
+                                                                        name="start range" placeholder="0">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" formControlName="max" class="form-control"
+                                                                        name="end range" [readonly]='true'>
+                                                                    </td>
+                                                                    <td *ngIf="this.getFormControls(objective,'achieved', criteriaForm.key)?.controls?.min.status === 'INVALID' && this.getFormControls(objective,'achieved', criteriaForm.key)?.dirty"> 
+                                                                        <div class="err-container">
+                                                                            <img src="assets/images/icons/learning-center/invalid-range.svg"> Please enter a valid range
+                                                                        </div></td>
+                                                                </tr>
+                                                                <tr formGroupName="partiallyAchieved">
+                                                                    <td translate="learningOutcome.achieved.partiallyAchieved"></td>
+                                                                    <td>
+                                                                        <input type="text" formControlName="min" class="form-control" name="start range" [ngClass]="{'form-field-error': this.getFormControls(objective,'partiallyAchieved', criteriaForm.key)?.controls?.min.status === 'INVALID'}"
+                                                                        placeholder="0">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" formControlName="max" class="form-control" name="end range" placeholder="0" [ngClass]="{'form-field-error': this.getFormControls(objective,'partiallyAchieved', criteriaForm.key)?.controls?.max.status === 'INVALID'}">
+                                                                    </td>
+                                                                    <td *ngIf="this.getFormControls(objective,'partiallyAchieved', criteriaForm.key)?.controls?.min.status === 'INVALID' && this.getFormControls(objective,'partiallyAchieved', criteriaForm.key)?.dirty"> 
+                                                                        <div class="err-container">
+                                                                            <img src="assets/images/icons/learning-center/invalid-range.svg"> Please enter a valid range
+                                                                        </div></td>
+                                                                </tr>
+                                                                <tr formGroupName="notAchieved">
+                                                                    <td translate="learningOutcome.achieved.notAchieved"></td>
+                                                                    <td>
+                                                                        <input type="text" class="form-control" name="start range" formControlName="min"  
+                                                                        [readonly]='true'>
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" formControlName="max" class="form-control" name="end range" placeholder="0" [ngClass]="{'form-field-error': this.getFormControls(objective,'notAchieved', criteriaForm.key)?.controls?.max.status === 'INVALID'}">
+                                                                    </td>
+                                                                    <td *ngIf="this.getFormControls(objective,'notAchieved', criteriaForm.key)?.controls?.max.status === 'INVALID' && this.getFormControls(objective,'notAchieved', criteriaForm.key)?.dirty"> 
+                                                                        <div class="err-container">
+                                                                            <img src="assets/images/icons/learning-center/invalid-range.svg"> Please enter a valid range
+                                                                        </div></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>        
+                </div>
+            </div>
+            <div class="modal-footer" *ngIf="params.viewType === 'viewLearningObjective'">
+                <button class="cancel-btn" (click)="sendConfirmStatus(false)" translate="learningOutcome.buttons.cancel"></button>
+                <button class="primary-btn" (click)="click('edit-attached-objective','learning-objective')" [disabled]="!criteriaFormGroup.valid" translate="learningOutcome.buttons.save"></button>
+            </div>
+        </div>
+        <!-- <router-outlet></router-outlet> -->

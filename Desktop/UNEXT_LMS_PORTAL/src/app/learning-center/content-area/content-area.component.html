@@ -1,0 +1,213 @@
+
+<div class="row" id="content-area-previewModeOfTree" [ngClass]="{'hide-element': previewModeOfTree}">
+  <div class="col-12  col-sm-12 col-md-4">
+    <div class="content-title"> {{breadcrumb?.courseName}} </div>
+  </div>
+  <div *ngIf='view !== "student"' class="col-12 col-sm-12 col-md-8 col-lg-8 layout layout-item-center justify-content-md-end justify-content-sm-start flex-sm-wrap class-container">
+    <div class="class-performance"><a><img class="mr8"
+          src="assets/images/icons/icon-class-performance.svg"> Class Performance</a>
+    </div>
+    <div class="class-progress ml24"><a class="cursor-pointer"(click)="onClick('classProgress')"><img class="mr8"
+          src="assets/images/icons/icon-class-progress.svg"> Class Progress</a>
+          <app-progress-wrapper [type]='type' *ngIf="type === 'classProgress' && IsShowProgress"></app-progress-wrapper>
+    </div>
+  </div>
+
+  <div *ngIf='view === "student"' class="col-12 col-sm-12 col-md-8 col-lg-8 layout layout-item-center layout-item-end progressContainer">
+    <div class="class-performance"><a><img class="mr8"
+          src="assets/images/icons/icon-class-performance.svg"> My Performance</a>
+    </div>
+    <div class="class-progress ml24"><a><img class="mr8"
+          src="assets/images/icons/icon-class-progress.svg"> My Learning Streak</a>
+    </div>
+    <div class="class-progress ml24"><a class="cursor-pointer" (click)="onClick('myProgress')"><img class="mr8"
+      src="assets/images/icons/icon-class-progress.svg"> My Progress</a>
+      <app-progress-wrapper [type]='type' *ngIf="type === 'myProgress' && IsShowProgress"></app-progress-wrapper>
+</div>
+  </div>
+
+</div>
+
+<div class="row layout-item-center search-btn-container" [ngClass]="{'hide-element': previewModeOfTree}">
+  <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+    <div class="input-group" id="content-area-search-con">
+      <input type="search" placeholder="Search..." id="search" class="form-control">
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-primary" id="content-area-search-btn"><img src="assets/images/icons/icon-search-white.svg">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="view != 'student'" class="col-12 col-sm-12 col-md-12 col-lg-8 layout layout-item-center justify-content-md-end flex-wrap">
+    <button class="primary-btn mr24" (click)="onClick('contentBuilder')" id="content-area-contentBuilder-btn" translate="admin.learningCenter.contentBuilder"></button>
+    <button class="basic-btn mr24" (click)="onClick('contentPublishAll')" id="content-area-contentPublishAll-btn" translate="admin.learningCenter.publishAll"></button>
+    <button class="basic-btn mr24" (click)="onClick('contentPreview')" id="content-area-contentPreview-btn" translate="admin.learningCenter.preview"></button>
+    <div class="dropdown">
+      <button disabled class="flat-btn mr24 dropdown-toggle" type="button" id="content-area-filter" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Filter
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <li><button class="dropdown-item" id="content-area-filter-action" type="button">Action</button></li>
+        <li><button class="dropdown-item" id="content-area-filter-action1" type="button">Another action</button></li>
+        <li><button class="dropdown-item" id="content-area-filter-action2" type="button">Something else here</button></li>
+      </ul>
+    </div>
+    <div class="btn-group view-type-btn">
+      <a href="#" id="content-area-list" class="btn btn-default btn-sm">
+        <!-- <svg-icon src="assets\images\icons\icon-list.svg"></svg-icon> -->
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+          <defs>
+            <style>
+              .a {
+                fill: #fff;
+              }
+
+            </style>
+          </defs>
+          <path class="a"
+            d="M3.75,5H1.25A1.252,1.252,0,0,1,0,3.75V1.25A1.252,1.252,0,0,1,1.25,0h2.5A1.252,1.252,0,0,1,5,1.25v2.5A1.252,1.252,0,0,1,3.75,5ZM1.25.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417V1.25A.417.417,0,0,0,3.75.833Z" />
+          <path class="a"
+            d="M3.75,14H1.25A1.252,1.252,0,0,1,0,12.75v-2.5A1.252,1.252,0,0,1,1.25,9h2.5A1.252,1.252,0,0,1,5,10.25v2.5A1.252,1.252,0,0,1,3.75,14ZM1.25,9.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(0 -1.5)" />
+          <path class="a"
+            d="M3.75,23H1.25A1.252,1.252,0,0,1,0,21.75v-2.5A1.252,1.252,0,0,1,1.25,18h2.5A1.252,1.252,0,0,1,5,19.25v2.5A1.252,1.252,0,0,1,3.75,23Zm-2.5-4.167a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(0 -3)" />
+          <path class="a"
+            d="M12.75,5h-2.5A1.252,1.252,0,0,1,9,3.75V1.25A1.252,1.252,0,0,1,10.25,0h2.5A1.252,1.252,0,0,1,14,1.25v2.5A1.252,1.252,0,0,1,12.75,5ZM10.25.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417V1.25A.417.417,0,0,0,12.75.833Z"
+            transform="translate(-1.5)" />
+          <path class="a"
+            d="M12.75,14h-2.5A1.252,1.252,0,0,1,9,12.75v-2.5A1.252,1.252,0,0,1,10.25,9h2.5A1.252,1.252,0,0,1,14,10.25v2.5A1.252,1.252,0,0,1,12.75,14Zm-2.5-4.167a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(-1.5 -1.5)" />
+          <path class="a"
+            d="M12.75,23h-2.5A1.252,1.252,0,0,1,9,21.75v-2.5A1.252,1.252,0,0,1,10.25,18h2.5A1.252,1.252,0,0,1,14,19.25v2.5A1.252,1.252,0,0,1,12.75,23Zm-2.5-4.167a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(-1.5 -3)" />
+          <path class="a"
+            d="M21.75,5h-2.5A1.252,1.252,0,0,1,18,3.75V1.25A1.252,1.252,0,0,1,19.25,0h2.5A1.252,1.252,0,0,1,23,1.25v2.5A1.252,1.252,0,0,1,21.75,5ZM19.25.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417V1.25A.417.417,0,0,0,21.75.833Z"
+            transform="translate(-3)" />
+          <path class="a"
+            d="M21.75,14h-2.5A1.252,1.252,0,0,1,18,12.75v-2.5A1.252,1.252,0,0,1,19.25,9h2.5A1.252,1.252,0,0,1,23,10.25v2.5A1.252,1.252,0,0,1,21.75,14Zm-2.5-4.167a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(-3 -1.5)" />
+          <path class="a"
+            d="M21.75,23h-2.5A1.252,1.252,0,0,1,18,21.75v-2.5A1.252,1.252,0,0,1,19.25,18h2.5A1.252,1.252,0,0,1,23,19.25v2.5A1.252,1.252,0,0,1,21.75,23Zm-2.5-4.167a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(-3 -3)" />
+        </svg>
+      </a>
+      <a href="#" id="content-area-grid" class="btn btn-default btn-sm active">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+          <defs>
+            <style>
+              .a {
+                fill: #fff;
+              }
+
+            </style>
+          </defs>
+          <path class="a"
+            d="M3.75,5H1.25A1.252,1.252,0,0,1,0,3.75V1.25A1.252,1.252,0,0,1,1.25,0h2.5A1.252,1.252,0,0,1,5,1.25v2.5A1.252,1.252,0,0,1,3.75,5ZM1.25.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417V1.25A.417.417,0,0,0,3.75.833Z" />
+          <path class="a"
+            d="M20.083,5H9.25A1.252,1.252,0,0,1,8,3.75V1.25A1.252,1.252,0,0,1,9.25,0H20.083a1.252,1.252,0,0,1,1.25,1.25v2.5A1.252,1.252,0,0,1,20.083,5ZM9.25.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417H20.083A.417.417,0,0,0,20.5,3.75V1.25a.417.417,0,0,0-.417-.417Z"
+            transform="translate(-1.333)" />
+          <path class="a"
+            d="M3.75,14H1.25A1.252,1.252,0,0,1,0,12.75v-2.5A1.252,1.252,0,0,1,1.25,9h2.5A1.252,1.252,0,0,1,5,10.25v2.5A1.252,1.252,0,0,1,3.75,14ZM1.25,9.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(0 -1.5)" />
+          <path class="a"
+            d="M20.083,14H9.25A1.252,1.252,0,0,1,8,12.75v-2.5A1.252,1.252,0,0,1,9.25,9H20.083a1.252,1.252,0,0,1,1.25,1.25v2.5A1.252,1.252,0,0,1,20.083,14ZM9.25,9.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417H20.083a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(-1.333 -1.5)" />
+          <path class="a"
+            d="M3.75,23H1.25A1.252,1.252,0,0,1,0,21.75v-2.5A1.252,1.252,0,0,1,1.25,18h2.5A1.252,1.252,0,0,1,5,19.25v2.5A1.252,1.252,0,0,1,3.75,23Zm-2.5-4.167a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(0 -3)" />
+          <path class="a"
+            d="M20.083,23H9.25A1.252,1.252,0,0,1,8,21.75v-2.5A1.252,1.252,0,0,1,9.25,18H20.083a1.252,1.252,0,0,1,1.25,1.25v2.5A1.252,1.252,0,0,1,20.083,23ZM9.25,18.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417H20.083a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(-1.333 -3)" />
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div *ngIf="view == 'student'" class="col-12 col-sm-12 col-md-12 col-lg-8 layout layout-item-center layout-item-end">
+    <button class="basic-btn mr24" id="content-area-resume-btn" (click)="onClick('resume')" translate="admin.learningCenter.resume"></button>
+    <div class="dropdown">
+      <button class="flat-btn mr24 dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+        aria-expanded="false" id="content-area-flat-btn-con" translate="admin.learningCenter.filter">
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <li><button class="dropdown-item" id="content-area-flat-btn-action1" type="button">Action</button></li>
+        <li><button class="dropdown-item" id="content-area-flat-btn-action2" type="button">Another action</button></li>
+        <li><button class="dropdown-item" id="content-area-flat-btn-action3" type="button">Something else here</button></li>
+      </ul>
+    </div>
+    <div class="btn-group view-type-btn">
+      <a href="#" id="content-area-list1" class="btn btn-default btn-sm">
+        <!-- <svg-icon src="assets\images\icons\icon-grid.svg"></svg-icon> -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+          <defs>
+            <style>
+              .a {
+                fill: #fff;
+              }
+
+            </style>
+          </defs>
+          <path class="a"
+            d="M3.75,5H1.25A1.252,1.252,0,0,1,0,3.75V1.25A1.252,1.252,0,0,1,1.25,0h2.5A1.252,1.252,0,0,1,5,1.25v2.5A1.252,1.252,0,0,1,3.75,5ZM1.25.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417V1.25A.417.417,0,0,0,3.75.833Z" />
+          <path class="a"
+            d="M3.75,14H1.25A1.252,1.252,0,0,1,0,12.75v-2.5A1.252,1.252,0,0,1,1.25,9h2.5A1.252,1.252,0,0,1,5,10.25v2.5A1.252,1.252,0,0,1,3.75,14ZM1.25,9.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(0 -1.5)" />
+          <path class="a"
+            d="M3.75,23H1.25A1.252,1.252,0,0,1,0,21.75v-2.5A1.252,1.252,0,0,1,1.25,18h2.5A1.252,1.252,0,0,1,5,19.25v2.5A1.252,1.252,0,0,1,3.75,23Zm-2.5-4.167a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(0 -3)" />
+          <path class="a"
+            d="M12.75,5h-2.5A1.252,1.252,0,0,1,9,3.75V1.25A1.252,1.252,0,0,1,10.25,0h2.5A1.252,1.252,0,0,1,14,1.25v2.5A1.252,1.252,0,0,1,12.75,5ZM10.25.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417V1.25A.417.417,0,0,0,12.75.833Z"
+            transform="translate(-1.5)" />
+          <path class="a"
+            d="M12.75,14h-2.5A1.252,1.252,0,0,1,9,12.75v-2.5A1.252,1.252,0,0,1,10.25,9h2.5A1.252,1.252,0,0,1,14,10.25v2.5A1.252,1.252,0,0,1,12.75,14Zm-2.5-4.167a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(-1.5 -1.5)" />
+          <path class="a"
+            d="M12.75,23h-2.5A1.252,1.252,0,0,1,9,21.75v-2.5A1.252,1.252,0,0,1,10.25,18h2.5A1.252,1.252,0,0,1,14,19.25v2.5A1.252,1.252,0,0,1,12.75,23Zm-2.5-4.167a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(-1.5 -3)" />
+          <path class="a"
+            d="M21.75,5h-2.5A1.252,1.252,0,0,1,18,3.75V1.25A1.252,1.252,0,0,1,19.25,0h2.5A1.252,1.252,0,0,1,23,1.25v2.5A1.252,1.252,0,0,1,21.75,5ZM19.25.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417V1.25A.417.417,0,0,0,21.75.833Z"
+            transform="translate(-3)" />
+          <path class="a"
+            d="M21.75,14h-2.5A1.252,1.252,0,0,1,18,12.75v-2.5A1.252,1.252,0,0,1,19.25,9h2.5A1.252,1.252,0,0,1,23,10.25v2.5A1.252,1.252,0,0,1,21.75,14Zm-2.5-4.167a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(-3 -1.5)" />
+          <path class="a"
+            d="M21.75,23h-2.5A1.252,1.252,0,0,1,18,21.75v-2.5A1.252,1.252,0,0,1,19.25,18h2.5A1.252,1.252,0,0,1,23,19.25v2.5A1.252,1.252,0,0,1,21.75,23Zm-2.5-4.167a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(-3 -3)" />
+        </svg>
+      </a>
+      <a href="#" id="content-area-grid1" class="btn btn-default btn-sm active">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+          <defs>
+            <style>
+              .a {
+                fill: #fff;
+              }
+
+            </style>
+          </defs>
+          <path class="a"
+            d="M3.75,5H1.25A1.252,1.252,0,0,1,0,3.75V1.25A1.252,1.252,0,0,1,1.25,0h2.5A1.252,1.252,0,0,1,5,1.25v2.5A1.252,1.252,0,0,1,3.75,5ZM1.25.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417V1.25A.417.417,0,0,0,3.75.833Z" />
+          <path class="a"
+            d="M20.083,5H9.25A1.252,1.252,0,0,1,8,3.75V1.25A1.252,1.252,0,0,1,9.25,0H20.083a1.252,1.252,0,0,1,1.25,1.25v2.5A1.252,1.252,0,0,1,20.083,5ZM9.25.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417H20.083A.417.417,0,0,0,20.5,3.75V1.25a.417.417,0,0,0-.417-.417Z"
+            transform="translate(-1.333)" />
+          <path class="a"
+            d="M3.75,14H1.25A1.252,1.252,0,0,1,0,12.75v-2.5A1.252,1.252,0,0,1,1.25,9h2.5A1.252,1.252,0,0,1,5,10.25v2.5A1.252,1.252,0,0,1,3.75,14ZM1.25,9.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(0 -1.5)" />
+          <path class="a"
+            d="M20.083,14H9.25A1.252,1.252,0,0,1,8,12.75v-2.5A1.252,1.252,0,0,1,9.25,9H20.083a1.252,1.252,0,0,1,1.25,1.25v2.5A1.252,1.252,0,0,1,20.083,14ZM9.25,9.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417H20.083a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(-1.333 -1.5)" />
+          <path class="a"
+            d="M3.75,23H1.25A1.252,1.252,0,0,1,0,21.75v-2.5A1.252,1.252,0,0,1,1.25,18h2.5A1.252,1.252,0,0,1,5,19.25v2.5A1.252,1.252,0,0,1,3.75,23Zm-2.5-4.167a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417h2.5a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(0 -3)" />
+          <path class="a"
+            d="M20.083,23H9.25A1.252,1.252,0,0,1,8,21.75v-2.5A1.252,1.252,0,0,1,9.25,18H20.083a1.252,1.252,0,0,1,1.25,1.25v2.5A1.252,1.252,0,0,1,20.083,23ZM9.25,18.833a.417.417,0,0,0-.417.417v2.5a.417.417,0,0,0,.417.417H20.083a.417.417,0,0,0,.417-.417v-2.5a.417.417,0,0,0-.417-.417Z"
+            transform="translate(-1.333 -3)" />
+        </svg></a>
+    </div>
+  </div>
+</div>
+<app-content-builder *ngIf="isInitializeContentBuilder"></app-content-builder>
+<router-outlet></router-outlet>

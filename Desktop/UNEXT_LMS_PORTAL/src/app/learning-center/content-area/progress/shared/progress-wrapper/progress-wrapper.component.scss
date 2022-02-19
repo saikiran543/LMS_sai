@@ -1,0 +1,36 @@
+.class-progress {
+    width: 416px;
+    background: #FFFFFF;
+    box-shadow: -4px 20px 60px #cfdae659;
+    border: 1px solid #CFDAE680;
+    border-radius: 8px;
+    opacity: 1;
+    .class-progress-content {
+        padding: 24px;
+        .msg {
+            color: #040434;
+            font-size: 16px;
+            line-height: 18px;
+            margin-bottom: 16px;
+        }
+    div{
+        // flex: 1;
+    }
+    .chart {
+        margin-right: 32px;
+    }
+    .top-bottom-progress-list {
+        width: 162px;
+    }
+    }
+}
+
+.student-progres-container {
+    width: 388px;
+    .class-progress-content {
+        padding: 24px 12px 12px 12px;
+    .chart {
+        margin-right: 16px;
+    }
+    }
+}

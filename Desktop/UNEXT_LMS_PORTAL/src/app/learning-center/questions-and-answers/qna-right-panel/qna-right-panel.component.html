@@ -1,0 +1,11 @@
+<div class="qa-right-panel" id="qa-right-panel-con">
+    <div class="course">
+        <div class="mb15" *ngIf="question">
+            <img src="../../../../assets/images/icons/content-builder/icon-{{question?.contentType}}-hover.svg" class="parent-content-type-icon">
+            <span (click)="redirectToContentPlayer()" class="main-notes-title">{{question?.contentTitle}}</span>
+            <div class="qnaSection" *ngIf="question">
+                <app-question-thread [viewOnlyMode]="viewOnlyMode"  [question]="question" theme="dark" [extended]="true" [showEditDelete]="true" [pinned]="true" (pinnedQuestionIdEmitter)="pinUnpinQuestion($event)" (likeUnlikeEmitter)="likeUnlikeQuestion($event)" (deleteQuestionId)="deleteQuestion($event)" (replyAdded)="reply($event)"></app-question-thread>
+            </div>
+        </div>
+    </div>
+</div>

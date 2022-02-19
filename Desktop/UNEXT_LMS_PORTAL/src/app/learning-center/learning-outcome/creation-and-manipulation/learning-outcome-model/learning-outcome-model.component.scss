@@ -1,0 +1,130 @@
+.modal-header {
+    background: #FFDDB0;
+    font-size: calc(16px + 0.21vw);
+    font-family: "Proxima Nova W05 Bold";
+    color: #000;
+}
+.learning-modal-content {
+    padding: 1.5rem 2rem 2rem 2rem;
+    .form-group {
+        margin-bottom: 24px;
+        .status, .applicable {
+            div {
+                margin-right: 24px;
+                &:last-child {
+                    margin: 0;
+                }
+            }
+        }
+        input.error{
+            border-color: #FF4646 !important;
+        }
+        .inActive-message{
+            color: #FF4646;
+        }
+        .form-control {
+            &::placeholder {
+                font-size: 16px;
+            }
+        }
+        .outcomeTitle {
+            input {
+                padding-right: 150px !important;
+            }
+        }
+    }
+    .char-count {
+        top: 0px;
+        right: 16px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .custome-radiobutton {
+        span {
+            color: #000000;
+            font-size: 16px;
+        }
+    }
+    .custome-radiobutton.disabled{
+       opacity: 0.5;
+       cursor:not-allowed;
+       color: #A3A3A3;
+    }
+    textarea {
+        min-height: 100px;
+    }
+}
+
+.modal-footer {
+    padding: 0rem 2rem 2rem 2rem;
+    border: none;
+    button {
+        max-height: 60px;
+        height: 6.41vh;
+        margin-left: 1.343%;
+        padding: 0px 16px;
+        width: 11.459vw;
+        min-width: 132px;
+        font-size: calc(12px + 0.4169vw)
+    }
+}
+
+.status-container {
+margin-bottom: 22px;
+.custome-tooltip-container {
+    position: relative;
+    span.i {
+        cursor: pointer;
+        font-style: italic;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        width: 20px;
+        height: 20px;
+        background: #4FA8FF;
+        border-radius: 64px;
+        text-align: center;
+        margin-left: 8px;
+        line-height: 11px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .custom-tooltip {
+        width: 341px;
+        background: #363436 0% 0% no-repeat padding-box;
+        letter-spacing: 0.29px;
+        color: #FFFFFF;
+        font-size: 12px;
+        line-height: 15px;
+        padding: 6px 14px 12px;
+        position: absolute;
+        left: 40px;
+        top: -6px;
+        z-index: 9;
+        &::before {
+        content:'';
+        display:block;
+        width:0;
+        height:0;
+        position:absolute;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right:8px solid black;
+        left:-8px;
+        top:8px;
+        }
+        ul {
+            margin-bottom: 0px;
+            padding-left: 14px;
+            li {
+            margin-bottom: 12px;
+            &:last-child {
+                margin-bottom: 0px;
+            }
+            }
+        }
+    }
+}
+}

@@ -1,0 +1,111 @@
+<div [formGroup]="outcomeForm">
+    <div class="modal-header">
+        {{operation | titlecase}} {{formTitle}}
+    </div>
+    <div class="learning-modal-content">
+    <div class="form-group">
+        <label for="header" class="form-label required" translate="learningOutcome.creationAndManipulation.title"></label>
+        <div class="position-relative outcomeTitle">
+            <input type="text" class="form-control" [ngClass]='{"error": outcomeForm.controls.title.invalid}' formControlName="title" placeholder="{{'learningOutcome.creationAndManipulation.enterTitle' | translate}}" name="title" maxlength="{{supportTextLengthMax}}"> 
+            <span *ngIf="outcomeForm.value.title.length < 499" class="char-count">{{ 'learningOutcome.creationAndManipulation.maxOfCharacter' | translate:charactersRemaining() }}</span>
+            <span *ngIf="outcomeForm.value.title.length === 499 || outcomeForm.value.title.length === 500" class="char-count">{{ 'learningOutcome.creationAndManipulation.characterLeft' | translate:charactersRemaining() }}</span>
+        </div>
+        <div [ngClass]="{ 'inActive-message': outcomeForm.controls.title.invalid}"
+            *ngIf="isValid && outcomeForm.controls.title.invalid" translate="admin.rubrics.rubricsManipulation.thisIsARequiredField"></div>
+    </div>
+    
+    <div class="form-group">
+        <label for="header" class="form-label" translate="learningOutcome.creationAndManipulation.description"></label>
+            <app-ckeditor [ckeditorFormControl]="outcomeForm.controls['description']"
+            [lineCountLimit]=2 [config]="{toolbar: ['bold', 'italic', 'underline', 'fontfamily', 'fontcolor']}">
+          </app-ckeditor>
+    </div>
+    
+    <div *ngIf="type==='learning-objective'" class="form-group">
+        <div class="layout layout-item-center status-container">
+            <label class="form-label mb-0" translate="learningOutcome.status.title"></label>
+            <div *ngIf="showInfoIconStatus" class="custome-tooltip-container">
+                <span class="i"(mouseover)='showStatusTooltip=true' (mouseout)='showStatusTooltip=false'>i</span>
+                <div *ngIf="showStatusTooltip" class="custom-tooltip">
+                    <div *ngIf="statusHoverMessage.length>1">
+                        <ul>
+                            <li *ngFor="let message of statusHoverMessage">
+                                   {{message}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div *ngIf="statusHoverMessage.length==1">
+                        {{statusHoverMessage[0]}}
+                      </div>
+                </div>
+            </div>
+            </div>
+            <div class="layout flex-wrap status">
+                <div>
+                    <label class="custome-radiobutton" [ngClass]="{'disabled': statusBtnDisabled}">
+                        <input [attr.disabled]="statusBtnDisabled ? '' : null" type="radio" name="status" value="active" formControlName="status">
+                        <span class="checkmark"></span>
+                        <span translate="learningOutcome.status.active"></span>
+                    </label>
+                </div>
+                <div>
+                    <label class="custome-radiobutton" [ngClass]="{'disabled': statusBtnDisabled}">
+                        <input [attr.disabled]="statusBtnDisabled ? '' : null"  type="radio" name="status" value="inactive" formControlName="status">
+                        <span  class="checkmark"></span>
+                        <span translate="learningOutcome.status.inactive"></span>
+                    </label>
+                </div>
+            </div>
+    </div>
+    
+    <div *ngIf="type==='learning-objective'" class="form-group">
+        <div class="layout layout-item-center status-container">
+            <label class="form-label mb-0" translate="learningOutcome.applicableTo.title"></label>
+            <div *ngIf="showInfoIconApplicableTo" class="custome-tooltip-container">
+                <span class="i" (mouseover)='showApplicableTooltip=true' (mouseout)='showApplicableTooltip=false'>i</span>
+                <div *ngIf="showApplicableTooltip" class="custom-tooltip">
+                    <div *ngIf="applicableHoverMessage.length>1">
+                        <ul>
+                            <li *ngFor="let message of applicableHoverMessage">
+                                   {{message}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div *ngIf="applicableHoverMessage.length==1">
+                        {{applicableHoverMessage[0]}}
+                      </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="layout flex-wrap applicable">
+            <div>
+                <label class="custome-radiobutton" [ngClass]="{'disabled': contentBtnDisabled}">
+                    <input [attr.disabled]="contentBtnDisabled ? '' : null" type="radio" name="applicableTo" value="content" formControlName="applicableTo" >
+                    <span class="checkmark"></span>
+                    <span translate="learningOutcome.types.content"></span>
+                </label>
+            </div>
+            <div>
+                <label class="custome-radiobutton" [ngClass]="{'disabled': activityBtnDisabled}">
+                    <input [attr.disabled]="activityBtnDisabled ? '' : null" type="radio" name="applicableTo" value="activity" formControlName="applicableTo">
+                    <span  class="checkmark"></span>
+                    <span translate="learningOutcome.types.activity"></span>
+                </label>
+            </div>
+            <div>
+                <label class="custome-radiobutton">
+                    <input  type="radio" name="applicableTo" value="both" formControlName="applicableTo">
+                    <span  class="checkmark"></span>
+                    <span translate="learningOutcome.types.both"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="modal-footer">
+    <button class="cancel-btn" (click)="sendConfirmStatus(false)" translate="learningOutcome.buttons.cancel"></button>
+    <button class="primary-btn"  (click)="onSave()" translate="learningOutcome.buttons.save"></button>
+    </div>
+</div>

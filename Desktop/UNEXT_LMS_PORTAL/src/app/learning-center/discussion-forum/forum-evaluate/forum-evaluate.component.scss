@@ -1,0 +1,284 @@
+@import "~src/variables";
+
+.discussion-forum-stats-body {
+    
+    .actions-row .rows-per-page {
+        margin-right: 0;
+    }
+    .empty-discussion-forum-img-con {
+        justify-content: center;
+        min-height: 67vh;
+        .no-threads-msg {
+            color: #000000;
+            font-family: "Proxima Nova W05 Regular";
+            font-size: 1.68vw;
+        }
+    }
+    .stat-box {
+        margin: 0 10px;
+        .stat-box-text {
+            color: #ff6600;
+            font-family: "Proxima Nova W05 Bold";
+            font-size: 1.4vw;
+        }
+        .stat-box-label {
+            font-family: "Proxima Nova W05 Regular";
+            font-size: 16px;
+            color: #707070;
+        }
+        .stat-box-text.select-box-text {
+            @extend .stat-box-label;
+            color: #ff6600;
+        }
+        .records-per-page {
+            font-size: 16px;
+        }
+    }
+
+    .create-new-btn {
+        display: inline-block;
+        width: 7.5vw;
+        height: 32px;
+        margin: 0 10px !important;
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    .discussion-forum-content-con {
+        border: 1px solid #cfdae6;
+        border-radius: 8px;
+        padding: 2vh 1.5vw;
+        background-color: #f7f8f9;
+        .discussion-forum-content-box {
+            .content-text {
+                font-size: 1rem;
+                .grey-txt-sm {
+                    font-size: 0.8rem;
+                    color: #555555cc;
+                }
+                .content-header {
+                    color: #000;
+                    font-family: "Proxima Nova W05 Regular";
+                }
+                .grey-txt-lg {
+                    color: #555555cc;
+                    max-height: 13vh;
+                    overflow-y: hidden;
+                    position: relative;
+                    line-height: 28px;
+                    .show-more-btn {
+                        color: #ff6600;
+                        cursor: pointer;
+                        position: absolute;
+                        bottom: -2px;
+                        right: 0;
+                    }
+                }
+
+                .label-row {
+                    .label {
+                        margin-right: 2rem;
+                        &:last-child {
+                            margin-left: 2rem;
+                        }
+                        &:first-child {
+                            margin-left: 0;
+                        }
+                    }
+                    .label-txt {
+                        font-size: 0.88rem;
+                        font-family: "Proxima Nova W05 Regular";
+                        color: #000;
+                        padding: 3px 19px;
+                        border-radius: 12px;
+                    }
+                    .created-label {
+                        font-size: 0.88rem;
+                        .created-label-txt {
+                            background-color: #e9fffb;
+                            color: #00c29b;
+                        }
+                    }
+                    .learning-objective-label {
+                        background-color: #ececec;
+                        color: #555555;
+                        img {
+                            position: relative;
+                            top: -1px;
+                            margin-right: 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .datatable-body {
+    }
+}
+
+.value-con {
+    .colour-dot {
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        top: 8px;
+        left: -10px;
+        position: absolute;
+    }
+    .colour-dot.blue-dot {
+        background-color: #0082ff;
+    }
+    .colour-dot.grey-dot {
+        background-color: #555555;
+    }
+}
+
+.datatable-label-txt {
+    font-size: 0.88rem;
+    font-family: "Proxima Nova W05 Regular";
+    color: #000;
+    padding: 3px 19px;
+    border-radius: 12px;
+}
+
+.datatable-label-txt.label-graded {
+    background-color: #ddfff0;
+    color: #4ad395;
+}
+
+.datatable-label-txt.label-not-graded {
+    background-color: #ffe6e6;
+    color: #ff0000;
+}
+
+::ng-deep .page-count {
+    display: none;
+}
+::ng-deep .pager {
+    li.pages {
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      background: #F5F6FA;
+      a {
+        color: #555555cc;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+    }
+    .pages.active {
+        background: #FF6600;
+      a {
+        color: #fff;
+      }
+      &:hover {
+          a {
+              color: #fff !important;
+          }
+      }
+    }
+  }
+
+  ::ng-deep .stats-table-con  {
+      position: relative;
+      #dc_scroll_left_btn, #sd_scroll_left_btn {
+          cursor: pointer;
+          height: 36px;
+          width: 36px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #363436;
+          border-radius: 50%;
+          position: absolute;
+          left: 160px;
+          top: 14px;
+          z-index: 10;
+          cursor: pointer;
+          svg-icon {
+            position: relative;
+            top: -1px;
+            right: -1px;
+            svg {
+                width: 11px;
+                height: 11px;
+                transform: rotate(90deg);
+                path {
+                    stroke: #fff;
+                }
+            }
+          }
+      }
+      #dc_scroll_right_btn, #sd_scroll_right_btn {
+          height: 36px;
+          width: 36px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #363436;
+          border-radius: 50%;
+          position: absolute;
+          right: 15px;
+          top: 14px;
+          z-index: 10;
+          cursor: pointer;
+          svg-icon {
+            position: relative;
+            top: -1px;
+            right: 2px;
+            svg {
+                transform: rotate(-90deg);
+                width: 11px;
+                height: 11px;
+                path {
+                    stroke: #fff;
+                }
+            }
+          }
+      }
+      datatable-header {
+          .datatable-header-inner .datatable-row-center  {
+            .datatable-header-cell {
+                width: 15%!important;
+                overflow: visible!important;
+                .datatable-header-cell-template-wrap {
+                    white-space: nowrap!important;
+                }
+            }
+              
+          }
+        .datatable-row-left {
+            display: flex!important;
+            background-color: #ebeef5;
+            .datatable-header-cell {
+                &:nth-child(1) {
+                    padding-left: 10px!important;
+                    margin-top: 4px;
+                }
+                &:nth-child(2) {
+                //   padding-left: 24px!important;
+                }
+              }
+        }
+      }
+      datatable-body {
+        datatable-body-row {
+            .datatable-row-left {
+                background-color: #fff;
+                .datatable-body-cell:first-child {
+                    margin-top: 4px;
+                }
+            }
+            .datatable-row-center {
+                .datatable-body-cell {
+                    width: 15%!important;
+                    overflow: visible!important;
+                }
+            }
+        }
+      }
+  }

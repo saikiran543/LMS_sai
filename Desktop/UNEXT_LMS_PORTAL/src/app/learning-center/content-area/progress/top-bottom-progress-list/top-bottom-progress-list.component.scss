@@ -1,0 +1,84 @@
+
+.nav {
+    flex-wrap: nowrap;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border-color: transparent; 
+    color: #000000;
+    background-color: #fff;
+    border-bottom: 3px solid #FF6600;
+    font-size: 16px;
+    line-height: 19px;
+    font-family: "Proxima Nova W05 Bold";
+}
+
+.nav-tabs .nav-link {
+    background: 0 0;
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    border: 0px;
+    color: #55555580;
+    padding: 0px;
+    margin-right: 32px;
+    white-space: nowrap;
+}
+
+
+.student-list {
+    margin-top: 12px;
+    &:first-child {
+        margin-top: 16px;
+    }
+    &:last-child {
+        margin-bottom: 16px;
+    }
+    .student-profile-img {
+        width: 24px;
+        height: 24px;
+        border-radius: 32px;
+        margin-right: 8px;
+        display: inline-block;
+    }
+    span {
+        font-size: 14px;
+        line-height: 17px;
+        color: #555555CC;
+        font-family: "Proxima Nova W05 Regular";
+    }
+    h6 {
+        margin-bottom: 0px;
+        margin-left: 8px;
+        font-family: "Proxima Nova W05 Regular";
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 17px;
+        color: #555555;
+    }
+    .student-details{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 90px;
+        pointer-events: all;
+    }
+}
+
+.text-end {
+    a {
+        cursor: pointer;
+        color: #FF6600;
+        font-size: 12px;
+        line-height: 15px;
+        background: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0px !important;
+        min-height: inherit;
+        display:  block !important;
+        font-family: "Proxima Nova W05 Regular";
+        font-weight: 400 !important;
+        &:hover {
+            color: #FF6600 !important;
+        }
+    }
+}

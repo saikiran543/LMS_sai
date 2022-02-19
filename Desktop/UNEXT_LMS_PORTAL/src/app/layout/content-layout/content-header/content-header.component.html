@@ -1,0 +1,41 @@
+<div id="content-header-area" class="layout layout-justify-space-between">
+<div id="content-header-component">
+  <div class="breadcrumb-component">
+    <app-ng7-bootstrap-breadcrumb [bgColor]="'#0000000'"></app-ng7-bootstrap-breadcrumb>
+  </div>
+  <!-- <div *ngIf="title!=='Learning center'"class="content-title">
+    {{ title }}
+  </div> -->
+</div>
+    <div *ngIf="view != 'student' && courseDropDown === 'true'" class="row course-and-class" [ngClass]="{'hide-element': previewModeOfTree}">
+      <div class="layout align-items-center col-12 col-sm-12 col-md-12 col-lg-12 text-end">
+        <div class="dropdown course-type-dropdown" id="content-header-courseType-dropdown-con">
+          <button disabled class="dropbtn layout layout-item-center layout-justify-space-between dropdown-toggle" type="button"
+             id="content-header-courseType-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="layout"><img class="mr8" src="assets/images/icons/icon-book.svg"> BBA</span>
+            <img src="assets/images/icons/icon-arrow-down.svg" > </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item">Action</a></li>
+            <li><a class="dropdown-item">Another action</a></li>
+            <li><a class="dropdown-item">Something else here</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="view == 'student' && courseDropDown === 'true'" class="row mb24" >
+      <div class="layout align-items-center col-12 col-sm-12 col-md-12 col-lg-12 text-end">
+        <div class="dropdown course-type-dropdown" id="content-header-courseType-dropdown-student-con">
+          <button disabled class="dropbtn layout layout-item-center layout-justify-space-between dropdown-toggle" type="button"
+          id="content-header-courseType-dropdown-student" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="layout"><img class="mr8" src="assets/images/icons/icon-book.svg"> BBA</span>
+            <img src="assets/images/icons/icon-arrow-down.svg" > </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item">Action</a></li>
+            <li><a class="dropdown-item">Another action</a></li>
+            <li><a class="dropdown-item">Something else here</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>

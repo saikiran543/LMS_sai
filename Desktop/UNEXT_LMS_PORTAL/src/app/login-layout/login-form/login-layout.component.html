@@ -1,0 +1,58 @@
+<div class="login-main-wrapper" *ngIf="loginConfiguration">
+  <div class="login-header">
+    <div class="login-header-text layout layout-item-center layout-justify-center"
+      *ngIf="loginConfiguration.headerText; else defaultHeaderText" [innerHTML]="loginConfiguration.headerText">
+    </div>
+    <ng-template #defaultHeaderText>
+      <div class="login-header-text layout layout-item-center layout-justify-center">
+        {{loginConfiguration.defaultHeaderText}}
+      </div>
+    </ng-template>
+    <div class="login-logo" *ngIf="loginConfiguration.logoImageUrl; else defaultLogoImageUrl">
+      <a href="{{loginConfiguration.logoRedirectUrl}}">
+        <img src="{{loginConfiguration.logoImageUrl}}" alt="{{loginConfiguration.logoOnHover}}"
+          title="{{loginConfiguration.logoOnHover}}">
+      </a>
+    </div>
+    <ng-template #defaultLogoImageUrl>
+      <div class="login-logo">
+        <a href="{{loginConfiguration.defaultLogoRedirectUrl}}">
+          <img src="{{loginConfiguration.defaultLogoImageUrl}}" alt="{{loginConfiguration.defaultLogoOnHover}}"
+            title="{{loginConfiguration.defaultLogoOnHover}}">
+        </a>
+      </div>
+    </ng-template>
+  </div>
+  <div class="login-content-wrapper">
+    <div class="layout login-content">
+      <div class="login-banner">
+        <div class="login-banner-image">
+          <img src="{{loginConfiguration.bannerImageUrl}}"
+            *ngIf="loginConfiguration.bannerImageUrl else defaultBannerImageUrl"
+            title="{{loginConfiguration.bannerOnHover}}">
+          <ng-template #defaultBannerImageUrl>
+            <img src="{{loginConfiguration.defaultBannerImageUrl}}" *ngIf="loginConfiguration.defaultBannerImageUrl"
+              title="{{loginConfiguration.defaultBannerOnHover}}">
+          </ng-template>
+        </div>
+        <div class="powered-by-logo" *ngIf="loginConfiguration.poweredByUnextLogo">
+          <img src="assets/images/unext-logo.png">
+        </div>
+      </div>
+      <div *ngIf="!isPreview" class="login-layout-card">
+        <router-outlet></router-outlet>
+      </div>
+      <div *ngIf="isPreview" class="login-layout-card">
+        <app-login-form></app-login-form>
+      </div>
+    </div>
+    <div class="powered-by-logo-for-mobile" *ngIf="loginConfiguration.poweredByUnextLogo">
+      <img src="assets/images/unext-logo.png">
+    </div>
+  </div>
+  <div class="login-footer layout layout-item-center layout-justify-space-between">
+    <a href="#" class="terms" translate="lms.termsAndConditions"></a>
+    <a href="#" class="copyright" translate="lms.copyRight"></a>
+    <a href="#" class="privacy" translate="lms.privacyPolicy"></a>
+  </div>
+</div>

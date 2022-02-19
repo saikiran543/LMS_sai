@@ -1,0 +1,28 @@
+@import "~src/variables";
+.popup-content{
+    padding: 1rem 2rem;
+    display: inline-block;
+    width: 100% !important;
+    background: url(../../../../assets/images/icons/calendar/icon-pattern.svg) no-repeat center;
+    background-size: cover;
+    .close-btn{
+        text-align: right;
+        svg-icon{
+            cursor: pointer;
+        }
+    }
+    .title-block{
+        display: flex;
+        margin-bottom: 50px;
+        h4{
+            margin-left: 15px;
+            color: #363436;
+            font-size: $font-24;
+            font-weight: bold;
+        }
+    }
+    .content-builder-modal-footer{
+        padding: 0px;
+        margin: 0px;
+    }
+}

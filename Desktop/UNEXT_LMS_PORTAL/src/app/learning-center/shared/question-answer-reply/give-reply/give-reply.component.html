@@ -1,0 +1,15 @@
+<div class="mt16 mb16">
+    <label  class="form-label" translate="qna.answerReply.title"></label>
+    <form [formGroup]="replyForm" (ngSubmit)="onSubmit()">
+        <app-ckeditor [ckeditorFormControl]="replyForm.controls['reply']" [config]="{placeholder: 'Type here...'}">
+        </app-ckeditor>
+        <small class="error-text" *ngIf="replyForm.get('reply')?.errors && replyForm.get('reply')?.touched"
+            translate="qna.answerReply.replyErrorMessage"></small>
+        <div class="action-btns text-end">
+            <button class="cancel-btn" type="button" (click)="cancel()"
+                translate="qna.answerReply.cancelButtonText"></button>
+            <button class="submit-btn" 
+                translate="qna.answerReply.saveButtonText"></button>
+        </div>
+    </form>
+</div>

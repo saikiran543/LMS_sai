@@ -1,0 +1,113 @@
+
+.breadcrumb-component {
+    width: 100%;
+    z-index: 10;
+    padding: 19px 32px 8px 0px;
+}
+.content-title {
+    color: #363436;
+    font-family:"Proxima Nova W05 Bold";
+    font-size: calc(20px + 0.2085vw);
+    line-height: 27px;
+    border-bottom: #FF6600 2px solid;
+    width: max-content;
+    margin-bottom: 7.48%;
+}
+.course-type-dropdown  {
+    .dropbtn > span {
+        font-family: 'Proxima Nova W05 Regular';
+        img {
+            margin-right: 12px;
+        }
+    }
+}
+button.dropbtn {
+    width: 18.6vh;
+    min-width: 150px;
+    height: 32px;
+    background: #3C5A9A 0% 0% no-repeat padding-box;
+    box-shadow: 0px 5px 10px #b9b9b919;
+    border-radius: 32px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 600;
+    padding: 4px 16px;
+    &::after {
+        display: none;
+    }
+}
+
+
+
+@media screen and (min-width:768px) and (max-width:1024px) {
+    #content-header-area {
+        flex-direction: column;
+        .row.mb24 {
+            margin-bottom: 16px;
+        }
+        .breadcrumb-component {
+            padding: 0px;
+        }
+        ::ng-deep .breadcrumb {
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+        .dropbtn {
+            width: 132px;
+            min-width: 132px;
+            height: 32px;
+            border-radius: 4px;
+            img {
+                width: 9px;
+            }
+            span {
+                font-size: 12px;
+                line-height: 17px;
+                img {
+                    margin-right: 8px;
+                    width: 18px ;
+                    height: auto;
+                }
+    
+            }
+        }
+        
+    }
+} 
+@media screen and (max-width:767px) {
+    #content-header-area {
+        flex-direction: column;
+        .row.mb24 {
+            margin-bottom: 16px;
+        }
+        .breadcrumb-component {
+            padding: 0px;
+        }
+        ::ng-deep .breadcrumb {
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+        .dropbtn {
+            width: 120px;
+            min-width: 120px;
+            height: 32px;
+            border-radius: 4px;
+            img {
+                width: 9px;
+            }
+            span {
+                font-size: 12px;
+                line-height: 17px;
+                img {
+                    margin-right: 8px;
+                    width: 16px ;
+                    height: auto;
+                }
+    
+            }
+        }
+        
+    }
+}

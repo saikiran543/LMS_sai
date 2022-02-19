@@ -1,0 +1,314 @@
+<div class="program-gamification-block" id="program-gamification-block">
+    <div id="program-header-component">
+        <div class="breadcrumb-component">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">
+                        <a href="">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span>Gamification</span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        <div class="content-title">Gamification</div> 
+    </div>
+    <h4 class="sub-title"><span>Program Level</span></h4>
+    <div class="program-btn-block">
+        <div class="dropdown">
+            <button class="btn program-dropdown" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg-icon src="./../../../assets/images/icons/course-list/noun_Book_100734.svg"></svg-icon>
+                <span>MBA Jan 21 Sem 1<svg-icon src="./../../../assets/images/icons/arrow-down.svg"></svg-icon></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><span class="dropdown-item">MBA Jan 21 Sem 1</span></li>
+              <li><span class="dropdown-item">MBA Feb 21 Sem 1</span></li>
+              <li><span class="dropdown-item">MBA Mar 21 Sem 1</span></li>
+            </ul>
+        </div>
+        <div class="badges-term">
+            Term: <span>MBA Jan 21 Sem 1</span>
+        </div>
+    </div>
+    <div class="badges-block-list">
+        <div class="row" [formGroup]="programConfigForm">
+            <div class="col-md-4" formGroupName='badges'>
+                <div class="badges-program-block">
+                    <h3>Badges Calculation Logic<span class="badges-icon">i</span></h3>
+                    <div class="badges-program-inner">
+                        <div class="badges-program-heading">
+                            <div class="row">
+                                <div class="col-md-4">&nbsp;</div>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-md-6"><span>Start Range</span></div>
+                                        <div class="col-md-6"><span>End Range</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="badges-program-content">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="award-badges">
+                                        <img src="../../../assets/images/icons/gamification/Platinum.svg" />
+                                        <h6>Platinum</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="row" formGroupName='platinum'>
+                                        <div class="col-md-6">
+                                            <div class="award-range">
+                                                <input type="number"  formControlName="min"/>
+                                                <span>Percentile</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="award-range">
+                                                <input  class="complete" type="number" formControlName="max" readonly />
+                                                <span>Percentile</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p>**Learners in this percentile range would be allotted Platinum badge**</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="badges-program-content">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="award-badges">
+                                        <img src="../../../assets/images/icons/gamification/Gold.svg" />
+                                        <h6>Gold</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-8" formGroupName='gold'>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="award-range">
+                                                <input type="number" formControlName="min" />
+                                                <span>Percentile</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="award-range">
+                                                <input type="number" formControlName="max" />
+                                                <span>Percentile</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p>**Learners in this percentile range would be allotted Platinum badge**</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="badges-program-content">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="award-badges">
+                                        <img src="../../../assets/images/icons/gamification/Silver.svg" />
+                                        <h6>Silver</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-8" formGroupName='silver'>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="award-range">
+                                                <input type="number" formControlName="min"  />
+                                                <span>Percentile</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="award-range">
+                                                <input type="number" formControlName="max"  />
+                                                <span>Percentile</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p>**Learners in this percentile range would be allotted Platinum badge**</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="badges-program-content">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="award-badges">
+                                        <img src="../../../assets/images/icons/gamification/Bronze.svg" />
+                                        <h6>Bronze</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-8" formGroupName='bronze'>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="award-range">
+                                                <input type="number" class="complete" formControlName="min"  readonly/>
+                                                <span>Percentile</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="award-range">
+                                                <input type="number" formControlName="max" />
+                                                <span>Percentile</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p>**Learners in this percentile range would be allotted Platinum badge**</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="validation-block">
+                    <span>!</span> Please enter a value from valid range
+                </div>
+            </div>
+            <div class="col-md-8" formArrayName="courseWeightageConfig">
+                <div class="badges-program-right-block">
+                    <div class="badges-program-right-list">
+                        <h3>Course Weightage Logic</h3>
+                        <div class="badges-program-right-inner">
+                            <div class="badges-program-right-heading">
+                                <div class="row justify-content-end">
+                                    <div class="col-md-3">
+                                        <span>Weightage Percentage</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div  *ngFor="
+                            let members of programConfigForm.get('courseWeightageConfig').controls;
+                            let i = index">
+                                <div class="row"  [formGroupName]="i">
+                                    <div class="col-md-9">
+                                       {{members.value.courseName}}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number"  formControlName="weightage" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="badges-program-right-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        Crash course in Account and Finance Topics and Techniques
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" value="12.5%" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="badges-program-right-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        Crash course in Account and Finance Topics and Techniques
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" value="12.5%" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="badges-program-right-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        Crash course in Account and Finance Topics and Techniques
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" value="12.5%" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="badges-program-right-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        Crash course in Account and Finance Topics and Techniques
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" value="12.5%" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="badges-program-right-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        Crash course in Account and Finance Topics and Techniques
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" value="12.5%" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="badges-program-right-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        Crash course in Account and Finance Topics and Techniques
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" value="12.5%" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="badges-program-right-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        Crash course in Account and Finance Topics and Techniques
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" value="12.5%" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="badges-program-right-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        Crash course in Account and Finance Topics and Techniques
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" value="12.5%" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="badges-program-right-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        Crash course in Account and Finance Topics and Techniques
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" value="12.5%" />
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="badges-program-right-list">
+                        <h3>Course Weightage Logic Instructions</h3>
+                        <div class="badges-program-right-inner">
+                            <h6>Formula = (C1*W1) + (C2*W2) + (C3*W3) + (C4*W4)</h6>
+                            <ul class="number-list">
+                                <li>Admin can assign %age weightage to each course based on which total points for a Term would be calculated.</li>
+                                <li>Let us suppose MBA Jan 21 Sem 1 has four courses and each of then have equal weightages, points for learner for each of these courses are as follows; Course 1 = 100 Points, Course 2 = 150 Points, Course 3 = 200 Points, Course 4 = 250 Points</li>
+                                <ul class="alpha-list">
+                                    <li>Total points at Term level = Course 1 points * weightage of Course 1 + Course 2 points * weightage of Course 2 + Course 3 points * weightage of Course 3 + Course 4 points * weightage of Course 4</li>
+                                    <li>Total points at Term level = 100 * 0.25 + 150 * 0.25 +200 * 0.25 + 250 * 0.25 = 175</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="validation-block">
+                    <span>!</span> Please make sure, the total sum of Percentages is 100
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-builder-modal-footer">
+        <button class="yes-btn" (click)="saveProgramgamification(programConfigForm)">Save</button>
+        <button class="no-btn">Cancel</button>
+    </div>
+</div>    

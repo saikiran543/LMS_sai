@@ -1,0 +1,311 @@
+
+<div class="content-component" id="content-component-con">
+ 
+  <div class="content-builder-modal-header">{{ headerText }}</div>
+  <form [formGroup]="form" id="content-component-form">
+    <div class="content-builder-modal-content">
+      <div class="row mb16">
+        <div class="form-group col-12 col-md-12 col-lg-12 mb-0">
+          <label class="form-label required" translate="contentBuilder.content.title"></label>
+          <div class="position-relative">
+            <input type="text" class="form-control char-limit" id="content-component-titlePlaceholder" value=""
+            placeholder="{{ 'contentBuilder.content.titlePlaceholder' | translate }}" [maxlength]="titleMaxLength"
+            formControlName="title"
+            [ngClass]="{'form-field-error' : form.controls['title'].invalid && (form.controls['title'].dirty || form.controls['title'].touched)}">
+            <span class="char-count">{{ titleTextLength }}</span>
+          </div>
+        </div>
+        <div *ngIf="form.controls['title'].errors?.required && (form.controls['title'].dirty || form.controls['title'].touched)" class="error-text"
+        translate="contentBuilder.content.errorMsg.requiredField"></div>
+        <div *ngIf="form.controls['title'].errors?.alphaNumericValid && (form.controls['title'].dirty || form.controls['title'].touched)" class="error-text"
+          translate="contentBuilder.content.errorMsg.onlySomeCharacters"></div>
+      </div>
+      <div class="row">
+        <div class="form-group col-12 col-md-12 col-lg-12">
+          <label class="form-label" translate="contentBuilder.content.description"></label>
+          <app-ckeditor id="content-component-description-editor"  [ckeditorFormControl]="form.controls['description']"  [config]="{placeholder: 'Type here...'}"></app-ckeditor>
+        </div>
+      </div>
+      <div *ngIf="params.type==='weblink'" class="row mb16">
+        <div class="form-group col-12 col-md-12 col-lg-12 mb-0">
+          <label class="form-label required" translate="contentBuilder.weblink.url"></label>
+          <input type="text" class="form-control char-limit" id="content-component-url" value=""
+          placeholder="{{ 'contentBuilder.weblink.enterUrl' | translate }}"
+          formControlName="url"
+          [ngClass]="{'form-field-error' : form.controls['url'].invalid}">
+        </div>
+        <div *ngIf="form.controls['url'].errors?.required" class="error-text">This field is required</div>
+      </div>
+      <div class="row" *ngIf="params.type !== 'weblink'">
+        <div class="form-group col-12 col-md-12 col-lg-12">
+          <label class="form-label required" [translate]="uploadTitle"></label>
+          <div *ngIf="isFileSelected && !showFileUpload" class="upload-progess">
+            <div class="layout layout-item-center layout-justify-space-between">
+              <div class="layout layout-item-center">
+                <img src="assets/images/icons/icon-attachment.svg" class="mr12">
+                {{ this.selectedFileName }}
+              </div>
+              <div *ngIf="!isFileUploaded" class="layout layout-item-center progress-container">
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: {{fileUploadPercentage}}%"
+                  aria-valuenow="25" aria-valuemin="0"
+                  aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div *ngIf="isFileUploaded">
+                <a href="javascript:void(0)" id="content-component-editFile" (click)="editFile()" class="edit-icon">
+                  <svg-icon src="assets/images/icons/icon-edit.svg"></svg-icon>
+                </a>
+                <a href="javascript:void(0)" id="content-component-fileDeleteConfirm"  (click)="fileDeleteConfirm()" class="delete-icon">
+                  <svg-icon src="assets/images/icons/icon-delete.svg"></svg-icon>
+                </a>
+              </div>
+            </div>
+          </div>
+       
+          <app-file-upload id="content-component-showFileUpload" 
+          *ngIf="showFileUpload && !showVideoUpload"
+          (fileSaved)="fileSaveHandler($event)"
+          fileType="file"
+          [acceptedFiles]="acceptedFileTypes"
+          [uploadTitle]="uploadTitle"
+          [buttonText]="uploadButton"
+          [dragDropText]="uploadDragDrop"
+          [noteText]="noteText">
+        </app-file-upload>
+        <app-video-upload id="content-component-showVideoUpload"
+        *ngIf="showVideoUpload"
+        (fileSaved)="fileSaveHandler($event)"
+        fileType="file"
+        [acceptedFiles]="acceptedFileTypes"
+        [uploadTitle]="uploadTitle"
+        [buttonText]="uploadButton"
+        [dragDropText]="uploadDragDrop"
+        [noteText]="noteText"
+        >
+        </app-video-upload>
+      </div>
+    </div>
+    <div class="row mb16">
+      <div class="col-12 col-md-6">
+        <div>
+          <label class="form-label" translate="contentBuilder.content.contentStatus"></label>
+          <div class="row">
+            <div class="col-8 d-flex">
+              <label class="custome-radiobutton me-4">
+                <input type="radio" name="status" id="content-component-status" value="mandatory" formControlName="status">
+                <span class="checkmark"></span>
+                <span translate="contentBuilder.content.mandatory"></span>
+              </label>
+              <label class="custome-radiobutton">
+                <input type="radio" name="status"  id="content-component-status1" value="optional" formControlName="status">
+                <span class="checkmark"></span>
+                <span translate="contentBuilder.content.optional"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="attach-objective-cta layout layout-item-center layout-justify-center mt24 mb24" id="attachLearningObjective" (click)="attachLearningObjectives('addLearningObjective')"
+          *ngIf="!isObjectiveAttached">
+            <p translate="learningOutcomeListView.buttons.addLearningObjective"></p>
+          </div>
+          <div class="attach-objective-cta layout layout-item-center layout-justify-center mt24 mb24"  id="attachedLearningObjectiveCta" *ngIf="isObjectiveAttached" (click)="attachLearningObjectives('viewLearningObjective')">
+            <div class="layout layout-item-center" >
+              <p translate="learningOutcomeListView.titles.learningObjective"></p> 
+            </div>
+          </div>
+          
+          <div class="mt24 mb24">
+            <label class="form-label required" translate="contentBuilder.content.idealTime"></label>
+            <div class="layout layout-item-center">
+              <div>
+                <select class="custom-select" id="content-component-hh" formControlName="idealHour"
+                [ngClass]="{'form-field-error' : form.controls['idealHour'].invalid && (form.controls['idealHour'].dirty || form.controls['idealHour'].touched)}">
+                <option value='' selected>hh</option>
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+                <option value=6>6</option>
+                <option value=7>7</option>
+                <option value=8>8</option>
+                <option value=9>9</option>
+                <option value=10>10</option>
+                <option value=11>11</option>
+                <option value=12>12</option>
+                <option value=13>13</option>
+                <option value=14>14</option>
+                <option value=15>15</option>
+                <option value=16>16</option>
+                <option value=17>17</option>
+                <option value=18>18</option>
+                <option value=19>19</option>
+                <option value=20>20</option>
+                <option value=21>21</option>
+                <option value=22>22</option>
+                <option value=23>23</option>
+              </select>
+            </div>
+            <div class="ml12 mr12">:</div>
+            <div>
+              <select class="custom-select" id="content-component-mm" formControlName="idealMinute"
+              [ngClass]="{'form-field-error' : form.controls['idealMinute'].invalid && (form.controls['idealMinute'].dirty || form.controls['idealMinute'].touched)}">
+              <option value='' selected>mm</option>
+              <option value=0> 0 </option>
+              <option value=1> 1 </option>
+              <option value=2> 2 </option>
+              <option value=3> 3 </option>
+              <option value=4> 4 </option>
+              <option value=5> 5 </option>
+              <option value=6> 6 </option>
+              <option value=7> 7 </option>
+              <option value=8> 8 </option>
+              <option value=9> 9 </option>
+              <option value=10> 10 </option>
+              <option value=11> 11 </option>
+              <option value=12> 12 </option>
+              <option value=13> 13 </option>
+              <option value=14> 14 </option>
+              <option value=15> 15 </option>
+              <option value=16> 16 </option>
+              <option value=17> 17 </option>
+              <option value=18> 18 </option>
+              <option value=19> 19 </option>
+              <option value=20> 20 </option>
+              <option value=21> 21 </option>
+              <option value=22> 22 </option>
+              <option value=23> 23 </option>
+              <option value=24> 24 </option>
+              <option value=25> 25 </option>
+              <option value=26> 26 </option>
+              <option value=27> 27 </option>
+              <option value=28> 28 </option>
+              <option value=29> 29 </option>
+              <option value=30> 30 </option>
+              <option value=31> 31 </option>
+              <option value=32> 32 </option>
+              <option value=33> 33 </option>
+              <option value=34> 34 </option>
+              <option value=35> 35 </option>
+              <option value=36> 36 </option>
+              <option value=37> 37 </option>
+              <option value=38> 38 </option>
+              <option value=39> 39 </option>
+              <option value=40> 40 </option>
+              <option value=41> 41 </option>
+              <option value=42> 42 </option>
+              <option value=43> 43 </option>
+              <option value=44> 44 </option>
+              <option value=45> 45 </option>
+              <option value=46> 46 </option>
+              <option value=47> 47 </option>
+              <option value=48> 48 </option>
+              <option value=49> 49 </option>
+              <option value=50> 50 </option>
+              <option value=51> 51 </option>
+              <option value=52> 52 </option>
+              <option value=53> 53 </option>
+              <option value=54> 54 </option>
+              <option value=55> 55 </option>
+              <option value=56> 56 </option>
+              <option value=57> 57 </option>
+              <option value=58> 58 </option>
+              <option value=59> 59 </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="layout layout-item-center">
+        <label class="form-check-label mr8" for="visibility-criteria"
+        translate="contentBuilder.content.visibilityCriteria"></label>
+        <div class="form-check form-switch mr16">
+          <input class="form-check-input" type="checkbox" id="content-component-visibility-criteria"
+          formControlName="visibilityCriteria" name="visibility-criteria">
+          <span class="circle-switch d-inline-block"></span>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="col-12 col-md-6">
+    <div class="mb16" *ngIf="params.type !== 'weblink'">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="content-component-allow-download" name="allow-download"
+        formControlName="allowDownload">
+        <label class="form-check-label" for="allow-download" translate="contentBuilder.content.allowDownload">
+        </label>
+      </div>
+    </div>
+    <div class="row mb16 layout-item-center" *ngIf="params.type !== 'weblink'">
+      <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="enable-offline-access" name="enable-offline-access"
+          formControlName="enableOfflineAccess">
+          <label class="form-check-label" for="enable-offline-access"
+          translate="contentBuilder.content.enableOfflineAccess">
+        </label>
+      </div>
+    </div>
+    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+      <div class="fyi layout layout-item-center">
+        <span>i</span>{{ 'contentBuilder.content.forMobileUsers' | translate }}</div>
+      </div>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="content-component-sendEmail-notification" name="sendEmail-notification"
+      formControlName="sendEmailNotification">
+      <label class="form-check-label" for="sendEmail-notification" translate="contentBuilder.content.sendEmail">
+      </label>
+    </div>
+    <div class="mt24">
+      <label class="form-label mr16" translate="contentBuilder.content.addTags"></label>
+      <!-- Default dropend button -->
+      <div class="btn-group dropend">
+        <button type="button" id="content-component-addTag" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          +
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item">Important</a></li>
+          <li><a class="dropdown-item">Easy</a></li>
+          <li><a class="dropdown-item">Intermediate</a></li>
+          <li><a class="dropdown-item">Difficult</a></li>
+          <li><a class="dropdown-item"> + Create Tag</a></li>
+        </ul>
+      </div>
+      
+      <!-- <div class="dropdown dropend">
+        <label class="form-label mr16" translate="contentBuilder.content.addTags"></label>
+        <button type="button" class="btn dropdown-toggle" id="addTag" ngbDropdownToggle>
+          +
+        </button>
+        <div ngbDropdownMenu aria-labelledby="addTag">
+          <a class="dropdown-item" href="javascript:void(0)">Important</a>
+          <a class="dropdown-item" href="javascript:void(0)">Easy</a>
+          <a class="dropdown-item" href="javascript:void(0)">Intermediate</a>
+          <a class="dropdown-item" href="javascript:void(0)">Difficult</a>
+          <a class="dropdown-item" href="javascript:void(0)"> + Create Tag</a>
+        </div>
+      </div> -->
+    </div>
+    
+  </div>
+</div>
+</div>
+<div class="content-builder-modal-footer text-end">
+  <app-toast class="forgot-success-toaster" style="right: 0;" *ngIf="validationErrorToast"
+  message="{{ 'contentBuilder.content.errorMsg.formInvalid' | translate }}" type="error" [toastNumber]="200"
+  (toastClick)="closeToast()"></app-toast>
+  <button class="no-btn" id="content-component-no-btn" translate="contentBuilder.content.button.cancel"
+  (click)="sendConfirmStatus(false)"></button>
+  <button *ngIf="showSaveAsDraftButton()" class="basic-btn modal-btn" id="content-component-draft" translate="contentBuilder.content.button.draft"
+  (click)="saveContent('draft')"></button>
+  <button *ngIf="!saveClicked; else saving" id="content-component-save" class="yes-btn" translate="contentBuilder.content.button.save"
+  (click)="saveContent('save')" [disabled]="saveDisabled"></button>
+  <ng-template #saving>
+    <button disabled class="yes-btn" id="content-component-saving"  translate="contentBuilder.content.button.saving"></button>
+  </ng-template>
+</div>
+</form>
+</div>

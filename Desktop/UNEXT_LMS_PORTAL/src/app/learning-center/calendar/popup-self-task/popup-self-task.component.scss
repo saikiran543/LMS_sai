@@ -1,0 +1,128 @@
+::ng-deep .self-task-popup {
+    max-width: 1016px;
+    @media screen  and (min-width:768px) and (max-width:1024px) {
+        max-width: 500px;
+    }
+    .modal-content {
+        padding: 24px;
+        max-height: 595px;
+        min-height: 400px;
+        border-radius: 8px;
+        background: #F8F8F4 url(../../../../assets/images/icons/todays-task/note-web.svg) no-repeat 0 0;
+        background-size: cover;
+        @media screen  and (max-width:767px) {
+            
+        }
+        .close-container {
+            line-height: 12px;
+            img {
+                width: 12px;
+                cursor: pointer;
+            }
+        }
+        .note-detail-container {
+            padding: 16px 0px;
+            .self-task-detail {
+                .list-style {
+                    width: 16px;
+                    height: 16px;
+                    background: #D167F0;
+                    border-radius: 2px;
+                }
+                .task-detail {
+                    margin-left: 16px;
+                    flex: 1;
+                    h4 {
+                        letter-spacing: 0.22px;
+                        color: #000000;
+                        font-size: 18px;
+                        line-height: 18px;
+                        font-family: "Proxima Nova W05 Regular";
+                        font-weight: 600;
+                        margin-bottom: 8px;
+                        word-break: break-word;
+                    }
+                    p {
+                        letter-spacing: 0.17px;
+                        color: #555555;
+                        font-size: 14px;
+                        line-height: 17px;
+                        margin-bottom: 12px;
+                        font-family: "Proxima Nova W05 Regular";
+                        word-break: break-word;
+                    }
+                    .until {
+                        height: 22px;
+                        background: #E3E0FC;
+                        border-radius: 2px;
+                        display: flex;
+                        align-items: center;
+                        width: max-content;
+                        .all-day {
+                            width: 52px;
+                            height: 18px;
+                            background: #D167F0;
+                            border-radius: 2px;
+                            color: #ffffff;
+                            letter-spacing: 0.14px;
+                            font-size: 12px;
+                            line-height: 15px;
+                            display: flex;
+                            text-align: center;
+                            padding: 2px 4px;
+                            align-items: center;
+                            justify-content: center;
+                            font-family: "Proxima Nova W05 Regular";
+                        }
+                        .end-date {
+                            letter-spacing: 0.14px;
+                            color: #555555;
+                            font-size: 12px;
+                            line-height: 15px;
+                            display: inline-block;
+                            margin: 0px 8px;
+                            font-family: "Proxima Nova W05 Regular";
+                            font-weight: 600;
+                        }
+                        
+                    }
+                }
+                .desc-container {
+                    margin: 16px 0px;
+                    align-items: baseline;
+                    .desc-icon {
+                        flex-basis: 16px;
+                    }
+                    .desc-text {
+                        flex: 1;
+                        margin-left: 16px;
+                        p {
+                            font-size: 16px;
+                            line-height: 19px;
+                            margin-bottom: 0px;
+                            letter-spacing: 0.19px;
+                            color: #555555;
+                            font-family: "Proxima Nova W05 Regular";
+                            word-break: break-word;
+                        }
+                    }
+                }
+                .remainder-container {
+                    align-items: baseline;
+                    .remainder-text {
+                        margin-left: 16px;
+                        p {
+                            font-size: 16px;
+                            line-height: 19px;
+                            margin-bottom: 0px;
+                            letter-spacing: 0.19px;
+                            color: #555555;
+                            font-family: "Proxima Nova W05 Regular";
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,114 @@
+<div class="clickable-part p-relative" (click)="goToForumDetail(forumDetail?.activityId)" [ngClass]="{'enable-hover': forumDetail.clickable}">
+    <p class="grey-txt-sm mb-2"
+        [ngClass]="{'full-text': forumDetail.isTextFullHeight}"> Crash Course in
+        Account &
+        Finance <span
+            *ngIf="forumDetail?.breadcrumbTitle">/... {{forumDetail?.breadcrumbTitle}}</span>
+    </p>
+     <p class="content-header mb-2"
+        [ngClass]="{'full-text': forumDetail.isTextFullHeight}">        
+            {{forumDetail.title}}
+        </p>
+                        <div class="grey-txt-lg forum-description" [ngClass]="{'height-auto': forumDetail.isTextFullHeight}">
+                    <span class="df-description" id="{{forumDetail?.activityId}}" [innerHtml]="(forumDetail?.description || '') | safe: 'html'"></span>
+                    </div>
+                    <div class="show-more-btn"
+                    (click)="moreContent(forumDetail, $event)" id="show-more-{{forumDetail?.activityId}}">
+                    <span *ngIf="!forumDetail.isTextFullHeight" translate="discussionForums.forumList.more"></span>
+                    <span *ngIf="forumDetail.isTextFullHeight" translate="discussionForums.forumList.less"></span>
+                    </div>
+            </div>
+                <div class="content-text col-12 mt-3">
+                    <div class="label-row d-flex align-items-center flex-wrap">
+                        <div class="created-label label d-inline-flex justify-content-between align-items-center"
+                            *ngIf="forumDetail.status !== 'draft' && forumDetail?.createdAt">
+                            <span class="mr-2 label-txt-prefix"
+                                translate="discussionForums.forumList.created"></span>
+                            <span class="created-label-txt label-txt d-inline-block">
+                                {{ forumDetail?.createdAt | timesAgo }}
+                            </span>
+                        </div>
+                        <div class="switch-con label d-inline-flex align-items-center"
+                            *ngIf="forumDetail.status && forumDetail.status !== 'draft' && userCurrentView === userRole.ADMIN || userCurrentView === userRole.FACULTY">
+                            <label class="label-txt-prefix">{{forumDetail.status}}</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox"
+                                    *ngIf="forumDetail.status === 'unpublished'"
+                                    (change)="publishUnpublish($event)">
+                                <input class="form-check-input" type="checkbox" checked
+                                    *ngIf="forumDetail.status === 'published'"
+                                    (change)="publishUnpublish($event)">
+                                <span class="circle-switch d-inline-block"></span>
+                            </div>
+                        </div>
+                        <div class="draft-forum-label label" *ngIf="forumDetail.status === 'draft'">
+                            <span class="draft-label-txt label-txt label-txt d-inline-block"
+                                translate="discussionForums.forumList.draft">
+
+                            </span>
+                        </div>
+                        <div class="graded-forum-label label"
+                            *ngIf="forumDetail?.isGradable === true">
+                            <span class="graded-label-txt label-txt label-txt d-inline-block"
+                                translate="discussionForums.forumList.gradedForum">
+
+                            </span>
+                        </div>
+                        <div class="graded-forum-label label"
+                            *ngIf="forumDetail?.isGradable === false">
+                            <span class="non-graded-label-txt label-txt label-txt d-inline-block"
+                                translate="discussionForums.forumList.nonGradedForum">
+
+                            </span>
+                        </div>
+                        <div class="ongoing-forum-label label"
+                            *ngIf="forumDetail?.status === 'published' && forumValidityState && forumValidityState === 'ONGOING'">
+                            <span class="ongoing-label-txt label-txt label-txt d-inline-block"
+                                translate="discussionForums.forumList.ongoing">
+
+                            </span>
+                        </div>
+                        <div class="expired-forum-label label"
+                        *ngIf="forumDetail?.status === 'published' && forumValidityState && forumValidityState === 'EXPIRED'">
+                            <span class="expired-label-txt label-txt label-txt d-inline-block"
+                                translate="discussionForums.forumList.expired">
+
+                            </span>
+                        </div>
+                        <div class="cursor-pointer dropdown-dots-con book-mark-icon mobile-device">
+                            <img src="assets/images/icons/content-builder/icon-bookmark-grey.svg">
+                        </div>
+                        <div class="download-btn-con label"
+                        *ngIf="forumDetail?.originalFileName">
+                        <a (click)="downloadAttachment()" class="d-flex align-items-center justify-content-between"
+                            target="_blank">
+                            <span class="d-flex align-items-center">
+                                <img src="./../../../../assets/images/icons/discussion-forum/Attachment.svg"
+                                    alt="">
+                                <span
+                                    class="file-name">{{forumDetail?.originalFileName}}</span>
+                            </span>
+                            <img src="./../../../../assets/images/icons/discussion-forum/Download.svg"
+                                alt="">
+                        </a>
+                    </div>
+                        <div class="label-row d-flex" *ngIf="forumDetail?.showValidity">
+                            <div class="created-label label d-inline-flex justify-content-between align-items-center">
+                                <span class="mr-2" translate="discussionForums.forumList.validity"></span>
+                                <span class="created-label-txt label-txt ms-2 d-inline-block">
+                                    {{forumDetail?.startDate | date: 'dd MMM yyyy, h:mm a'}} -
+                                    {{forumDetail?.endDate | date: 'dd MMM yyyy, h:mm a'}}
+                                </span>
+                                <span class="visibilityCriteria-badge" *ngIf="forumDetail.learningObjectives"><img src="assets/images/icons/content-builder/icon-visibilitycriteria.svg"> Visibility Criteria</span>
+                            </div>
+                        </div>
+                        <div class="label-row d-flex" *ngIf="forumDetail?.learningObjectives">
+                        <span class="ms-2 learning-objective-label label-txt d-inline-block d-flex align-items-center"
+                            *ngIf="forumDetail?.learningObjectives">
+                            <img class="ms-1 me-1"
+                                src="assets/images/icons/content-builder/icon-visibilitycriteria.svg">
+                            <span translate="discussionForums.forumList.learningObjective"></span>
+                        </span>
+                    </div>
+                    </div>
+                </div>

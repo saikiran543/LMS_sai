@@ -1,0 +1,134 @@
+.folder-component{
+    .content-component-modal-content {
+        padding: 32px;
+    }
+    .switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 16px;
+  top: 3px;
+}
+
+.content-builder-modal-content { 
+  max-height: unset;
+  overflow-y: unset;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.custom-switch {
+    padding-left: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #adb5bd;
+  border-radius: 20px;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 2px;
+    bottom: 2.3px;
+    background-color: #fff;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #ff6600;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #ff6600;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(14px);
+    -ms-transform: translateX(14px);
+    transform: translateX(14px);
+  }
+  .ml10{
+      margin-left: 10px;
+  }
+  .unit-upoloaded-image{
+    height: 48px;
+    padding: 10px;
+  }
+  .unit-image-options{
+    right: 0px;
+    width: 100%;
+    text-align: right;
+    margin: 0;
+  }
+  .form-control.is-invalid{
+    border-color: #dc3545 !important;
+    background: none;
+  }
+  .ml-0{
+      margin-left: 0px !important;
+  }
+}
+.form-control.is-invalid + .char-count{
+  bottom: 40px;
+}
+
+.attach-objective-cta {
+  width: 18.33vw;
+  min-width: 200px;
+  height: 48px;
+  background: #55555505;
+  border: 1px dashed #FF6600;
+  border-radius: 2px;
+  cursor: pointer;
+  p {
+    font-family: "Proxima Nova W05 Bold";
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    margin-left: 8px;
+  }
+}
+.added-objective {
+  padding: 0px 16px;
+  width: 18.33vw;
+  height: 48px;
+  background: #5555550D;
+  border: 1px solid #55555533;
+  border-radius: 2px;
+  opacity: 1;
+  cursor: pointer;
+  p {
+    font-family: "Proxima Nova W05 Bold";
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    margin-left: 8px;
+  }
+  span {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    background: #DFDFDF;
+    border-radius: 50%;
+    justify-content: center;
+    img{
+      width: 8px;
+    }
+}
+}

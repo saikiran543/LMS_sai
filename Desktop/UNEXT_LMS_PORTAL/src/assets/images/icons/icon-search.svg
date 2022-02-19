@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Component_16_1" width="32" height="32" viewBox="0 0 32 32">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#757575;stroke-linecap:round;stroke-linejoin:round}
+        </style>
+    </defs>
+    <g id="Component_15_1">
+        <rect id="Rectangle_7003" width="32" height="32" fill="#ebeef6" rx="5"/>
+        <g id="Icon_feather-search" transform="translate(3.5 3.5)">
+            <path id="Path_13678" d="M18.17 11.335A6.835 6.835 0 1 1 11.335 4.5a6.835 6.835 0 0 1 6.835 6.835z" class="cls-2" transform="translate(0 0)"/>
+            <path id="Path_13679" d="M28.691 28.691l-3.716-3.716" class="cls-2" transform="translate(-8.813 -8.813)"/>
+        </g>
+    </g>
+</svg>

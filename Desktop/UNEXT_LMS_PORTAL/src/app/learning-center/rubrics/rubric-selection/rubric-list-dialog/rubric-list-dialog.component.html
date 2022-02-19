@@ -1,0 +1,38 @@
+<div class="selection-modal-header">
+    <div class="modal-header">
+        <span>
+            Select Rubric
+        </span>
+        <img class="cursor-pointer" (click)="ClickEvent('close')" src="assets/images/icons/icon-close.svg">
+    </div>
+    </div>
+<div class="modal-content-inner">
+    <div class="layout align-items-center justify-content-between searchbarContainer">
+        <div class="input-group">
+            <input type="search" placeholder="Search" aria-describedby="button-addon5" class="form-control">
+            <div class="input-group-append">
+                <button id="button-addon5" type="submit" class="btn btn-primary"><img _ngcontent-syr-c138="" src="assets/images/icons/icon-search-white.svg"></button>
+            </div>
+        </div>
+        <button class="attach-rubric" (click)="ClickEvent('attachRubric')">Attach Rubric</button>
+    </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" [ngClass]="{'active': rubricLevelType === 'program'}" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button"
+            role="tab" aria-controls="overview" aria-selected="true" (click)="ClickEvent('ProgramLevel')">Program Level</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" [ngClass]="{'active': rubricLevelType === 'course'}" id="createNote-tab" data-bs-toggle="tab" data-bs-target="#createNote" type="button"
+            role="tab" aria-controls="createNote" aria-selected="false" (click)="ClickEvent('CourseLevel')">Course Level</button>
+        </li>
+    </ul>
+    <div class="tab-content mt24" id="myTabContent">
+        <div *ngIf="rows.length > 0"  class="tab-pane fade show active"  role="tabpanel">
+            <rubrics-list-view [rubricLevelType]='rubricLevelType' [rows]='rows' [courseId]='courseId' [totalRecords]='totalRecords' [isSelection]='true' (previewClick)="onClickView($event)"  (selectRubric)="onSelectRubric($event)" [selectedRubric]="params.previousSelectedRubric"  ></rubrics-list-view>
+        </div>
+        <div *ngIf="rows.length === 0" class="empty-rubrics">
+            <img src="assets/images/icons/rubric/emptyrubric.svg">
+            <p translate="admin.rubrics.rubricsComponent.emptyRubrics"></p>
+        </div>
+    </div>
+</div>

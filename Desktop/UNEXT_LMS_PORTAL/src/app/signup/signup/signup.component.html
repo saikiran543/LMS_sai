@@ -1,0 +1,35 @@
+<h1 translate="signup.formTitle"></h1>
+<form [formGroup]="signupForm" (submit)="onSubmit()">
+  <div *ngFor="let element of formConfig">
+    <div [ngSwitch]="element.inputType">
+      <label [for]="element.id" [translate]="element.label"></label><span *ngIf="element?.required">*</span>
+      <br />
+      <div *ngSwitchCase="'input'">
+        <div *ngIf="element.type === 'radio'; else notRadio">
+          <div *ngFor="let option of element.options">
+            <input [type]="element.type" [name]="element.name" [id]="option.id" [formControlName]="element.name"
+              [value]="option.value" />
+            <label [for]="option.id" [translate]="option.label"></label><span *ngIf="element?.required">*</span>
+          </div>
+        </div>
+        <ng-template #notRadio>
+          <input [type]="element.type" [id]="element.name" [formControlName]="element.name" />
+        </ng-template>
+      </div>
+      <select [name]="element.name" [id]="element.id" *ngSwitchCase="'select'" [formControlName]="element.name">
+        <option [value]="option.value" *ngFor="let option of element.options" [translate]="option.label"></option>
+      </select>
+    </div>
+  </div>
+  <span class="passMatchError" *ngIf="signupForm.get('reEnterPassword')?.errors?.matchPasswordValidator"
+    translate="signup.errorMsg.passwordMismatch">
+  </span>
+  <span class="passMatchSuccess"
+    *ngIf="!signupForm.get('reEnterPassword')?.errors?.required  && !signupForm.get('reEnterPassword')?.errors?.matchPasswordValidator"
+    translate="signup.successMsg.passwordMatch">
+  </span>
+  <br>
+  <button type="submit" class="signupSubmit" [disabled]="!signupForm.valid" translate="signup.button.submit"></button>
+</form>
+<p>----{{ 'signup.or' | translate }}----</p>
+<button (click)="goToLogin()" translate="signup.button.login"></button>

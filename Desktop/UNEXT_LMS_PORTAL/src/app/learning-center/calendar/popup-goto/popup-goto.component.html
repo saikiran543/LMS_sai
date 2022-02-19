@@ -1,0 +1,12 @@
+<div class="popup-content content-builder-modal">
+    <div class="close-btn" >
+        <svg-icon (click)="clickEvent('close')" src="./../../../assets/images/icons/calendar/close.svg"></svg-icon>
+    </div>
+    <div class="title-block">
+        <svg-icon src="./../../../assets/images/icons/calendar/icon-survey.svg" ></svg-icon>
+        <h4>{{params.title}}</h4>
+    </div>
+    <div class="content-builder-modal-footer text-end">
+        <button class="yes-btn" style="float: right;" (click)="clickEvent('goToContent')">Go to Activity</button>
+    </div>
+</div>

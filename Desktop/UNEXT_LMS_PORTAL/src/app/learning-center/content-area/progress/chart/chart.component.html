@@ -1,0 +1,13 @@
+<div  class="chart-container" [ngClass]="{'chart-container-chart': progressType === 'Class Average'}">
+    <div class="class-progress text-center">
+        <h4>{{progressType}}</h4>
+        <rg-gauge-chart
+            [canvasWidth]="circleWidth"
+            [needleValue]="needleValue"
+            [centralLabel]="centralLabel"
+            [options]="options">
+        </rg-gauge-chart>
+        <h6>{{progressText}} <span>{{progressValue}}%</span></h6>
+        <p>{{'admin.progress.TrackerMessage' | translate:getDescription()}}</p>
+    </div>
+</div>

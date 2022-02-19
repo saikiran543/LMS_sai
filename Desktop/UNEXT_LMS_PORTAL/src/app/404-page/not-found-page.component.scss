@@ -1,0 +1,27 @@
+@import "./variables.scss";
+.not-found-page-block{
+    height: 100vh;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    width: 100vw;
+    .not-found-page-inner-block{
+        flex-grow: 1;
+        h1{
+            font-size: $font-40;
+            color: #000;
+        }
+        p{
+            color: #555555CC;
+            font-size: $font-20;
+        }
+        .not-found-img{
+            margin-bottom: 10%;
+            margin-top: 10%;
+        }
+        a{
+            border-radius: 24px;
+            padding: 12px 40px;
+        }
+    }
+}

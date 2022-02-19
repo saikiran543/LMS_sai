@@ -1,0 +1,277 @@
+<div class="page-layout">
+    <div class="layout-header-con d-flex" *ngIf="header">
+        <h1 class="page-header" translate="discussionForums.forumList.discussionForums"></h1>
+    </div>
+    <div class="mobile-device discussion-filter-block">
+        <div class="row">
+            <div class="col-6">
+                <div class="select-dropdown">
+                    <input type="text"  class="form-control recurrenceInput" value="Content Area">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="filter-inner">
+                    <div class="dropdown search-icon">
+                        <svg-icon src="./../../../assets/images/icons/icon-search-white.svg"></svg-icon>
+                    </div>
+                    <div class="dropdown">
+                        <svg-icon src="./../../../assets/images/icons/discussion-forum/sort-arrows.svg"></svg-icon>
+                    </div>
+                    <div class="dropdown">
+                        <svg-icon src="./../../../assets/images/icons/calendar/icon-filter.svg"></svg-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="discussion-forum-body layout-body-con">
+        <ul class="lms-tab nav nav-tabs" id="myTab" role="tablist" *ngIf="header">
+            <li class="nav-item" role="presentation" (click)="toggleForum(forumType.STANDARD_DISCUSSION_FORUM)">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#standard" type="button" role="tab"
+                    aria-controls="standard" aria-selected="true"
+                    translate="discussionForums.forumList.standardDiscussion"></button>
+            </li>
+            <li class="nav-item" role="presentation" (click)="toggleForum(forumType.DOUBT_CLARIFICATION_FORUM)" id="doubt-clarification-tab">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#doubt" type="button" role="tab"
+                    aria-controls="doubt" aria-selected="false" #doubtClarificationTab
+                    translate="discussionForums.forumList.doubtClarification"></button>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="standard" role="tabpanel" aria-labelledby="standard">
+                <div *ngIf="discussionDataShow && routerParams.forumType === forumType.STANDARD_DISCUSSION_FORUM">
+                    <div class="actions-row discussion-forum-list-con align-items-center justify-content-between">
+                        <div class="lms-input-group input-group">
+                            <input type="search" placeholder="Search" aria-describedby="button-addon5"
+                                class="form-control">
+                            <div class="input-group-append">
+                                <button id="button-addon5" type="submit"
+                                    class="btn btn-primary d-flex align-items-center"><img
+                                        src="assets/images/icons/icon-search-white.svg"></button>
+                            </div>
+                        </div>
+                        <div class="layout layout-item-center">
+                            <div class="dropdown me-2">
+                                <button class="arrow-btn dropdown-toggle" type="button" id="dropdownMenu2"
+                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                    translate="discussionForums.forumList.options.sort">
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <li><button class="dropdown-item" type="button"
+                                            translate="discussionForums.forumList.options.sortByNewestFirst"
+                                        (click)="sortForum(forumSortOptions.NEWEST, 1, forumType.STANDARD_DISCUSSION_FORUM)"></button>
+                                    </li>
+                                    <li><button class="dropdown-item" type="button"
+                                            translate="discussionForums.forumList.options.sortByOldestFirst"
+                                        (click)="sortForum(forumSortOptions.OLDEST, 1, forumType.STANDARD_DISCUSSION_FORUM)"></button>
+                                    </li>
+                                    <li><button class="dropdown-item" type="button"
+                                            translate="discussionForums.forumList.options.sortByNumberOfThreads"
+                                        (click)="sortForum(forumSortOptions.THREADS, 1, forumType.STANDARD_DISCUSSION_FORUM)"></button>
+                                    </li>
+                                    <li><button class="dropdown-item" type="button"
+                                            translate="discussionForums.forumList.options.sortByNumberOfReplies"
+                                        (click)="sortForum(forumSortOptions.REPLIES, 1, forumType.STANDARD_DISCUSSION_FORUM)"></button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="dropdown">
+                                <button class="arrow-btn dropdown-toggle" type="button" id="dropdownMenu3"
+                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                    translate="discussionForums.forumList.options.filter">
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                    <li><button class="dropdown-item" type="button">option1</button></li>
+                                    <li><button class="dropdown-item" type="button">option2</button></li>
+                                    <li><button class="dropdown-item" type="button">option3</button></li>
+
+                                </ul>
+                            </div>
+                            <div class="layout layout-item-center rows-per-page">
+                                <label translate="discussionForums.forumList.options.recordsPerPage"></label>
+                                <div class="quantity">
+                                    <input [value]="paginationConfig.itemsPerPage" [readonly]='true'>
+
+                                    <div class="quantity__btn quantity__btn--up"
+                                        (click)="modifyRecordsPerPage('minus', forumType.STANDARD_DISCUSSION_FORUM)">
+                                        <svg-icon [ngClass]="{'up-icon-enable':paginationConfig.itemsPerPage > 5}" src="assets/images/icons/rubric/arrow-up.svg"></svg-icon>
+                                    </div>
+                                    <div class="quantity__btn quantity__btn--down"
+                                        (click)="modifyRecordsPerPage('plus', forumType.STANDARD_DISCUSSION_FORUM)">
+                                        <svg-icon [ngClass]="{'down-icon-disable':paginationConfig.itemsPerPage === 20}" src="assets/images/icons/rubric/arrow-down.svg"></svg-icon>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="create-new-btn" (click)="createForum('standard-discussion-forum')"
+                                *ngIf="userCurrentView === userRole.ADMIN || userCurrentView === userRole.FACULTY">
+                                <img src="assets/images/icons/rubric/icon-createrubric.svg">
+                                <span translate="discussionForums.forumList.options.createNew"></span></button>
+                        </div>
+                    </div>
+                    <div class="discussion-forum-content-con"
+                        *ngFor="let standardDiscussion of discussionData | paginate: paginationConfig">
+                        <div class="discussion-forum-content-box d-flex row">
+                            <div class="content-text col-12 col-lg-7">
+                                <app-discussion-forum-content [forumDetail]='{breadcrumbTitle: standardDiscussion?.breadcrumbTitle,
+                                     title: standardDiscussion?.activitymetadata[0]?.title,
+                                     description: standardDiscussion?.activitymetadata[0]?.description,
+                                     type: standardDiscussion?.subType,
+                                     createdAt: standardDiscussion?.activitymetadata[0]?.createdAt,
+                                     status: standardDiscussion.status,
+                                     activityId: standardDiscussion?.activitymetadata[0]?.activityId,
+                                     isGradable: standardDiscussion?.activitymetadata[0]?.isGradable,
+                                     startDate: standardDiscussion?.activitymetadata[0]?.startDate,
+                                     endDate: standardDiscussion?.activitymetadata[0]?.endDate,
+                                     isParticipated: !!(standardDiscussion.qnAmetaData.totalQuestions + standardDiscussion.qnAmetaData.totalAnswers),
+                                     clickable: true }'></app-discussion-forum-content>
+                            </div>
+                            <div class="content-stats col-12 col-lg-5 d-flex align-items-center justify-content-around">
+                                <app-forum-content-qna-threads-statistics (deleteEvent)="deleteEventHandler($event)"
+                                    [widgetData]='{level: "firstLevel", options: true, type: standardDiscussion.subType, activityId:standardDiscussion?.activitymetadata[0]?.activityId, threads : standardDiscussion?.qnAmetaData?.totalQuestions, replies: standardDiscussion?.qnAmetaData?.totalAnswers, lastAccessedBy: standardDiscussion?.qnAmetaData?.updatedBy, lastAccessedAt: standardDiscussion?.qnAmetaData?.updatedAt, parentElementId: standardDiscussion?.activitymetadata[0]?.parentElementId, status: standardDiscussion.status, graded: standardDiscussion.activitymetadata[0].isGradable, isBookMarked: standardDiscussion.isBookMarked, startDate: standardDiscussion?.activitymetadata[0]?.startDate, endDate: standardDiscussion?.activitymetadata[0]?.endDate }'>
+                                </app-forum-content-qna-threads-statistics>
+                            </div>
+                                    </div>
+                                        </div>
+                    <div class="has-text-centered pagination-container" *ngIf="discussionData?.length">
+                        <pagination-controls class="discussion-forum-pagination" (pageChange)="getPage($event, forumType.STANDARD_DISCUSSION_FORUM)"
+                            id="loadStandardDiscussionPagination" previousLabel="&lt;" nextLabel=">">
+                        </pagination-controls>
+                    </div>
+                </div>
+                <div *ngIf="discussionDataEmptyScreen">
+                    <div
+                        class="empty-discussion-forum-img-con d-flex flex-column align-items-center justify-content-center">
+                        <div>
+                            <img src="./../../../assets/images/icons/discussion-forum/Empty-DF.svg" alt="">
+                        </div>
+                        <p class="no-threads-msg mt-1" translate="discussionForums.forumList.emptyForum"></p>
+                        <button class="create-btn-transparent mt-4"
+                            translate="discussionForums.forumList.createDiscussionForum"
+                            (click)="createForum('standard-discussion-forum')"
+                            *ngIf="userCurrentView === userRole.ADMIN || userCurrentView === userRole.FACULTY"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="doubt" role="tabpanel" aria-labelledby="doubt">
+
+
+                <div class="tab-content" *ngIf="discussionDataShow && routerParams.forumType === forumType.DOUBT_CLARIFICATION_FORUM">
+                    <div class="actions-row discussion-forum-list-con align-items-center justify-content-between">
+                        <div class="lms-input-group input-group">
+                            <input type="search" placeholder="Search" aria-describedby="button-addon5"
+                                class="form-control">
+                            <div class="input-group-append">
+                                <button id="button-addon5" type="submit"
+                                    class="btn btn-primary d-flex align-items-center"><img
+                                        src="assets/images/icons/icon-search-white.svg"></button>
+                            </div>
+                        </div>
+                        <div class="layout layout-item-center">
+                            <div class="dropdown me-2">
+                                <button class="arrow-btn dropdown-toggle" type="button" id="dropdownMenu2"
+                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                    translate="discussionForums.forumList.options.sort">
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <li><button class="dropdown-item" type="button"
+                                            translate="discussionForums.forumList.options.sortByNewestFirst"
+                                        (click)="sortForum(forumSortOptions.NEWEST, 1, forumType.DOUBT_CLARIFICATION_FORUM)"></button>
+                                    </li>
+                                    <li><button class="dropdown-item" type="button"
+                                            translate="discussionForums.forumList.options.sortByOldestFirst"
+                                        (click)="sortForum(forumSortOptions.OLDEST, 1, forumType.DOUBT_CLARIFICATION_FORUM)"></button>
+                                    </li>
+                                    <li><button class="dropdown-item" type="button"
+                                            translate="discussionForums.forumList.options.sortByNumberOfQuestions"
+                                        (click)="sortForum(forumSortOptions.THREADS, 1, forumType.DOUBT_CLARIFICATION_FORUM)"></button>
+                                    </li>
+                                    <li><button class="dropdown-item" type="button"
+                                            translate="discussionForums.forumList.options.sortByNumberOfAnswers"
+                                        (click)="sortForum(forumSortOptions.REPLIES, 1, forumType.DOUBT_CLARIFICATION_FORUM)"></button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="dropdown">
+                                <button class="arrow-btn dropdown-toggle" type="button" id="dropdownMenu3"
+                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                    translate="discussionForums.forumList.options.filter">
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                    <li><button class="dropdown-item" type="button">option1</button></li>
+                                    <li><button class="dropdown-item" type="button">option2</button></li>
+                                    <li><button class="dropdown-item" type="button">option3</button></li>
+
+                                </ul>
+                            </div>
+                            <div class="layout layout-item-center rows-per-page">
+                                <label translate="discussionForums.forumList.options.recordsPerPage"></label>
+                                <div class="quantity">
+                                    <input [value]="paginationConfigForDoubtClarification.itemsPerPage" [readonly]='true'>
+                                    <div class="quantity__btn quantity__btn--up"
+                                    (click)="modifyRecordsPerPageForDoubt('minus', forumType.DOUBT_CLARIFICATION_FORUM)">
+                                        <svg-icon [ngClass]="{'up-icon-enable':paginationConfigForDoubtClarification.itemsPerPage > 5}" src="assets/images/icons/rubric/arrow-up.svg"></svg-icon>
+                                    </div>
+                                    <div class="quantity__btn quantity__btn--down"
+                                    (click)="modifyRecordsPerPageForDoubt('plus', forumType.DOUBT_CLARIFICATION_FORUM)">
+                                        <svg-icon [ngClass]="{'down-icon-disable':paginationConfigForDoubtClarification.itemsPerPage === 20}" src="assets/images/icons/rubric/arrow-down.svg"></svg-icon>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="create-new-btn" (click)="createForum('doubt-clarification-forum')"
+                                *ngIf="userCurrentView === userRole.ADMIN || userCurrentView === userRole.FACULTY">
+                                <img src="assets/images/icons/rubric/icon-createrubric.svg">
+                                <span translate="discussionForums.forumList.options.createNew"></span></button>
+                        </div>
+                    </div>
+
+
+
+                    <div class="discussion-forum-content-con" *ngFor="let doubtDiscussion of discussionData | paginate: paginationConfigForDoubtClarification">
+                        <div class="discussion-forum-content-box d-flex row">
+                            <div class="content-text col-12 col-lg-7">
+
+                                <app-discussion-forum-content [forumDetail]='{breadcrumbTitle: doubtDiscussion?.breadcrumbTitle,
+                                    title: doubtDiscussion?.activitymetadata[0]?.title,
+                                    description: doubtDiscussion?.activitymetadata[0]?.description,
+                                    type: doubtDiscussion?.subType,
+                                    createdAt: doubtDiscussion?.activitymetadata[0]?.createdAt,
+                                    status: doubtDiscussion.status,
+                                    activityId: doubtDiscussion?.activitymetadata[0]?.activityId,
+                                    isGradable: doubtDiscussion?.activitymetadata[0]?.isGradable,
+                                    startDate: doubtDiscussion?.activitymetadata[0]?.startDate,
+                                    endDate: doubtDiscussion?.activitymetadata[0]?.endDate,
+                                    clickable: true }'></app-discussion-forum-content>
+
+                            </div>
+                            <div class="content-stats col-12 col-lg-5 d-flex align-items-center justify-content-around">
+                                <app-forum-content-qna-threads-statistics (deleteEvent)="deleteEventHandler($event)"
+                                    [widgetData]='{level: "firstLevel", options: true, type: doubtDiscussion.subType, activityId:doubtDiscussion?.activitymetadata[0]?.activityId, threads : doubtDiscussion?.qnAmetaData?.totalQuestions, replies: doubtDiscussion?.qnAmetaData?.totalAnswers, lastAccessedBy: doubtDiscussion?.qnAmetaData?.updatedBy, lastAccessedAt: doubtDiscussion?.qnAmetaData?.updatedAt, parentElementId: doubtDiscussion?.activitymetadata[0]?.parentElementId, status: doubtDiscussion.status, graded: doubtDiscussion.activitymetadata[0].isGradable, isBookMarked: doubtDiscussion?.isBookMarked, startDate: doubtDiscussion?.activitymetadata[0]?.startDate, endDate: doubtDiscussion?.activitymetadata[0]?.endDate}'>
+                                </app-forum-content-qna-threads-statistics>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="has-text-centered pagination-container" *ngIf="discussionData?.length">
+                        <pagination-controls class="doubt-clarification-pagination" (pageChange)="getPage($event, forumType.DOUBT_CLARIFICATION_FORUM)"
+                            id="loadDoubtDiscussionPagination" previousLabel="&lt;" nextLabel=">">
+                        </pagination-controls>
+                    </div>
+                </div>
+
+                <div *ngIf="discussionDataEmptyScreen">
+                    <div
+                        class="empty-discussion-forum-img-con d-flex flex-column align-items-center justify-content-center">
+                        <div>
+                            <img src="./../../../assets/images/icons/discussion-forum/Empty-DF.svg" alt="">
+                        </div>
+                        <p class="no-threads-msg mt-1" translate="discussionForums.forumList.emptyForum"></p>
+                        <button class="create-btn-transparent mt-4"
+                            translate="discussionForums.forumList.createDiscussionForum"
+                            (click)="createForum('doubt-clarification-forum')"
+                            *ngIf="userCurrentView === userRole.ADMIN || userCurrentView === userRole.FACULTY"></button>
+                    </div>
+                </div>
+            </div>
+            <app-toast *ngIf="forumToast"
+                [message]="toastMessage" [type]="toastType" [toastNumber]="200" (toastClick)="closeToast()"></app-toast>
+        </div>
+    </div>

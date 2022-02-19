@@ -1,0 +1,127 @@
+@import "./variables.scss";
+
+.qa-header {
+    margin-bottom: 1.6%;
+
+    h1 {
+        font-size    : 20px;
+        font-family  : "Proxima Nova W05 Bold";
+        color        : #000000;
+        border-bottom: #FF6600 4px solid;
+        border-radius: 2px;
+        margin-bottom: 0px;
+        align-self   : center;
+    }
+
+    .filter-btn {
+        height       : 36px;
+        font-family  : "Proxima Nova W05 Regular";
+        border-radius: 4px;
+        background   : #fff;
+        box-shadow   : none;
+        width        : 100px;
+        border       : none;
+        color        : #555555;
+
+        &:hover {
+            color     : #FF6600;
+            background: #F7F8F9;
+        }
+    }
+
+    .filter-btn::after {
+        width            : 7px;
+        height           : 7px;
+        content          : "";
+        background-image : url("../../../assets/images/icons/arrow-down.svg");
+        background-repeat: no-repeat;
+        background-size  : contain;
+        vertical-align   : 6px;
+        border           : none;
+        display          : inline-flex;
+        align-items      : center;
+        margin-left      : 2px;
+    }
+
+    .filter-btn.show::after {
+        transform: rotate(180deg);
+    }
+}
+
+.qa-pane {
+    .qa-left-pane {
+        display       : inline-block;
+        width         : 30%;
+        vertical-align: top;
+
+        @media only screen and (max-width: 1024px) {
+            width: 100%;
+        }
+    }
+
+    .qa-right-pane {
+        display       : inline-block;
+        width         : calc(70% - 16px);
+        margin-left   : 16px;
+        vertical-align: top;
+
+        .qnaSection {
+            .question {
+                margin-left: 0px;
+            }
+        }
+    }
+}
+
+.option-container {
+    display: none;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    .qa-right-pane {
+        margin-left: 0 !important;
+        width      : 100% !important;
+    }
+
+    .qa-header {
+        margin-top   : 24px;
+        margin-bottom: 16px;
+
+        svg-icon {
+            margin-right: 12px;
+            svg {
+                width: 16px;
+            }
+        }
+
+        h1 {
+            margin-left: 0;
+            font-size  : 16px;
+            line-height: 18px;
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+    .qa-right-pane {
+        margin-left: 0 !important;
+        width      : 100% !important;
+    }
+
+    .qa-header {
+        margin-top   : 22px;
+        margin-bottom: 16px;
+
+        svg-icon {
+            svg {
+                width: 21px;
+            }
+        }
+
+        h1 {
+            margin-left: 12px;
+            font-size  : 18px;
+            line-height: 18px;
+        }
+    }
+}

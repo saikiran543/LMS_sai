@@ -1,0 +1,94 @@
+.askQuestion-container {
+    .back-to-question-cta {
+        margin: 3.36% 0;
+        p {
+            font-family: "Proxima Nova W05 Regular";
+            font-size: 14px;
+            line-height: 17px;
+            color: #FF6600;
+            margin: 0;
+            cursor: pointer;
+        }
+        .back-ques-arrow {
+            margin-right: 4px;
+            svg {
+                path {
+                    fill: #FF6600;
+                }
+            }
+        }
+    }
+    .highlighted-card {
+        background: #F7F8FA;
+        border-radius: 2px;
+        opacity: 1;
+        padding: 2.575%;
+        margin-bottom: 4.118%;
+        h5 {
+            color: #000000;
+            font-size: 18px;
+            line-height: 23px;
+            font-family: "Proxima Nova W05 Bold";
+            margin-bottom: 13px;
+        }
+        ul {
+            margin-bottom: 0px;
+            li {
+                font-size: 16px;
+                line-height: 19px; 
+                color: #000000;
+                margin-bottom: 10px;
+                &:last-child {
+                    margin-bottom: 0px;
+                }
+                a {
+                    color: #002BFF !important;
+                    text-decoration: underline !important;
+                    &:hover {
+                        color: #002BFF !important;
+                        text-decoration: underline !important;
+                        cursor: default;
+                    }
+                }
+            }
+        }
+    }
+    .title-container {
+        margin-bottom: 3.088% !important; 
+        input {
+            padding-right: 150px !important;
+            &::-webkit-input-placeholder { /* Edge */
+                font-size: 16px !important;
+            }
+            
+            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                font-size: 16px !important;
+            }
+            
+            &::placeholder {
+                font-size: 16px !important;
+            }
+        }
+        .char-count {
+            top: 0 !important;
+            right: 16px !important;
+            height: 100%;
+        }
+    }
+    .description-container {
+        margin-bottom: 4.118% !important;
+    }  
+    button {
+        width: 140px !important;
+        font-size: 16px !important;
+        max-height: 60px;
+        background: #ffffff 0% 0% no-repeat padding-box;
+        &:first-child {
+            margin-right: 3.088%;
+        }
+    }     
+}
+
+.ng-invalid.ng-touched {
+    border-color: #ee3923 !important;
+  }

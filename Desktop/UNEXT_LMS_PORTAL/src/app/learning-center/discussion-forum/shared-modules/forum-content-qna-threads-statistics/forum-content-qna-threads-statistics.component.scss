@@ -1,0 +1,115 @@
+.img-boxes .img-box {
+    box-shadow: 0px 3px 20px #879bd229;
+    border-radius: 4px;
+    padding: 1.4vh 1.3vw;
+    max-height: 17vh;
+
+    &:nth-child(3) {
+        width: 9vw;
+        padding: 1vh 1vw;
+        @media screen and (max-width:1150px) {
+            width: 10vw;
+        }
+    }
+}
+.img-box .box-label-txt {
+    color: #555555cc;
+    font-size: 0.65rem;
+}
+.img-box .label-count {
+    color: #01c3ff;
+    font-size: 0.88rem;
+}
+.participant-box .participant-name {
+    color: #024c99;
+    font-size: 0.88rem;
+    font-family: "Proxima Nova W05 Bold";
+    white-space: nowrap;
+    width: 85%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+.img-boxes .participant-box .label-count {
+    color: #024c99;
+    font-size: 0.75rem;
+    font-family: "Proxima Nova W05 Regular";
+}
+.discussion-forum-img-boxes .dropdown-dots-con {
+    position: absolute;
+    top: -6px;
+    right: 15px;
+
+    .dropdown-item {
+        color: #555555;
+        font-family: "Proxima Nova W05 Regular";
+        font-size: 0.98vw;
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-left: 8px;
+        }
+    }
+}
+.disable-option, ul li.disable-option{
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.dropdown-dots-con{
+    .dropdown-item{
+        position: relative;
+        svg-icon{
+            position:absolute;
+            top:50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            width:12.64px;
+        }
+        span{
+            padding-left: 10px;
+        }
+    }
+  }
+    a {
+        &:hover {
+            background-color: transparent;
+        }
+    }
+    .img-box-con span{
+        display: block;
+        text-align: center;
+    }
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .desktop-device{
+        display: none;
+    }
+    .discussion-forum-img-boxes{
+        .img-box{
+            display: flex !important;
+            flex-direction: initial !important;
+            padding: 1.4vh 2.3vw;
+            min-width: 140px;
+            background: #fff;
+            justify-content: start !important;
+            &:nth-child(3) {
+                width: auto;
+                padding: 1.4vh 2.3vw;
+            }
+            .img-con{
+                display: inline-block !important;
+                margin-right: 10px;
+            }
+            .img-box-con span{
+                text-align: left;
+                line-height: 14px;
+            }
+            .participant-name{
+                width: 100%;
+                line-height: 16px;
+            }
+        }
+    }
+}

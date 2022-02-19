@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13.833" height="16.5" viewBox="0 0 13.833 16.5">
+  <g id="Notifination" transform="translate(-1.75 0.25)">
+    <g id="Group_25359" data-name="Group 25359" transform="translate(7.333 0)">
+      <path id="Path_13409" data-name="Path 13409" d="M12.333,2.787A.333.333,0,0,1,12,2.453V1.333a.667.667,0,0,0-1.333,0v1.12a.333.333,0,0,1-.667,0V1.333a1.333,1.333,0,0,1,2.667,0v1.12A.333.333,0,0,1,12.333,2.787Z" transform="translate(-10 0)" fill="#555" stroke="#555" stroke-width="0.5"/>
+    </g>
+    <g id="Group_25360" data-name="Group 25360" transform="translate(6.333 13.333)">
+      <path id="Path_13410" data-name="Path 13410" d="M10.833,22.667A2.336,2.336,0,0,1,8.5,20.333a.333.333,0,1,1,.667,0,1.667,1.667,0,0,0,3.333,0,.333.333,0,1,1,.667,0A2.336,2.336,0,0,1,10.833,22.667Z" transform="translate(-8.5 -20)" fill="#555" stroke="#555" stroke-width="0.5"/>
+    </g>
+    <g id="Group_25361" data-name="Group 25361" transform="translate(2 2)">
+      <path id="Path_13411" data-name="Path 13411" d="M14.333,15H3a1,1,0,0,1-.65-1.76A4.635,4.635,0,0,0,4,9.692V7.667a4.667,4.667,0,1,1,9.333,0V9.692a4.63,4.63,0,0,0,1.645,3.543A1,1,0,0,1,14.333,15ZM8.667,3.667a4,4,0,0,0-4,4V9.692a5.3,5.3,0,0,1-1.881,4.053A.333.333,0,0,0,3,14.333H14.333a.333.333,0,0,0,.217-.587,5.3,5.3,0,0,1-1.883-4.055V7.667a4,4,0,0,0-4-4Z" transform="translate(-2 -3)" fill="#555" stroke="#555" stroke-width="0.5"/>
+    </g>
+  </g>
+</svg>

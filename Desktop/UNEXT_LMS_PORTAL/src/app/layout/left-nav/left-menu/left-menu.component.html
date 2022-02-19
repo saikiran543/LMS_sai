@@ -1,0 +1,22 @@
+<div *ngIf="isInitialize" class="slide-menu-component" id="left-menu-con">  
+  <ul class="sidebar-menu sidebar-top-menu left-menu-top" id="left-sidebar-top-menu" *ngIf="topMenu && !tocContent">
+    <div class="slide-menu-title" translate="{{slideMenuTitle}}"></div>
+    <li *ngFor="let item of topMenu" (click)="clickEvent(item)" id="{{item.id}}" [ngClass]="{'disabled': item.disable}" [class.active]="item.active">
+      <div class="layout layout-item-center cursor-pointer svg-con">
+        <svg-icon src="{{item.icon}}"></svg-icon>
+        <span class="ml16" translate="{{item.displayName}}"></span>
+      </div>
+    </li>
+  </ul>
+  <div *ngIf="tocContent" class="sidebar-top-menu">
+    <app-toc></app-toc>
+  </div>
+    <ul class="sidebar-menu sidebar-bottom-menu left-menu-bottom" id="sidebar-bottom-menu" *ngIf="bottomMenu">
+    <li *ngFor="let item of bottomMenu" (click)="clickEvent(item)" id="{{item.id}}" [ngClass]="{'disabled': item.disable}" [class.active]="item.active">
+      <div class="layout layout-item-center cursor-pointer svg-con">
+        <svg-icon src="{{item.icon}}"></svg-icon>
+        <span class="ml16" translate="{{item.displayName}}"></span>
+      </div>
+    </li>
+  </ul>
+</div>

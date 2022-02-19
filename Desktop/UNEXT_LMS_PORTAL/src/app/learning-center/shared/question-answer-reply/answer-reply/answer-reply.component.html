@@ -1,0 +1,74 @@
+<ul class="question-container dark"
+    [ngClass]="{'intend-level1': !answer.parentAnswerId, 'intend-level2': answer.parentAnswerId, 'verifiedAnswer': answer.verifiedBy }">
+    <li class="qc-li">
+
+        <div class="profile-details layout layout-justify-space-between">
+            <div>
+                <img src="assets/images/icons/qna/profile-dummy.png" alt="profile pic" width="40px" height="40px">
+                <span class="question-owner">{{answer.userName}}</span>
+            </div>
+            <div class="actionIcons">
+                <span
+                    *ngIf="loggedInUser.userId === answer.createdBy && answer.numOfReplies === 0 && !answer.verifiedBy && !answer.isUpvoted && !viewOnlyMode && !answer.numOfUpvotes">
+                    <svg-icon class="editIcon" src="assets/images/icons/icon-edit.svg" (click)="edit()"></svg-icon>
+                    <svg-icon class="deleteIcon" src="assets/images/icons/icon-delete.svg" (click)="deleteAnswer()">
+                    </svg-icon>
+                </span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-details">
+                <p class="answer" [innerHtml]="answer.answer | safe: 'html'"></p>
+            </div>
+        </div>
+        <ul class="question-item-info">
+            <li class="question-time">{{answer.createdAt | timesAgo }}</li>
+            <li class="question-reply" *ngIf="!answer.firstLevelAnswerId" (click)="toggleExpand()">
+                <svg-icon class="msgIcon" src="assets/images/icons/qna/Comment.svg"></svg-icon>
+                <span>{{answer.numOfReplies}}</span>
+            </li>
+            <li class="question-reply" (click)="interaction('vote/unvote')">
+                <svg-icon class="likeIcon" src="assets/images/icons/qna/Upvote.svg"
+                    [ngClass]="{'upvotedColor': answer.isUpvoted}"></svg-icon>
+                <span>{{answer.numOfUpvotes}}</span>
+            </li>
+            <li class="question-like question-reply">
+                <span class="replyIcon" (click)="close()"  *ngIf="!viewOnlyMode && !disableFeatureMap.reply">
+                    <svg-icon src="assets/images/icons/qna/Reply.svg"></svg-icon>
+                    Reply
+                </span>
+                <span (click)="toggleVerify()" [ngClass]="{
+                'disabled': loggedInUser.role !== 'admin'
+              }">
+                    <span *ngIf="answer.verifiedBy" class="markAsVerified">
+                        <svg-icon src="assets/images/icons/qna/Verified.svg"></svg-icon>
+                        Marked as Verified
+                    </span>
+                    <span *ngIf="!isAnyVerified && !answer.verifiedBy && loggedInUser.role === 'admin' && !viewOnlyMode">
+                        Mark as Verified
+                    </span>
+                </span>
+            </li>
+        </ul>
+    </li>
+    <li class="qc-li" *ngIf="isReplying">
+        <app-give-reply (reply)="giveReply($event)" (close)="close()"></app-give-reply>
+    </li>
+</ul>
+<div *ngIf="verifiedSecondLevelAnswers">
+    <div *ngFor="let answer of verifiedSecondLevelAnswers">
+        <app-answer-reply [answer]="answer" [isAnyVerified]="isAnyVerified" (toggleLabel)="toggleLabelEvent($event)"
+            (increaseReplyNumber)="increaseReplyCounter($event)"
+            (updateVerifiedAnswerId)="updateVerifiedAnswer($event)" (updateUnverifiedAnswerId)="updateUnverifiedAnswer()" [viewOnlyMode]="viewOnlyMode"></app-answer-reply>
+    </div>
+</div>
+<button class="view-prev-ans intend-level2" *ngIf="calculateRemainingAnswer()" (click)="showMoreReplies()">View Previous
+    Answers</button>
+<div *ngIf="secondLevelAnswers">
+    <div *ngFor="let answer of secondLevelAnswers">
+        <app-answer-reply [answer]="answer" [isAnyVerified]="isAnyVerified" (toggleLabel)="toggleLabelEvent($event)"
+            (increaseReplyNumber)="increaseReplyCounter($event)"
+            (updateVerifiedAnswerId)="updateVerifiedAnswer($event)" (updateUnverifiedAnswerId)="updateUnverifiedAnswer()" [viewOnlyMode]="viewOnlyMode"></app-answer-reply>
+    </div>
+</div>

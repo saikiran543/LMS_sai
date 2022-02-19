@@ -1,0 +1,42 @@
+<div class="content-player-container" id="content-player-con" [ngClass]="{'left-menu-open': leftMenuActive == 'true' }">
+    <div class="content-area-header">
+        <div class="row g-0 mb24">
+            <div  class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <div *ngIf="view != 'student' && elementData.status !== 'draft'" class="layout layout-item-center">
+                    <label class="form-label m-0" for="form-label"  #tooltip="matTooltip" [matTooltip]="elementData.status === 'published' ? 'Click here to Un-publish' : 'Click here to Publish'"
+                    [matTooltipPosition]="position.value">{{elementData.status| titlecase}}</label>
+                    <div class="form-check form-switch  mb-0 ml8" (click)="redirectToFacultyTree()">
+                        <input class="form-check-input" id="content-player-status" type="checkbox" [checked]="elementData.status==='published'?true:null" id="flexSwitchCheckDefault">
+                        <span class="circle-switch d-inline-block"></span>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="view != 'student'" class="col-12 col-sm-12 col-md-8 col-lg-8 layout layout-item-center layout-item-end">
+                <div class="class-performance">
+                    <a  id="content-player-performance" ><img src="assets/images/icons/icon-class-performance.svg" class="mr8"><span translate="admin.learningCenter.classPerformance"></span></a>
+                </div>
+                <div class="class-progress ml24" (click)="showProgress('classProgress')">
+                    <a class="cursor-pointer" id="content-player-progress"><img src="assets/images/icons/icon-class-progress.svg" class="mr8"><span translate="admin.learningCenter.classProgress"></span></a>
+                    <app-progress-wrapper [type]='type' *ngIf="type === 'classProgress' && IsShowProgress"></app-progress-wrapper>
+                </div>
+            </div>
+            <div *ngIf="view == 'student'" class="col-12 col-sm-12 col-md-8 col-lg-8 layout layout-item-center layout-item-end">
+                <div class="layout layout-item-center progressContainer">
+                    <div class="class-performance">
+                        <a  id="content-player-class-performance"><img src="assets/images/icons/icon-class-performance.svg" class="mr8" ><span translate="admin.learningCenter.myPerformance"></span></a>
+                    </div>
+                    <div class="class-progress ml24">
+                        <a  id="content-player-class-progress"><img src="assets/images/icons/icon-class-progress.svg" class="mr8" ><span translate="admin.learningCenter.myLearningStreak"></span></a>
+                    </div>
+                    <div class="class-progress ml24" (click)="showProgress('myProgress')">
+                        <a class="cursor-pointer" id="content-player-class-myProgress"><img src="assets/images/icons/icon-class-progress.svg" class="mr8"><span translate="admin.learningCenter.myProgress"></span></a>
+                        <app-progress-wrapper [type]='type' *ngIf="type === 'myProgress' && IsShowProgress"></app-progress-wrapper>
+                    </div>
+                </div>
+                <div class="right-arrow-container">
+                    <img src="../../../../assets/images/icons/icon-right-arrow.svg">
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>

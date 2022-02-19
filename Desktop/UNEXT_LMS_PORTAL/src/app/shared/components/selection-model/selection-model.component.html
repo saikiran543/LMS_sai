@@ -1,0 +1,23 @@
+<div class="alert-popup">
+    <div class="modal-content">
+        <div class="layout layout-flex-direction-column layout-item-center layout-justify-center">  
+            <img src="assets/images/icons/icon-warning-orange.svg">                          
+            <p>
+                {{ modalConfig.message }}
+            </p>
+            <div class="publish-radio-content">
+                <div *ngFor="let option of modalConfig.options" (click)="selectOptions(option)">
+                    <label class="custome-radiobutton" [ngClass]="{'text-disabled':option.disable,disabledCheckbox:option.disable}">
+                        <input [disabled]="option.disable" type="radio" name="radio">
+                        <span class="checkmark" ></span>
+                        {{ option.title.translationKey | translate: option.title.translateArgs }}
+                    </label>
+                </div>
+            </div>
+            <div class="layout">
+                <button class="no-btn" [translate]="modalConfig.cancelBtn" (click)="sendCancelStatus()"></button>
+                <button class="yes-btn" [disabled]="!selectedOptions" [translate]="modalConfig.confirmBtn" (click)="sendConfirmStatus()"></button>
+            </div>
+        </div>
+    </div>
+</div>

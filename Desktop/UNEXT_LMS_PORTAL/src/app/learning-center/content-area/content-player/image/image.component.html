@@ -1,0 +1,112 @@
+<div class="content-player-container" id="image-con">
+<div class="player-content mb24">
+    <div class="player player-audio"
+    [ngClass]="{
+      'fullscreen-mode': isFullScreen
+    }"
+    >
+      <div class="player-header row m-0" *ngIf="showHeaderFooter" id="image-player-header" (mouseover)="showHideToolBars(true)" (mouseout)="showHideToolBars(false)">
+        <div class="col-sm-2 col-md-2 col-lg-4 px-0 empty-container">
+        </div>
+        <div class="col-sm-3 col-md-5 col-lg-4 text-center zoom-btn">
+          <button
+            (click)="zoom('negative')" id="image-zoom-negative" [disabled]="zoomValue === 25"><img src="assets/images/icons/content-player/icon-zoom-out.svg" /></button>
+          <span class="zoom-percentage">{{zoomValue}}%</span>
+          <button
+            (click)="zoom('positive')" id="image-zoom-positive"   [disabled]="zoomValue === 200"><img src="assets/images/icons/content-player/icon-zoom-in.svg" /></button>
+        </div>
+        <div class="col-12 col-sm-12 col-md-5 col-lg-4 px-0 layout layout-item-center layout-item-end flex-sm-wrap button-container">
+          <button class="download-btn" id="image-download-btn" *ngIf="elementData.allowDownload" (click)="downloadFile()"><img src="assets/images/icons/content-player/icon-download.svg">
+            <div translate="admin.learningCenter.download"></div>
+          </button>
+          <button class="bookmark-btn" id="image-bookmark-btn"  (click)="toggleBookmark()">
+            <img *ngIf="bookmarked; else unBookmarkedState" src="assets/images/icons/content-player/icon-bookmark-filled.svg" />
+              <ng-template #unBookmarkedState>
+                  <img  src="assets/images/icons/content-player/icon-bookmark.svg">
+              </ng-template>
+            <div translate="admin.learningCenter.bookmark"></div>
+          </button>
+          <button class="prev-btn" id="image-prev-btn" mat-raised-button #tooltip="matTooltip" [matTooltip]="elementData.previousElement !== null ? elementData.previousElement.title : ''"
+          [matTooltipPosition]="position.value"   
+          aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+          (click)="getPreviousElement()" [disabled]="!elementData.previousElement" translate="admin.learningCenter.prev"></button>
+        <button class="next-btn" id="image-next-btn" mat-raised-button #tooltip="matTooltip" [matTooltip]="elementData.nextElement != null ? elementData.nextElement.title : ''"
+          [matTooltipPosition]="position.value"   
+          aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+          (click)="getNextElement()" [disabled]="!elementData.nextElement" translate="admin.learningCenter.next"></button>
+        </div>
+      </div>
+      <div class="imageHolder-holder" id="image-imageHolder" (mouseover)="showHideToolBars(true)" (mouseout)="showHideToolBars(false)">
+        <img #imageHolder src={{s3Url}} alt="Image">
+      </div>
+  
+      <div class="player-footer row m-0" id="image-player-footer" *ngIf="showHeaderFooter" (mouseover)="showHideToolBars(true)" (mouseout)="showHideToolBars(false)">
+        <div class="col-sm-3 col-md-2 col-lg-4 px-0 empty-container"></div>
+        <div class="col-sm-3 col-md-5 col-lg-4 text-center empty-container">
+        </div>
+        <div class="col-12 col-sm-12 col-md-5 col-lg-4 px-0 layout layout-item-center layout-item-end flex-sm-wrap button-container">
+          <button class="rotate-btn" id="image-rotate-btn"><img src="assets/images/icons/content-player/icon-rotate.svg" (click)="rotate()">
+            <div translate="admin.learningCenter.rotate"></div>
+          </button>
+          <button class="fit-btn" id="image-fit-btn" *ngIf="!isFullScreen" (click)="toggleToWidth()">
+            <img [src]="fitToWidth ? 'assets/images/icons/content-player/icon-fit-to-width.svg ' : 'assets/images/icons/content-player/icon-exit-fit-to-width.svg'">
+            <div>{{fitToWidth ? 'Fit to Width ' : 'Default View'}}</div>
+        </button>
+        <button class="fullscreen-btn" id="image-fullscreen-btn" (click)="isFullScreen= !isFullScreen"><img
+            [src]="isFullScreen ? 'assets/images/icons/content-player/icon-exit-full-screen.svg' : 'assets/images/icons/content-player/icon-fullscreen.svg'">
+         <div>{{isFullScreen ? 'Exit Full Screen' : 'Full Screen'}}</div> 
+        </button>
+        </div>
+      </div>
+  
+  
+  
+    </div>
+  
+  </div>
+  <div class="content-player-tab">
+    <ul class="nav nav-tabs" id="html-myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="overview-tab" [ngClass]="{'active': activeTab === 'overview'}" data-bs-toggle="tab" data-bs-target="#overview" type="button"
+        (click)="changeTab('overview')"
+          role="tab" aria-controls="overview" aria-selected="true" translate="admin.learningCenter.overview"></button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="createNote-tab" data-bs-toggle="tab" data-bs-target="#createNote" type="button"
+        (click)="changeTab('notes')" [ngClass]="{'active': activeTab === 'notes'}" 
+          role="tab" aria-controls="createNote" aria-selected="false" translate="admin.learningCenter.notes"></button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="qna-tab" data-bs-toggle="tab" data-bs-target="#shared" type="button" role="tab"
+        (click)="changeTab('shared')"
+          aria-controls="shared" aria-selected="false" translate="admin.learningCenter.qA" [routerLink]="['qna']" routerLinkActive="active" queryParamsHandling="preserve"></button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="rating-tab" data-bs-toggle="tab" data-bs-target="#shared" type="button"
+        (click)="changeTab('shared')"
+          role="tab" aria-controls="shared" aria-selected="false" translate="admin.learningCenter.rating" [routerLink]="['ratings']" routerLinkActive="active" queryParamsHandling="preserve" ></button>
+      </li>
+    </ul>
+    <div class="tab-content mt24" id="myTabContent">
+      <div class="tab-pane fade" [ngClass]="{'show active': activeTab === 'overview'}" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+        <div class="course-overview">
+          <div class="course-overview-title">
+            {{elementData.title}}
+          </div>
+          <div class="course-overview-description">
+            <p [innerHtml]="elementData.description | safe:'html'"></p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" [ngClass]="{'show active': activeTab === 'notes'}"  id="createNote" role="tabpanel" aria-labelledby="createNote-tab">
+        <app-notes-right-pane [configurationOfNotes]= '{isCreateNotesRequired : true, relatedNotesDashboard: false, contentPlayerView: true, contentPlayerRelatedNotes: true, type: contentTypes.IMAGE, height: "auto"}'></app-notes-right-pane>
+      </div>
+      <div class="tab-pane fade" id="notes" role="tabpanel" aria-labelledby="notes-tab">..pr.</div>
+      <div class="tab-pane fade" [ngClass]="{'show active': activeTab === 'shared'}"  id="shared" role="tabpanel" aria-labelledby="shared-tab">
+        <router-outlet
+        (activate)="onRouterActivate($event)"
+        ></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

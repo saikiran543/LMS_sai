@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31" height="39" viewBox="0 0 31 39">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_15363" data-name="Path 15363" d="M.01.244,12.6.261V13.273H.01Z" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Path_15355" data-name="Path 15355" d="M522.016-107.99l-7.49.3A4.689,4.689,0,0,1,510-112.217l.328-7.511Z" transform="translate(-509.999 120)" fill="none" clip-rule="evenodd"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <path id="Path_15354" data-name="Path 15354" d="M-50-285.376H196.182V-470H-50Z" transform="translate(50 470)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-scorm_hover">
+      <rect width="31" height="39"/>
+    </clipPath>
+  </defs>
+  <g id="scorm_hover" data-name="scorm hover" clip-path="url(#clip-scorm_hover)">
+    <g id="Group_29401" data-name="Group 29401" transform="translate(0.316 0.602)">
+      <path class="scorm_hover" id="Subtraction_7" data-name="Subtraction 7" d="M20896,14673.607h-24a3.5,3.5,0,0,1-3.5-3.5v-31a3.5,3.5,0,0,1,3.5-3.5h15.861c2.094,2.118,10.23,10.286,11.641,11.7v22.8A3.505,3.505,0,0,1,20896,14673.607Z" transform="translate(-20868.5 -14635.359)" fill="#94a7d9"/>
+      <g id="Group_29387" data-name="Group 29387" transform="translate(18.4)">
+        <g id="Mask_Group_421" data-name="Mask Group 421" transform="translate(0 0)" clip-path="url(#clip-path)">
+          <image id="Rectangle_6600" data-name="Rectangle 6600" width="13.54" height="13.539" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAALKADAAQAAAABAAAALAAAAADfpsWZAAABt0lEQVRYCc3YiVLDMAxFUUrZpvz/z7IV3ZYX1EB2yZFnhJ3Udk4UNTPlcHdth5+e7uzG5Yb3JhJWUB2XwwICTFNfHq0MH6/uy9/SaGW2XwZl0QK7BHfDkugxMPJy6ClwOfQccCn0XHAZ9BJwCfRS8O7oNeBd0WvBu6G3gHdBbwU3R0eAm6KjwM3QkeAm6GhwOjoDnIrOAqehM8Ep6GxwOLoFOBTtwf0folwosoX83PJgP46E+r02oz0yO8OCb0J7sP9nijbP6lejAbOYeMjSDey7Cq0Ms5iS0PHANcJPL0YL+GUU4iWcNL3hIrTALPq0eLRoXRrc0mx0/4vGDTxbvLHLDo2yHH1bCaxJ9MpySbTAPpmgnyzI9rv/oOEYg5J4c1kP1gTVE19A6rkU2oN1JwJzTKap6Q8L3iKt259M/wcGBVpBlk8WzOVN4m/IDtPbDXoIjEJgAYG/WpBx6lslZMP01qHHLqpJ4LgxwARjDx7bw6aubpQgT5S3FXF5ugCGmjLLRC2mlgUWWmD1Q/stPa8nzLpu724wsZvm0RN97MTyTR8DV8J+5TO3FFzT+8c6H9nrSbPn+RvNqEq/LGWpPAAAAABJRU5ErkJggg=="/>
+        </g>
+      </g>
+      <g id="Group_29389" data-name="Group 29389" transform="translate(19.016)" clip-path="url(#clip-path-2)">
+        <g id="Group_29388" data-name="Group 29388" transform="translate(-172.326 -107.697)" clip-path="url(#clip-path-3)">
+          <path id="Path_15353" data-name="Path 15353" d="M520.386-109.615H505V-125h15.386Z" transform="translate(-334.211 231.159)" fill="rgba(255,255,255,0.4)"/>
+        </g>
+      </g>
+      <g id="Group_29402" data-name="Group 29402" transform="translate(8.873 16.37)">
+        <path id="Path_14739" data-name="Path 14739" d="M8.857,13.331a1.951,1.951,0,0,0-.728-2.184l-.3-.214-.642.942.086.043.214.171.043.043.086.043.086.086.086.086c.043.043.043.086.086.171a.15.15,0,0,0,.043.086v.257a.37.37,0,0,1-.128.257L4.96,17.485A.763.763,0,0,1,3.89,17.7L2.005,16.457a.77.77,0,0,1-.214-1.071l2.826-4.368a.516.516,0,0,1,.214-.214c0-.043.043-.086.043-.128s.043-.043.043-.086l.128-.257.514-.771a1.1,1.1,0,0,0-.642.043,1.914,1.914,0,0,0-1.2.814L.806,14.83A1.866,1.866,0,0,0,1.363,17.4l1.884,1.242a1.866,1.866,0,0,0,2.569-.557l1.8-2.784h0l1.028-1.542A1.34,1.34,0,0,0,8.857,13.331Z" transform="translate(-0.511 -5.67)" fill="#fff"/>
+        <path id="Path_14740" data-name="Path 14740" d="M19.372,2.048,17.488.806a1.866,1.866,0,0,0-2.569.557L12.092,5.731a3.979,3.979,0,0,0-.214.428h0a1.951,1.951,0,0,0,.728,2.184l.3.214.557-.856.043-.043-.3-.214a.516.516,0,0,1-.214-.214h0l-.128-.257c0-.086-.043-.214,0-.3h0a.463.463,0,0,1,.128-.3l2.826-4.368a.763.763,0,0,1,1.071-.214l1.884,1.242A.77.77,0,0,1,18.987,4.1L16.161,8.472c-.043.086-.128.128-.214.214,0,.043-.043.086-.043.128s-.043.043-.043.086l-.128.257-.514.771a2.339,2.339,0,0,0,.771-.043,1.6,1.6,0,0,0,.856-.514c.086-.086.128-.171.214-.257l2.826-4.368A1.946,1.946,0,0,0,19.372,2.048Z" transform="translate(-6.958 -0.511)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

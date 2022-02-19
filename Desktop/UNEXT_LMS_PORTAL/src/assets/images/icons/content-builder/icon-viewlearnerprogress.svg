@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="11" height="12" viewBox="0 0 11 12">
+  <defs>
+    <clipPath id="clip-view_learner_progress">
+      <rect width="11" height="12"/>
+    </clipPath>
+  </defs>
+  <g id="view_learner_progress" data-name="view learner progress" clip-path="url(#clip-view_learner_progress)">
+    <g id="Group_29419" data-name="Group 29419" transform="translate(-7.594 -6.246)">
+      <g id="Rectangle_8723" data-name="Rectangle 8723" transform="translate(7.594 11.574)" fill="none" stroke="#555" stroke-width="0.75">
+        <path d="M.5,0H2.186a.5.5,0,0,1,.5.5V6.716a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V.5A.5.5,0,0,1,.5,0Z" stroke="none"/>
+        <path d="M.5.375H2.186A.125.125,0,0,1,2.311.5V5.966a.375.375,0,0,1-.375.375H.75a.375.375,0,0,1-.375-.375V.5A.125.125,0,0,1,.5.375Z" fill="none"/>
+      </g>
+      <g id="Rectangle_8724" data-name="Rectangle 8724" transform="translate(11.544 8.888)" fill="none" stroke="#555" stroke-width="0.75">
+        <path d="M.5,0H2.186a.5.5,0,0,1,.5.5V9.4a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V.5A.5.5,0,0,1,.5,0Z" stroke="none"/>
+        <path d="M.5.375H2.186A.125.125,0,0,1,2.311.5V8.653a.375.375,0,0,1-.375.375H.75a.375.375,0,0,1-.375-.375V.5A.125.125,0,0,1,.5.375Z" fill="none"/>
+      </g>
+      <g id="Rectangle_8725" data-name="Rectangle 8725" transform="translate(15.574 6.246)" fill="none" stroke="#555" stroke-width="0.75">
+        <path d="M.5,0H2.186a.5.5,0,0,1,.5.5V12.089a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V.5A.5.5,0,0,1,.5,0Z" stroke="none"/>
+        <path d="M.5.375H2.186A.125.125,0,0,1,2.311.5V11.339a.375.375,0,0,1-.375.375H.75a.375.375,0,0,1-.375-.375V.5A.125.125,0,0,1,.5.375Z" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

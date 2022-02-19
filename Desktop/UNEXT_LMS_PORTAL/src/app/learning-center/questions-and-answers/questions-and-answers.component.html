@@ -1,0 +1,21 @@
+
+<div class="layout qa-header" [ngClass]="{'layout-justify-space-between': !isMobileOrTablet}">
+    <svg-icon src="assets/images/icons/discussion-forum/Back-arrow.svg" (click)="goBack()" *ngIf="isRightPaneActive && isMobileOrTablet"></svg-icon>
+    <h1>Q & A</h1>
+    <div class="dropdown" id="qa-filter-con">
+        <button class="filter-btn dropdown-toggle" type="button" id="qa-filter" data-bs-toggle="dropdown"
+        aria-expanded="false" *ngIf="!isMobileOrTablet">
+        Filters
+    </button>
+</div>
+</div>
+<app-mobile-header *ngIf="isMobileOrTablet"></app-mobile-header>
+
+<div class="qa-pane">
+    <div class="qa-left-pane" [ngStyle]="{'display': (isMobileOrTablet && isRightPaneActive) ? 'none' : ''}">
+        <app-qna-left-panel (isShow)="togglePanel($event)"></app-qna-left-panel>
+    </div>
+    <div class="qa-right-pane">
+        <router-outlet></router-outlet>
+    </div>
+</div>

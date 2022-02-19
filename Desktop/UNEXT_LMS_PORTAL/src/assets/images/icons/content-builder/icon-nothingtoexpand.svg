@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-nothing_to_expand">
+      <rect width="16" height="16"/>
+    </clipPath>
+  </defs>
+  <g id="nothing_to_expand" data-name="nothing to expand" clip-path="url(#clip-nothing_to_expand)">
+    <line id="Line_1166" data-name="Line 1166" y2="8.395" transform="translate(12 7.803)" fill="none" stroke="#f60" stroke-linecap="round" stroke-width="1.5" opacity="0"/>
+    <g id="Group_28238" data-name="Group 28238" transform="translate(-405 -411)">
+      <g id="Group_27380" data-name="Group 27380" transform="translate(0 72.2)">
+        <circle id="Ellipse_2204" data-name="Ellipse 2204" cx="8" cy="8" r="8" transform="translate(405 339)" fill="rgba(85,85,85,0.6)"/>
+      </g>
+      <line id="Line_1232" data-name="Line 1232" y2="8.39" transform="translate(413 415.005)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

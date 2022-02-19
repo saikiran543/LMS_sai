@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="9" height="13" viewBox="0 0 9 13">
+  <defs>
+    <clipPath id="clip-add_as_book_mark">
+      <rect width="9" height="13"/>
+    </clipPath>
+  </defs>
+  <g id="add_as_book_mark" data-name="add as book mark" clip-path="url(#clip-add_as_book_mark)">
+    <path id="Union_49" data-name="Union 49" d="M-10276.859-5897.6a.653.653,0,0,1-.143-.347v-10.545a.475.475,0,0,1,.443-.51h6.727a.476.476,0,0,1,.442.51v10.5a.5.5,0,0,1-.442.511.419.419,0,0,1-.318-.163l-3.045-3.631-3.045,3.651a.4.4,0,0,1-.312.156A.428.428,0,0,1-10276.859-5897.6Z" transform="translate(10277.502 5909.5)" fill="none" stroke="#555" stroke-width="1"/>
+  </g>
+</svg>

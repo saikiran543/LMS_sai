@@ -1,0 +1,37 @@
+<div class="askQuestion-container" id="ask-a-question">
+  <div class="back-to-question-cta">
+    <p (click)="navigateBack()">
+    <svg-icon class="back-ques-arrow" src="assets/images/icons/toc/back-arrow.svg"></svg-icon>{{ 'qna.addQuestion.backToAllQuestions' | translate }}</p>
+  </div>
+  <div class="highlighted-card">
+    <h5>{{ 'qna.addQuestion.qnaInfo.heading' | translate }}</h5>
+    <ul>
+      <li>
+        {{ 'qna.addQuestion.qnaInfo.infoItemOne' | translate }}
+      </li>
+      <li>
+        {{ 'qna.addQuestion.qnaInfo.infoItemTwo' | translate }} <a>{{ 'qna.addQuestion.qnaInfo.helpDeskModule' | translate }}</a>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+        <div class="form-group title-container">
+            <label class="form-label required">{{ 'qna.addQuestion.form.title' | translate }} </label>
+            <div class="position-relative">
+              <input type="text" class="form-control" id="title" placeholder="{{'qna.addQuestion.form.titlePlaceholder' | translate}}"  formControlName="title" maxlength="250">
+              <span class="char-count layout layout-item-center">{{ titleLengthText }}</span>
+            </div>
+            <small class="error-text" *ngIf="questionForm.get('title')?.errors && questionForm.get('title')?.touched">{{ 'qna.addQuestion.form.titleErrorMessage' | translate }}</small>
+        </div>
+        <div class="form-group description-container">
+            <label class="form-label">{{ 'qna.addQuestion.form.description' | translate }}</label>
+            <app-ckeditor [ckeditorFormControl]="questionForm.controls['description']" [config]="{placeholder: descriptionPlaceholder}"></app-ckeditor>
+        </div>
+        <div class="d-flex justify-content-end mt8">
+            <button type="button" class="cancel-btn" (click)="navigateBack()">{{ 'qna.addQuestion.form.cancel' | translate }}</button>
+            <button class="basic-btn" type="submit" [disabled]="!questionForm.valid">{{ 'qna.addQuestion.form.submit' | translate }}</button>
+        </div>
+    </form>
+  </div>
+</div>

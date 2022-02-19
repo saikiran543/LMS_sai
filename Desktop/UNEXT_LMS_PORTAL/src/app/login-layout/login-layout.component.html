@@ -1,0 +1,58 @@
+<div class="login-main-wrapper" id="login-layout-con" *ngIf="loginConfiguration">
+  <div class="login-header" id="login-layout-header-con">
+    <div class="login-header-text layout layout-item-center layout-justify-center"
+      *ngIf="loginConfiguration.headerText; else defaultHeaderText" [innerHtml]="loginConfiguration.headerText">
+    </div>
+    <ng-template #defaultHeaderText>
+      <div class="login-header-text layout layout-item-center layout-justify-center"
+        [innerHTML]="loginConfiguration.defaultHeaderText" id="login-layout-defaultHeaderText">
+      </div>
+    </ng-template>
+    <div class="login-logo" *ngIf="loginConfiguration.logoImageUrl; else defaultLogoImageUrl" id="login-layout-logoImageUrl">
+      <a [ngClass]="{'disabled-link':isPreview}" href="{{loginConfiguration.logoRedirectUrl}}" target="_blank">
+        <img src="{{loginConfiguration.logoImageUrl}}" alt="{{loginConfiguration.logoOnHover}}"
+          title="{{loginConfiguration.logoOnHover}}">
+      </a>
+    </div>
+    <ng-template #defaultLogoImageUrl>
+      <div class="login-logo" id="login-layout-defaultLogoOnHover">
+        <a [ngClass]="{'disabled-link':isPreview}" href="{{loginConfiguration.defaultLogoRedirectUrl}}" target="_blank">
+          <img src="{{loginConfiguration.defaultLogoImageUrl}}" alt="{{loginConfiguration.defaultLogoOnHover}}"
+            title="{{loginConfiguration.defaultLogoOnHover}}">
+        </a>
+      </div>
+    </ng-template>
+  </div>
+  <div class="login-content-wrapper" id="login-layout-wrapper">
+    <div class="login-content" id="login-layout-content">
+      <div class="login-banner" id="login-layout-banner">
+        <div class="login-banner-image" id="login-layout-banner-image">
+          <img src="{{loginConfiguration.bannerImageUrl}}"
+            *ngIf="loginConfiguration.bannerImageUrl else defaultBannerImageUrl"
+            title="{{loginConfiguration.bannerOnHover}}">
+          <ng-template #defaultBannerImageUrl>
+            <img src="{{loginConfiguration.defaultBannerImageUrl}}" *ngIf="loginConfiguration.defaultBannerImageUrl"
+              title="{{loginConfiguration.defaultBannerOnHover}}">
+          </ng-template>
+        </div>
+        <div class="powered-by-logo" *ngIf="loginConfiguration.poweredByUnextLogo">
+          <img src="assets/images/unext-logo.png">
+        </div>
+      </div>
+      <div *ngIf="!isPreview" class="login-layout-card">
+        <router-outlet></router-outlet>
+      </div>
+      <div *ngIf="isPreview" class="login-layout-card">
+        <app-login-form [isPreview]="isPreview"></app-login-form>
+      </div>
+    </div>
+    <div class="powered-by-logo-for-mobile" *ngIf="loginConfiguration.poweredByUnextLogo">
+      <img src="assets/images/unext-logo.png">
+    </div>
+  </div>
+  <div class="login-footer layout layout-item-center layout-justify-space-between">
+    <a [ngClass]="{'disabled-link':isPreview}" id="login-layout-termsAndConditions" href="#" class="terms" translate="lms.termsAndConditions"></a>
+    <a [ngClass]="{'disabled-link':isPreview}" id="login-layout-copyRight" href="#" class="copyright" translate="lms.copyRight"></a>
+    <a [ngClass]="{'disabled-link':isPreview}" id="login-layout-privacyPolicy" href="#" class="privacy" translate="lms.privacyPolicy"></a>
+  </div>
+</div>

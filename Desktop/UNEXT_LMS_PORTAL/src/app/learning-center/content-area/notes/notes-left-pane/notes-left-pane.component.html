@@ -1,0 +1,53 @@
+<div class="notes-left-panel" id="notes-left-pane-con">
+    <div class="input-group">
+        <input type="text" class="form-control" id="notes-left-pane-search" placeholder="Search..." aria-label="Search"
+            aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" id="notes-left-pane-search-btn" type="button" id="button-addon2">
+            <img src="assets/images/icons/icon-search-white.svg">
+        </button>
+    </div>
+    <div class="notes-list" id="notes-list">
+        <div class="notes-card pinned" *ngIf="pinnedNotes?.length">
+            <div class="row mx-0 single-card note" *ngFor="let note of pinnedNotes"
+                (click)="clickNote(note.noteId, $event)" id="note_{{note.noteId}}" [ngClass]="{'active': (note.noteId == currentNoteId && !isMobileOrTablet)}">
+                <div class="col-11 px-0">
+                    <h6 [innerHTML]="note.title"></h6>
+                    <div class="layout">
+                        <div class="calendar">
+                            <span>
+                                <img src="assets/images/icons/notes/icon-notes.svg">
+                            </span>
+                        </div>
+                        <div>
+                            <h5 [innerHtml]="note.description | safe: 'html'"></h5>
+                            <p>{{note.updatedOn | date: 'dd-MMMM-yyyy'}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pinned-icon">
+                    <img src="assets/images/icons/notes/icon-pin.svg" *ngIf="note.isPinned"
+                        (click)="unPin(note.noteId, false, $event)">
+                </div>
+            </div>
+        </div>
+        <div class="notes-card unpin" id="notes-left-pane-card-con" >
+            <div class="row mx-0 single-card note" *ngFor="let note of unPinnedNotes" (click)="showNote(note.noteId)"
+                id="note_{{note.noteId}}" [ngClass]="{'active': (note.noteId == currentNoteId && !isMobileOrTablet)}">
+                <div class="col-12 px-0">
+                    <h6 [innerHTML]="note.title"></h6>
+                    <div class="layout">
+                        <div class="calendar">
+                            <span>
+                                <img src="assets/images/icons/notes/icon-notes.svg">
+                            </span>
+                        </div>
+                        <div>
+                            <h5 [innerHtml]="note.description | safe: 'html'"></h5>
+                            <p>{{note.updatedOn | date: 'dd-MMMM-yyyy'}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

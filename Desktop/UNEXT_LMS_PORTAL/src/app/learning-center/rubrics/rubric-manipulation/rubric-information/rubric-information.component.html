@@ -1,0 +1,190 @@
+<div class="rubricInstructions">
+    <h3>Create Instructions</h3>
+    <ul>
+        <li>1. The Horizontal rows are the Criteria’s, and the Vertical columns are the Grade levels</li>
+        <li>2. The Sum of the weights at each criterion should sum up to 100.</li>
+        <li>3. All the Percentages can be in a decimal value but up to one decimal place is allowed such as 95.5, 75.5 etc.</li>
+        <li>4. The Grade Levels entered at each criterion should always be in a progressive manner (Either Ascending or Descending) and also all the grade levels at each criteria should follow the same Progressive manner.</li>
+        <li>5. Rearranging the criteria is possible by simple drag and drop mechanism.</li>
+    </ul>
+    <h5>Below given is the sample rubric for Reference</h5>
+    
+    
+    <div class="rubricsStructuretable">
+        <table  class="table table-bordered">
+            <thead>
+                <tr>
+                    <th><div class="title">Criteria</div></th>
+                    <th><div class="title">Level 1</div></th>
+                    <th><div class="title">Level 2</div></th>
+                    <th><div class="title">Level 3</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="criteria">
+                            <div class="criteriaText">
+                                Grammar
+                            </div>
+                            <div class="layout layout-item-center weightage">
+                                <label class="form-label">Weightage</label>
+                                <input type="text" [disabled]="true" formcontrolname="weightage" class="form-control" value="25">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="level">
+                            <div class="layout layout-item-center percentage">
+                                <input type="text" formcontrolname="percentage" [disabled]="true" class="form-control" value="100">
+                                <label class="form-label">Percentage</label>
+                            </div>
+                            <div class="description-box">No Grammatical Mistakes</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="level">
+                            <div class="layout layout-item-center percentage">
+                                <input type="text" formcontrolname="percentage" [disabled]="true" class="form-control" value="75">
+                                <label class="form-label">Percentage</label>
+                            </div>
+                            <div class="description-box">Up to 5 Grammatical Mistakes</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="level">
+                            <div class="layout layout-item-center percentage">
+                                <input type="text" formcontrolname="percentage" [disabled]="true" class="form-control" value="50">
+                                <label class="form-label">Percentage</label>
+                            </div>
+                            <div class="description-box">More than 5 Grammatical Mistakes</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="criteria">
+                            <div class="criteriaText">
+                                Vocabulary
+                            </div>
+                            <div class="layout layout-item-center weightage">
+                                <label class="form-label">Weightage</label>
+                                <input type="text" formcontrolname="weightage" [disabled]="true" class="form-control" value="25">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="level">
+                            <div class="layout layout-item-center percentage">
+                                <input type="text" formcontrolname="percentage" [disabled]="true" class="form-control" value="100">
+                                <label class="form-label">Percentage</label>
+                            </div>
+                            <div class="description-box">No Vocabulary Mistakes</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="level">
+                            <div class="layout layout-item-center percentage">
+                                <input type="text" formcontrolname="percentage" [disabled]="true" class="form-control" value="75">
+                                <label class="form-label">Percentage</label>
+                            </div>
+                            <div class="description-box">Up to 5 Vocabulary Mistakes</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="level">
+                            <div class="layout layout-item-center percentage">
+                                <input type="text" formcontrolname="percentage" [disabled]="true" class="form-control" value="50">
+                                <label class="form-label">Percentage</label>
+                            </div>
+                            <div class="description-box">More than 5 Vocabulary Mistakes</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="criteria">
+                            <div class="criteriaText">
+                                Punctuation
+                            </div>
+                            <div class="layout layout-item-center weightage">
+                                <label class="form-label">Weightage</label>
+                                <input type="text" formcontrolname="weightage" [disabled]="true" class="form-control" value="25">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="level">
+                            <div class="layout layout-item-center percentage">
+                                <input type="text" formcontrolname="percentage" [disabled]="true" class="form-control" value="100">
+                                <label class="form-label">Percentage</label>
+                            </div>
+                            <div class="description-box">No Punctuation Mistakes</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="level">
+                            <div class="layout layout-item-center percentage">
+                                <input type="text" formcontrolname="percentage" [disabled]="true" class="form-control" value="75">
+                                <label class="form-label">Percentage</label>
+                            </div>
+                            <div class="description-box">Up to 5 Punctuation Mistakes</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="level">
+                            <div class="layout layout-item-center percentage">
+                                <input type="text" formcontrolname="percentage" [disabled]="true" class="form-control" value="50">
+                                <label class="form-label">Percentage</label>
+                            </div>
+                            <div class="description-box">More than 5 Punctuation Mistakes</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="criteria">
+                            <div class="criteriaText">
+                                Spelling
+                            </div>
+                            <div class="layout layout-item-center weightage">
+                                <label class="form-label">Weightage</label>
+                                <input type="text" formcontrolname="weightage" [disabled]="true" class="form-control" value="25">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="level">
+                            <div class="layout layout-item-center percentage">
+                                <input type="text" formcontrolname="percentage" [disabled]="true" class="form-control" value="100">
+                                <label class="form-label">Percentage</label>
+                            </div>
+                            <div class="description-box">No Spelling Mistakes</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="level">
+                            <div class="layout layout-item-center percentage">
+                                <input type="text" formcontrolname="percentage" [disabled]="true" class="form-control" value="75">
+                                <label class="form-label">Percentage</label>
+                            </div>
+                            <div class="description-box">Up to 5 Mistakes</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="level">
+                            <div class="layout layout-item-center percentage">
+                                <input type="text" formcontrolname="percentage" [disabled]="true" class="form-control" value="50">
+                                <label class="form-label">Percentage</label>
+                            </div>
+                            <div class="description-box">More than 5 Mistakes</div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="text-end close-button-container">
+    <button class="primary-btn" (click)="closeForm(true)">Close</button>
+</div>

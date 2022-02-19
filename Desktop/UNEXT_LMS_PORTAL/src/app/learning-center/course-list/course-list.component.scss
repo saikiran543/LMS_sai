@@ -1,0 +1,547 @@
+@import "~src/variables";
+
+.col-20{
+    width:20%;
+    flex: 0 0 auto;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-bottom: calc(var(--bs-gutter-y) * .10);
+    display: flex;
+}
+.course-inner-block{
+    box-shadow: 0px 3px 6px 0px rgba(173,173,173,0.6);
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(173,173,173,0.6);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(173,173,173,0.6);
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 10%;
+    width: 100%;
+    position: relative;
+    min-height: 420px;
+    cursor: pointer;
+    .course-img{
+        border-radius: 8px;
+        overflow: hidden;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+    .course-content-block{
+        padding: 6% 5%;
+        h3{
+            font-size: $font-18;
+            min-height: 50px;
+            a{
+                color: #000;
+            }
+        }
+        .skill-list{
+            min-height: 40px;
+            ul{
+                padding: 0px;
+                margin: 0px;
+                li{
+                    list-style: none;
+                    display: inline-block;
+                    background:#E4F6EC;
+                    border-radius: 10px;
+                    color: #000;
+                    font-size: $font-14;
+                    padding: 0 6px;
+                    margin: 0 6px 6px 0;
+                    line-height: 26px;
+                    &:last-child{
+                        margin: 0 0 6px 0;
+                    }
+                }
+            }
+        }
+        .course-designation{
+            margin-top: 15px;
+            position: absolute;
+            left:5%;
+            right: 5%;
+            bottom: 15px;
+            .designation-inner{
+                margin-bottom: 15px;
+                span{
+                    background:#F2F2F2;
+                    border-radius: 10px;
+                    color: #000;
+                    font-size: $font-16;
+                    padding: 0 8px;
+                    margin: 0 8px 0px 0;
+                    line-height: 26px; 
+                    display: inline-block;
+                }
+            }
+            .status-block{
+                align-items: center;
+                .status-bar{
+                    width: 60%;
+                    background:#E4E4E4;
+                    border-radius: 5px;
+                    height: 9px;
+                    margin-right: 5%;
+                    span{
+                        background:#00B144;
+                        display: block;
+                        height: 100%;
+                        border-radius: 5px;
+                    }
+                }
+                span{
+                    font-size: $font-14;
+                    flex-grow: 1;
+                    text-align: right;
+                }
+            }
+        }
+        
+    }
+}
+.course-list-block{
+    h1{
+        margin-bottom: 20px;
+    }
+    button,h1{
+        border: none;
+        color:#000;
+        font-size: $font-18;
+        position: relative;
+        display: block;
+        padding: 0px;
+        width: 100%;
+        text-align: left;
+        font-family: $font-bold;
+        span{
+            position: relative;
+            padding: 0px 0 10px 0;
+            &:after{
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                content: "";
+                background: #FF6600;
+                border-radius: 2px;
+                height: 4px;
+                display: block; 
+            }
+        }
+        &:hover{
+            background: none;
+        }
+        &:focus,&:focus-visible{
+            outline: 0;
+            box-shadow: none;
+        }
+    }
+
+    .btn.btn-outline-primary span.btn-header {
+        &::after {
+            content: none;
+        }
+    }
+
+    
+    .cureted-collapse-heading{
+        position: relative;
+    }
+    .btn.btn-outline-primary{
+        .arrow-con{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            display: block;
+            right:0;
+            top:4px;
+            background: $active_colour;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            line-height: 22px;
+            svg-icon svg {
+                position: relative;
+                top: -3px;
+                path {
+                    stroke: #fff!important;
+                }
+            }
+            &::after {
+                content: none;
+            }
+        } 
+    }
+
+    .btn.btn-outline-primary[aria-expanded="true"]{
+        .arrow-con svg-icon svg {
+            transform: rotate(180deg);
+            top: 0px;
+        }
+    }
+    .cureted-collapse-content{
+        margin-top: 20px;
+    }
+    .curated-block{
+        border:1px solid #BBE8FF;
+        background: #FAFCFD;
+        border-radius: 8px;
+        padding: 24px 2%;
+        margin-bottom: 20px;
+        position: relative;
+        &::after {
+            content: "";
+            display: block;
+            left: 0;
+            top: 2px;
+            width: 5px;
+            height: 96%;
+            border-radius: 5px 0px 0px 5px;
+            position: absolute;
+            background-color: $active_colour;
+        }
+        .curated-inner-block{
+            background: #ff4d4f;
+            border-radius: 8px;
+            color:#fff;
+            padding: 6%;
+            height: 100%;
+            min-height: 320px;
+            box-shadow: 0px 6px 16px #55ACEE41;
+            .curated-img{
+                margin-bottom: 10%;
+            }
+            h2{
+                font-size: $font-24;
+            }
+            span{
+                font-size: $font-14;
+                font-weight: bold;
+                em{
+                    font-style: normal;
+                    padding-left: 5%;
+                }
+            }
+            &.finance-account{
+                background: #00b59b;
+            }
+            &.people-block{
+                background: #f9eaeb;
+                color: #000;
+                box-shadow: -2px 8px 16px #C2C2C241;
+                span{
+                    color: #555555;
+                }
+            }
+            &.library-block{
+                background: #e9effb;
+                color: #000;
+                box-shadow: -2px 8px 16px #C2C2C241;
+                span{
+                    color: #555555;
+                }
+            }
+        }
+    }
+}
+.rating-block{
+    margin-top: 10px;
+    span{
+        margin: 0 3px 0 0;
+        display: inline !important;
+    }
+}
+.curated-title{
+    img{
+        margin: 0 0 5% 0;
+    }
+    .center-img{
+        margin: 0px auto 5%;
+        display: flex;
+    }
+    .full-width-img{
+        width: 100%;
+        margin: 0px auto 5%;
+    }
+}
+.course-list-mobile{
+    .course-inner-block{
+        min-height: 340px;
+        .course-content-block{
+            h3{
+                font-size: $font-14;
+            }
+            .skill-list{
+                ul{
+                    li{
+                        font-size: 10px;
+                    }
+                }
+            }
+            .course-designation{
+                .designation-inner{
+                    font-size: 10px;
+                    span{
+                        font-size: 10px;
+                    }
+                }
+                .status-block{
+                    .status-bar{
+                        width: 52%;
+                    }
+                    span{
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .curated-block{
+        border:0px;
+        background: none;
+        padding: 0px;
+        margin-top: 5%;
+        .col-md-6{
+            flex: 0 0 auto;
+            width: 50%;
+            margin-bottom: 30px;
+        }
+        .curated-inner-block{
+            height: 100%;
+            min-height: 192px;
+            padding: 8% 5%;
+            
+            h2{
+                font-size: $font-14; 
+            }
+            span{
+                font-size: 10px;
+                line-height: 12px;
+                display: block;
+            }
+        }
+    }
+}
+.portrait-device,.mobile-divice{
+    display: none;
+}
+@media screen and (max-width: 1600px) {
+    .course-inner-block{
+        .course-content-block{
+            .skill-list{
+                ul{
+                    li{
+                        font-size: calc(9px + 0.1042vw);
+                        line-height: 20px;
+                        margin: 0 4px 4px 0;
+                        padding: 0 5px;
+                        &:last-child{
+                            margin: 0 0 4px 0;
+                        }
+                    }
+                }
+            }
+            .course-designation{        
+                .status-block{
+                    .status-bar{
+                        width: 56%;
+                        @media screen and (max-width: 1400px) {
+                            width: 52%;
+                        }
+                        @media screen and (max-width: 1300px) {
+                            width: 56%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1300px) {
+    .col-20{
+        width:25%;
+    } 
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .desktop,.mobile-divice{
+        display: none;
+    }
+    .portrait-device{
+        display: block;
+    }
+    .course-list-portrait{
+        h2{
+            font-size:$font-24;
+            margin-bottom: 18px;
+            font-family: $font-bold;
+        }
+        .course-portrait-inner{
+            min-height: 320px;
+            position: relative;
+            border-radius: 8px;
+            overflow:hidden;
+            &:after{
+                position: absolute;
+                top:0;
+                left:0;
+                right:0;
+                bottom: 0;
+                background:rgba(16,16,16,0.6);
+                content: "";
+            }
+            .course-portrait-img{
+                height: 100%;
+                position: absolute;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .course-portrait-content{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                color: #fff;
+                z-index: 9;
+                padding: 8% 2% 8% 8%;
+                .course-title{
+                    h2{
+                        margin-bottom: 12px;
+                        a{
+                            color: #fff;
+                            font-size: $font-18;
+                        }
+                    } 
+                }
+                .faculty-block{
+                    width: 60%;
+                    border-bottom: 1px solid #fff;
+                    padding-bottom: 10px;
+                }
+                .status-bar-block{
+                    position: absolute;
+                    bottom: 120px;
+                    .circle{
+                        .mask,.fill{
+                            width: 100px;
+                            height: 100px;
+                            position: absolute;
+                            border-radius: 50%;
+                        }
+                        .mask{
+                            clip: rect(0px, 100px, 100px, 50px);
+                            .fill{
+                                clip: rect(0px, 50px, 100px, 0px);
+                                background-color: none;
+                                position:relative;
+                                &::after{
+                                    content:"";
+                                    position:absolute;
+                                    top:0;
+                                    right:0;
+                                    bottom:0;
+                                    left:0;
+                                    width:100%;
+                                    height:100%;
+                                    border:4px solid $active_colour;
+                                    border-radius:100%;
+                                }
+                            }
+                            &.full{
+                                animation: fill ease-in-out 3s;
+                            }
+                        }
+                        .fill{
+                            animation: fill ease-in-out 3s;
+                        }
+                        .inside-circle{
+                            width: 80px;
+                            height: 80px;
+                            border-radius: 50%;
+                            background: #fff;
+                            line-height: 80px;
+                            text-align: center;
+                            margin-top: 10px;
+                            margin-left: 10px;
+                            position: absolute;
+                            z-index: 100;
+                            font-weight: 700;
+                            font-size: $font-20;
+                            color: $active_colour;
+                        }
+                    }
+                }
+            }
+        }
+    }
+   
+    .curated-block{
+        margin-top: 6%;
+        .col-md-6{
+            margin-bottom: 30px;
+        }
+        .curated-inner-block{
+            min-height: 260px;
+            padding: 8%;
+            background: #E8ECFF url(../../../assets/images/icons/course-list/portrat-Mask-Group-488.svg) no-repeat center;
+            border-radius: 8px;
+            height: 100%;
+            .curated-title-block{
+                display: flex;
+                .curated-img{
+                    margin-right: 5%;
+                    img{
+                        width: 32px;
+                    }
+                }
+                .rating-block{
+                    img{
+                        width: 16px;
+                    }
+                }
+                h2{
+                    font-size: $font-18;
+                    color: #001955;
+                }
+                span{
+                    color:#001955;
+                    font-size: $font-12;
+                    font-weight: bold;
+                    width: 100%;
+                    display: inline-block;
+                    em{
+                        font-style: normal;
+                        padding-left: 10%;
+                    }
+                }
+                .right-align{
+                    float: right;
+                    margin-top: 5%;
+                }
+            }
+            &.finance-account{
+                background: #c5edc7 url(../../../assets/images/icons/course-list/portrait-Mask-Group-489.svg) no-repeat center; 
+            }
+            &.people-block{
+                background: #fff2cc url(../../../assets/images/icons/course-list/portrait-Mask-Group-490.svg) no-repeat center;
+            }
+            &.library-block{
+                background: #d4f8ff;
+            }
+        }
+    }   
+}
+@media only screen and (max-width: 767px){
+    .desktop,.portrait-divice{
+        display: none;
+    }
+    .mobile-divice{
+        display: block;
+    }
+}

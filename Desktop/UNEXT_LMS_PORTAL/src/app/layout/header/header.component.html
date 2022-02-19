@@ -1,0 +1,37 @@
+<div class="header-component fixed-top layout layout-justify-space-between" id="header-con">
+  
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
+    <div class="offcanvas-body px-0">
+      <ul id="menu" class="px-0">
+        <li class="nav-item">
+          <a href="#" class="nav-link text-truncate mx-0" id="header-nav-link-dashboard"><span class=""><img class="mr16" src="assets/images/icons/icon-dashboard.svg" />  Dashboard</span></a>
+        </li>        
+        <li class="nav-item">
+          <a href="#" class="nav-link text-truncate mx-0" id="header-nav-link-dashboard1"><span class=""><img class="mr16" src="assets/images/icons/icon-dashboard.svg" />  Dashboard</span></a>
+        </li>        
+        <li class="nav-item">
+          <a href="#" class="nav-link text-truncate mx-0" id="header-nav-link-dashboard2"><span class=""><img class="mr16" src="assets/images/icons/icon-dashboard.svg" />  Dashboard</span></a>
+        </li>        
+        <li class="nav-item">
+          <a href="#" class="nav-link text-truncate mx-0" id="header-nav-link-dashboard3"><span class=""><img class="mr16" src="assets/images/icons/icon-dashboard.svg" />  Dashboard</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="layout layout-item-center">
+    <!-- toggler -->
+    <button class="btn hamburger-menu" id="header-offcanvasWithBackdrop" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">    <img src="assets/images/icons/icon-hamburger.svg"> </button>
+    <div class="logo">
+      <img src="assets/images/manipal-logo.png" alt="Logo">
+    </div>
+  </div>
+  <div class="layout layout-item-center header-rightnav">
+    <a href="" id="header-iconSearch" class="mr24"><img src="assets/images/icons/icon-search.svg"></a>
+    <a href="" id="header-iconNotification" class="mr24"><img src="assets/images/icons/icon-notification.svg"></a>
+    <a (click)="logout()" id="header-iconLogout" class="mr12"><img src="assets/images/icons/icon-profile.jpg"></a>
+    <div class="vertical-divider"></div>
+    <a href="" id="header-iconDashboard"><img src="assets/images/icons/icon-dashboard.svg"></a>
+  </div>  
+</div>

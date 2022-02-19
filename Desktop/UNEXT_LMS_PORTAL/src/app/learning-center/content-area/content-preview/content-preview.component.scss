@@ -1,0 +1,41 @@
+.preview-content.left-menu-open {
+  width: 100%;
+}
+
+.preview-content {
+  width: 82.52%;
+  margin: 0 auto;
+
+  h1 {
+    color: #363436;
+    font-family: "Proxima Nova W05 Bold";
+    font-size: 24px;
+    line-height: 27px;
+    border-bottom: #FF6600 2px solid;
+    width: -webkit-max-content;
+    width: max-content;
+    margin-bottom: 0px;
+  }
+  
+  .preview-btn {
+    color: #FF6600;
+    font-size: 16px;
+    font-family: "Proxima Nova W05 Bold";
+    line-height: 20px;
+    border: 1px solid #ff6600;
+    border-radius: 4px;
+    padding: 12px 26px;
+    background-color: #fff;
+  }
+}
+
+
+@media screen and (max-width: 1050px) {
+  .preview-content {
+    width: 100%;
+    h1 {
+      width: auto;
+    }
+  }
+
+}

@@ -1,0 +1,118 @@
+<div class="toc-main-title layout layout-item-center layout-justify-space-between" id="toc-main-title">
+  <div class="layout flex-fill">
+    <img src="assets/images/icons/toc/back-arrow.svg" (click)="backToContentArea()" id="toc-backToContentArea" class="back-to-contentarea">
+    <span class="" translate="toc.contentArea"></span>
+  </div>
+  <div class="search-and-filter layout">
+    <img id="toc-main-title-search" src="assets/images/icons/toc/icon-feather-search.svg" width="16">
+    <img id="toc-main-title-filter" src="assets/images/icons/toc/icon-toc-filter.svg" width="16">
+  </div>
+</div>
+<div class="toc-tree-holder" [ngClass]="tocOverflow" id="toc-tree-holder">
+  <div class="go-root-level" (click)="rootElementsClick()" *ngIf="parentElement">
+    <img src="assets/images/icons/toc/root-level-menu.svg"> <span translate="toc.goToRootLevel"></span>
+  </div>
+  <ul class="toc-tree" id="toc-tree-con">
+    <li class="element parent-element" *ngIf="parentElement" id="node_{{tocElementId}}">
+      <a (click)="previous()"><img src="assets/images/icons/toc/back.svg" class="parent-back-icon cursor-pointer"></a>
+      <img src="assets/images/icons/content-builder/icon-{{tocElementType | lowercase}}-hover.svg"
+      class="parent-content-type-icon">
+      <span class="toc-title">{{tocElementTitle}}</span>
+    </li>
+    <li *ngFor="let rootElement of  courseContent" (click)="getchildren(rootElement, $event, '')"
+    class="element child-element cursor-pointer" id="node_{{rootElement.elementId}}"
+    (mouseenter)="showTooltip(rootElement.elementId, rootElement.progress)" (mouseleave)="hideTooltip()">
+    <img src="assets/images/icons/content-builder/icon-expand.svg" class="expand-icon"
+        *ngIf="rootElement.children?.length > 0 else nothingToExpand">
+    <ng-template #nothingToExpand> <img src="assets/images/icons/content-builder/icon-nothingtoexpand.svg"
+      class="expand-icon"></ng-template>
+      <img src="assets/images/icons/content-builder/icon-{{getNodeIconType(rootElement) | lowercase}}-hover.svg"
+      class="content-type-icon">
+      <span class="toc-name">{{rootElement.name}}</span>
+      <div class="toc-tooltip" *ngIf="tooltip" id="tooltip_{{rootElement.elementId}}">
+        <div class="layout align-items-start">
+          <img src="assets/images/icons/content-builder/icon-{{getNodeIconType(elementMetaData) | lowercase}}-hover.svg">
+          <div class="tooltip-content ml12">
+            <p class="mb8">{{elementMetaData?.name}}</p>
+            <div class="layout minutes mb8">
+              <div>
+                <img src="assets/images/icons/toc/icon-time.svg">
+                <span>{{rootElement.idealTime }} <span translate="toc.minutes"></span></span>
+              </div>
+              <div class=" ml12" *ngIf="rootElement.numberOfContent">  
+                <img src="assets/images/icons/toc/icon-content-number-play-icon.svg">
+                <span>{{rootElement.completedContent}} / {{rootElement.numberOfContent}} </span>
+              </div>
+            </div>
+            <div class="faculty-options"
+            *ngIf="userCurrentview === constUserRole.ADMIN || userCurrentview === constUserRole.FACULTY">
+            <div class="mb12">
+              <span class="unpublished mr12"
+              *ngIf="elementMetaData?.status === 'unpublished'">{{elementMetaData?.status}}</span>
+              <span class="published mr12"
+              *ngIf="elementMetaData?.status === 'published'">{{elementMetaData?.status}}</span>
+              <img  *ngIf="elementMetaData?.isBookMarked" class="color-bookmark-icon" src="assets/images/icons/toc/icon-color-bookmark.svg">
+              <img *ngIf="!elementMetaData?.isBookMarked" class="color-bookmark-icon" src="assets/images/icons/content-player/icon-bookmark-grey.svg">
+            </div>
+            <div>
+              <span class="visibility-criteria mr16" *ngIf="elementMetaData?.elementMetadata?.visibilityCriteria"><img
+                src="assets/images/icons/content-builder/icon-visibilitycriteria.svg"
+                width="9">{{messagesTranslations.visibilityCriteria}}</span>
+                <span class="unpublished-content" *ngIf="elementMetaData?.status === 'unpublished'"><img
+                  src="assets/images/icons/content-builder/icon-unpublishedcontent.svg"
+                  width="9">{{messagesTranslations.unpublishedContent}}</span>
+                  </div>
+                </div>
+                <div class="student-options" *ngIf="userCurrentview === constUserRole.STUDENT">
+                  <div class="progres">
+                    <p>{{progress}}%</p>
+                    <progress id="file" value="{{progress}}" max="100"> {{progress}}% </progress>
+                  </div>
+                  <div class="optional-bookmark-lock layout layout-item-center">
+                    <span class="optional"
+                    *ngIf="elementMetaData?.elementMetadata.contentStatus">{{elementMetaData?.elementMetadata.contentStatus}}</span>
+                    <img class="color-bookmark-icon" src="assets/images/icons/toc/icon-color-bookmark.svg" class="bookmark">
+                    <img src="assets/images/icons/toc/icon-lock.svg" class="bookmark">
+                  </div>
+                </div>
+                <div class="dividerLine"></div>
+                <div class="toolbar d-flex justify-content-end"
+                *ngIf="userCurrentview === constUserRole.ADMIN || userCurrentview === constUserRole.FACULTY">
+              <a (click)="delete(rootElement, $event)" class="deleteIcon-con">
+                <svg-icon class="deleteIcon" src="assets/images/icons/icon-delete.svg"></svg-icon>
+                  <span translate="toc.deleteContent"></span>
+                </a>
+                <a (click)="edit(rootElement, $event)" class="editIcon-con">
+                  <svg-icon class="editIcon" src="assets/images/icons/icon-edit.svg"></svg-icon>
+                  <span translate="toc.editContent"></span>
+                </a>
+              <a (click)="getchildren(rootElement, $event, 'tooltip')">
+                  <ng-template #elseBlock>
+                    <img src="assets/images/icons/toc/icon-view-arrow.svg">
+                  </ng-template>
+                  <img src="assets/images/icons/toc/icon-view-play-icon.svg"
+                  *ngIf="elementMetaData?.type === 'video' || elementMetaData?.type === 'audio'; else elseBlock">
+                  <span translate="toc.view"></span>
+                </a>
+              </div>
+              <div class="toolbar text-end" *ngIf="userCurrentview === constUserRole.STUDENT">
+                <button class="resume" *ngIf="rootElement.progress > 0">
+                  <span *ngIf="elementMetaData?.type === contentType.DISCUSSION_FORUM" translate="toc.view"></span>
+                  <span *ngIf="elementMetaData?.type !== contentType.DISCUSSION_FORUM" translate="toc.resume"></span>
+                </button>
+                <button class="resume" *ngIf="rootElement.progress === 0">
+                  <span *ngIf="elementMetaData?.type === contentType.DISCUSSION_FORUM" translate="toc.view"></span>
+                  <span *ngIf="elementMetaData?.type !== contentType.DISCUSSION_FORUM" translate="toc.play"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  <app-toast class="toc-toaster forgot-success-toaster" *ngIf="tocToast" [message]="toastMessage" [type]="toastType"
+  [toastNumber]="200" (toastClick)="closeToast()"></app-toast>
+
+  

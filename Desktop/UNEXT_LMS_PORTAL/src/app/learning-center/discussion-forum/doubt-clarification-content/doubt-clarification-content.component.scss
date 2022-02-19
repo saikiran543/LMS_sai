@@ -1,0 +1,237 @@
+.discussion-forum-body {
+    .discussion-forum-list-con {
+        margin: 1.5rem 0;
+    }
+    #page_back_btn {
+        cursor: pointer;
+    }
+    .create-btn-transparent:disabled {
+        color: white;
+    }
+    .discussion-forum-content-con {
+        border: 1px solid #cfdae6;
+        border-radius: 8px;
+        margin-bottom: 25px;
+        background-color: #f7f8f9;
+        .discussion-forum-content-box {
+            .layout-flex-direction-column {
+                width: 90%;
+            }
+            .content-text {
+                font-size: 1rem;
+                .grey-txt-sm {
+                    font-size: 0.8rem;
+                    color: #555555cc;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+                .grey-txt-sm.full-text {
+                    white-space: normal;
+                    text-overflow: unset;
+                    overflow: initial;
+                }
+                .content-header {
+                    color: #000;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    font-family: "Proxima Nova W05 Bold";
+                }
+                .content-header.full-text {
+                    white-space: normal;
+                    text-overflow: unset;
+                    overflow: initial;
+                }
+                .grey-txt-lg {
+                    color: #555555cc;
+                    height: 13vh;
+                    overflow-y: hidden;
+                    position: relative;
+                    .show-more-btn {
+                        color: #ff6600;
+                        cursor: pointer;
+                        position: absolute;
+                        bottom: -2px;
+                        right: 0;
+                    }
+                }
+
+                .label-row {
+                    .download-btn-con {
+                        a {
+                            width: 18vw;
+                            border: 1px solid #cfdae6;
+                            border-radius: 8px;
+                            padding: 10px 15px;
+                            .file-name {
+                                color: #262626;
+                                font-family: "Proxima Nova W05 Regular";
+                                font-size: 0.99vw;
+                                display: inline-block;
+                                margin-left: 8px;
+                            }
+                        }
+                    }
+                    .label {
+                        margin-right: 2rem;
+                        &:last-child {
+                            margin-left: 2rem;
+                        }
+                    }
+                    .label-txt {
+                        font-size: 0.88rem;
+                        font-family: "Proxima Nova W05 Regular";
+                        color: #000;
+                        padding: 3px 19px;
+                        border-radius: 12px;
+                    }
+                    .created-label {
+                        font-size: 0.88rem;
+                        .created-label-txt {
+                            background-color: #e9fffb;
+                            color: #00c29b;
+                        }
+                    }
+                    .switch-con {
+                        margin-left: 2rem;
+                        margin-right: 0;
+                        .form-check.form-switch {
+                            display: flex;
+                            align-items: center;
+                            input.form-check-input {
+                                position: relative;
+                                top: -2px;
+                            }
+                            .circle-switch {
+                                top: 7.5px !important;
+                                left: 3px;
+                                pointer-events: none;
+                            }
+                            label {
+                                margin-left: 8px;
+                                text-transform: capitalize;
+                            }
+                        }
+                    }
+                    .graded-forum-label {
+                        .graded-label-txt {
+                            background-color: #fceeff;
+                            color: #aa00ff;
+                        }
+                        .non-graded-label-txt {
+                            background-color: #fceeff;
+                            color: red;
+                        }
+                    }
+                    .draft-forum-label {
+                        .draft-label-txt {
+                            background-color: #fff4e7;
+                            color: #ffaa00;
+                        }
+                    }
+                }
+            }
+            .content-stats {
+                position: relative;
+                .img-boxes {
+                    .img-box {
+                        box-shadow: 0px 3px 20px #879bd229;
+                        border-radius: 4px;
+                        padding: 1.4vh 1.3vw;
+                        .box-label-txt {
+                            color: #555555cc;
+                            font-size: 0.65rem;
+                        }
+                        .label-count {
+                            color: #01c3ff;
+                            font-size: 0.88rem;
+                        }
+                    }
+                    .participant-box {
+                        .participant-name {
+                            color: #024c99;
+                            font-size: 0.88rem;
+                            font-family: "Proxima Nova W05 Bold";
+                        }
+                        .label-count {
+                            color: #024c99;
+                            font-size: 0.75rem;
+                            font-family: "Proxima Nova W05 Regular";
+                        }
+                    }
+                }
+                .dots-dropdown {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+.actions-row .create-new-btn {
+    width: auto;
+}
+.bg-gray {
+    padding: 2vh 1.5vw;
+}
+.bg-white {
+    border-radius: 8px;
+}
+
+.relatedDoubts {
+    border-bottom: 1px solid #cfdae6;
+    padding: 25px;
+    &:last-child {
+        border-bottom: 0px;
+    }
+}
+
+.breadcrumb-doubts {
+    font-size: 0.8rem;
+    color: #555555cc;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.info-image {
+    float: left;
+    margin-top: 5px;
+}
+.content-type-image {
+    width: 20px;
+    margin-left: 15px;
+    float: left;
+    margin-right: 15px;
+}
+.relatedDoubts .content-header {
+    float: left;
+}
+
+.go-to-content {
+    width: 118px;
+    height: 23px;
+    color: #ff6600;
+    background: #f7f8f9;
+    border: 0.5px solid #ff6600;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 17px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.go-to-content:hover{
+ cursor: pointer;
+}
+::ng-deep .doubtClarificationContentQnA {
+    div {
+        &:last-child {
+            ul {
+                margin-bottom: 0px;
+            }
+        }
+    }
+}

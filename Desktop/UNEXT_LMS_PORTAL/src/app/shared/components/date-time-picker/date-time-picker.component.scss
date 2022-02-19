@@ -1,0 +1,267 @@
+.date-time-wrapper {
+  position: relative;
+  max-width: 271px;
+  .input-wrapper {
+    position: relative;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #dedede;
+    border-radius: 6px;
+    height: 100%;
+    min-height: 40px;
+    width: 100%;
+    display: flex;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      background: #ebeef6 0% 0% no-repeat padding-box;
+      // border: 1px solid #dedede;
+      border-radius: 0px 6px 6px 0px;
+      opacity: 1;
+      height: 100%;
+      width: 44px;
+      pointer-events: none;
+      background-image: url("../../../../assets/images/icons/icon-calendar.svg");
+      background-repeat: no-repeat;
+      background-size: initial;
+      background-position: center;
+    }
+    input {
+      width: 100%;
+      min-height: 100%;
+      font-weight: 400;
+      font-size: 14px;
+      color: rgb(0, 0, 0);
+      display: flex;
+      align-items: center;
+      text-indent: 15px;
+      outline: none;
+      border: unset;
+      pointer-events: all;
+      border-radius: 6px;
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+
+  .dp-popup {
+    box-shadow: unset;
+    border: unset;
+  }
+  .date-time-picker.dp-popup {
+    z-index: 1;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 15px #89898927;
+  }
+  .date-time-widget-wrapper {
+    border-radius: 8px;
+    width: 271px;
+  }
+
+  dp-day-time-calendar {
+    display: flex;
+    flex-direction: column;
+    &.date-time-picker.dp-material {
+      // width: 100%;
+      border-radius: 8px;
+
+      width: 271px;
+      .dp-day-calendar-container {
+        background: #ffffff;
+        padding: 16px 24px;
+        .dp-calendar-nav-container {
+          border: unset;
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 4px;
+          .dp-nav-header {
+            position: absolute;
+            right: 50%;
+            top: 50%;
+            transform: translate(50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .dp-nav-header-btn {
+              font-size: 14px;
+              font-weight: 600;
+              cursor: unset;
+              pointer-events: none;
+            }
+          }
+          .dp-nav-btns-container {
+            position: unset;
+            display: flex;
+            justify-content: space-between;
+            top: unset;
+            transform: unset;
+            right: unset;
+            width: 100%;
+            .dp-current-location-btn {
+              display: none;
+            }
+          }
+        }
+        .dp-calendar-wrapper {
+          border: unset;
+          .dp-weekdays {
+            background: #f8f8f8 0% 0% no-repeat padding-box;
+            .dp-calendar-weekday {
+              font-size: 11px;
+              color: #000000;
+              padding: 9px 6px;
+              height: unset;
+              opacity: 1;
+            }
+          }
+          .dp-calendar-day {
+            font-size: 13px;
+            padding: 8px;
+            width: 32px;
+            height: 32px;
+            &:hover {
+              background-color: unset;
+              border: 1px solid #0000000b;
+              padding: 6px;
+            }
+            &.dp-prev-month {
+              color: #aaaaaa;
+            }
+            &.dp-current-day {
+              border: unset;
+            }
+            &.dp-selected {
+              background-color: #ff6600;
+              border: 1px solid #ff6600;
+              color: #ffffff;
+              padding: 6px;
+            }
+          }
+        }
+      }
+      dp-time-select {
+        border: unset;
+        border-top: #d1d1d1 1px solid;
+        border-bottom: #d1d1d1 1px solid;
+        padding: 16px 0;
+      }
+    }
+  }
+
+  .date-time-display {
+    position: relative;
+    max-width: 100%;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 0 0 8px 8px;
+    .date-time-display-content {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      .selected-text {
+        font-size: 12px;
+        font-weight: 600;
+        color: #000000;
+      }
+      .selected-date {
+        font-size: 14px;
+        font-weight: 600;
+        color: #ff6600;
+        margin-left: 9px;
+      }
+    }
+    .save-cta {
+      border: 1px solid #ff6600;
+      border-radius: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+      p {
+        color: #ff6600;
+        font-size: 12px;
+        margin: 0;
+      }
+    }
+  }
+  dp-time-select {
+    display: none;
+  }
+  .time-selector {
+    padding: 16px 24px;
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    display: flex;
+    align-items: center;
+    .merdian-input {
+      display: flex;
+      align-items: center;
+      margin-left: 12px;
+      border: 1px solid #dedede;
+      border-radius: 6px;
+    }
+    input {
+      width: 44px;
+      height: 40px;
+      border-radius: 6px;
+      border: 1px solid #dedede;
+      font-size: 12px;
+      font-weight: bold;
+      color: #262626;
+      text-indent: 12px;
+      padding: 0;
+      margin: 0;
+      &:active,
+      &:focus {
+        outline: none;
+        border: 1px solid #ff6600;
+      }
+    }
+    label {
+      position: relative;
+      display: flex;
+      cursor: pointer;
+      p {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin: unset;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      .merdian-radio {
+        appearance: none;
+        border: unset;
+        border-radius: unset;
+        cursor: pointer;
+        width: 49px;
+        height: 40px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #262626;
+        text-indent: 12px;
+        padding: 0;
+        margin: 0;
+        &.active {
+          background-color: #ff6600;
+        }
+        &.active ~ p {
+          color: #ffffff;
+        }
+      }
+    }
+    span {
+      padding: 0 6px;
+    }
+  }
+}

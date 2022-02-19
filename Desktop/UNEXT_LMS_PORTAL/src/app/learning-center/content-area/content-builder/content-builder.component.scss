@@ -1,0 +1,170 @@
+.content-builder-container {
+    width: 360px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: -4px 20px 60px #c2c2c229;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    z-index: 1030;
+    right: 0;
+    height: 100vh;
+    #content-builder-addExisting {
+        margin-bottom: 5px;
+    }
+    .content-builder-title {
+        background-color: #FFE9E2;
+        padding: 19px 19px;
+        font-family: "Proxima Nova W05 Bold";
+        font-size: 20px;
+        line-height: 24px;
+        span {
+            cursor: pointer;
+        }
+    }
+    .content-builder-tab {
+        padding: 20px 19px;
+        height: calc(100vh - 72px);
+        // overflow-y: auto;
+        .nav-tabs {
+            border-bottom: 1px solid #55555533;
+            margin-bottom: 28px;
+            .nav-link {
+                border: 0px;
+                color: #55555580;
+                padding: 0px;
+                margin-right: 32px;
+                font-size: 16px;
+                line-height: 20px;
+            }
+            .active {
+                color: #000 !important;
+                background-color: #fff;
+                border-bottom: 3px solid #FF6600;
+                font-family: "Proxima Nova W05 Bold";
+            }
+        }
+        .tab-content {
+            h3 {
+                font-size: 18px;
+                line-height: 22px;
+                letter-spacing: 0.18px;
+                color: #000000;
+                font-family: "Proxima Nova W05 Bold";
+            }
+            p {
+                margin-top: 4px;
+                margin-bottom: 0px;
+                letter-spacing: 0.14px;
+                color: #000000;
+                font-size: 14px;
+                line-height: 17px;
+                text-align: center;
+            }
+            .col-4 {
+                width: 90px;
+                height: 88px;
+                background: #EBEEF680;
+                border-radius: 4px;
+                opacity: 1;
+                margin-bottom: 16px;
+                padding: 8px;
+                &:hover {
+                    background: #FFFFFF80;
+                    border: 1px solid #E6E9F3;
+                    cursor: pointer;
+                    &:nth-child(3), &:nth-child(4) {
+                        cursor: default;
+                        background: #EBEEF680;
+                        border: none;
+                    }
+                }
+                &:nth-child(2), &:nth-child(5), &:nth-child(8), &:nth-child(11) {
+                    margin: 0px 16px;
+                }
+            }
+            .content-type-divider {
+                border-bottom: 1px solid #C2C2C229;
+                margin: 0 0 20px 0;
+            }
+            .activity-types {
+                .col-4 {
+                    background: #FFFFFF80;
+                    border: 1px solid #E6E9F3;
+                    &:hover {
+                        cursor: pointer;
+                        background: #EBF7EE 0% 0% no-repeat padding-box;
+                        border: 1px solid #E6E9F3;
+                            .a {
+                                    fill: #0A932E;
+                                }
+                        }
+                        
+                    }
+                }
+            }
+        }
+        
+    }
+    /***** Slide Left *****/
+    .slide-left {
+        animation: 1s slide-left;
+    }
+    @keyframes slide-left {
+        from {
+            margin-left: 100%;
+        }
+        to {
+            margin-left: 0%;
+        }
+    }
+    
+    .content-builder-container .content-builder-tab .tab-content .col-4 {
+        &:hover {
+            svg {
+                .a {
+                    fill: #006FEE;
+                }
+                .b {
+                    fill: #B3CEED;
+                }
+                .c {
+                    fill: #4F96E8;
+                }
+                .folder_hover {
+                    fill: #F68A33;
+                } 
+                .attachment_hover {
+                    fill: #5b6e9e;
+                } 
+                .audio_hover {
+                    fill: #40aacb;
+                }
+                .document_hover {
+                    fill: #b94b8e;
+                }
+                .epub_hover {
+                    fill: #fab94b;
+                }
+                .html_hover {
+                    fill: #4cb8a8;
+                }
+                .image_hover {
+                    fill: #a7c949;
+                }
+                // .live_classroom_hover {
+                //     fill: #b1524f;
+                // }
+                .scorm_hover {
+                    fill: #7545a0;
+                }
+                // .video_hover {
+                //     fill: #6373e1;
+                // }
+                .weblink_hover {
+                    fill: #e75858;
+                }
+            }
+        }
+    }
+    
+    

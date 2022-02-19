@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-dashboard">
+      <rect width="20" height="20"/>
+    </clipPath>
+  </defs>
+  <g id="dashboard" clip-path="url(#clip-dashboard)">
+    <g id="Dash-filled">
+      <path id="Path_13816" data-name="Path 13816" d="M7.932,0H1.5A1.5,1.5,0,0,0,0,1.5V5.36a1.5,1.5,0,0,0,1.5,1.5H7.932a1.5,1.5,0,0,0,1.5-1.5V1.5A1.5,1.5,0,0,0,7.932,0Z" fill="#cccccc"/>
+      <path id="Path_13817" data-name="Path 13817" d="M7.932,10H1.5A1.5,1.5,0,0,0,0,11.5v9a1.5,1.5,0,0,0,1.5,1.5H7.932a1.5,1.5,0,0,0,1.5-1.5v-9A1.5,1.5,0,0,0,7.932,10Z" transform="translate(0 -2.006)" fill="#cccccc"/>
+      <path id="Path_13818" data-name="Path 13818" d="M20.932,16H14.5A1.5,1.5,0,0,0,13,17.5V21.36a1.5,1.5,0,0,0,1.5,1.5h6.432a1.5,1.5,0,0,0,1.5-1.5V17.5A1.5,1.5,0,0,0,20.932,16Z" transform="translate(-2.433 -2.86)" fill="#cccccc"/>
+      <path id="Path_13819" data-name="Path 13819" d="M20.932,0H14.5A1.5,1.5,0,0,0,13,1.5v9a1.5,1.5,0,0,0,1.5,1.5h6.432a1.5,1.5,0,0,0,1.5-1.5v-9A1.5,1.5,0,0,0,20.932,0Z" transform="translate(-2.433)" fill="#cccccc"/>
+    </g>
+  </g>
+</svg>

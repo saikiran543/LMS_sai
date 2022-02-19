@@ -1,0 +1,333 @@
+@import "~src/variables";
+
+.discussion-forum-body {
+    .discussion-forum-list-con {
+        margin: 1.5rem 0;
+    }
+    #page_back_btn {
+        cursor: pointer;
+    }
+    .create-btn-transparent:disabled {
+        color: white;
+    }
+    .note-con {
+        padding: 25px;
+        font-family: $font-regular;
+        border-bottom: 1px solid #cfdae6;
+        background-color: #fff;
+        .note-header {
+            font-size: $font-14;
+            .note-label {
+                color: #FF0000;
+                font-family: $font-bold;
+            }
+        }
+        .label-con {
+            .validity-label-txt {
+                color: #000;
+                margin-right: 7px;
+                text-transform: capitalize;
+                font-size: $font-14;
+            }
+            .validity-label {
+                background-color: #8c8c8c;
+                color: #fff;
+                padding: 2px 10px;
+                font-size: 12px;
+                border-radius: 12px;
+                vertical-align: middle;
+                padding-top: 4px;
+            }
+        }
+        #my-performnace-btn {
+            font-family: $font-bold;
+            font-size: $font-16;
+            &:hover {
+                background-color: #F6F6F6;
+                color: $active_colour;
+            }
+        }
+    }
+    .discussion-forum-content-con {
+        border: 1px solid #cfdae6;
+        border-radius: 8px;
+        margin-bottom: 25px;
+        background-color: #f7f8f9;
+        .discussion-forum-content-box {
+            .content-text {
+                font-size: 1rem;
+                .grey-txt-sm {
+                    font-size: 0.8rem;
+                    color: #555555cc;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+                .grey-txt-sm.full-text {
+                    white-space: normal;
+                    text-overflow: unset;
+                    overflow: initial;
+                }
+                .content-header {
+                    color: #000;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    font-family: "Proxima Nova W05 Regular";
+                    font-size: 18px;
+                    width: 100%;
+                }
+                .content-header.full-text {
+                    white-space: normal;
+                    text-overflow: unset;
+                    overflow: initial;
+                }
+
+                    .grey-txt-lg {
+                        color: #555555cc;
+                        max-height: 7vh;
+                        overflow-y: hidden;
+                        position: relative;
+                        line-height: 28px;
+                        .show-more-btn {
+                            color: #ff6600;
+                            cursor: pointer;
+                            position: absolute;
+                            bottom: -2px;
+                            right: 0;
+                        }
+                    }
+                    
+                
+
+                .label-row {
+                    .download-btn-con {
+                        cursor: pointer;
+                        a {
+                            width: 12vw;
+                            min-width: 200px;
+                            border: 1px solid #cfdae6;
+                            border-radius: 8px;
+                            padding: 10px 15px;
+                            .file-name {
+                                color: #262626;
+                                font-family: "Proxima Nova W05 Regular";
+                                font-size: 14px;
+                                display: inline-block;
+                                margin-left: 8px;
+                                display: inline-block;
+                                width: 160px;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                        }
+                    }
+                    .label {
+                        margin-right: 1rem;
+                        &:last-child {
+                            margin-left: 1rem;
+                        }
+                    }
+                    .label-txt {
+                        font-size: 0.88rem;
+                        font-family: "Proxima Nova W05 Regular";
+                        color: #000;
+                        padding: 3px 19px;
+                        border-radius: 12px;
+                        white-space: nowrap;
+                    }
+                    .created-label {
+                        font-size: 0.88rem;
+                        .created-label-txt {
+                            background-color: #e9fffb;
+                            color: #00c29b;
+                        }
+                    }
+                    .switch-con {
+                        .form-check.form-switch {
+                            display: flex;
+                            align-items: center;
+                            input.form-check-input {
+                                position: relative;
+                                top: -2px;
+                            }
+                            .circle-switch {
+                                top: 7.5px !important;
+                                left: 3px;
+                                pointer-events: none;
+                            }
+                            label {
+                                margin-left: 8px;
+                                text-transform: capitalize;
+                            }
+                        }
+                    }
+                    .graded-forum-label {
+                        .graded-label-txt {
+                            background-color: #fceeff;
+                            color: #aa00ff;
+                        }
+                        .non-graded-label-txt {
+                            background-color: #fceeff;
+                            color: red;
+                        }
+                    }
+                    .draft-forum-label {
+                        .draft-label-txt {
+                            background-color: #fff4e7;
+                            color: #ffaa00;
+                        }
+                    }
+                }
+            }
+            .content-stats {
+                position: relative;
+                .img-boxes {
+                    .img-box {
+                        box-shadow: 0px 3px 20px #879bd229;
+                        border-radius: 4px;
+                        padding: 1.4vh 1.3vw;
+                        .box-label-txt {
+                            color: #555555cc;
+                            font-size: 0.65rem;
+                        }
+                        .label-count {
+                            color: #01c3ff;
+                            font-size: 0.88rem;
+                        }
+                    }
+                    .participant-box {
+                        .participant-name {
+                            color: #024c99;
+                            font-size: 0.88rem;
+                            font-family: "Proxima Nova W05 Bold";
+                        }
+                        .label-count {
+                            color: #024c99;
+                            font-size: 0.75rem;
+                            font-family: "Proxima Nova W05 Regular";
+                        }
+                    }
+                }
+                .dots-dropdown {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+.actions-row .create-new-btn {
+    width: auto;
+}
+.bg-gray {
+    padding: 2vh 1.5vw;
+}
+.bg-white {
+    border-radius: 8px;
+}
+
+.relatedDoubts {
+    border-bottom: 1px solid #cfdae6;
+    padding: 25px;
+    &:last-child {
+        border-bottom: 0px;
+    }
+}
+
+.breadcrumb-doubts {
+    font-size: 0.8rem;
+    color: #555555cc;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.info-image {
+    float: left;
+    margin-top: 5px;
+}
+.content-type-image {
+    width: 20px;
+    margin-left: 15px;
+    float: left;
+    margin-right: 15px;
+}
+.relatedDoubts .content-header {
+    float: left;
+}
+.relatedDoubts:hover{
+    cursor: pointer;
+}
+.threads-holder{
+    max-height: 500px;
+    overflow-y: auto;
+}
+.disabledButton{
+    background: none;
+    &:hover{
+        background: none;
+        color: #FF6600;
+    }
+}
+.empty-discussion-forum-img-con{
+    padding: 7% 0;
+    h4{
+        font-family: "Proxima Nova W05 Bold";
+        font-size: calc(18px + 0.315vw);
+        margin-top: 12px;
+        margin-bottom: 0px;
+    }
+}
+.forum-detail-inner{
+    display: flex;
+    p{
+        margin-bottom: 0px !important;
+    }
+}
+.mobile-device{
+    display:none;
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .desktop-device{
+        display: none;
+    }
+    .mobile-device{
+        display: block;
+    }
+    .filter-inner{
+        display: flex;
+        .dropdown{
+            margin-left: 20px;
+        }
+    }
+    .discussion-forum-list-con{
+        justify-content: flex-end !important;
+        button{
+            margin-right: 0px !important;
+        }
+    }
+    .discussion-forum-content-con{
+        .bg-gray{
+            padding: 2.7vw;
+        }
+        .content-stats{
+            justify-content: start !important;
+        }
+        .discussion-forum-content-box{
+            .content-text{
+                .grey-txt-sm{
+                    font-size: $font-14;
+                }
+                .content-header{
+                    font-size: $font-16;
+                }
+            }
+        }
+    }
+    .relatedDoubts,.discussion-forum-body .note-con{
+        padding: 2.7vw;
+    }
+
+}

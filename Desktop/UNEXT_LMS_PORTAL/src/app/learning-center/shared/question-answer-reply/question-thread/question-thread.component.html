@@ -1,0 +1,71 @@
+<ul>
+    <li class="question-container qc-li" [ngClass]="{'dark': theme}">
+
+        <div class="profile-details layout layout-justify-space-between">
+            <div>
+                <img src="assets/images/icons/qna/profile-dummy2.png"
+                alt="profile pic" width="40px" height="40px">
+                <span class="question-owner">{{question.userName}}</span>
+            </div>
+
+            <div class="actionIcons">
+                <svg-icon *ngIf="pinned" class="pinIcon" src="assets/images/icons/notes/icon-pin.svg"
+                    (click)="interaction('pin/unpin')"></svg-icon>
+                <span *ngIf="loggedInUser.userId === question.createdBy && question.numOfAnswers === 0 && !question.isUpvoted && !viewOnlyMode && !question.numOfUpvotes">
+                    <svg-icon class="editIcon" src="assets/images/icons/icon-edit.svg" (click)="edit($event)"></svg-icon>
+                    <svg-icon class="deleteIcon" src="assets/images/icons/icon-delete.svg" (click)="deleteQuestion($event)">
+                    </svg-icon>
+                </span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-details">
+
+                <div class="question-description">
+                    <span class="question-title">{{question.title}}</span>
+                </div>
+                <p *ngIf="question.description !== undefined" class="answer" [innerHtml]="question.description  | safe: 'html'"></p>
+            </div>
+        </div>
+        <ul class="question-item-info">
+            <li class="question-time">{{question.createdAt | timesAgo }}</li>
+            <li class="question-reply" (click)="toggleExpand()">
+                <svg-icon class="msgIcon" src="assets/images/icons/qna/Comment.svg"></svg-icon>
+                <span>{{question.numOfAnswers}}</span>
+            </li>
+            <li class="question-reply" (click)="interaction('vote/unvote')">
+                <svg-icon class="likeIcon" src="assets/images/icons/qna/Upvote.svg"
+                    [ngClass]="{'upvotedColor': question.isUpvoted}"></svg-icon>
+                <span>{{question.numOfUpvotes}}</span>
+            </li>
+            <li class="question-like">
+                <div class="question-reply" *ngIf="!viewOnlyMode && !disableFeatureMap.reply">
+                    <span class="replyIcon" (click)="close()">
+                        <svg-icon src="assets/images/icons/qna/Reply.svg"></svg-icon>
+                        Reply
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </li>
+    <li *ngIf="isReplying">
+        <app-give-reply (reply)="giveReply($event)" (close)="close()"></app-give-reply>
+    </li>
+    <div class="dark" *ngFor="let answer of verifiedAnswer">
+        <app-answer-reply [answer]="answer" [verifiedSecondLevelAnswers]="verifiedChildAnswers"
+            (deleteAnswerId)="deleteAnswer($event)" [isAnyVerified]="isAnyVerified" (toggleLabel)="toggleLabel($event)"
+            (increaseReplyNumber)="increaseReplyCounter($event)"
+            (updateVerifiedAnswerId)="updateVerifiedAnswer($event)" (updateUnverifiedAnswerId)="updateUnverifiedAnswer()" [viewOnlyMode]="viewOnlyMode" [disableFeatureMap]="disableFeatureMap"></app-answer-reply>
+    </div>
+    <button class="view-prev-btn" *ngIf="calculateRemainingAnswer()" (click)="showMoreReplies()"
+        [disabled]="loadingAnswers">View Previous
+        Replies</button>
+    <li class="dark" *ngIf="extended">
+        <div *ngFor="let answer of answers">
+            <app-answer-reply [answer]="answer" (deleteAnswerId)="deleteAnswer($event)" [isAnyVerified]="isAnyVerified"
+                (toggleLabel)="toggleLabel($event)" (increaseReplyNumber)="increaseReplyCounter($event)"
+                (updateVerifiedAnswerId)="updateVerifiedAnswer($event)" (updateUnverifiedAnswerId)="updateUnverifiedAnswer()" [viewOnlyMode]="viewOnlyMode" [disableFeatureMap]="disableFeatureMap"></app-answer-reply>
+        </div>
+    </li>
+</ul>

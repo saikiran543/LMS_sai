@@ -1,0 +1,57 @@
+.background-highlight {
+        background: #FF660014 0% 0% no-repeat padding-box;
+        border: 1px solid #FF6600 !important;
+        border-radius: 8px;
+}
+.hide-node{
+    display: none;
+}
+.disable-node{
+    color: gray;
+    background-color: rgb(236, 231, 231);
+}
+.unit-component .content-component-modal-content {
+    padding: 32px;
+    height: calc(100vh - 300px);
+    overflow-y: auto;
+}
+.select-location {
+    padding: 32px 24px 0px 24px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #555555;
+}
+mat-tree-node.cdk-tree-node.mat-tree-node {
+    color: #000000;
+    font-family: "Proxima Nova W05 Bold";
+    margin-bottom: 16px;
+    border: 0.75px solid #CFDAE6;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.hasChild {
+    width: 100%;
+    padding: 20px 16px;
+    span {
+        display: inline-block;
+    }
+    .mat-icon-button {
+        padding: 0;
+        min-width: 0;
+        width: auto;
+        height: auto;
+        flex-shrink: 0;
+        line-height: normal;
+        border-radius: unset;
+    }    
+}
+.course-name {
+    border: 0.75px solid #CFDAE6;
+    border-radius: 8px;
+    color: #000000;
+    font-family: "Proxima Nova W05 Bold";
+    font-size: 16px;
+    line-height: normal;
+    padding: 20px 16px;
+    cursor: pointer;
+}

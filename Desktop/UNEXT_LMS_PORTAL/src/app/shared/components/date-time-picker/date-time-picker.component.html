@@ -1,0 +1,50 @@
+
+<div class="date-time-wrapper">
+  <div class="input-wrapper">
+    <input 
+    #dateDirectivePicker="dpDayPicker"
+    autocomplete="off"
+    [dpDayPicker]="config"
+    [mode]="'daytime'"
+    [theme]="'dp-material date-time-picker'"
+    (onChange)="changeDate()"
+    placeholder="dd/mon/yyyy hh:mm"
+    [value]="displayDate"
+    [disabled]="disabled"
+    id="picker">
+  </div>
+  <div class="date-time-widget-wrapper">
+    <div [ngClass]="className">
+    
+    </div>
+  </div>
+
+  <div class="time-selector" #timeSelector>
+    <input type="number" max="12" min="1" name='hours' [(ngModel)]="timePicker.hours" (change)="changeTime($event, 1, 12)" />
+    <span>:</span>
+    <input type="number" name='minutes' min="0" max="59" [(ngModel)]="timePicker.minutes" (change)="changeTime($event, 0, 59)"/>
+    <div class="merdian-input">
+      <label for="am">
+        <span class="merdian-radio" [class.active]="timePicker.meridiem === 'am'" (click)="changeMeridiem('am')"></span>
+        <p>
+          AM
+        </p>
+      </label>
+      <label for="pm">
+        <span class="merdian-radio" [class.active]="timePicker.meridiem === 'pm'" (click)="changeMeridiem('pm')" ></span>
+        <p>PM</p>
+      </label>
+    </div>
+  </div>
+  <div class="date-time-display" #dateTimeDisplay>
+    <div class="date-time-display-content">
+      <span class="selected-text">Selected: </span>
+      <span class="selected-date">
+        {{formattedDate}}
+      </span>
+    </div>
+    <div class="save-cta" (click)="saveDate()">
+      <p>Save</p>
+    </div>
+  </div>
+</div>

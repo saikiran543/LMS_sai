@@ -1,0 +1,8 @@
+<div class="layout layout-flex-direction-column layout-item-center layout-justify-center alert-modal">
+  <img src="assets/images/icons/{{ statusIcon }}" style="width: 62px;">
+  <p class="mt24 mb24 alert-text" innerHtml="{{modalConfig.message | translate}}"></p>
+  <div>
+    <button class="{{ buttonClass }} confirm-btn" (click)="sendConfirmStatus()"
+      [translate]="modalConfig.confirmBtn"></button>
+  </div>
+</div>

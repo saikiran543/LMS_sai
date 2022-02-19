@@ -1,0 +1,146 @@
+<div class="rubricStructure" *ngIf='rubricData' [formGroup]="myForm" id="rubric-structure-con">
+  <div *ngIf='canEdit' class="layout layout-item-center layout-justify-space-between rubricStructure-label">
+    <label class="form-label m-0">{{rubricTitle}}</label>
+    <div *ngIf='!isSelection && status != "inUse"' class="rubricActionBtns">
+      <button class="deleteBtn inline-flex layout-item-center layout-justify-center" (click)='clickEvent("","delete")'>
+        <svg-icon src="assets/images/icons/rubric/icon-delete.svg"></svg-icon>Delete
+      </button>
+      <button class="editBtn inline-flex layout-item-center layout-justify-center" (click)='clickEvent("","edit")'>
+        <svg-icon src="assets/images/icons/rubric/icon-edit.svg"></svg-icon> Edit
+      </button>
+    </div>
+  </div>
+  <div class="rubricsStructuretable" id="rubricsStructuretable-con">
+    <table [ngClass]='{"prevRubric":canEdit}' class="table table-bordered">
+      <thead>
+        <div *ngIf='showLeftArrow' class="prev-img layout layout-item-center layout-justify-center" (click)="scrollLeft()">
+          <svg-icon class="layout" src="assets/images/icons/rubric/icon-prev.svg"></svg-icon>
+        </div>
+        <div *ngIf='showRightArrow' class="nxt-img layout layout-item-center layout-justify-center" (click)="scrollRight()">
+          <svg-icon class="layout" src="assets/images/icons/rubric/icon-nxt.svg"></svg-icon>
+        </div>
+        <tr [ngStyle]="canEdit?{'pointer-events': 'none'}: {'pointer-events': 'all'}" cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListData]="levelNames">
+          <th>
+            <div class="title" translate="admin.rubrics.rubricsStructure.dropDowns.criteria.title"></div>
+          </th>
+          <th formArrayName='levelNames' cdkDrag  *ngFor="let levelControl of levelNames | slice : startIndex : endIndex; let index = index;"  >
+            <div *ngIf='index < innerWidth' [formGroupName]="getFormGroupName(levelControl)" >
+              <div class="layout justify-content-center top-level-div" >
+                <div><img  *ngIf='!canEdit' src="assets/images/icons/rubric/icon-drag.svg"> </div>
+                <div class="dropdown" >
+                  <button *ngIf='!canEdit' class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="assets/images/icons/rubric/dropdown-arrow-down.svg"> 
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" (click)="clickEvent(levelControl, 'addLevelLeft')" translate="admin.rubrics.rubricsStructure.dropDowns.insertLeft"></a></li>
+                    <li><a class="dropdown-item" (click)="clickEvent(levelControl, 'addLevelRight')" translate="admin.rubrics.rubricsStructure.dropDowns.insertRight"></a></li>
+                    <li><a class="dropdown-item" (click)="clickEvent(levelControl, 'removeLevel')" translate="admin.rubrics.rubricsStructure.dropDowns.removeGradeLevel"></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="title" [ngClass]="{'title-container': getFormStatus(levelControl)}">
+                <input class="form-control" type="text" *ngIf="!canEdit" formControlName='{{getFormControl(levelControl)}}' [ngClass]="{'error-title': getFormStatus(levelControl)}">
+                <label *ngIf="canEdit">{{getValue(levelControl)}}</label>
+              </div>
+            </div>
+          </th>
+          <th>
+            <div *ngIf='!canEdit' class="addlevel" id="rubric-structure-addLevel" (click)="addLevel()">
+              <img src="assets/images/icons/rubric/icon-plus.svg">
+              <!-- <button><img src="assets/images/icons/rubric/icon-createrubric.svg"></button> -->
+              <div><span translate="admin.rubrics.rubricsStructure.addLevel"></span></div>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody [ngStyle]="canEdit?{'pointer-events': 'none'}: {'pointer-events': 'all'}"  cdkDropList (cdkDropListDropped)="criteriaDrop($event)">
+        <ng-container formArrayName="criterias" *ngFor="let criteria of getCriteriaControls(); let i = index;">
+        <tr [formGroupName]="i"  cdkDrag>
+          <td>   
+            <div class="criteria">                     
+              <div class="layout layout-justify-space-between">
+                <div class="layout"><img *ngIf='!canEdit' src="assets/images/icons/rubric/icon-criteria-drag.svg">
+                  <input class="form-control criteria-title-input" type="text"  *ngIf="!canEdit" [ngClass]="{ error: criteria.get('criteriaName')?.invalid }" formControlName="criteriaName">
+                  <span *ngIf="canEdit" class="criteria-title">{{criteria.get('criteriaName')?.value}}</span> </div>
+                <div class="dropdown " *ngIf='!canEdit'>
+                  <button class="btn dropdown-toggle" type="button" id="rubric-structure-action-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="assets/images/icons/rubric/dropdown-arrow-down.svg"> 
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" (click)="clickEvent(criteria, 'copyCriteria')" 
+                      translate="admin.rubrics.rubricsStructure.dropDowns.criteria.copyCriteria"></a>
+                    </li>
+                    <li><a class="dropdown-item" (click)="clickEvent(i, 'addCriteriaAbove')" 
+                      translate="admin.rubrics.rubricsStructure.dropDowns.criteria.addCriteriaAbove"></a>
+                    </li>
+                    <li><a class="dropdown-item" (click)="clickEvent(i + 1, 'addCriteriaBelow')" 
+                      translate="admin.rubrics.rubricsStructure.dropDowns.criteria.addCriteriaBelow"></a>
+                    </li>
+                    <li><a class="dropdown-item" (click)="clickEvent(criteria, 'removeCriteria')" 
+                      translate="admin.rubrics.rubricsStructure.dropDowns.criteria.removeCriteria"></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="layout justify-content-center layout-item-center weightage">
+                <label class="form-label" translate="admin.rubrics.rubricsStructure.weightage"></label>
+                <input class="form-control" [ngClass]="{ error: criteria.get('weightage')?.invalid }" type="text"[readonly]="canEdit" (keypress)="onKeyPress($event, 'weightage')"   formControlName="weightage">
+              </div>
+            </div>
+          </td>
+          <td formArrayName="levels" *ngFor="let level of levelKeysToDisplay()  let j = index;">
+            <div *ngIf='j < innerWidth' class="level" [formGroup]="getLevelsControls(i, level)">
+              <div class="layout layout-item-center percentage">
+                <input class="form-control" type="text" [readonly]="canEdit" [ngClass]="{ error: getLevelsControls(i, level)?.get('percentage')?.invalid }" formControlName="percentage" (keypress)="onKeyPress($event, 'percentage')">
+                <label class="form-label" translate="admin.rubrics.rubricsStructure.percentage"></label>
+              </div>
+              <textarea class="description-box" *ngIf='!canEdit'  [ngClass]="{'active': canEdit}" contenteditable='true' formControlName="description">
+              </textarea>
+              <div class="description-box" *ngIf='canEdit'  contenteditable='true'>
+               <p> {{(rubricSubArray[i].levels[level].description.length > 100) ? (rubricSubArray[i].levels[level].description | slice:0:rubricSubArray[i].levels[level].counter)+'... ':(rubricSubArray[i].levels[level].description)}}
+                <span class="more-info" *ngIf="rubricSubArray[i].levels[level].description.length > 100" (click)="onClickMoreOrLess(i, level, rubricSubArray[i].levels[level].showText, rubricSubArray[i].levels[level].description)"  >
+                 {{rubricSubArray[i].levels[level].showText}}
+               </span>
+               </p>
+              </div>
+            </div>
+          </td>
+           <td></td>
+        </tr>
+      </ng-container>
+        </tbody>
+      <tfoot *ngIf='!canEdit'>
+        <tr>
+          <td colspan="7">
+            <div class="addCriteria" id="rubric-structure-addCriteria">
+              <img (click)="addCriteria()" src="assets/images/icons/rubric/icon-plus.svg">
+              <!-- <button><img src="assets/images/icons/rubric/icon-createrubric.svg"></button> -->
+              <span translate="admin.rubrics.rubricsStructure.addCriteria"></span> 
+            </div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="addTags" *ngIf='!canEdit'>
+      <label class="form-label mr16" translate="contentBuilder.content.addTags"></label>
+      <div class="btn-group dropend">
+        <button disabled="true" type="button" id="content-component-addTag" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          +
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item">Important</a></li>
+          <li><a class="dropdown-item">Easy</a></li>
+          <li><a class="dropdown-item">Intermediate</a></li>
+          <li><a class="dropdown-item">Difficult</a></li>
+          <li><a class="dropdown-item"> + Create Tag</a></li>
+        </ul>
+      </div>
+    </div>    
+
+    <div class="rubric-footer text-end" *ngIf='!canEdit'>
+      <button class="cancel-btn" (click)="clickEvent($event, 'cancel')" translate="admin.rubrics.rubricsStructure.buttons.cancel"></button>
+      <button class="basic-btn" *ngIf='operation !== "edit"' [ngClass]='{"button-disable":operation === "edit" && status !== "draft"}' (click)="clickEvent($event, 'saveAsDraft')" translate="admin.rubrics.rubricsStructure.buttons.saveAsDraft"></button>
+      <button class="primary-btn" (click)="clickEvent($event, 'saveCriteria')" translate="admin.rubrics.rubricsStructure.buttons.save"></button>
+      </div>
+  </div>
+</div> 

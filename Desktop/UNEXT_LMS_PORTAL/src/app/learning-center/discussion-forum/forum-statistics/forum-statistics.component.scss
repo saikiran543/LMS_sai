@@ -1,0 +1,280 @@
+
+@import "~src/variables";
+
+
+.discussion-forum-stats-body {
+    .actions-row .rows-per-page {
+        margin-right: 0 !important;
+    }
+    .stat-box {
+        margin-left: 24px;
+        &:first-child {
+            margin-left: 0px !important;
+        }
+        .stat-box-text {
+            color: #ff6600;
+            font-family: "Proxima Nova W05 Bold";
+            font-size: 20px;
+            display: inline-block;
+        }
+        .stat-box-label {
+            font-family: "Proxima Nova W05 Regular";
+            font-size: 16px;
+            color: #707070;
+        }
+        .stat-box-text.select-box-text {
+            @extend .stat-box-label;
+            color: #ff6600;
+        }
+        .records-per-page {
+            font-size: 14px;
+        }
+    }
+    
+    .create-new-btn {
+        margin-left: 24px !important;
+    }
+    
+    
+    .discussion-forum-content-con {
+        border: 1px solid #CFDAE6;
+        border-radius: 8px;
+        padding: 2vh 1.5vw;
+        background-color: #f7f8f9;
+        .discussion-forum-content-box  {
+            .content-text {
+                font-size: 1rem;
+                .grey-txt-sm {
+                    font-size: 0.8rem;
+                    color: #555555CC;
+                }
+                .content-header {
+                    color: #000;
+                }
+                .grey-txt-lg {
+                    color: #555555CC;   
+                    height: 13vh;
+                    overflow-y: hidden;
+                    position: relative;
+                    .show-more-btn {
+                        color: #ff6600;
+                        cursor: pointer;
+                        position: absolute;
+                        bottom: -2px;
+                        right: 0;
+                    }
+                }
+                
+                .label-row {
+                    .label {
+                        margin-right: 2rem;
+                        &:last-child {
+                            margin-left: 2rem;
+                        }
+                        &:first-child {
+                            margin-left: 0;
+                        }
+                    }
+                    .label-txt {
+                        font-size: 0.88rem;
+                        font-family: "Proxima Nova W05 Regular";
+                        color: #000;
+                        padding: 3px 19px;
+                        border-radius: 12px;
+                    }
+                    .created-label {
+                        font-size: 0.88rem;
+                        .created-label-txt {
+                            background-color: #E9FFFB;
+                            color: #00C29B;
+                        }
+                    }
+                    .learning-objective-label {
+                        background-color: #ECECEC;
+                        color: #555555;
+                        img {
+                            position: relative;
+                            top: -1px;
+                            margin-right: 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    ::ng-deep .datatable-header {
+        display: flex !important;
+        align-items: center !important;
+        height: 52px !important;
+        background: #EBEEF6 0% 0% no-repeat padding-box;
+        border-radius: 8px 8px 0px 0px;
+        opacity: 1;
+        border: 1px solid #CFDAE6;
+        border-bottom: 0;
+        datatable-header-cell {
+            padding: 16px 16px 16px 24px !important;
+            &:first-child {
+                padding: 16px 16px 16px 10px !important;
+                margin-top: 4px;
+            }
+        }
+        .datatable-header-cell-label {
+            font-size: 16px;
+            line-height: 19px;
+            color: #000;
+            font-family: "Proxima Nova W05 Bold";
+        }
+    }
+    ::ng-deep.datatable-body {
+        border: 1px solid #CFDAE6;
+        border-top: 0;
+        border-radius: 0px 0px 8px 8px;
+        .datatable-body-cell-label {
+            span {
+                font-size: 16px;
+                color: #555555;
+            }
+        }
+        .datatable-row-wrapper {
+            border-bottom: 1px solid #CFDAE6;
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+    }
+    ::ng-deep .datatable-row-group {
+        datatable-body-cell {
+            padding: 3px 16px 3px 24px !important;
+            &:first-child {
+                margin-top: 4px;
+            }
+        }
+    }
+    
+}
+
+.datatable-label-txt {
+    font-size: 0.88rem;
+    font-family: "Proxima Nova W05 Regular";
+    color: #000;
+    padding: 3px 19px;
+    border-radius: 12px;
+    &.label-graded {
+        background-color: #ddfff0;
+        span {
+            color: #4ad395;
+        }
+    }
+    
+    &.label-not-graded {
+        background-color: #ffe6e6;
+        span {
+            color: #ff0000;
+        }
+    }
+}
+
+
+
+::ng-deep .red{
+    color: red !important;
+}
+
+
+::ng-deep .stats-table-con1  {
+    position: relative;
+    #dc_scroll_left_btn, #sd_scroll_left_btn {
+        cursor: pointer;
+        height: 36px;
+        width: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #363436;
+        border-radius: 50%;
+        position: absolute;
+        left: 160px;
+        top: 14px;
+        z-index: 10;
+        cursor: pointer;
+        svg-icon {
+          position: relative;
+          top: -1px;
+          right: -1px;
+          svg {
+              width: 11px;
+              height: 11px;
+              transform: rotate(90deg);
+              path {
+                  stroke: #fff;
+              }
+          }
+        }
+    }
+    #dc_scroll_right_btn, #sd_scroll_right_btn {
+        height: 36px;
+        width: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #363436;
+        border-radius: 50%;
+        position: absolute;
+        right: 15px;
+        top: 14px;
+        z-index: 10;
+        cursor: pointer;
+        svg-icon {
+          position: relative;
+          top: -1px;
+          right: 2px;
+          svg {
+              transform: rotate(-90deg);
+              width: 11px;
+              height: 11px;
+              path {
+                  stroke: #fff;
+              }
+          }
+        }
+    }
+    datatable-header {
+        .datatable-header-inner .datatable-row-center  {
+          .datatable-header-cell {
+              width: 15%!important;
+              overflow: visible!important;
+              .datatable-header-cell-template-wrap {
+                  white-space: nowrap!important;
+              }
+          }
+            
+        }
+      .datatable-row-left {
+          display: flex!important;
+          background-color: #ebeef5;
+          .datatable-header-cell {
+            &:nth-child(1) {
+                padding-left: 10px!important;
+            }
+            &:nth-child(2) {
+              padding-left: 24px!important;
+            }
+          }
+          
+      }
+    }
+    datatable-body {
+      datatable-body-row {
+          .datatable-row-left {
+              background-color: #fff;
+          }
+          .datatable-row-center {
+              .datatable-body-cell {
+                  width: 15%!important;
+                  overflow: visible!important;
+              }
+          }
+      }
+    }
+}

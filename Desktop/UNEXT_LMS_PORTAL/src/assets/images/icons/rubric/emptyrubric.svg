@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="305.131" height="296.491" viewBox="0 0 305.131 296.491">
+  <defs>
+    <filter id="Rectangle_9435" x="122.415" y="132.164" width="133" height="80.531" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#f60" flood-opacity="0.278"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_30120" data-name="Group 30120" transform="translate(-953.271 -421)">
+    <circle id="Ellipse_2541" data-name="Ellipse 2541" cx="106" cy="106" r="106" transform="translate(1003 458.033)" fill="#ffeee2"/>
+    <path id="Subtraction_11" data-name="Subtraction 11" d="M-14711.16,23917.377a102.524,102.524,0,0,1-36.569-6.871,104.771,104.771,0,0,1-20.721-10.586V23773.5a3.5,3.5,0,0,1,3.5-3.5h107a3.505,3.505,0,0,1,3.5,3.5v126.529C-14672.6,23911.539-14691.678,23917.377-14711.16,23917.377Z" transform="translate(15820.402 -23246.57)" fill="#ffa66c"/>
+    <g transform="matrix(1, 0, 0, 1, 953.27, 421)" filter="url(#Rectangle_9435)">
+      <rect id="Rectangle_9435-2" data-name="Rectangle 9435" width="96" height="43.531" rx="3.5" transform="translate(138.92 148.66)" fill="#fff" stroke="#e67c37" stroke-width="1"/>
+    </g>
+    <g id="Group_30097" data-name="Group 30097" transform="translate(-433.091 -34.469)">
+      <rect id="Rectangle_9240" data-name="Rectangle 9240" width="39.629" height="3" rx="1.5" transform="translate(1563.49 619.266)" fill="#f60"/>
+      <rect id="Rectangle_9241" data-name="Rectangle 9241" width="50.629" height="3" rx="1.5" transform="translate(1563.49 628.266)" fill="#f60"/>
+    </g>
+    <circle id="Ellipse_2501" data-name="Ellipse 2501" cx="6.015" cy="6.015" r="6.015" transform="matrix(0.809, 0.588, -0.588, 0.809, 1010.071, 515.029)" fill="#ffa970"/>
+    <ellipse id="Ellipse_2506" data-name="Ellipse 2506" cx="4.349" cy="4.349" rx="4.349" ry="4.349" transform="matrix(-0.342, 0.94, -0.94, -0.342, 997.119, 647.6)" fill="#ffa970"/>
+    <g id="Ellipse_2502" data-name="Ellipse 2502" transform="matrix(0.809, 0.588, -0.588, 0.809, 1093.274, 421)" fill="none" stroke="#ffa970" stroke-width="1">
+      <circle cx="6.015" cy="6.015" r="6.015" stroke="none"/>
+      <circle cx="6.015" cy="6.015" r="5.515" fill="none"/>
+    </g>
+    <g id="Ellipse_2505" data-name="Ellipse 2505" transform="matrix(-0.342, 0.94, -0.94, -0.342, 1086.203, 695.756)" fill="none" stroke="#ffa970" stroke-width="1">
+      <ellipse cx="4.349" cy="4.349" rx="4.349" ry="4.349" stroke="none"/>
+      <ellipse cx="4.349" cy="4.349" rx="3.849" ry="3.849" fill="none"/>
+    </g>
+    <g id="Ellipse_2503" data-name="Ellipse 2503" transform="matrix(0.809, 0.588, -0.588, 0.809, 1233.846, 527.656)" fill="none" stroke="#ffa970" stroke-width="1">
+      <circle cx="6.015" cy="6.015" r="6.015" stroke="none"/>
+      <circle cx="6.015" cy="6.015" r="5.515" fill="none"/>
+    </g>
+    <circle id="Ellipse_2504" data-name="Ellipse 2504" cx="6.015" cy="6.015" r="6.015" transform="matrix(0.809, 0.588, -0.588, 0.809, 1205.268, 672.781)" fill="#ffa970"/>
+    <g id="Group_30003" data-name="Group 30003" transform="matrix(0.809, 0.588, -0.588, 0.809, 957.795, 549.174)">
+      <path id="Path_15395" data-name="Path 15395" d="M-1467.094-17234.379v10.639" transform="translate(1472.413 17234.379)" fill="none" stroke="#f60" stroke-linecap="round" stroke-width="2"/>
+      <path id="Path_15396" data-name="Path 15396" d="M0,0V10.639" transform="translate(10.638 5.319) rotate(90)" fill="none" stroke="#f60" stroke-linecap="round" stroke-width="2"/>
+    </g>
+    <g id="Group_30006" data-name="Group 30006" transform="matrix(0.809, 0.588, -0.588, 0.809, 1139.302, 707.271)">
+      <path id="Path_15395-2" data-name="Path 15395" d="M-1467.094-17234.379v8" transform="translate(1471.094 17234.379)" fill="none" stroke="#f60" stroke-linecap="round" stroke-width="2"/>
+      <path id="Path_15396-2" data-name="Path 15396" d="M0,0V8" transform="translate(7.999 3.999) rotate(90)" fill="none" stroke="#f60" stroke-linecap="round" stroke-width="2"/>
+    </g>
+    <g id="Group_30004" data-name="Group 30004" transform="matrix(0.809, 0.588, -0.588, 0.809, 1187.01, 486.641)">
+      <path id="Path_15395-3" data-name="Path 15395" d="M-1467.094-17234.379v10.639" transform="translate(1472.413 17234.379)" fill="none" stroke="#f60" stroke-linecap="round" stroke-width="2"/>
+      <path id="Path_15396-3" data-name="Path 15396" d="M0,0V10.639" transform="translate(10.638 5.319) rotate(90)" fill="none" stroke="#f60" stroke-linecap="round" stroke-width="2"/>
+    </g>
+    <g id="Group_30005" data-name="Group 30005" transform="matrix(0.809, 0.588, -0.588, 0.809, 1251.525, 605.766)">
+      <path id="Path_15395-4" data-name="Path 15395" d="M-1467.094-17234.379v10.639" transform="translate(1472.413 17234.379)" fill="none" stroke="#f60" stroke-linecap="round" stroke-width="2"/>
+      <path id="Path_15396-4" data-name="Path 15396" d="M0,0V10.639" transform="translate(10.638 5.319) rotate(90)" fill="none" stroke="#f60" stroke-linecap="round" stroke-width="2"/>
+    </g>
+    <g id="Group_30098" data-name="Group 30098" transform="translate(-15870.396 23768.387)">
+      <rect id="Rectangle_9244" data-name="Rectangle 9244" width="2.35" height="10.575" transform="translate(16984.193 -23174.52) rotate(-40)" fill="#f60"/>
+      <path id="Rectangle_9245" data-name="Rectangle 9245" d="M.294,0H3.231a.294.294,0,0,1,.294.294V9.512a1.762,1.762,0,0,1-1.762,1.762h0A1.762,1.762,0,0,1,0,9.512V.294A.294.294,0,0,1,.294,0Z" transform="translate(16985.506 -23171.959) rotate(-40)" fill="#f60"/>
+      <path id="Exclusion_8" data-name="Exclusion 8" d="M9.107,18.212A9.109,9.109,0,0,1,5.562.715,9.109,9.109,0,0,1,12.651,17.5,9.043,9.043,0,0,1,9.107,18.212Zm0-16.45A7.344,7.344,0,1,0,16.45,9.105,7.352,7.352,0,0,0,9.107,1.763Z" transform="translate(16970.584 -23190.59)" fill="#fd8333"/>
+    </g>
+  </g>
+</svg>

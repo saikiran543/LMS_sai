@@ -1,0 +1,44 @@
+<div class="note-detail-modal">
+    <div class="close-container text-end">
+        <img (click)="closePopup()" src="../../../../assets/images/icons/icon-close.svg">
+    </div>
+    <div class="note-detail-container">
+        <div class="self-task-detail">
+            
+            <div class="layout">
+                <div class="list-style"></div>
+                <div class="task-detail">
+                    <h4>{{params.eventName}}</h4>
+                    <p>{{params.startDate| date}} {{params.startDate | date :'hh.mm a'}}</p>
+                    <div class="until">
+                        <span class="all-day" *ngIf="params.allDay">All Day</span>
+                        <span class="end-date" *ngIf="params.allDay"> Daily until {{params.endDate|date}}</span>
+                        <span class="end-date" *ngIf="!params.allDay">{{params.startDate | date :'hh.mm a'}} - {{params.endDate | date :'hh.mm a'}} until {{params.endDate | date}}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="layout desc-container">
+                <div class="desc-icon">
+                    <img src="../../../../assets/images/icons/todays-task/icon-description.svg">
+                </div>
+                <div class="desc-text">
+                    <p [innerHtml]="params.eventDescription | safe: 'html'"></p>
+                </div>
+            </div>
+            
+            <div *ngIf="params.reminder" class="layout remainder-container">
+                <div class="remainder-icon">
+                    <img src="../../../../assets/images/icons/todays-task/icon-notifination.svg">
+                </div>
+                <div class="remainder-text">
+                    <p>
+                        {{'calendar.reminder' | translate: charactersRemaining(params.reminder)}}           
+                    </p>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>

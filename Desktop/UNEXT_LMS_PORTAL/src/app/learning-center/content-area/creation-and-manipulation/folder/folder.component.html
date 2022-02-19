@@ -1,0 +1,60 @@
+<div class="folder-component" id="folder-con">
+  <div class="content-builder-modal-header" translate="contentBuilder.folder.createNewFolder" *ngIf="params.operation === 'create'"></div>
+  <div class="content-builder-modal-header" translate="contentBuilder.folder.editFolder" *ngIf="params.operation === 'edit'"></div>
+  <form [formGroup]="folderForm">
+  <div class="content-builder-modal-content">
+    <div class="row">
+      <div class="form-group col-12 col-md-12 col-lg-12">
+        <label class="form-label required" translate="contentBuilder.folder.title"></label>
+        <div class="position-relative">
+        <input type="text" class="form-control char-limit" id="folder-name"
+          placeholder="{{ 'contentBuilder.folder.titlePlaceholder' | translate }}" formControlName="title" 
+          [ngClass]="{ 'is-invalid': folderFormControls.title.errors && (folderFormControls['title'].dirty || folderFormControls['title'].touched) }"
+          [maxlength]="folderNameLengthMax"
+          >
+          <span class="char-count">{{ folderNameLengthText }}</span>
+          </div>
+          <div *ngIf="(folderFormControls.title.errors?.required || folderFormControls.title.errors?.blankSpaceValid) && (folderFormControls['title'].dirty || folderFormControls['title'].touched)"
+            class="error-text" translate="contentBuilder.content.errorMsg.requiredField"></div>
+          <div *ngIf="folderFormControls.title.errors?.alphaNumericValid && (folderFormControls['title'].dirty || folderFormControls['title'].touched)" class="error-text"
+            translate="contentBuilder.content.errorMsg.onlySomeCharacters"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-12 col-md-12 col-lg-12">
+        <label class="form-label" translate="contentBuilder.folder.description"></label>
+        <app-ckeditor id="folder-des-editor" [ckeditorFormControl]="folderForm.controls['description']" [config]="{placeholder: 'Type here...'}"></app-ckeditor>
+      </div>
+    </div>
+
+    <div class="attach-objective-cta layout layout-item-center layout-justify-center mt24 mb24" id="attachLearningObjective" (click)="attachLearningObjectives('addLearningObjective')"
+    *ngIf="!isObjectiveAttached">
+      <p translate="learningOutcomeListView.buttons.addLearningObjective"></p>
+  </div>
+    <div class="attach-objective-cta layout layout-item-center layout-justify-center mt24 mb24"  id="attachedLearningObjectiveCta" *ngIf="isObjectiveAttached" (click)="attachLearningObjectives('viewLearningObjective')">
+      <div class="layout layout-item-center" >
+        <p translate="learningOutcomeListView.titles.learningObjective"></p> 
+      </div>
+    </div>
+
+    <div class="layout layout-item-center">
+      <div class="custom-control custom-switch">
+        <label class="switch" id="visibility-criteria">
+          <input type="checkbox" id="folder-visibility-criteria" unchecked class="custom-control-input" formControlName="visibilityCriteria">
+          <span class="slider round"></span>
+        </label>
+        <span class="ml10" for="visibility-criteria" translate="contentBuilder.unit.visibilityCriteria"></span>
+      </div>
+
+
+    </div>
+  </div>
+  <input type="hidden" formControlName="parentElementId">
+  <input type="hidden" formControlName="courseId">
+  <div class="content-builder-modal-footer text-end">
+    <button class="no-btn mr16" id="folder-cancel-btn" translate="contentBuilder.folder.button.cancel"
+      (click)="sendConfirmStatus(false)"></button>
+    <button class="yes-btn" id="folder-save-btn" translate="contentBuilder.folder.button.save" (click)="isFolderFormValidate()"></button>
+  </div>
+</form>
+</div>

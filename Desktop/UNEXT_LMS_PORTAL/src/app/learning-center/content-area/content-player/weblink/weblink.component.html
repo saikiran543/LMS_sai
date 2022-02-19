@@ -1,0 +1,83 @@
+<div class="content-player-container" id="weblink-con" [ngClass]="{'left-menu-open': leftMenuActive == 'true' }">
+  <div class="player-content mb24">
+    <div class="player player-audio">
+      <div class="player-header1 row justify-content-end mx-0" *ngIf="showHeaderFooter">
+        <div class="col-12 layout layout-item-center layout-item-end">
+          <button class="boormark-btn" id="weblink-boormark-btn" (click)="toggleBookmark()">
+            <img *ngIf="bookmarked; else unBookmarkedState" src="assets/images/icons/content-player/icon-bookmark-filled.svg" />
+            <ng-template #unBookmarkedState>
+                <img  src="assets/images/icons/content-player/icon-bookmark.svg">
+            </ng-template>
+            <div translate="admin.learningCenter.bookmark"></div>
+          </button>
+          <button class="prev-btn" id="weblink-prev-btn" mat-raised-button #tooltip="matTooltip" [matTooltip]="elementData.previousElement !== null ? elementData.previousElement.title : ''"
+            [matTooltipPosition]="position.value"   
+            aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+            (click)="getPreviousElement()" [disabled]="!elementData.previousElement">Prev</button>
+          <button class="next-btn" id="weblink-next-btn" mat-raised-button #tooltip="matTooltip" [matTooltip]="elementData.nextElement != null ? elementData.nextElement.title : ''"
+            [matTooltipPosition]="position.value"   
+            aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+            (click)="getNextElement()" [disabled]="!elementData.nextElement">Next</button>
+        </div>
+      </div>
+      <div class="content-player-content" id="weblink-player-content"  (mouseover)="showHideToolBars(true)" (mouseout)="showHideToolBars(false)">
+        <img src="assets/images/icons/icon-open-weblink.svg" class="mb16">
+        <h1>Open file in new browser window tab.</h1>
+        <a class="primary-btn mt24" target="_blank" href={{elementData.url}}>Open Link</a>
+      </div>
+      <div class="player-footer" *ngIf="showHeaderFooter"></div>
+    </div>
+  </div>
+
+
+  <div class="content-player-tab">
+    <ul class="nav nav-tabs" id="weblink-myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="overview-tab" [ngClass]="{'active': activeTab === 'overview'}" data-bs-toggle="tab" data-bs-target="#overview" type="button"
+        (click)="changeTab('overview')"
+          role="tab" aria-controls="overview" aria-selected="true" translate="admin.learningCenter.overview"></button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="createNote-tab" data-bs-toggle="tab" data-bs-target="#createNote" type="button"
+        (click)="changeTab('notes')" [ngClass]="{'active': activeTab === 'notes'}" 
+          role="tab" aria-controls="createNote" aria-selected="false" translate="admin.learningCenter.notes"></button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="qna-tab" data-bs-toggle="tab" data-bs-target="#shared" type="button" role="tab"
+        (click)="changeTab('shared')"
+          aria-controls="shared" aria-selected="false" translate="admin.learningCenter.qA" [routerLink]="['qna']" routerLinkActive="active" queryParamsHandling="preserve"></button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="rating-tab" data-bs-toggle="tab" data-bs-target="#shared" type="button"
+        (click)="changeTab('shared')"
+          role="tab" aria-controls="shared" aria-selected="false" translate="admin.learningCenter.rating" [routerLink]="['ratings']" routerLinkActive="active" queryParamsHandling="preserve" ></button>
+      </li>
+    </ul>
+    <div class="tab-content mt24" id="myTabContent">
+      <div class="tab-pane fade" [ngClass]="{'show active': activeTab === 'overview'}" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+        <div class="course-overview">
+          <div class="course-overview-title">
+            {{elementData.title}}
+          </div>
+          <div class="course-overview-description">
+            <p [innerHtml]="elementData.description | safe: 'html'"></p>
+            <!-- <p>{{elementData.createdOn}}</p> -->
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="tab-pane fade" [ngClass]="{'show active': activeTab === 'notes'}" id="createNote" role="tabpanel" aria-labelledby="createNote-tab">
+        <app-notes-right-pane [configurationOfNotes]= '{isCreateNotesRequired : true, relatedNotesDashboard: false, contentPlayerView: true, contentPlayerRelatedNotes: true, type: contentTypes.WEBLINK, height: "auto"}'></app-notes-right-pane>
+      </div>
+
+      <div class="tab-pane fade" id="notes" role="tabpanel" aria-labelledby="notes-tab">..pr.</div>
+      <div class="tab-pane fade" [ngClass]="{'show active': activeTab === 'shared'}" id="shared" role="tabpanel" aria-labelledby="shared-tab">
+        <router-outlet
+        (activate)="onRouterActivate($event)"
+        ></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

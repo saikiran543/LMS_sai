@@ -1,0 +1,47 @@
+<form *ngIf="loginConfiguration" [formGroup]="signIn" (submit)="onSubmit($event)" class="login-form-card" id="login-form-con">
+  <div class="login-form-card-content">
+    <div class="layout layout-item-flex-start">
+      <div class="hand-icon">
+        <img src="assets/images/icons/icon-handwave.svg">
+      </div>
+      <div class="layout-item-flex-start login-welcome-container">
+        <div class="login-card-title">{{'login.welcome' | translate}}</div>
+        <div class="login-card-subtitle" [innerHtml]="loginConfiguration.welcomeText | safe: 'html'"></div>
+        <div class="login-card-subtitle mobile-device">To UNext Learning App</div>
+      </div>
+    </div>
+    <div class="form-group login-username-field">
+      <input [attr.disabled]="isPreview ? true : null" type="username" name="username" id="login-form-username" class="form-control" 
+        placeholder="{{ 'login.usernamePlaceholder' | translate }}" formControlName="username">
+    </div>
+    <div class="form-group layout login-password-field">
+      <input [attr.disabled]="isPreview ? true : null" [type]="showPassword ? 'text' : 'password'" name="password" class="form-control" 
+        placeholder="{{ 'login.passwordPlaceholder' | translate }}" id="login-form-password"  formControlName="password">
+      <div (click)="showHidePassword()" class="password-icon">
+        <img [src]="!showPassword ? 'assets/images/icons/icon-eye.svg':'assets/images/icons/icon-eye-strike.svg'">
+      </div>
+    </div>
+    <div class="layout layout-justify-space-between position-relative">
+      <!-- <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="rememberMe" name="rememberMe">
+        <label class="custom-control-label" for="rememberMe" translate="login.loginForm.rememberMe"></label>
+      </div> -->
+
+      <div class="form-check">
+        <input [attr.disabled]="isPreview ? true : null" class="form-check-input" type="checkbox" name="rememberMe" value="" id="rememberMe">
+        <label class="form-check-label" for="rememberMe" translate="login.loginForm.rememberMe">
+        </label>
+      </div>
+
+      <a [ngClass]="{'disabled-link':isPreview}" routerLink="forgotpassword" id="login-form-forgotpassword-btn" class="primary-color fs14 forgotPwd-link"
+        translate="login.loginForm.forgotPassword"></a>
+      <app-toast *ngIf="inValidCredentialToast" [toastNumber]="401" (toastClick)="closeToast()" type="error"
+        message="{{errorMessage|translate}}" class="login-toast-error"></app-toast>
+    </div>
+
+    <div class="login-btn-block"><button class="primary-btn login-btn" [disabled]="signIn.invalid||isPreview" id="login-form-submit-btn" type="submit" 
+      translate="login.loginForm.button.login"></button></div>
+    <div [innerHtml]="loginConfiguration.supportText | safe: 'html'" id="login-form-contactTechSupport" class="contact-tech-support">
+    </div>
+  </div>
+</form>

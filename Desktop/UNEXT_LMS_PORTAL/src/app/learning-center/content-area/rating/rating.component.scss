@@ -1,0 +1,543 @@
+.empty-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    p {
+        margin-top: 3.416vh;
+        margin-bottom: 0;
+        font-size: calc(18px + 0.315vw);
+        font-weight: 600;
+        color: #000000;
+    }
+}
+
+.rating {
+    
+    .rating-overview {
+        background: #FFFFFF;
+        border: 1px solid #55555559;
+        border-radius: 4px;
+        opacity: 1;
+        padding: 4.12%;
+        margin-bottom: 4.119%;
+        h2 {
+            color: #363436;
+            font-family: "Proxima Nova W05 Bold";
+            font-size: calc(18px + 0.315vw);
+            line-height: 29px;
+            border-bottom: #FF6600 4px solid;
+            width: -webkit-max-content;
+            width: max-content;
+            margin: 0 auto 3.088%;
+        }
+        .ratings {
+            span {
+                &:first-child {
+                    color: #001A4E;
+                    font-size: 60px;
+                    line-height: 73px;
+                    font-family: "Proxima Nova W05 Bold";
+                }
+                &:last-child {
+                    color: #55555599;
+                    font-size: 32px;
+                    line-height: 39px;
+                    font-family: "Proxima Nova W05 Regular";
+                }
+            }
+            
+        }
+        .total-ratings {
+            font-size: 16px;
+            line-height: 19px;
+            color: #555555CC;
+            margin: 5px 0px 14px;
+        }
+        .ratings-icon {
+            flex-wrap: wrap;
+            .rating-card {
+                position: relative;
+                margin-right: 16px;
+                transition: all .4s ease-in-out;
+                &:hover { transform: scale(1.19); }
+                &:last-child {
+                    margin-right: 0px;
+                }
+                .selected-rating{
+                    transform: scale(1.19);
+                }
+                .unselected-ratings{
+                    opacity:0.3;
+                }
+                .rating-card-overlay {
+                    position: absolute;
+                    bottom: 0;
+                    letter-spacing: 0.08px;
+                    color: #FFFFFF;
+                    font-size: 8px;
+                    width: 100%;
+                    text-align: center;
+                    padding-left: 3px;
+                    height: 15px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .rating-card-overlay-position {
+                    bottom: -5px !important;
+                }
+            }
+        }
+    }
+    .rating-comments {
+        h4 {
+            font-size: 18px;
+            line-height: 23px;
+            font-family: "Proxima Nova W05 Bold";
+            color: #000000;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        .infinte-scroll{
+            overflow-y: scroll;
+            max-height: 400px;
+        }
+        .comment-box {
+            padding: 16px 24px;
+            background: #FFFFFF;
+            border-radius: 2px;
+            border-bottom: 1px solid #ddd;
+            img {
+                margin-right: 8px !important;
+                width: 20px;
+                &:last-child {
+                    margin-right: 0px;
+                }
+            }
+            p {
+                
+                color: #000000CC;
+                line-height: 19px;
+                font-size: 16px;
+                margin-top: 6px;
+                margin-bottom: 8px;
+            }
+            span {
+                color: #55555599;
+                font-size: 12px;
+                line-height: 15px;
+            }
+        }
+    }
+}
+
+
+.student-rating {
+    .rating-box {
+        background: #FFFFFF;
+        border: 1px solid #55555559;
+        border-radius: 4px;
+        opacity: 1;
+        padding: 4.12% 3.089%;
+        margin-bottom: 4.119%;
+        h2 {
+            color: #000000;
+            font-family: "Proxima Nova W05 Bold";
+            font-size: calc(18px + 0.315vw);
+            margin-bottom: 18px;
+        }
+        
+        .select-rating {
+            color: #555555CC;
+            font-size: 16px;
+            line-height: 19px;
+            margin-bottom: 3.58%;
+        }
+        .ratings-icon {
+            img {
+                margin-right: 8px;
+                width: 20px;
+                &:nth-child(5) {
+                    margin-right: 4.4021%; 
+                }
+            }
+            span {
+                color: #000000;
+                font-family: "Proxima Nova W05 Bold";
+                font-size: 16px;
+                line-height: 19px;
+                
+            }
+            div {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    .student-review {
+        margin-bottom: 2.065%;
+        
+        h4 {
+            font-size: calc(15px + 0.16vw);
+            line-height: 23px;
+            font-family: "Proxima Nova W05 Bold";
+            color: #000000;
+        }
+        .heading {
+            font-size: calc(15px + 0.16vw);
+            line-height: 23px;
+            font-family: "Proxima Nova W05 Bold";
+            color: #000000;
+        }
+        .starMessage{
+            color:#dc3545
+        }
+        // .textarea {
+            //     position: relative;
+            //     margin-bottom: 4.119%;
+            //     .input-box {
+                //         min-height: 92px;
+                //         background: #FFFFFF;
+                //         border: 1px solid #E8E8E8;
+                //         border-radius: 2px;
+                //         width: 100%;
+                //         padding: 16px;
+                //         &:required{
+                    //             border: 1px solid #FF4646 !important;
+                    //         }
+                    //         &::placeholder {
+                        //             color: #55555580;
+                        //             font-size: 16px;
+                        //             line-height: 19px;
+                        //         }
+                        //         &:focus-visible {
+                            //             outline: none;
+                            //         }
+                            //     }
+                            //     div {
+                                //         position: absolute;
+                                //         bottom: 16px;
+                                //         right: 16px;
+                                //         color: #CACECE;
+                                //         font-size: 12px;
+                                //         line-height: 15px;
+                                //     }
+                                //     .onCompulsory{
+                                    //         bottom:30px !important;
+                                    //     }
+                                    //     &:required{
+                                        //         bottom: 30px;
+                                        //     }
+                                        // }
+                                        
+                                        .required-message{
+                                            text-align: left;
+                                            letter-spacing: 0px;
+                                            color: #dc3545
+                                        }
+                                        
+                                        
+                                        .cancel-btn {
+                                            width: 140px;
+                                            height: 40px;
+                                            background: #FFFFFF ;
+                                            border: 1px solid #555555;
+                                            border-radius: 4px;
+                                            opacity: 1;
+                                            color: #555555;
+                                            font-size: 16px;
+                                            font-family: "Proxima Nova W05 Bold";
+                                            margin-right: 16px;
+                                            padding: 0px 8px;
+                                            min-width: auto;
+                                            &:hover {
+                                                background: #F6F6F6;
+                                            }
+                                        }
+                                        .submit-btn {
+                                            width: 140px;
+                                            height: 40px;
+                                            background: #FFFFFF ;
+                                            border: 1px solid #FF6600;
+                                            border-radius: 4px;
+                                            opacity: 1;
+                                            color: #FF6600;
+                                            font-size: 16px;
+                                            font-family: "Proxima Nova W05 Bold";
+                                            &:hover {
+                                                background: #F6F6F6;
+                                            }
+                                            
+                                        }
+                                        .submit-btn {
+                                            &:disabled {
+                                                cursor: not-allowed;
+                                                background: #FFFFFF ;
+                                                opacity: 0.5;
+                                                &:hover {
+                                                    cursor: not-allowed;
+                                                    background: #FFFFFF ;
+                                                    opacity: 0.5;
+                                                }
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                                
+                                .student-comments{
+                                    border: 1px solid #55555559;
+                                    border-radius: 4px;
+                                    opacity: 1;
+                                }
+                                .rating-comments {
+                                    background: #FFFFFF;
+                                    border-radius: 4px;
+                                    opacity: 1;
+                                    padding: 4.12% 3.089%;
+                                    .ratings-icon {
+                                        div {
+                                            &:nth-child(5) {
+                                                img{
+                                                    margin-right: 2vw;
+                                                }
+                                            }
+                                        }
+                                        img {
+                                            margin-right: 8px;
+                                            width: 20px;
+                                        }
+                                        span {
+                                            color: #000000;
+                                            font-family: "Proxima Nova W05 Bold";
+                                            font-size: 16px;
+                                            line-height: 19px; 
+                                            
+                                        }
+                                        
+                                    }
+                                    .edit-comment {
+                                        right: 0; 
+                                        cursor:pointer; 
+                                        color:#FF6600;
+                                        font-size: 16px;
+                                        line-height: 18px;
+                                        margin-bottom: 0px !important;
+                                    }
+                                    .hours-ago {
+                                        color: #555555CC;
+                                        font-size: 12px;
+                                        line-height: 15px;
+                                    }
+                                    .user-comment {
+                                        font-size: 16px;
+                                        line-height: 24px;
+                                        margin-top: 24px;
+                                        margin-bottom: 12px;
+                                        color: #000000CC;
+                                        word-break: break-word;
+                                    }
+                                }
+                                
+                                .custom-input-container{
+                                    height: 92px;
+                                    background: #FFFFFF;
+                                    border: 1px solid #E8E8E8;
+                                    border-radius: 2px;
+                                    padding: 16px;
+                                    width: 100%;
+                                    display: flex;
+                                    flex: 1;
+                                    justify-content: space-between;
+                                    flex-direction: column;
+                                    margin: 1.158% 0% 4.118% 0%;
+                                    .custom-input {
+                                        overflow-y: auto;
+                                        word-break: break-all;
+                                        flex: 1;
+                                        font-size: 16px;
+                                        line-height: 19px;
+                                        resize: none;
+                                        border: none;
+                                        &:focus-visible {
+                                            outline: none;
+                                        }
+                                    }
+                                    .character-ramaining {
+                                        color: #CACECE;
+                                        font-size: 12px;
+                                        line-height: 15px;
+                                    }
+                                }
+/* custom arrow css */
+  
+  /* custom scrollbar css */
+  /* width */
+  
+  .custom-input::-webkit-scrollbar {
+    width: 5px;
+    cursor: pointer;
+  }
+  
+  /* Track */
+  .custom-input::-webkit-scrollbar-track {
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  /* Handle */
+  .custom-input::-webkit-scrollbar-thumb {
+    background: #c7c7c7;
+    cursor: pointer;
+  }
+  
+  /* Handle on hover */
+  .custom-input::-webkit-scrollbar-thumb:hover {
+    background: #c7c7c7;
+    cursor: pointer;
+  }
+  
+  /* custom scrollbar css */
+                                
+
+  @media screen and (min-width:768px) and (max-width:1024px) {
+    .student-rating {
+        .rating-box {
+            padding: 24px 32px;
+            margin-bottom: 24px;
+            h2 {
+                font-size: 24px;
+               line-height: 29px;
+                margin-bottom: 12px;
+            }
+            .select-rating {
+                font-size: 16px;
+                line-height: 19px;
+                margin-bottom: 16px ;
+            }
+            .ratings-icon {
+                img {
+                    width: 32px;
+                    margin-right: 20px;
+                }
+            }
+
+        }
+        .student-review {
+            .heading {
+                font-size: 18px;
+                line-height: 23px;
+            }
+            .cancel-btn {
+                margin-right: 24px;
+            }
+        }
+    }
+    .rating-comments {
+        .ratings-icon {
+            div {
+                &:nth-child(5) {
+                    img{
+                        margin-right: 32px;
+                    }
+                }
+            }
+            img {
+                margin-right: 20px;
+                width: 32px;
+            }
+            
+        }
+        .edit-comment {
+            right: 0; 
+            cursor:pointer; 
+            color:#FF6600;
+            font-size: 12px;
+            line-height: 15px;
+            word-break: break-word;
+        }
+        .user-comment {
+            font-size: 16px;
+            line-height: 24px;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: #000000CC;
+            word-break: break-word;
+        }
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .student-rating {
+        .rating-box {
+            h2 {
+                font-size: 16px;
+                margin-bottom: 12px;
+            }
+            .select-rating {
+                font-size: 10px;
+                line-height: 12px;
+                margin-bottom: 21px ;
+            }
+            .ratings-icon {
+                justify-content: center;
+                span {
+                    font-size: 12px;
+                    line-height: 15px;
+                    margin-top: 20px;
+                }
+            }
+
+        }
+        .student-review {
+            .custom-input-container {
+                padding: 12px;
+                .custom-input {
+                    font-size: 12px;
+                    line-height: 20px;
+                }
+                .character-ramaining {
+                    font-size: 10px;
+                    line-height: 12px;
+                }
+            }
+            .cancel-btn, .submit-btn {
+                width: 88px;
+                height: 32px;
+                font-size: 12px;
+            }
+        }
+
+    }
+    .rating-comments {
+        .ratings-icon {
+            div {
+                &:nth-child(5) {
+                    img{
+                        margin-right: 12px;
+                    }
+                }
+            }
+            img {
+                margin-right: 10px;
+                width: 16px;
+            }
+            span {
+                font-size: 12px;
+                line-height: 15px;
+            }
+        }
+        .edit-comment {
+            font-size: 8px;
+            line-height: 10px;
+        }
+        .user-comment {
+            font-size: 12px;
+            line-height: 15px;
+            margin-top: 16px;
+            word-break: break-word;
+        }
+    }
+  }

@@ -1,0 +1,28 @@
+.option-container {
+    display: flex;
+    margin-bottom: 16px;
+    .content-area {
+        height: 32px;
+        width: 118px;
+        border: 1px solid #E7ECF2;
+        font-size: 12px;
+        font-family: "Proxima Nova W05 Regular";
+        line-height: 17px;
+        color: #000000;
+        padding: 0px 8px;
+        text-align: left;
+        &::after {
+            border: none;
+            background-image: url("../../../../assets/images/icons/icon-arrow-down1.svg");
+            background-repeat: no-repeat;
+            position: absolute;
+            width: 10px;
+            top: 14px;
+            height: 6px;
+            margin-left: 10px;
+        }
+    }
+    .searchField {
+        margin-right: 12px;
+    }
+}

@@ -1,0 +1,100 @@
+<div class="page-layout">
+    <div class="discussion-forum-body layout-body-con">
+        <span id="page_back_btn" (click)="backToList()"><img
+                src="./../../../../assets/images/icons/discussion-forum/Back-arrow.svg" alt=""></span>
+        <div class="tab-content">
+            <div class="actions-row discussion-forum-list-con align-items-center justify-content-between">
+                <div class="lms-input-group input-group">
+                    <input type="search" placeholder="Search" aria-describedby="button-addon5" class="form-control">
+                    <div class="input-group-append">
+                        <button id="button-addon5" type="submit" class="btn btn-primary d-flex align-items-center"><img
+                                src="assets/images/icons/icon-search-white.svg"></button>
+                    </div>
+                </div>
+                <div class="layout layout-item-center">
+                    <button class="create-btn-transparent me-3" translate="discussionForums.forumList.askANewQuestion" [disabled]="(validityState === forumValidityState.EXPIRED || validityState === forumValidityState.UPCOMING)" *ngIf="userCurrentView === userRole.STUDENT" (click)="askANewQuestion()">
+                    </button>
+                    <div class="dropdown me-3">
+                        <button class="arrow-btn dropdown-toggle" type="button" id="dropdownMenu2"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            translate="discussionForums.forumList.options.sort">
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <li><button class="dropdown-item" type="button"
+                                    translate="discussionForums.forumList.options.sortByNewestFirst"></button></li>
+                            <li><button class="dropdown-item" type="button"
+                                    translate="discussionForums.forumList.options.sortByOldestFirst"></button></li>
+                            <li><button class="dropdown-item" type="button"
+                                    translate="discussionForums.forumList.options.sortByNumberOfThreads"></button></li>
+                            <li><button class="dropdown-item" type="button"
+                                    translate="discussionForums.forumList.options.sortByNumberOfReplies"></button></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="arrow-btn dropdown-toggle" type="button" id="dropdownMenu3"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            translate="discussionForums.forumList.options.filter">
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                            <li><button class="dropdown-item" type="button">option1</button></li>
+                            <li><button class="dropdown-item" type="button">option2</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="discussion-forum-content-con">
+                <div class="bg-gray bg-gray pt-0 pb-0">
+                    <div class="discussion-forum-content-box d-flex row" *ngIf="relatedDoubtsItem">
+                        <div class="relatedDoubts">
+                            <div class="discussion-forum-content-box d-flex row">
+                                <div class="content-text col-12 col-lg-7">
+                                    <div class="grey-txt-sm mb-2 breadcrumb-doubts">
+                                        Crash Course in Account & Finance
+                                        <span *ngIf="relatedDoubtsItem.breadcrumbTitle">/...
+                                        {{relatedDoubtsItem.breadcrumbTitle}}</span>
+                                    </div>
+                                    <div class="layout">
+                                        <div class="layout layout-item-self-start">
+                                            <img src="assets/images/icons/content-builder/icon-nothingtoexpand.svg"
+                                                class="info-image">
+                                            <img src="assets/images/icons/content-builder/icon-{{relatedDoubtsItem.type}}-hover.svg"
+                                                class="content-type-image">
+                                        </div>
+                                        <div class="layout layout-flex-direction-column">
+                                            <p class="content-header mb-2">
+                                                {{relatedDoubtsItem.title}}
+                                            </p>
+                                            <div class="go-to-content"
+                                                translate="discussionForums.forumList.goToContent" (click)="goToContent()"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="content-stats col-12 col-lg-5 d-flex align-items-center justify-content-around">
+                                    <app-forum-content-qna-threads-statistics
+                                        [widgetData]='{options: false, activityId:relatedDoubtsItem.elementId,threads : relatedDoubtsItem.qnAmetaData.totalQuestions, replies: relatedDoubtsItem.qnAmetaData.totalAnswers, lastAccessedBy: relatedDoubtsItem.qnAmetaData.updatedBy, lastAccessedAt: relatedDoubtsItem.qnAmetaData.updatedAt, isBookMarked: relatedDoubtsItem?.isBookMarked }'>
+                                    </app-forum-content-qna-threads-statistics>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white doubtClarificationContentQnA" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300"
+                (scrolled)="onScrollDown()" *ngIf="questions.length>0">
+                    <div *ngFor="let question of questions">
+                        <app-question-thread [question]="question" [extended]="false" (replyAdded)="onReplyAdded($event)" (likeUnlikeEmitter)="onLikeUnlike($event)" [viewOnlyMode]="userCurrentView === userRole.STUDENT && (validityState === forumValidityState.EXPIRED || validityState === forumValidityState.UPCOMING)" (deleteQuestionId)="deleteQuestion($event)"></app-question-thread>
+                    </div>
+                </div>
+                <div class="bg-white doubtClarificationContentQnA" *ngIf="questionsLoaded===true && questions.length==0">
+                    <div
+                        class="empty-discussion-forum-img-con d-flex flex-column align-items-center justify-content-center">
+                        <div>
+                            <img src="./../../../assets/images/icons/discussion-forum/empty-thread.svg" alt="">
+                        </div>
+                        <p class="no-threads-msg mt-1" translate="discussionForums.forumList.emptyContent"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

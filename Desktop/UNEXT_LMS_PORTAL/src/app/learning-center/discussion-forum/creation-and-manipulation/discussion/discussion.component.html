@@ -1,0 +1,232 @@
+<div class="discussion-modal" *ngIf="showDiscussionComponent">
+  <div class="content-builder-modal-header" translate="discussionForums.creationAndManipulation.createNew"
+    *ngIf="params.operation === 'create'"></div>
+    <div class="content-builder-modal-header" translate="discussionForums.creationAndManipulation.edit"
+    *ngIf="params.operation === 'edit'"></div>
+  <form [formGroup]="discussionForm">
+    <div class="content-component-modal-content">
+      <div class="row" *ngIf="params.operation === 'create'">
+        <div class="form-group col-12 col-md-12 col-lg-12">
+          <div class="layout layout-item-center forum-type">
+            <label class="form-label mr12 mb0" translate="discussionForums.creationAndManipulation.forumType"></label>
+            <span class="forum-info-cta" (click)="triggerForumInfoPopup()">i</span>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <label class="custome-radiobutton">
+                <input type="radio" name="type" value="standard_discussion_forum" formControlName="type">
+                <span class="checkmark"></span>
+                <span translate="discussionForums.standardDiscussionForum"></span>
+              </label>
+            </div>
+            <div class="col-8">
+              <label class="custome-radiobutton">
+                <input type="radio" name="type" value="doubt_clarification_forum" formControlName="type">
+                <span class="checkmark"></span>
+                <span translate="discussionForums.doubtClarificationForum"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-12 col-md-12 col-lg-12">
+          <label class="form-label required" translate="discussionForums.creationAndManipulation.title"></label>
+          <div class="position-relative">
+            <input type="text" class="form-control char-limit"
+              placeholder="{{ 'discussionForums.creationAndManipulation.enterTitle' | translate }}" id="title"
+              formControlName="title" maxlength="500"
+              [ngClass]="{'form-field-error' : discussionFormControls['title'].invalid && (discussionFormControls['title'].dirty || discussionFormControls['title'].touched)}">
+            <span class="char-count">{{ discussionTitleLengthText }}</span>
+          </div>
+          <div *ngIf="(discussionFormControls['title'].errors?.required && (discussionFormControls['title'].dirty || discussionFormControls['title'].touched))" class="error-text"
+          translate="contentBuilder.content.errorMsg.requiredField"></div>
+          <div *ngIf="discussionFormControls['title'].errors?.alphaNumericValid" class="error-text"
+          translate="contentBuilder.content.errorMsg.onlySomeCharacters"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-12 col-md-12 col-lg-12">
+          <label class="form-label" translate="discussionForums.creationAndManipulation.description"></label>
+          <app-ckeditor [ckeditorFormControl]="discussionForm.controls['description']">
+          </app-ckeditor>
+        </div>
+      </div>
+      <div class="row" *ngIf="discussionForm.value.type === 'standard_discussion_forum'" id="standard-discussion-attachement" >
+        <div class="form-group col-12 col-md-12 col-lg-12">
+          <label class="form-label" translate="discussionForums.creationAndManipulation.uploadTitle"></label>
+          <div *ngIf="isFileSelected && !showFileUpload" class="upload-progess">
+            <div class="layout layout-item-center layout-justify-space-between">
+              <div class="layout layout-item-center">
+                <img src="assets/images/icons/icon-attachment.svg" class="mr12">
+                {{ this.selectedFileName }}
+              </div>
+              <div *ngIf="!isFileUploaded" class="layout layout-item-center progress-container">
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" [style.width.%]="fileUploadPercentage"
+                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div *ngIf="isFileUploaded">
+                <a href="javascript:void(0)" (click)="editFile()" class="edit-icon me-3">
+                  <svg-icon class="editIcon" src="assets/images/icons/icon-edit.svg"></svg-icon>
+                </a>
+                <a href="javascript:void(0)" (click)="fileDeleteConfirm()" class="delete-icon">
+                  <svg-icon class="deleteIcon" src="assets/images/icons/icon-delete.svg"></svg-icon>
+                </a>
+              </div>
+            </div>
+          </div>
+          <app-file-upload fileType="file" *ngIf="showFileUpload" (fileSaved)="fileSaveHandler($event)"
+            [acceptedFiles]="acceptedFileTypes"
+            [uploadTitle]="'discussionForums.creationAndManipulation.uploadTitle' | translate"
+            [buttonText]="'discussionForums.creationAndManipulation.uploadButton' | translate"
+            [dragDropText]="'discussionForums.creationAndManipulation.uploadDragDrop' | translate"
+            [noteText]="'discussionForums.creationAndManipulation.uploadNote' | translate">
+          </app-file-upload>
+        </div>
+      </div>
+      <div class="row grading-block">
+        <div class="form-group col-12 col-md-6 col-lg-3" >
+          <label class="form-label" translate="discussionForums.creationAndManipulation.grading"></label>
+          <div class="layout layout-item-center">
+            <label class="form-check-label mr16" for="graded" [class.disabled]="disableGradedSwitch"
+              translate="discussionForums.creationAndManipulation.graded" ></label>
+            <div class="form-check form-switch mr16">
+              <input class="form-check-input" type="checkbox" id="graded" formControlName="graded"
+                name="graded" [class.disabled]="disableGradedSwitch">
+                <span class="circle-switch d-inline-block"></span>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="discussionForm.value.graded" class="form-group col-12 col-md-6 col-lg-3">
+          <div class="attach-rubric-cta" id="attachRubricCta" (click)="attachRubric()" *ngIf="!discussionForm.value.rubricId">
+            <img src="assets/images/icons/attach-icon.svg" class="mr8">
+            <p translate="discussionForums.creationAndManipulation.attachRubric"></p>
+          </div>
+          <div class="upload-progess col-12" id="attachedRubricCta"   *ngIf="discussionForm.value.rubricId">
+            <div class="layout layout-item-center layout-justify-space-between">
+                <div class="layout layout-item-center" (click)="attachRubric()">
+                    <img src="../../../../../assets/images/icons/attach-file.svg" class="mr12">
+                    {{selectedRubric?.title}}
+                </div>
+                <img src="../../../../../assets/images/icons/attach-file-close.svg" (click)="attachRubric(false)"  class="ml24">
+            </div>
+        </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6">
+          <div class="row max-quanity-block" *ngIf="discussionForm.value.graded" id="discussionForumMarksInput">
+            <div class="form-group col-12 col-md-6 col-lg-6">
+              <label class="form-check-label mr16 required form-label" for="maxMarks"
+                translate="discussionForums.creationAndManipulation.maxMark"></label>
+              <input type="number" name="max-mark" id="maxMarks" min="0" formControlName="maxMarks" [class.invalid]="discussionFormControls.maxMarks.invalid">
+            </div>
+            <div class="form-group col-12 col-md-6 col-lg-6">
+              <label class="form-check-label mr16 required form-label" for="passMarks"
+                translate="discussionForums.creationAndManipulation.passMark"></label>
+              <input type="number" name="pass-mark" id="passMarks" min="0" formControlName="passMarks" [class.invalid]="discussionFormControls.passMarks.invalid">
+            </div>
+          </div>  
+        </div>
+      </div>
+      <div class="row" *ngIf="!(params.operation === 'edit' && discussionForm.value.type === 'doubt_clarification_forum')">
+        <div class="form-group col-12 col-md-6 col-lg-4">
+        <label class="form-label">Content Status</label>
+        <div class="row">
+          <div class="col-6">
+            <label class="custome-radiobutton">
+              <input type="radio" id="content-component-status" value="mandatory" formControlName="activityStatus">
+              <span class="checkmark"></span>
+              <span translate="contentBuilder.content.mandatory"></span>
+            </label>
+          </div>
+          <div class="col-6">
+            <label class="custome-radiobutton">
+              <input type="radio" id="content-component-status1" value="optional" formControlName="activityStatus">
+              <span class="checkmark"></span>
+              <span translate="contentBuilder.content.optional"></span>
+            </label>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="row">
+        <label class="form-label required" [ngClass]="{required: discussionForm.value.graded}" translate="discussionForums.creationAndManipulation.validity"></label>
+        <div class="form-group col-12 col-md-6 col-lg-4">
+          <label class="form-check-label mr16" for="startDate"
+          translate="discussionForums.creationAndManipulation.startDate"></label>
+          <app-date-time-picker [disabled]="discussionFormControls.startDate.disabled" (dateTimeEmitter)="dateTimeEmitter($event, 'startDate')" [maxEndDate]="discussionForm.getRawValue().endDate" [defaultDisplayValue]="discussionForm.getRawValue().startDate"></app-date-time-picker>
+        </div>
+        <div class="form-group col-12 col-md-6 col-lg-8">
+          <label class="form-check-label mr16" for="endDate"
+          translate="discussionForums.creationAndManipulation.endDate"></label>
+          <app-date-time-picker (dateTimeEmitter)="dateTimeEmitter($event, 'endDate')" [maxStartDate]="discussionForm.getRawValue().startDate" [defaultDisplayValue]="discussionForm.getRawValue().endDate"></app-date-time-picker>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-12 col-md-6 col-lg-4">
+          <label class="form-label mr16" translate="contentBuilder.content.addTags"></label>
+          <div class="btn-group dropend">
+            <button type="button" id="addTag" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              +
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item">Important</a></li>
+              <li><a class="dropdown-item">Easy</a></li>
+              <li><a class="dropdown-item">Intermediate</a></li>
+              <li><a class="dropdown-item">Difficult</a></li>
+              <li><a class="dropdown-item"> + Create Tag</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-group col-12 col-md-6 col-lg-4">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="sendEmail-notification" name="sendEmail-notification"
+              formControlName="sendEmailNotification">
+            <label class="form-check-label" for="sendEmail-notification" translate="contentBuilder.content.sendEmail">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-12 col-md-6 col-lg-4 layout layout-item-center">
+          <label class="form-check-label mr16" for="visibilityCriteria"
+            translate="discussionForums.creationAndManipulation.visibilityCriteria"></label>
+          <div class="form-check form-switch mr16">
+            <input class="form-check-input" type="checkbox" id="visibilityCriteria" formControlName="visibilityCriteria"
+              name="visibility-criteria">
+              <span class="circle-switch d-inline-block"></span>
+          </div>
+        </div>
+        <div class="form-group col-12 col-md-6 col-lg-8">
+          <div class="attach-objective-cta layout layout-item-center layout-justify-center mt24 mb24" id="attachLearningObjective" (click)="attachLearningObjectives('addLearningObjective')"
+          *ngIf="!isObjectiveAttached">
+          <p translate="learningOutcomeListView.buttons.addLearningObjective"></p>
+        </div>
+          <div class="attach-objective-cta layout layout-item-center layout-justify-center mt24 mb24"  id="attachedLearningObjectiveCta" *ngIf="isObjectiveAttached" (click)="attachLearningObjectives('viewLearningObjective')">
+            <div class="layout layout-item-center" >
+              <p translate="learningOutcomeListView.titles.learningObjective"></p> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-builder-modal-footer text-end">
+      <div class="mandatory-error-notifier" *ngIf="showMandatoryToast">
+        <img class="icon-warning" src="../assets/images/icons/icon-warning-red.svg" />
+        <div aria-label="Close" class="toast-close-button ng-tns-c51-0 ng-star-inserted" (click)="closeMandatoryToast()">
+          <img src="../assets/images/icons/icon-close-red.svg" />
+        </div>
+        Please complete all the mandatory fields
+      </div>
+      <button class="no-btn" translate="contentBuilder.content.button.cancel"
+        (click)="sendConfirmStatus(false)"></button>
+      <button class="basic-btn modal-btn" translate="contentBuilder.content.button.draft"
+        (click)="submitAction(submitActionTypes.DRAFT)" *ngIf="showSaveAsDraftButton()"
+      ></button>
+      <button class="yes-btn" translate="contentBuilder.content.button.save"
+        (click)="submitAction(submitActionTypes.SAVE)"></button>
+    </div>
+  </form>
+</div>

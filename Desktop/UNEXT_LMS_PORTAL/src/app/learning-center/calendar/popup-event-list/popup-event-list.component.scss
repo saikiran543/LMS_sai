@@ -1,0 +1,131 @@
+.event-list-responsive-con {
+    .event-list-header {
+        height: 50px;
+        padding: 16px;
+        background-color: #EBEEF6;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        span {
+            color: #000000;
+            font-size: 16px;
+            line-height: 18px;
+            font-family: "Proxima Nova W05 Bold";
+            word-break: break-word;
+            img {
+                width: 12px;
+            }
+        }
+    }
+    .event-list-content {
+        padding: 12px 16px;
+        height: calc(402px - 50px);
+        overflow: auto;
+        
+        .event-inner-block {
+            position: relative;
+            padding: 7px 12px;
+            box-shadow: 0px 0px 12px #cfdae64d;
+            margin-bottom: 8px;
+            &:last-child {
+                margin-bottom: 0px;
+            }
+            &::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 4px;
+                content: "";
+                display: block;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+            }
+            h3 {
+                color: #000000;
+                font-size: 14px;
+                line-height: 17px;
+                letter-spacing: 0.17px;
+                margin-bottom: 4px;
+                word-break: break-word;
+            }
+            span {
+                color: #555555CC;
+                font-size: 12px;
+                line-height: 15px;
+                letter-spacing: 0.14px;
+                margin-bottom: 0px;
+            }
+        }
+        .discussion-forum-event {
+            &::after {
+                background: #EA5455;
+            }
+        }
+        .self-task-event {
+            &::after {
+                background: #D167F0;
+            }
+        }
+        .live-class-event {
+            &::after {
+                background: #EA5455;
+            }
+        }
+        .quiz-event {
+            &::after {
+                background: #006793;
+            }
+        }
+        .assignment-event {
+            &::after {
+                background: #28C76F;
+            }
+        }
+        .survey-event {
+            &::after {
+                background: #00CFE8;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:768px) and (max-width: 1024px) {
+    .event-list-responsive-con {
+        .event-list-header {
+            span {
+                color: #000000;
+                font-size: 20px;
+                line-height: 18px;
+                font-family: "Proxima Nova W05 Bold";
+                img {
+                    width: 16px;
+                }
+            }
+        }
+        .event-list-content {
+            padding: 12px 16px;
+            height: calc(486px - 50px);
+            overflow: auto;
+            
+            .event-inner-block {
+                padding: 8px 12px;
+                margin-bottom: 12px;
+                h3 {
+                    color: #000000;
+                    font-size: 16px;
+                    line-height: 19px;
+                    letter-spacing: 0.19px;
+                    margin-bottom: 8px;
+                }
+                span {
+                    color: #555555CC;
+                    font-size: 14px;
+                    line-height: 17px;
+                    letter-spacing: 0.17px;
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+    
+}

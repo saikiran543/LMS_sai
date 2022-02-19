@@ -1,0 +1,60 @@
+<div class="input-group" id="content-player-qna-pane-searchCon">
+  <input type="search" placeholder="Search Questions..." id="content-player-qna-pane-search" class="form-control">
+  <div class="input-group-append">
+    <button type="submit" id="content-player-qna-pane-searchBtn" class="btn btn-primary">
+      <img src="assets/images/icons/icon-search-white.svg">
+    </button>
+  </div>
+</div>
+
+<div class="layout layout-justify-space-between flex-wrap dropdowns">
+  <div class="layout">
+    <div class="dropdown">
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      Sort
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li id="content-player-qna-pane-sortByRecommend"><a class="dropdown-item" href="#">Sort by Recommended</a></li>
+      <li id="content-player-qna-pane-sortByRecent"><a class="dropdown-item" href="#">Sort by Most Recent</a></li>
+      <li id="content-player-qna-pane-sortByUpvoted"><a class="dropdown-item" href="#">Sort by Most Upvoted</a></li>
+      <li id="content-player-qna-pane-sortByOldest"><a class="dropdown-item" href="#">Sort by Oldest First</a></li>
+    </ul>
+  </div>
+  
+  <div class="dropdown filter-dropdown">
+    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+    aria-expanded="false">
+    Filter
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+    <li><a class="dropdown-item" href="#">Questions I’m following</a></li>
+    <li><a class="dropdown-item" href="#">Questions without responses</a></li>
+    <li><a class="dropdown-item" href="#">Questions with Verified Answers</a></li>
+    <li><a class="dropdown-item" href="#">Questions that are Unread</a></li>
+    <li><a class="dropdown-item" href="#">Latest Participation</a></li>
+  </ul>
+</div>
+</div>
+
+<button class="ask-a-question" (click)="ask()" *ngIf="isStudent">Ask a new question</button>
+</div>
+
+<div class="qna-wrapper" id="content-player-qna-pane-wrapper">
+    <div class="back-to-question-cta" *ngIf="!showQuestionListing">
+      <p (click)="navigateBack()">
+      <svg-icon class="back-ques-arrow" src="assets/images/icons/toc/back-arrow.svg"></svg-icon> Back to all questions</p>
+    </div>
+    <div class="qna-wrapper-headline">
+      <p>Frequently asked questions in this content <span class="freq-qns-count">({{ totalQuestions }})</span></p>
+    </div>
+    <ul class="question-listing" infinite-scroll [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()" *ngIf="showQuestionListing">
+    <li class="question" *ngFor="let question of questions" (click)="navigateToListing(question)">
+      <app-question-thread class="content-question-block"  [question]="question" (deleteQuestionId)="receiveDeletedQuestionId($event)" theme="dark"></app-question-thread>
+    </li>
+  </ul>
+  <div class="question-answer-listing-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</div>

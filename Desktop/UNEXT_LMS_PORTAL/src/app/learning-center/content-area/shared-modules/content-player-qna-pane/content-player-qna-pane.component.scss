@@ -1,0 +1,171 @@
+.input-group {
+    height: 4.91vh;
+    max-height: 46px;
+    min-height: 40px;
+    margin-bottom: 16px;
+    .form-control {
+        border-top-right-radius: 0!important;
+        border-bottom-right-radius: 0!important;
+        max-height: 46px;
+        ::placeholder {
+            font-size: 13px;
+        }
+    }
+    button {
+        padding: 10px 14px;
+        max-height: 46px;
+        font-size: 1rem;
+        background-color: #f60!important;
+        border-color: #f60!important;
+        border-radius: 0 4px 4px 0!important;
+        min-height: 40px;
+        &:focus-visible {
+            outline: none;
+        }
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}
+
+.dropdowns {
+    .filter-dropdown {
+        width: 86px;
+        margin-left: 16px;
+        .dropdown-toggle {
+            &::after { 
+                right: 22px !important;
+            }
+        }
+        ul.dropdown-menu {
+            width: 233px !important;
+        }
+    }
+    .dropdown {
+        
+        .dropdown-toggle {
+            padding: 8px 16px;
+            width: 80px;
+            height: 36px;
+            background: #F7F8F9 0% 0% no-repeat padding-box;
+            border-radius: 4px;
+            opacity: 1;
+            font-size: 16px;
+            color: #555555;
+            font-family: "Proxima Nova W05 Regular";
+            display: flex;
+            align-items: center;
+            &:focus-visible {
+                outline: none;
+            }
+            &:focus {
+                box-shadow: none;
+            }
+            &::after {
+                border: none;
+                background: url("../../../../../assets/images/icons/icon-dropdown.svg");
+                position: absolute;
+                top: 18px;
+                background-repeat: no-repeat;
+                background-size: contain;
+                right: 16px;
+                width: 7px;
+                height: 7px;
+            }
+        }
+        .dropdown-toggle.show {
+            color: #FF6600 !important;
+            &::after {
+                top: 16px;
+                transform: rotate(177deg);
+            }
+        }
+        ul.dropdown-menu {
+            width: 203px;
+            background: #FFFFFF;
+            box-shadow: -8px 16px 20px #babdd324;
+            border: 1px solid #5555550D;
+            opacity: 1;
+            padding: 0;
+            li {
+                a {
+                    font-size: 14px;
+                    color: #555555;
+                    padding: 5px 16px 4px;
+                    &:hover, &:focus {
+                        background-color: #FFFFFF;
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+.qna-wrapper {
+    margin-top: 30px;
+    .back-to-question-cta {
+        margin: 3.36% 0;
+        p {
+            font-family: "Proxima Nova W05 Regular";
+            font-size: 14px;
+            line-height: 17px;
+            color: #FF6600;
+            margin: 0;
+            cursor: pointer;
+        }
+        .back-ques-arrow {
+            margin-right: 4px;
+            svg {
+                path {
+                    fill: #FF6600;
+                }
+            }
+        }
+    }
+    .qna-wrapper-headline {
+        border-bottom: 2px solid #55555533;
+        p {
+            font-family: "Proxima Nova W05 Bold";
+            margin-bottom: 8px;
+            .freq-qns-count {
+                color: #555555CC;
+            }
+        }
+    }
+    .question-listing {
+        list-style: none;
+        padding: 0;
+        .question {
+            background: #F7F8F9;
+            border-radius: 8px;
+            margin: 16px 0;
+            cursor: pointer;
+            .question-description{
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.ask-a-question {
+    min-width: 150px;
+    height: 36px;
+    background: #FFFFFF;
+    border: 1px solid #FF6600;
+    border-radius: 4px;
+    opacity: 1;
+    color: #FF6600;
+    font-size: 16px;
+    line-height: 19px;
+    font-family: "Proxima Nova W05 Bold";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        background: #F6F6F6;
+    }
+    
+    
+}
+

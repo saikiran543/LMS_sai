@@ -1,0 +1,112 @@
+<div class="relatedDoubts discussion-forum-content-box d-flex flex-wrap" id="content_{{content.elementId}}">
+  <div class="content-text col-12 col-lg-12 p-0">
+    <div class="grey-txt-sm mb-2 breadcrumb-doubts">Crash Course in Account & Finance
+      <span *ngIf="content.breadcrumbTitle">/...
+        {{content.breadcrumbTitle}}</span>
+    </div>
+    <div class="layout layout-justify-space-between">
+      <div class="layout">
+        <div class="layout layout-item-flex-start">
+          <img src="assets/images/icons/content-builder/icon-nothingtoexpand.svg" class="info-image">
+          <img src="assets/images/icons/content-builder/icon-{{content.type}}-hover.svg" class="content-type-image"
+            *ngIf="content.type !== 'pdf'">
+          <img src="assets/images/icons/content-builder/icon-content-hover.svg" class="content-type-image"
+            *ngIf="content.type === 'pdf'">
+        </div>
+        <div>
+          <p class="content-header mb-2">
+            {{content.title}}
+          </p>
+          <p class="d-flex row m-0 question-notifications">
+            <span class="col-lg-4">{{content.questionsInitiated || 0}} <span
+                translate="discussionForums.forumList.questionsPosted"></span></span>
+            <span class="col-lg-4">{{content.threadsParticipated || 0}} <span
+                translate="discussionForums.forumList.answersGiven"></span></span>
+            <span class="col-lg-4">{{ content.numberOfUpvotes || 0}} <span translate="discussionForums.forumList.upvotesReceived"></span></span>
+          </p>
+        </div>
+      </div>
+
+      <div class="">
+        <span id="arrow_bottom_{{content.elementId}}"><img src="assets/images/icons/toc/back.svg" class="arrow-down"
+            (click)="toggleShow(content.elementId)"></span>
+        <span id="arrow_top_{{content.elementId}}" class="hide"><img src="assets/images/icons/toc/back.svg"
+            class="arrow-up" (click)="toggleShow(content.elementId)"></span>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="content-text col-12 col-lg-12 p-0 hide" id="toggle_{{content.elementId}}">
+    <div class="questionAndAnswerstab">
+      <ul class="lms-tab nav nav-tabs" id="myTab1" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" data-bs-toggle="tab" [class.active]="currentActiveTab === 'questions-posted'"
+            attr.data-bs-target="#questionsPosted_{{content.elementId}}" type="button" role="tab"
+            attr.aria-controls="questionsPosted_{{content.elementId}}"
+            attr.aria-label="questionsPosted_{{content.elementId}}" attr.aria-selected="true"
+            (click)="updateQuestions(content.elementId, false)"><span
+              translate="discussionForums.forumList.questionsPosted"> </span>
+            <span *ngIf="content.questions">({{content.questionsInitiated || 0}})</span></button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" data-bs-toggle="tab" [class.active]="currentActiveTab === 'answers-given'"
+            attr.data-bs-target="#answersGiven_{{content.elementId}}" type="button" role="tab"
+            attr.aria-controls="answersGiven_{{content.elementId}}" attr.aria-label="answersGiven_{{content.elementId}}"
+            attr.aria-selected="false" (click)="updateQuestions(content.elementId, true)"><span
+              translate="discussionForums.forumList.answersGiven"> </span>
+            <span *ngIf="content.questions">({{content.threadsParticipated || 0}})</span></button>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="questionsPosted_{{content.elementId}}" role="tabpanel"
+          [ngClass]="{'show active': currentActiveTab === 'questions-posted'}"
+          arr.aria-labelledby="questionsPosted_content.elementId">
+          <div class="user-threads">
+            <div class="discussion-forum-content-box d-flex row overflowing-wrapper" infinite-scroll
+              [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScrollDownQuestions(content)"
+              [scrollWindow]="false">
+              <div class="col-12 col-lg-12" *ngIf="content.questions?.length">
+                <div class="userQuestionThread" *ngFor="let contentQuestion of content.questions">
+                  <app-question-thread [question]="contentQuestion" [viewOnlyMode]="true" [extended]="false">
+                  </app-question-thread>
+                </div>
+              </div>
+              <div class="col-12 col-lg-12" *ngIf="content.questions?.length < 1"
+              class="empty-discussion-forum-img-con d-flex flex-column align-items-center justify-content-center">
+              <div>
+                <img src="./../../../assets/images/icons/discussion-forum/Empty-DF.svg" alt="">
+              </div>
+              <h4 class="no-threads-msg mt-1" translate="discussionForums.forumList.emptyContent"></h4>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="answersGiven_{{content.elementId}}" role="tabpanel"
+          [ngClass]="{'show active': currentActiveTab === 'answers-given'}"
+          arr.aria-labelledby="answersGiven_content.elementId">
+          <div class="user-threads">
+            <div class="discussion-forum-content-box d-flex row overflowing-wrapper" infinite-scroll
+              [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScrollDownQuestions(content)"
+              [scrollWindow]="false">
+              <div class="col-12 col-lg-12" *ngIf="content.questions?.length">
+                <div class="userQuestionThread" *ngFor="let contentQuestion of content.questions">
+                  <app-question-thread [question]="contentQuestion" [viewOnlyMode]="true" [extended]="false">
+                  </app-question-thread>
+                </div>
+              </div>
+              <div class="col-12 col-lg-12" *ngIf="content.questions?.length < 1"
+              class="empty-discussion-forum-img-con d-flex flex-column align-items-center justify-content-center">
+              <div>
+                <img src="./../../../assets/images/icons/discussion-forum/Empty-DF.svg" alt="">
+              </div>
+              <h4 class="no-threads-msg mt-1" translate="discussionForums.forumList.emptyContent"></h4>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

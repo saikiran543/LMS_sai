@@ -1,0 +1,17 @@
+<div class="preview-component" id="preview-layout-con">
+  <div class="layout layout-item-center layout-justify-center publish-component">
+    <button class="cancel-btn" (click)="clickEvent('back')" id="preview-layout-back" translate="admin.previewLayout.button.back"></button>
+    <button *ngIf="!isClicked; else disabledBtn " id="preview-layout-publish" class="primary-btn" (click)="clickEvent('publish')"
+      translate="admin.previewLayout.button.publish"></button>
+    <ng-template #disabledBtn>
+      <button class="primary-btn" id="preview-layout-publishing" disabled translate="admin.previewLayout.button.publishing"></button>
+    </ng-template>
+    <div class="note" id="preview-layout-note"><span translate="admin.previewLayout.note"></span> {{'admin.previewLayout.noteText'|translate}}
+    </div>
+  </div>
+  <div class="preview-content">
+    <app-branding [isPreview]="isPreview" *ngIf="type=='branding'"></app-branding>
+    <app-login-layout [isPreview]="isPreview" *ngIf="type=='login'"></app-login-layout>
+  </div>
+
+</div>

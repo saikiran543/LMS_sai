@@ -1,0 +1,9 @@
+<div class="layout layout-flex-direction-column layout-item-center layout-justify-center confirm-modal">
+  <img src="../../../assets/images/icons/icon-warning-orange.svg">
+  <p class="mt24 mb24 confirm-text" [innerHtml]="modalConfig.message | translate "></p>
+  <div>
+    <button class="no-btn mr16 confirm-no" [translate]="modalConfig.cancelBtn"
+      (click)="sendConfirmStatus(false)"></button>
+    <button class="yes-btn confirm-yes" [translate]="modalConfig.confirmBtn" (click)="sendConfirmStatus(true)"></button>
+  </div>
+</div>

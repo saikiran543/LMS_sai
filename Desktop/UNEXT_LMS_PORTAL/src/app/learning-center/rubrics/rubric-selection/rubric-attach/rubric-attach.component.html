@@ -1,0 +1,139 @@
+<div class="modal-content-container">
+    <div class="modal-header">
+        Create New
+    </div>
+    <div class="modal-content-inner">
+        <div class="form-group forumType">
+            <div class="layout layout-item-center forumType-label">
+                <label class="form-label required m-0" >Forum Type</label>
+                <span>i</span>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <label class="custome-radiobutton">
+                        <input type="radio" name="Standard Discussion Forum" value="Standard Discussion Forum">
+                        <span class="checkmark"></span>
+                        <span>Standard Discussion Forum</span>
+                    </label>
+                </div>
+                <div class="col-3">
+                    <label class="custome-radiobutton">
+                        <input type="radio" name="Doubt Clarification Forum" value="Doubt Clarification Forum">
+                        <span class="checkmark"></span>
+                        <span>Doubt Clarification Forum</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-label required">Title</label>
+            <div class="position-relative">
+                <input type="text" placeholder="Enter Title" maxlength="500" class="form-control error">
+                <div class="char-count">Max of 500 Characters</div></div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Description</label>
+                <div class="position-relative">
+                    <input type="text" placeholder="Type here..." class="form-control">
+                </div>
+            </div>
+            
+            <div class="row form-group">
+                <div class="col-3 layout align-items-end">
+                    <div class="layout layout-item-center">
+                        <label class="form-label mb-0">Grading</label> 
+                        <div class="form-check form-switch">
+                            <input type="checkbox" id="Grading"  name="Grading" class="form-check-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div>
+                        <label class="form-label required">Selected Rubric</label>
+                        <div class="upload-progess">
+                            <div class="layout layout-item-center layout-justify-space-between">
+                                <div class="layout layout-item-center">
+                                    <img src="../../../../../assets/images/icons/attach-file.svg" class="mr12">
+                                    Learning mana...
+                                </div>
+                                <img src="../../../../../assets/images/icons/attach-file-close.svg" class="ml24">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 layout align-items-end">
+                    <div class="layout layout-item-center maxMark">
+                        <label class="mr12">Max. Mark:</label>
+                        <select class="custom-select" id="maxMark">
+                            <option value=0>0</option>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                            <option value=6>6</option>
+                            <option value=7>7</option>
+                            <option value=8>8</option>
+                            <option value=9>9</option>
+                            <option value=10>10</option>
+                        </select>
+                    </div>
+                    <div class="layout layout-item-center passMark">
+                        <label class="mr12">Pass Mark:</label>
+                        <select class="custom-select" id="passMark">
+                            <option value=0>0</option>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                            <option value=6>6</option>
+                            <option value=7>7</option>
+                            <option value=8>8</option>
+                            <option value=9>9</option>
+                            <option value=10>10</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row form-group">
+                <div class="col-4">
+  
+                </div>
+                <div class="col-4">
+                    
+                </div>
+                <div class="col-4">
+                    <div class="form-check">
+                        <input type="checkbox" id="sendEmail-notification" name="sendEmail-notification" class="form-check-input">
+                        <label for="sendEmail-notification"  class="form-check-label">Send Email Notification</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <label class="form-label mr16">Add Tags</label>
+                <!-- Default dropend button -->
+                <div class="btn-group dropend addTags">
+                    <button type="button" id="addTag" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        +
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item">Important</a></li>
+                        <li><a class="dropdown-item">Easy</a></li>
+                        <li><a class="dropdown-item">Intermediate</a></li>
+                        <li><a class="dropdown-item">Difficult</a></li>
+                        <li><a class="dropdown-item"> + Create Tag</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        <div class="content-builder-modal-footer text-end">
+            <button class="no-btn" (click)="clickEvent('cancel')">Cancel</button>
+            <button class="basic-btn modal-btn">Save as Draft</button>
+            <button class="yes-btn">Save</button>
+          </div>
+    </div>

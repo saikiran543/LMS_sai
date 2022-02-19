@@ -1,0 +1,199 @@
+<div class="layout layout-justify-space-between">
+    <div class="layout">
+        <span id="page_back_btn" (click)="backToList()">
+            <img src="./../../../../assets/images/icons/discussion-forum/Back-arrow.svg" alt="">
+        </span>
+        <span class="userNameTxt" *ngIf="userThreadDetails">{{userThreadDetails?.userName}}</span>
+    </div>
+
+    <div class="actions-row discussion-forum-list-con align-items-center justify-content-between"
+        *ngIf="forumEvaluateItem?.subType !== forumType.DOUBT_CLARIFICATION_FORUM">
+        <div class="layout stat-box-con layout-item-center align-item-center">
+            <div class="stat-box flex-center-align flex-column text-center">
+                <span class="stat-box-text">{{userThreadDetails?.questionsInitiated || 0}}</span>
+                <span class="stat-box-label" translate="discussionForums.forumList.threadsInitiated"></span>
+            </div>
+            <div class="stat-box flex-center-align flex-column text-center">
+                <span class="stat-box-text">{{userThreadDetails?.threadsParticipated || 0}}</span>
+                <span class="stat-box-label" translate="discussionForums.forumList.threadParticipated"></span>
+            </div>
+            <div class="stat-box flex-center-align flex-column text-center">
+                <span class="stat-box-text">{{userThreadDetails?.numberOfUpvotes || 0}}</span>
+                <span class="stat-box-label" translate="discussionForums.forumList.upvotesReceived"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions-row discussion-forum-list-con align-items-center justify-content-between"
+        *ngIf="forumEvaluateItem?.subType === forumType.DOUBT_CLARIFICATION_FORUM">
+        <div class="layout stat-box-con layout-item-center align-item-center">
+            <div class="stat-box flex-center-align flex-column text-center">
+                <span class="stat-box-text">{{userThreadDetails?.questionsInitiated || 0}}</span>
+                <span class="stat-box-label" translate="discussionForums.forumList.questionsPosted"></span>
+            </div>
+            <div class="stat-box flex-center-align flex-column text-center">
+                <span class="stat-box-text">{{userThreadDetails?.threadsParticipated || 0}}</span>
+                <span class="stat-box-label" translate="discussionForums.forumList.answersGiven"></span>
+            </div>
+            <div class="stat-box flex-center-align flex-column text-center"
+                *ngIf="prevComponent !== 'ForumEvaluateComponent'">
+                <span class="stat-box-text">{{userThreadDetails?.numberOfUpvotes || 0}}</span>
+                <span class="stat-box-label" translate="discussionForums.forumList.verifiedAnswers"></span>
+            </div>
+            <div class="stat-box flex-center-align flex-column text-center">
+                <span class="stat-box-text">{{userThreadDetails?.numberOfUpvotes || 0}}</span>
+                <span class="stat-box-label" translate="discussionForums.forumList.upvotesReceived"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-layout">
+    <div class="discussion-forum-stats-body layout-body-con" *ngIf="forumEvaluateItem">
+        <div class="discussion-forum-content-con mt-4 mb-4">
+            <div class="discussion-forum-content-box d-flex row">
+                <div class="content-text col-12 col-lg-12 p-0">
+                    <app-discussion-forum-content [forumDetail]='{breadcrumbTitle: forumEvaluateItem?.breadcrumbTitle,
+                        title: forumEvaluateItem?.activitymetadata[0]?.title,
+                        type: forumEvaluateItem?.subType,
+                        description: forumEvaluateItem?.activitymetadata[0]?.description,
+                        startDate: forumEvaluateItem?.activitymetadata[0]?.startDate,
+                        endDate: forumEvaluateItem?.activitymetadata[0]?.endDate,
+                        learningObjectives: forumEvaluateItem?.isLearningObjectiveLinked,
+                        showValidity: true,
+                        clickable: false}'></app-discussion-forum-content>
+                </div>
+            </div>
+        </div>
+
+        <div class="discussion-forum-body layout-body-con layout layout-justify-space-between"
+            *ngIf="forumEvaluateItem.subType === forumType.STANDARD_DISCUSSION_FORUM">
+
+            <div *ngIf="(userThreadDetails?.questionsInitiated + userThreadDetails?.threadsParticipated) > 0"
+                class="col-7 col-lg-7"
+                [ngClass]="{'col-12 col-lg-12' : routeFrom === discussionForum.Forum_Statistics }"
+                >
+                <ul class="lms-tab nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#initiated" type="button"
+                            role="tab" aria-controls="initiated" aria-selected="true"><span
+                                translate="discussionForums.forumList.threadsInitiated"> </span> <span
+                                class="active-color ms-1">({{userThreadDetails?.questionsInitiated ||
+                                0}})</span></button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#participated" type="button"
+                            role="tab" aria-controls="participated" aria-selected="false"
+                            (click)="threadsParticipated()"><span
+                                translate="discussionForums.forumList.threadParticipated"> </span> <span
+                                class="active-color ms-1">({{userThreadDetails?.threadsParticipated ||
+                                0}})</span></button>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="initiated" role="tabpanel" aria-labelledby="initiated">
+                        <div class="user-threads">
+                            <div class="discussion-forum-content-box d-flex row">
+                                <div class="col-12 col-lg-12">
+                                    <div class="content-text-qa  evaluate-and-statistics-li" infinite-scroll [infiniteScrollDistance]="2"
+                                        [infiniteScrollThrottle]="50" (scrolled)="onScrollDownThreadsInititated()"
+                                        [scrollWindow]="false">
+                                        <div *ngFor="let question of userThreads.questions">
+                                            <app-question-thread [question]="question" [extended]="false" [disableFeatureMap]="{ like: false, reply: true, markAsVerfied: false, pin: true }">
+                                            </app-question-thread>
+                                        </div>
+                                        <div *ngIf="userThreadDetails?.questionsInitiated < 1"
+                                            class="col-12 col-lg-12 empty-discussion-forum-img-con d-flex flex-column align-items-center justify-content-center">
+                                            <div>
+                                                <img src="./../../../assets/images/icons/discussion-forum/icon-empty-qna.svg" alt="">
+                                            </div>
+                                            <h4 class="no-threads-msg mt-1 text-center" translate="discussionForums.forumList.emptyThread"></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="participated" role="tabpanel" aria-labelledby="participated">
+                        <div class="user-threads">
+                            <div class="discussion-forum-content-box d-flex row">
+                                <div class="col-12 col-lg-12">
+                                    <div class="content-text-qa evaluate-and-statistics-li" infinite-scroll [infiniteScrollDistance]="2"
+                                        [infiniteScrollThrottle]="50" (scrolled)="onScrollDownThreadsParticipated()"
+                                        [scrollWindow]="false"
+                                        >
+                                        <div *ngFor="let participated of userParticipation?.questions">
+                                            <app-question-thread [question]="participated" [extended]="true" [disableFeatureMap]="{ like: false, reply: true, markAsVerfied: false, pin: true }">
+                                            </app-question-thread>
+                                        </div>
+                                        <div *ngIf="userThreadDetails?.threadsParticipated < 1"
+                                            class="col-12 col-lg-12 empty-discussion-forum-img-con d-flex flex-column align-items-center justify-content-center">
+                                            <div>
+                                                <img src="./../../../assets/images/icons/discussion-forum/icon-empty-qna.svg" alt="">
+                                            </div>
+                                            <h4 class="no-threads-msg mt-1 text-center" translate="discussionForums.forumList.emptyThread"></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="(userThreadDetails?.questionsInitiated + userThreadDetails?.threadsParticipated) < 1"
+                class="col-6 col-lg-6 empty-discussion-forum-img-con d-flex flex-column align-items-center justify-content-center"
+                [ngClass]="{'col-12 col-lg-12' : routeFrom === discussionForum.Forum_Statistics }"
+                >
+                <div>
+                    <img src="./../../../assets/images/icons/discussion-forum/icon-empty-qna.svg" alt="">
+                </div>
+                <h4 class="no-threads-msg mt-1 text-center" translate="discussionForums.forumList.emptyThread"></h4>
+            </div>
+            <div class="col-5 col-lg-5" *ngIf="routeFrom === discussionForum.Forum_Evaluate && rubricId">
+                <div class="content-text-rubrics">
+                    <app-rubric-evaluation [rubricId]='rubricId' [feedback]="feedback"
+                        (rubricEvaluationSave)='saveEvaluationForm($event)'>
+                    </app-rubric-evaluation>
+                </div>
+            </div>
+        </div>
+
+        <div class="discussion-forum-body layout-body-con"
+            *ngIf="forumEvaluateItem.subType === forumType.DOUBT_CLARIFICATION_FORUM">
+            <div class="user-threads" *ngIf="userThreadDetails.attachedContents?.length > 0">
+                <div class="discussion-forum-content-box d-flex row">
+                    <div class="col-7 col-lg-7"
+                        [ngClass]="{'col-7 col-lg-7': routeFrom === discussionForum.Forum_Evaluate, 'col-12 col-lg-12' : routeFrom === discussionForum.Forum_Statistics }">
+                        <div class="content-text-doubt">
+                            <div *ngFor="let relatedContent of userThreadDetails.attachedContents">
+                                <app-doubt-clarification-user-details-content-item [content]="relatedContent"
+                                    [userId]="userId"></app-doubt-clarification-user-details-content-item>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="relatedContents?.length < 1"
+                        class="col-5 col-lg-5 empty-discussion-forum-img-con d-flex flex-column align-items-center justify-content-center">
+                        <div>
+                            <img src="./../../../assets/images/icons/discussion-forum/Empty-DF.svg" alt="">
+                        </div>
+                        <h4 class="no-threads-msg mt-1 text-center" translate="discussionForums.forumList.emptyThread">
+                        </h4>
+                    </div>
+                    <div class="col-5 col-lg-5" *ngIf="routeFrom === discussionForum.Forum_Evaluate && rubricId">
+                        <div class="content-text-rubrics">
+                            <app-rubric-evaluation [rubricId]='rubricId'
+                                [feedback]="feedback"
+                                (rubricEvaluationSave)='saveEvaluationForm($event)'></app-rubric-evaluation>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="rubric-footer text-end mt-3 pe-0" *ngIf="rubricId && routeFrom !== discussionForum.Forum_Statistics">
+        <button class="cancel-btn" (click)="clickEvent('cancel')"> cancel</button>
+        <button class="primary-btn" (click)="clickEvent('saveEvaluation')">Save</button>
+    </div>
+</div>

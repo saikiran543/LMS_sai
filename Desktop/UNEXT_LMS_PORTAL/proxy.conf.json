@@ -1,0 +1,18 @@
+{
+  "/getHtmlProxy": {
+    "target": "https://edunxtdev01.unext.tech",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {"^/getHtmlProxy" : ""},
+    "timeout": 20000 
+  },
+  "/getScorm": {
+    "target": "https://edunxtdev01.unext.tech",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {"^/getScorm" : ""},
+    "timeout": 20000 
+  }
+}

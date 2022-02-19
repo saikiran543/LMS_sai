@@ -1,0 +1,21 @@
+<div class="class-progress" [ngClass]="{'student-progres-container': view === 'student'}">
+    <app-header [type]='type'></app-header>
+    <div class="class-progress-content">
+        <div *ngIf='view === "student" && !isMyProgressLess' class="msg text-center" translate="admin.progress.KeepItUp">
+        </div>
+        <div *ngIf='view === "student" && isMyProgressLess' class="msg text-center" translate="admin.progress.DoNotLose">
+        </div>
+        <div class="layout">
+            <div class="chart" *ngIf='progressValue >= 0'>
+                <app-chart [view]='view' [progressType]='type' [progressValue]='progressValue' [isMyProgressLess]='isMyProgressLess'></app-chart>
+            </div>
+            <div *ngIf='view === "student" && classProgressValue >= 0 && progressValue >= 0' class="top-bottom-progress-list">
+                <app-chart [view]='view' [progressType]="'classAverage'" [progressValue]='classProgressValue'></app-chart>
+            </div>
+            <div *ngIf='view !== "student"' class="top-bottom-progress-list">
+                <app-top-bottom-progress-list [type]='type' [studentList]='studentList' (listClick)="onClick($event)"></app-top-bottom-progress-list>
+            </div>
+        </div>
+        
+    </div>
+</div>

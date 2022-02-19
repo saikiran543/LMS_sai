@@ -1,0 +1,137 @@
+<div class="qa-left-panel" id="qa-left-panel-con">
+    <div class="input-group">
+        <input type="text" class="form-control"  id="qa-left-panel-search" placeholder="Search..." aria-label="Search"
+            aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="qa-left-panel-search-btn">
+            <img src="assets/images/icons/icon-search-white.svg">
+        </button>
+    </div>
+    <div class="qa-list" id="qa-list" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+        (scrolled)="onScrollDown()" [scrollWindow]="false">
+        <!-- <div class="row mx-0 qa-single-card active">
+                <div class="col-11 px-0">
+                    <h6>Unit 1 - Economic & Financial Aspects...Varied accounting topics and techniques</h6>
+                    <div class="qa-layout">
+                        <div class="qa-calendar">
+                            <span>
+                                <svg-icon class="d-flex align-items-center" src="../../../../assets/images/icons/qna/Q&A_icon.svg"></svg-icon>
+                            </span>
+                        </div>
+                        <div class="qa-preview-content">
+                            <h5>It seems like a better strategy to foc</h5>
+                            <p>
+                                <span class="time-stamp">45 Min Ago</span>
+                                <span class="d-inline-block count-section">
+                                    <svg-icon class="count-icon-con" src="../../../../assets/images/icons/qna/Comment.svg"></svg-icon>
+                                    <span class="count">18</span>
+                                </span>
+                                <span class="d-inline-block count-section">
+                                    <svg-icon class="upvote-icon-con" src="../../../../assets/images/icons/qna/Upvote.svg"></svg-icon>
+                                    <span class="count">112</span>
+                                </span>
+                            </p>
+                            <div class="qa-pinned-icon">
+                                <img src="assets/images/icons/notes/icon-pin.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        <!-- <div class="row mx-0 qa-single-card">
+                <div class="col-11 px-0">
+                    <h6>Unit 1 - Economic & Financial Aspects...Varied accounting topics and techniques</h6>
+                    <div class="qa-layout">
+                        <div class="qa-calendar">
+                            <span>
+                                <svg-icon class="d-flex align-items-center" src="../../../../assets/images/icons/qna/Q&A_icon.svg"></svg-icon>
+                            </span>
+                        </div>
+                        <div class="qa-preview-content">
+                            <h5>It seems like a better strategy to foc</h5>
+                            <p class="d-flex align-items-center">
+                                <span class="time-stamp">45 Min Ago</span>
+                                <span class="d-inline-block count-section">
+                                    <svg-icon src="../../../../assets/images/icons/qna/Comment.svg"></svg-icon>
+                                    <span class="count">18</span>
+                                </span>
+                                <span class="d-inline-block count-section">
+                                    <svg-icon class="upvote-icon-con" src="../../../../assets/images/icons/qna/Upvote.svg"></svg-icon>
+                                    <span class="count">112</span>
+                                </span>
+                            </p>
+                            <div class="qa-pinned-icon">
+                                <img src="assets/images/icons/notes/icon-pin.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        <div *ngFor="let question of pinnedQuestions">
+            <div class="layout qa-single-card" [ngClass]="{'active':(question.questionId==activeQuestionId && !isMobileOrTablet)}"
+                (click)="showQuestion(question.questionId)">
+                <div class="single-card-content">
+                    <h6>{{question.contentBreadCrumb}}</h6>
+                    <div class="qa-layout">
+                        <div class="qa-calendar">
+                            <span>
+                                <svg-icon class="d-flex align-items-center"
+                                    src="../../../../assets/images/icons/qna/Q&A_icon.svg"></svg-icon>
+                            </span>
+                        </div>
+                        <div class="qa-preview-content">
+                            <h5>{{question.title}}</h5>
+                            <p class="d-flex align-items-center">
+                                <span class="time-stamp">{{question.createdAt | timesAgo}}</span>
+                                <span class="d-inline-block count-section">
+                                    <svg-icon src="../../../../assets/images/icons/qna/Comment.svg"></svg-icon>
+                                    <span class="count">{{question.numOfAnswers}}</span>
+                                </span>
+                                <span class="d-inline-block count-section">
+                                    <svg-icon class="upvote-icon-con"
+                                        [ngClass]="{'upvotedColor':question.isUpvoted}"
+                                        src="../../../../assets/images/icons/qna/Upvote.svg"></svg-icon>
+                                    <span class="count">{{question.numOfUpvotes}}</span>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="layout layout-item-center qa-pinned-icon">
+                    <img src="assets/images/icons/notes/icon-pin.svg">
+                </div>
+            </div>
+        </div>
+        <div *ngFor="let question of unpinnedQuestions">
+            <div class="row mx-0 qa-single-card" [ngClass]="{'active':(question.questionId==activeQuestionId && !isMobileOrTablet)}"
+                (click)="showQuestion(question.questionId)">
+                <div class="col-11 px-0">
+                    <h6>{{question.contentBreadCrumb}}</h6>
+                    <div class="qa-layout">
+                        <div class="qa-calendar">
+                            <span>
+                                <svg-icon class="d-flex align-items-center"
+                                    src="../../../../assets/images/icons/qna/Q&A_icon.svg"></svg-icon>
+                            </span>
+                        </div>
+                        <div class="qa-preview-content">
+                            <h5>{{question.title}}</h5>
+                            <p class="d-flex align-items-center">
+                                <span class="time-stamp">{{question.createdAt | timesAgo}}</span>
+                                <span class="d-inline-block count-section">
+                                    <svg-icon src="../../../../assets/images/icons/qna/Comment.svg"></svg-icon>
+                                    <span class="count">{{question.numOfAnswers}}</span>
+                                </span>
+                                <span class="d-inline-block count-section">
+                                    <svg-icon class="upvote-icon-con"
+                                        [ngClass]="{'upvotedColor':question.isUpvoted}"
+                                        src="../../../../assets/images/icons/qna/Upvote.svg"></svg-icon>
+                                    <span class="count">{{question.numOfUpvotes}}</span>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

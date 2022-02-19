@@ -1,0 +1,58 @@
+<div class="rubric-list-view" id="component-view" *ngIf='rows.length > 0'>
+    <ngx-datatable class="material"  [rows]="rows" columnMode="force"  [headerHeight]="52" [footerHeight]="52"
+         [externalPaging]="true" [count]="totalRecords" [offset]="page.pageNumber" [limit]="page.size"  (page)="setPage($event)" style="height: 600px; overflow-y:visible" >
+        <ngx-datatable-column *ngIf="isSelection" [sortable]="false" >
+            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                <mat-radio-button color="primary"
+                [value]="rowIndex" 
+                [checked]="row.rubricId === selectedRubric?.rubricId"
+                 (click)="selectRow($event, row)"></mat-radio-button>
+              </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Title">
+            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                <span (click)="isSelection ? selectRow($event, row) : onActivate($event, row)" class="title">{{value}}</span>
+              </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Creation Detail" prop="creationDetail" propclass="details-colomn">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                <div *ngIf="row.status !== 'draft'">{{value.createdBy}}</div> <div *ngIf="row.status !== 'draft'">{{value.createdOn | date: 'dd MMM yyyy'}}</div>
+                <div *ngIf="row.status === 'draft'">-</div>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Modification Detail"  prop="modificationDetail">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row"><div *ngIf="row.status !== 'draft'">{{value.modifiedBy}}</div> <div *ngIf="row.status !== 'draft'">{{value.modifiedOn | date: 'dd MMM yyyy'}}</div>
+                <div *ngIf="row.status === 'draft'">-</div>
+            </ng-template>
+        </ngx-datatable-column>
+         <ngx-datatable-column *ngIf="!isSelection" name="Status" [sortable]="false">
+            <ng-template  ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+               <span class="{{getClassNameRubricStatus(value)}}">{{value | titlecase}}</span>
+              </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column *ngIf="!isSelection" [sortable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <div class="wrapper">
+                    <span class="layout layout-item-center layout-justify-space-between context-menu"
+                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="assets/images/icons/rubric/icon-elipsis.svg">
+                    </span>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                        <li *ngFor="let item of ContextMenuOperation">
+                            
+                          <a *ngIf="item.show" class="dropdown-item" (click)="contextMenuClick(item.event,row)" [ngClass]="{'items-disabled': ((row.status == 'In Use' || row.status == 'inUse') && item.name != 'Copy') || (row.status == 'draft' && item.name == 'Copy')}">
+                            <label><img class="mr8" src="assets/images/icons/rubric/{{item.icon}}.svg"></label>
+                            {{item.name}}
+                          </a>
+                        </li>
+                    </ul>
+                </div>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column *ngIf="isSelection" [sortable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <div class="rubric-view" (click)="onClickView(row)">View</div>
+            </ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
+</div>

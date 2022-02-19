@@ -1,0 +1,35 @@
+.modalContentInner {
+    .modalInnerHeader {
+        max-height: 62px;
+        background: #FFDDB0;
+        padding: 1.88% 3.16% 1.88%;
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+        display: flex;
+        align-items: center;
+        span {
+            font-size: calc(16px + 0.2088vw);
+            line-height: 24px;
+            color: #000;
+            font-family: "Proxima Nova W05 Bold";
+        }
+    }
+    .modalInnercontent {
+        padding: 3.16%;
+        button {
+            max-width: 220px;
+            width: 23.12% !important;
+            height: 6.415vh;
+            font-size: calc(16px + 0.2088vw);
+            min-height: 40px;
+        }
+        .primary-btn {
+            margin-left: 1vw;
+        }
+    }
+}
+
+
+.ng-invalid.ng-touched {
+    border-color: #ee3923 !important;
+  }

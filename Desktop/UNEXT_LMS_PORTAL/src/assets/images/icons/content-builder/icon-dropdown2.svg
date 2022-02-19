@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-dropdown_2">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="dropdown_2" data-name="dropdown –2" clip-path="url(#clip-dropdown_2)">
+    <rect width="24" height="24" fill="#fff"/>
+    <g id="Group_27357" data-name="Group 27357" transform="translate(-397 -411)">
+      <g id="Ellipse_2205" data-name="Ellipse 2205" transform="translate(401 415)" fill="none" stroke="#f60" stroke-width="1">
+        <circle cx="8" cy="8" r="8" stroke="none"/>
+        <circle cx="8" cy="8" r="7.5" fill="none"/>
+      </g>
+      <line id="Line_1166" data-name="Line 1166" y2="8.395" transform="translate(409 418.803)" fill="none" stroke="#f60" stroke-linecap="round" stroke-width="1.5" opacity="0"/>
+      <line id="Line_1167" data-name="Line 1167" y2="8.395" transform="translate(409 427.197) rotate(180)" fill="none" stroke="#f60" stroke-linecap="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

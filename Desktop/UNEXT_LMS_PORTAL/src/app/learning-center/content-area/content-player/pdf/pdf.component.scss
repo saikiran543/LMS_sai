@@ -1,0 +1,586 @@
+.player-header {
+    font-size    : 14px;
+    font-weight  : 500;
+    color        : #ffffff;
+    padding      : 10px 24px;
+    overflow-wrap: anywhere;
+    white-space  : normal;
+    word-break   : break-word;
+    background   : #00000080 0% 0% no-repeat padding-box;
+    box-shadow   : 0px 4px 8px #24242433;
+    align-items  : center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 48px);
+
+    .zoom-btn {
+        font-size: 24px;
+
+        button {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+        }
+        span {
+            background: #363436 0% 0% no-repeat padding-box;
+            border-radius: 4px;
+            font-size: 20px !important;
+            line-height: 27px;
+            color: #fff;
+            font-family: "Proxima Nova W05 Regular";
+            border: 0px;
+            padding: 4px 3px 2px 3px;
+            margin: 0% 3.302%;
+            cursor: default;
+        }
+    }
+
+    button.bookmark-btn,
+    button.download-btn {
+        border      : 0;
+        background  : transparent;
+        color       : #fff;
+        font-size   : 10px;
+        margin-right: 4.953%;
+        img {
+            margin-bottom: 8px;
+            width: auto;
+            height: 21px;
+        }
+    }
+
+    .prev-btn {
+        margin-right: 4.953%;
+    }
+
+    .prev-btn,
+    .next-btn {
+        padding      : 4px 16px 4px 16px;
+        background   : #FFFFFF 0% 0% no-repeat padding-box;
+        border-radius: 4px;
+        border       : 0px;
+        color        : #555555;
+    }
+}
+
+.player-footer {
+    position     : absolute;
+    bottom       : 0px;
+    left         : 0px;
+    width        : 100%;
+    font-size    : 14px;
+    font-weight  : 500;
+    color        : #ffffff;
+    padding      : 0px;
+    min-height   : 63px;
+    overflow-wrap: anywhere;
+    white-space  : normal;
+    word-break   : break-word;
+    background   : #00000080 0% 0% no-repeat padding-box;
+    box-shadow   : 0px 4px 8px #24242433;
+    align-items  : center;
+    z-index      : 999;
+
+    button {
+        background   : none;
+        border-radius: 4px;
+        font-size    : 10px;
+        line-height  : normal;
+        color        : #fff;
+        font-family  : "Proxima Nova W05 Regular";
+        border       : 0px;
+        padding      : 4px 3px 2px 3px;
+        margin       : 0% 3.302%;
+
+        img {
+            margin-bottom: 8px;
+        }
+    }
+
+    .pagination {
+        .page-item {
+            margin: 6px;
+        }
+
+        li#previous {
+            img {
+                position: absolute;
+                left: 8px;
+                top: 9px;
+            }
+        }
+        li#next {
+            img {
+                position: absolute;
+                left: 10px;
+                top: 9px;
+            }
+        }
+        .page-link {
+            position        : relative;
+            display         : block;
+            padding         : 0;
+            margin-left     : -1px;
+            box-shadow      : 0 3px 6px 0 rgb(0 0 0 / 2%);
+            background-color: #f0f0f0;
+            border          : 1px solid #e9e9e9;
+            width           : 31px;
+            height          : 31px;
+            border-radius   : 50%;
+            text-align      : center;
+            line-height     : 30px;
+            font-size       : 14px;
+            font-weight     : bold;
+            color           : #000000;
+            cursor: pointer;
+        }
+
+        .page-link:hover {
+            z-index         : 3;
+            color           : #ffffff;
+            background-color: #FF6600;
+            border-color    : #FF6600;
+        }
+
+        .page-item:last-child .page-link img {
+            transform: rotate(180deg);
+        }
+
+        .page-no {
+            font-size  : 20px;
+            line-height: 27px;
+            margin     : 0% 6.392%;
+
+            a {
+                color: #fff;
+
+                &:hover {
+                    color : #fff !important;
+                    cursor: default;
+                }
+            }
+
+            span {
+                margin: 0px 4px;
+            }
+        }
+    }
+}
+
+/* pdf component css */
+::ng-deep #toolbarContainer {
+    min-height: auto !important;
+}
+::ng-deep ngx-extended-pdf-viewer #sidebarContainer {
+    top: 60px !important;
+    width     : 284px !important;
+    background: #363436 0% 0% no-repeat padding-box !important;
+}
+
+::ng-deep ngx-extended-pdf-viewer #toolbarSidebar {
+    background-color: transparent !important;
+}
+
+::ng-deep ngx-extended-pdf-viewer #sidebarContent {
+    background-color: transparent !important;
+    bottom          : 63px !important;
+}
+
+::ng-deep ngx-extended-pdf-viewer #thumbnailView {
+    padding   : 10px 80px 0 !important;
+    width     : 124px !important;
+    overflow-x: hidden !important;
+}
+
+::ng-deep div#thumbnailView a {
+    width : 124px !important;
+    height: 160px !important;
+}
+
+::ng-deep ngx-extended-pdf-viewer .thumbnail {
+    margin: 0 0px 5px !important;
+}
+
+::ng-deep .thumbnail {
+    border: 2px solid transparent;
+}
+
+::ng-deep .thumbnail.selected {
+    border       : 2px solid #FF6600;
+    border-radius: 1px;
+}
+
+::ng-deep .thumbnailSelectionRing.image-container {
+    padding: 0;
+    width  : 124px !important;
+    height : 160px !important;
+}
+
+::ng-deep ngx-extended-pdf-viewer .thumbnailImage {
+    height: 100% !important;
+    width : 100% !important;
+    border: none !important;
+}
+
+::ng-deep div#toolbarSidebarLeft button {
+    background-color: #fff;
+
+    &:focus {
+        border: none;
+    }
+
+    svg {
+        float: none !important;
+    }
+}
+::ng-deep ngx-extended-pdf-viewer #viewerContainer {
+    top: 0px !important;
+}
+::ng-deep html[dir=ltr] ngx-extended-pdf-viewer #outerContainer.sidebarOpen #viewerContainer:not(.pdfPresentationMode) {
+    left: 284px !important;
+}
+::ng-deep ngx-extended-pdf-viewer #mainContainer {
+    background-color: #000 !important;
+}
+::ng-deep #sidebarContent::-webkit-scrollbar {
+    width: 3px !important;
+}
+
+::ng-deep #sidebarContent::-webkit-scrollbar-thumb {
+    background: red !important;
+}
+
+::ng-deep #viewer {
+    background: #000000 0% 0% no-repeat padding-box !important;
+}
+
+.hide-footer {
+    visibility: hidden;
+}
+
+.show-footer {
+    visibility: visible;
+}
+/* pdf component css */
+::ng-deep .fullscreen-mode {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1090 !important;
+    ::ng-deep .zoom {
+        height: 100vh !important;
+    }
+}
+
+
+.content-player-tab {
+    width: 53.3%;
+    margin: 0 auto;
+    padding-bottom: 16px;
+    ::ng-deep .notes-right-panel {
+        padding: 0px !important;
+        border: none !important;
+    }
+    @media screen and (max-width:1150px) {
+        width: 60%; 
+    }
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        border-color: transparent; 
+        color: #000;
+        background-color: #fff;
+        border-bottom: 3px solid #FF6600;
+        font-size: 16px;
+        font-family: "Proxima Nova W05 Bold";
+    }
+    
+    .nav-tabs .nav-link {
+        background: 0 0;
+        border: 1px solid transparent;
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+        border: 0px;
+        color: #55555580;
+        padding: 0px;
+        margin-right: 32px;
+    }
+}
+.course-overview {
+    border: 1px solid #CFDAE6;
+    border-radius: 4px;
+    opacity: 1;
+    padding: 32px 24px;
+    
+    .course-overview-title {
+        font-size: 24px;
+        line-height: 27px;
+        color: #000000;
+        font-family: "Proxima Nova W05 Bold";
+        padding-bottom: 16px;
+        border-bottom: 1px solid #CFDAE6;
+        word-break: break-word;
+    }
+    .course-overview-description {
+        padding-top: 24px;
+        font-size: 16px;
+        line-height: 24px;
+        word-break: break-word;
+        overflow: auto;
+        ::ng-deep figure.image{
+        img {
+            width: 100%;
+            }
+        }
+    }
+}
+
+::ng-deep #viewerContainer {
+    background-color: #000000 !important;
+}
+
+.tab-content>.tab-pane {
+    padding-bottom: 4px;
+}
+
+
+
+
+@media screen and (min-width:768px) and (max-width:1024px) {
+    ::ng-deep .zoom {
+        height: 305px !important;
+    }
+    .content-player-tab {
+        width: 90% !important;
+        .nav-link {
+            font-size: 16px;
+            margin-right: 32px !important;
+        }
+        .nav-link.active {
+            font-size: 16px !important;
+        }
+        .tab-content {
+            .course-overview {
+                border: 0;
+                border-radius: 0px;
+                opacity: 1;
+                padding: 0;
+                .course-overview-title {
+                    font-size: 20px;
+                    line-height: normal;
+                }
+                ::ng-deep .course-overview-description {
+                    padding-top: 16px;
+                    font-size: 16px;
+                    line-height: 32px;
+                    p {
+                        line-height: normal;
+                      p {
+                            line-height: normal;
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .player-header {
+        height: 39px;
+        min-height: 39px;
+        padding: 4px 12px;
+        
+        .empty-container, .zoom-btn {
+            display: none;
+        }
+        .button-container {
+            width: 100%;
+        }
+        .bookmark-btn {
+            margin-right: 26px !important;
+            padding: 0px;
+            div {
+                display: none;
+            }
+            img {        
+                margin-bottom: 0px !important;
+                width: 12px !important;
+                height: 16px !important;
+                
+            }
+        }
+        .prev-btn, .next-btn {
+            font-size: 14px;
+            width: 54px;
+            line-height: 18px;
+            height: 26px;
+            padding: 0;
+        }
+        .prev-btn {
+            margin-right: 16px;
+        }
+        
+    }
+    
+    .player-footer {
+        height: 39px;
+        min-height: 39px;
+        .rotate-btn, .fit-btn {
+            display: none;
+        }
+        button {
+            margin: 0 24px 0 0 !important;
+            padding: 0px !important;
+            div {
+                display: none;
+            }
+            img {
+                height: 16px !important;
+                margin-bottom: 0 !important;
+            }
+        }
+        .col-12.col-sm-12.col-md-5.col-lg-4.px-0.layout.layout-item-center.layout-item-end.flex-sm-wrap {
+            height: 100%;
+        }
+        .pagination {
+            .page-link {
+                width: 28px;
+                height: 28px;
+                line-height: normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    position: initial !important;
+                }
+            }
+            .page-no {
+                font-size: 20px;
+                line-height: 27px;
+                margin: 0px 24px !important;
+            }
+            .page-item {
+                margin: 0px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:767px) {
+   ::ng-deep .zoom {
+        height: 220px !important;
+    }
+    .content-player-tab {
+        width: 90% !important;
+        .nav-link {
+            font-size: 12px;
+            margin-right: 20px !important;
+        }
+        .nav-link.active {
+            font-size: 12px !important;
+        }
+        .tab-content {
+            margin-top: 20px;
+            .course-overview {
+                border: 0;
+                border-radius: 0px;
+                opacity: 1;
+                padding: 0;
+                .course-overview-title {
+                    font-size: 16px;
+                    line-height: normal;
+                }
+               ::ng-deep .course-overview-description {
+                    padding-top: 16px;
+                    font-size: 12px;
+                    line-height: 24px;
+                    p {
+                        line-height: normal;
+                      p {
+                            line-height: normal;
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // responsive styles
+    .player-header {
+        height: 25px;
+        min-height: 25px;
+        padding: 4px 12px;
+        .empty-container, .zoom-btn {
+            display: none;
+        }
+        .button-container {
+            width: 100%;
+        }
+        .bookmark-btn {
+            margin-right: 16px !important;
+            padding: 0px;
+            div {
+                display: none;
+            }
+            img {        
+                margin-bottom: 0px !important;
+                width: 8px !important;
+                height: 11px !important;
+                
+            }
+        }
+        .prev-btn, .next-btn {
+            font-size: 8px;
+            width: 31px;
+            height: 17px;
+            padding: 0;
+        }
+        .prev-btn {
+            margin-right: 12px;
+        }
+        
+    }
+    
+    .player-footer {
+        height: 25px;
+        min-height: 25px;
+        .rotate-btn, .fit-btn {
+            display: none;
+        }
+        button {
+            margin: 0 16px 0 0 !important;
+            padding: 0px !important;
+            div {
+                display: none;
+            }
+            img {
+                height: 12px !important;
+                margin-bottom: 0 !important;
+            }
+        }
+        .col-12.col-sm-12.col-md-5.col-lg-4.px-0.layout.layout-item-center.layout-item-end.flex-sm-wrap {
+            height: 100%;
+        }
+        .pagination {
+            .page-link {
+                width: 16px;
+                height: 16px;
+                line-height: normal;
+                img {
+                    position: initial !important;
+                    width: 8px;
+                }
+            }
+            .page-no {
+                font-size: 8px;
+                line-height: 8px;
+                margin: 0px 12px !important;
+            }
+            .page-item {
+                margin: 0px;
+            }
+        }
+    } 
+}
+

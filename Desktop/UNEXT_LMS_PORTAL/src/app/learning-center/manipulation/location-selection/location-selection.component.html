@@ -1,0 +1,67 @@
+
+
+<div class="unit-component" id="content-builder-unit-component">
+  <div class="content-builder-modal-header">Select Location</div>
+  <div class="select-location">Select the location under which you wish to add this content.</div>
+  <div class="content-component-modal-content">
+    <div class="course-name mb16"
+    [ngClass]="{
+      'disable-node':courseDetails.disableType==='ownChild'||courseDetails.disableType==='same',
+      'background-highlight': activeNode === courseDetails
+    }"
+    (click)="selectNodeToMoveInto(courseDetails)">
+      <img (click)="$event.stopPropagation();isExpand = !isExpand" class="mr8" [src]="getCourseExpandCollapseIcon()">
+        {{courseDetails.name}}
+    </div>
+    <mat-tree *ngIf="isExpand&&isExpandable" [dataSource]="dataSource" [treeControl]="treeControl">
+      <!-- This is the tree node template for leaf nodes -->
+      <mat-tree-node *matTreeNodeDef="let node"
+        (click)="selectNodeToMoveInto(node)"
+        [ngClass]="{
+        'background-highlight': activeNode === node,
+        'hide-node':node.type!='unit'&&node.type!='folder',
+        'disable-node':node.disableType==='ownChild'||node.disableType==='same'
+      }">
+      <div [ngStyle]="applyStyles(node)">
+        <span>
+          <img class="mr8" src="assets/images/icons/content-builder/icon-nothingtoexpand.svg">
+        </span>
+        <span class="ml8 mr12">
+          <img src="assets/images/icons/content-builder/icon-{{node.type}}-hover.svg">
+        </span>
+        {{node.name}}
+      </div>
+
+        
+      </mat-tree-node>
+      <!-- This is the tree node template for expandable nodes -->
+      <mat-tree-node *matTreeNodeDef="let node;when: hasChild"
+        
+        (click)="selectNodeToMoveInto(node)"
+        [ngClass]="{
+      'background-highlight': activeNode === node,
+      'hide-node':node.type!='unit'&&node.type!='folder',
+      'disable-node':node.disableType==='ownChild'||node.disableType==='same',
+      'unit-node':node.type=='unit'
+    }">
+        <div class="hasChild" [ngStyle]="applyStyles(node)">
+          <button mat-icon-button matTreeNodeToggle
+            [attr.aria-label]="'Toggle ' + node.name">
+            <div>
+              <img [src]="treeControl.isExpanded(node) ? 'assets/images/icons/content-builder/icon-collapse.svg' : 'assets/images/icons/content-builder/icon-expand.svg'" >
+            </div>
+          </button>
+          <span class="ml8 mr12">
+            <img src="assets/images/icons/content-builder/icon-{{node.type}}-hover.svg">
+          </span>
+          {{node.name}}
+        </div>
+      </mat-tree-node>
+    </mat-tree>
+  </div>
+  <div class="content-builder-modal-footer text-end">
+    <button class="no-btn mr16 confirm-no" translate (click)="sendConfirmStatus(false)">{{modalConfig.cancelBtn}}</button>
+    <button class="yes-btn confirm-yes" [disabled]="!activeNode" [translate]="modalConfig.confirmBtn"
+      (click)="sendConfirmStatus(true)"></button>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="list-component">
+  <app-content-preview *ngIf="isPreview"></app-content-preview>
+  <app-faculty-course-view *ngIf="view != 'student'" [ngClass]="{'hide-element': isPreview || isContentPlayerLoaded }"></app-faculty-course-view>
+  <app-student-course-view *ngIf="view == 'student'" [ngClass]="{'hide-element': isPreview || isContentPlayerLoaded }" [isPreview]="false"></app-student-course-view>
+</div>
+<router-outlet></router-outlet>

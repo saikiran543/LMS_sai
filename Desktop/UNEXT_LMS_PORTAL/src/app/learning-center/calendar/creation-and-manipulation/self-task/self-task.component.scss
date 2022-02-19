@@ -1,0 +1,349 @@
+@import "~src/variables";
+.self-task-modal {
+  .form-switch.form-check .circle-switch {
+    left: 3px;
+    top: 6px;
+    pointer-events: none;
+  }
+  .content-builder-modal-header {
+    background: #FFDDB0;
+    color: #000000;
+  }
+  .custome-radiobutton{
+    font-size: $font-16;
+    color: #000;
+    font-weight: 400;
+    .checkmark{
+      border: 1px solid #DDDDDD;
+      &::after{
+        background: #DDDDDD;
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+      }
+    }
+    input:checked ~ .checkmark{
+      border: 1px solid #FF6600;
+    }
+    input:checked ~ .checkmark::after{
+      background: #FF6600;
+    }
+  }
+  .content-component-modal-content {
+    padding: 32px;
+    .row {
+      .form-group {
+        margin-bottom: 24px;
+        .forum-type {
+          margin-bottom: 0.5rem;
+          label {
+            margin-bottom: 0;
+          }
+          .forum-info-cta {
+            width: 16px;
+            height: 16px;
+            background: #555555 0% 0% no-repeat padding-box;
+            border-radius: 50%;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-style: italic;
+            font-size: $font-12;
+          }
+        }
+        input[type="number"] {
+          border-radius: 4px;
+          max-width: 60px;
+          font-size: 16px;
+          font-weight: 600;
+          padding: 4px;
+          text-indent: 4px;
+          width: 72px;
+          border: 1px solid #DEDEDE;
+          line-height: 30px;
+          height: 40px;
+          &.invalid {
+            border: 1px solid #ff6600;
+          }
+        }
+        select{
+            max-width: 250px;
+            appearance: auto;
+            height: 40px;
+        }
+      }
+    }
+    .form-check-label.disabled {
+      pointer-events: none;
+      filter: none;
+      opacity: 0.5;
+    }
+    .form-check.form-switch {
+      input.disabled {
+        pointer-events: none;
+        filter: none;
+        opacity: 0.5;
+      }
+    }
+  }
+  .content-builder-modal-footer {
+    .basic-btn.modal-btn {
+      &.disabled {
+        cursor: none;
+        pointer-events: none;
+        opacity: 0.7;
+      }
+    }
+  }
+}
+.grading-block {
+  align-items: center;
+  .attach-rubric-cta {
+    min-height: 48px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .upload-progess {
+    padding: 10px !important;
+  }
+  .grading-block {
+    .attach-rubric-cta {
+      width: 170px !important;
+    }
+    .max-quanity-block {
+      .form-label {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.attach-objective-cta {
+  width: 18.33vw;
+  min-width: 200px;
+  height: 48px;
+  background: #55555505;
+  border: 1px dashed #ff6600;
+  border-radius: 2px;
+  cursor: pointer;
+  p {
+    font-family: "Proxima Nova W05 Bold";
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    margin-left: 8px;
+  }
+}
+.all-day-block{
+  margin-top: 6px;
+}
+.recurrenceOptions{
+padding: 3px 0px;
+box-shadow: 2px 2px 12px #001A991F;
+position: absolute;
+width: 100%;
+max-height: 140px;
+overflow: auto;
+background: #fff;
+z-index: 9;
+li{
+  list-style: none;
+  padding: 3px 1rem !important;
+}
+li:hover{
+  background-color: #418ff8;
+  cursor: pointer;
+  color: #fff;
+}
+}
+.self-task-modal .content-component-modal-content .row .form-group .recurrenceInput {
+  max-width: 271px;
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+  appearance: auto;
+  height: 40px;
+}
+.self-task-modal .content-component-modal-content .row .form-group .recurrenceInput:hover {
+  cursor: default;
+}
+.self-task-modal .content-component-modal-content .row .form-group .select-dropdown{
+  display: inline-block;
+}
+.recurrenceInput-block label{
+  display: block;
+}
+.self-task-modal .content-component-modal-content .row .form-group .dropdown-svg {
+  color: #000;
+  font-size: calc(12px + 0.1042vw);
+  position: absolute;
+  right: 10px;
+  top: 6px;
+}
+.mobile-duration{
+  display: none;
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .self-task-modal{
+    .content-component-modal-content{
+      padding: 24px;
+      .row{
+        .form-group{
+          margin-bottom: 20px;
+          .dropdown-svg{
+            top: 3px;
+          }
+          input[type=number]{
+            height: 32px;
+          }
+          .reminder-block{
+            span{
+              font-size: $font-14;
+            }
+          }
+        }
+      }
+    }
+    .content-builder-modal-header{
+      padding: 18px 24px;
+      font-size: $font-20;
+    }
+    .form-label,label{
+      font-size: $font-16;
+    }
+    .error-text{
+      font-size: $font-16;
+    }
+    .form-control{
+      border-radius: 2px !important;
+      height: 30px !important;
+      line-height: 30px !important;
+      font-size: $font-16 !important;
+      padding: 1.06% 0.5rem !important;
+    }
+    .char-count{
+      font-size: 12px;
+      top: 7px;
+      right: 5px;
+    }
+    .char-limit{
+      padding-right: 100px !important;
+    }
+    .desktop{
+      display: none;
+    }
+    .all-day-block{
+      display: flex;
+      label{
+        font-size: $font-16;
+      }
+    }
+    .width50{
+      width: 50%;
+    }
+    .content-builder-modal-footer{
+      padding: 0px 24px 24px 24px;
+      button{
+        font-size: $font-14;
+        height: 40px;
+        min-width: 110px !important;
+      }
+    }
+    .recurrenceOptions li{
+      font-size: $font-16;
+      padding: 3px 0.5rem !important;
+    }
+    .mobile-duration{
+      display: block;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .self-task-modal{
+    .content-component-modal-content{
+      padding: 16px;
+      .row{
+        .form-group{
+          margin-bottom: 15px;
+          .dropdown-svg{
+            top: 3px;
+          }
+          input[type=number]{
+            height: 32px;
+          }
+          .reminder-block{
+            span{
+              font-size: $font-14;
+            }
+          }
+        }
+      }
+    }
+    .content-builder-modal-header{
+      padding: 10px 16px;
+      font-size: $font-18;
+    }
+    .form-label,label{
+      font-size: $font-14;
+    }
+    .error-text{
+      font-size: $font-14;
+    }
+    .form-control{
+      border-radius: 2px !important;
+      height: 30px !important;
+      line-height: 30px !important;
+      font-size: $font-14 !important;
+      padding: 1.06% 0.5rem !important;
+    }
+    .char-count{
+      font-size: 12px;
+      top: 7px;
+      right: 5px;
+    }
+    .char-limit{
+      padding-right: 100px !important;
+    }
+    .desktop{
+      display: none;
+    }
+    .all-day-block{
+      display: flex;
+      justify-content: end;
+      label{
+        font-size: $font-14;
+      }
+    }
+    .mobile{
+      .form-group{
+        label{
+          display: inline;
+        }
+        app-date-time-picker{
+          float: right;
+          display: inline;
+        }
+      }
+    }
+    .content-builder-modal-footer{
+      padding: 0px 16px 16px 16px;
+      button{
+        font-size: $font-14;
+        height: 40px;
+        min-width: 110px !important;
+      }
+    }
+    .recurrenceOptions li{
+      font-size: $font-14;
+      padding: 3px 0.5rem !important;
+    }
+    .mobile-duration{
+      display: block;
+    }
+  }
+}

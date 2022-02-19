@@ -1,0 +1,134 @@
+<div *ngIf='userType=="admin"; then AdminSide else StudentSide'></div>
+<ng-template #AdminSide>
+
+<div *ngIf="emptyRatings; then emptyRating else RatingsOverview"></div>
+<ng-template #emptyRating>
+    <div class="empty-rating">
+        <img src="assets/images/icons/rating/empty-rating.svg">
+        <p>Looks like there are no Ratings given yet!</p>
+    </div>
+</ng-template>
+
+<ng-template #RatingsOverview >
+    <div class="rating" *ngIf='ratings'>
+        <div class="rating-overview">
+            <h2 translate="contentRating.titles.ratingOverview"></h2>
+           
+            <div class="ratings text-center">
+                <span>{{ratings.overallRating}}</span><span>/5</span>
+            </div>
+           
+            <div class="total-ratings text-center">{{ratingCount()}} </div>
+            <div class="layout justify-content-center ratings-icon">
+                <div class="rating-card" (click)="filterComment(5)" >
+                    <img src="../../../../assets/images/icons/rating/rating5.svg" [ngClass]="{'selected-rating' : checkTransform(5),'unselected-ratings':checkOpacity(5)}"> 
+                    <div class="rating-card-overlay" [ngClass]="{'rating-card-overlay-position' : checkTransform(5)}">{{ratings.level5}}</div>
+                </div>
+                <div class="rating-card" (click)="filterComment(4)">
+                    <img src="../../../../assets/images/icons/rating/rating4.svg" [ngClass]="{'selected-rating' : checkTransform(4),'unselected-ratings':checkOpacity(4)}"> 
+                    <div class="rating-card-overlay" [ngClass]="{'rating-card-overlay-position' : checkTransform(4)}">{{ratings.level4}}</div>
+                </div>
+                <div class="rating-card" (click)="filterComment(3)">
+                    <img src="../../../../assets/images/icons/rating/rating3.svg" [ngClass]="{'selected-rating' : checkTransform(3),'unselected-ratings':checkOpacity(3)}"> 
+                    <div class="rating-card-overlay" [ngClass]="{'rating-card-overlay-position' : checkTransform(3)}">{{ratings.level3}}</div>
+                </div>
+                <div class="rating-card" (click)="filterComment(2)">
+                    <img src="../../../../assets/images/icons/rating/rating2.svg" [ngClass]="{'selected-rating' : checkTransform(2),'unselected-ratings':checkOpacity(2)}"> 
+                    <div class="rating-card-overlay" [ngClass]="{'rating-card-overlay-position' : checkTransform(2)}">{{ratings.level2}}</div>
+                </div>
+                <div class="rating-card" (click)="filterComment(1)">
+                    <img src="../../../../assets/images/icons/rating/rating1.svg" [ngClass]="{'selected-rating' : checkTransform(1),'unselected-ratings':checkOpacity(1)}"> 
+                    <div class="rating-card-overlay" [ngClass]="{'rating-card-overlay-position' : checkTransform(1)}">{{ratings.level1}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rating-comments" >
+            <h4 translate="contentRating.titles.comments"></h4>
+           <div 
+           class="infinte-scroll"
+           infinite-scroll [infiniteScrollDistance]="3"
+           [scrollWindow]="false"
+            [infiniteScrollThrottle]="50" (scrolled)="onScrollDown()"
+           > 
+            <div class="comment-box" 
+         *ngFor="let comment of comments; index as i;">
+                <div class="layout">
+                    <div *ngFor="let e of [].constructor(comment.level);">
+                        <img src="assets/images/icons/rating/star-filled.svg">
+                    </div>
+                    <div *ngFor="let e of [].constructor(5 - comment.level);">
+                        <img src="assets/images/icons/rating/star-stroke.svg">
+                    </div>
+                    
+                </div>
+                <p>{{comment.comment}}</p>
+                <span>{{comment.updatedOn | timesAgo}}</span>
+        </div>
+        </div>
+
+    </div>
+    </div>
+</ng-template>
+</ng-template>
+
+<ng-template #StudentSide>
+    
+ <div *ngIf="rating; then showRating else createRating"></div>
+ <ng-template #showRating>
+<div class="rating-comments student-comments" >
+   
+    <div  class="comment-box">
+    <div class="layout layout-justify-space-between layout-item-center"> 
+        <div class="layout layout-item-center ratings-icon">
+            <div *ngFor="let e of [].constructor(userRating); index as i;">
+                <img src="assets/images/icons/rating/star-filled.svg">
+            </div>
+            <div *ngFor="let e of [].constructor(5 - userRating); index as i;">
+                <img src="assets/images/icons/rating/star-stroke.svg">
+            </div>
+            <span>{{ratingMessage | translate}}</span>
+        </div>
+        <div>
+            <p class="edit-comment" (click)="showStudentRatingOnEdit()"  translate="contentRating.buttons.edit"></p>
+        </div>
+    </div>
+        <p class="user-comment">{{userComment?.comment}}</p> 
+        <span class="hours-ago">{{userComment?.updatedOn | timesAgo}}</span>
+    </div>
+</div>
+</ng-template>
+
+<ng-template #createRating>
+<div class="rating student-rating">
+    <div class="rating-box">
+        <h2 translate="contentRating.createRating.title"></h2>
+        <div translate="contentRating.createRating.subtitle" class="select-rating"></div>
+        <div class="layout layout-item-center ratings-icon flex-wrap layout-item-center">
+            <div *ngFor="let e of [].constructor(userRating); index as i;">
+                <img (click)='RatingOnClick(i,"filled");' (mouseenter)='RatingOnHover(i,"filled");' src="assets/images/icons/rating/star-filled.svg">
+            </div>
+            <div *ngFor="let e of [].constructor(5 - userRating); index as i;">
+                <img (click)='RatingOnClick(i,"stroke");' (mouseenter)='RatingOnHover(i,"stroke");' src="assets/images/icons/rating/star-stroke.svg">
+            </div>
+            <span>{{ratingMessage | translate}}</span>
+        </div>
+    </div>
+    <div class="student-review">
+        <div *ngIf="showCommentBox"> 
+            <span class="starMessage" [hidden]="!ratingCompulsory" > * </span > <span class="heading">{{ratingTitle | translate}}</span>
+            <div class="custom-input-container">
+                <textarea class="custom-input" [required]="ratingCompulsory" [placeholder]="ratingPlaceHolder | translate" [(ngModel)]='inputComment' maxlength="250" > </textarea>
+                <div class="character-ramaining text-end" *ngIf="inputComment.length == 0" [ngClass]="{'onCompulsory' : ratingCompulsory}">{{ 'contentRating.maxOfCharacter' | translate:charactersRemaining() }}</div>
+                <div class="character-ramaining text-end" *ngIf="inputComment.length > 0 && inputComment.length < 249" [ngClass]="{'onCompulsory' : ratingCompulsory}">{{ 'contentRating.charactersLeft' | translate:charactersRemaining() }}</div>
+                <div class="character-ramaining text-end" *ngIf="inputComment.length > 0 && inputComment.length == 250 || inputComment.length == 249" [ngClass]="{'onCompulsory' : ratingCompulsory}">{{ 'contentRating.characterLeft' | translate:charactersRemaining() }}</div>
+            </div>
+        </div>
+        <div class="layout justify-content-end">
+            <button *ngIf="showCommentBox" class="cancel-btn" (click)="cancelRating()" translate="contentRating.buttons.cancel"></button>
+            <button class="submit-btn" [disabled]="disableSubmitButton()" (click)="addStudentRating()" translate="contentRating.buttons.submit"></button>
+        </div>
+    </div>
+</div>
+</ng-template>
+</ng-template>

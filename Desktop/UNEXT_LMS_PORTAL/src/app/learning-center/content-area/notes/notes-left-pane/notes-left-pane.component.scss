@@ -1,0 +1,215 @@
+@import "./variables.scss";
+.notes-left-panel {
+    width: 100%;
+    height: calc(100vh - 209px);
+    overflow-y: hidden;
+    background: #cdd4e726 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    opacity: 1;
+    padding: 4.45%;
+    .input-group {
+        margin-bottom: 4.88%;
+        .form-control {
+            height: 4.2596vh;
+            min-height: 40px;
+            border-top-right-radius: 0px !important;
+            border-bottom-right-radius: 0px !important;
+            border-right: 0px !important;
+            &:focus {
+                z-index: 1;
+            }
+        }
+        button {
+            background-color: #ff6600;
+            border-color: #ff6600;
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+    .notes-card.pinned {
+        margin-bottom: 14px;
+    }
+    .unpin {
+        .single-card {
+            .pinned-icon {
+                visibility: hidden;
+            }
+        }
+    }
+    .pinned {
+        .single-card {
+            .pinned-icon {
+                visibility: visible;
+                position: absolute;
+                top: 31px;
+                right: 0px;
+                text-align: right;
+            }
+        }
+    }
+    .single-card {
+        background: #ffffff 0% 0% no-repeat padding-box;
+        border-radius: 4px;
+        padding: 3.92% 4.89%;
+        margin-bottom: 2px;
+        cursor: pointer;
+        position: relative;
+
+        h6 {
+            font-size: 12px;
+            line-height: 16px;
+            color: #55555580;
+            margin-bottom: 12px;
+        }
+        h5 {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 4px;
+            overflow: hidden;
+            width: 100%;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            line-height: initial;
+            height: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 11vw;
+            font-family: $font-regular;
+            ::ng-deep p {
+                margin-bottom: 0px;
+                overflow: hidden;
+                width: 100%;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+            }
+        }
+        p {
+            font-size: 16px;
+            line-height: 20px;
+            color: #55555580;
+            margin-bottom: 0px;
+            font-family: $font-regular;
+        }
+        .calendar {
+            margin-right: 7.755%;
+            span {
+                display: flex;
+                justify-content: center;
+                width: 38px;
+                height: 40px;
+                background: #ebeef6 0% 0% no-repeat padding-box;
+                border-radius: 4px;
+                img {
+                    align-self: center;
+                }
+            }
+        }
+    }
+    .single-card.active {
+        border-left: 4px solid #ff6600;
+        border-radius: 4px 0px 0px 4px;
+    }
+    .notes-list {
+        height: calc(100vh - 319px);
+        overflow-y: auto;
+        width: calc(100% + 10px);
+        padding-right: 8px;
+        scroll-behavior: smooth;
+        &::-webkit-scrollbar {
+            display: block;
+            width: 3px;
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 2px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #c7c7c7;
+        }
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px){
+    .notes-left-panel  {
+        .single-card {
+            p, h5 {
+                font-size: 12px;
+            }
+            h5 {
+                margin-bottom: 0;
+                white-space: unset;
+                height: auto;
+                max-width: 90%;
+            }
+
+            .calendar {
+                margin-right: 5.755%;
+                span {
+                    width: 28px;
+                    height: 29px;
+                }
+                &+div {
+                    width: calc(100% - 7.755%);
+                }
+            }
+
+            .pinned-icon {
+                top: 26px!important;
+                img {
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+        }
+    }
+
+    
+    
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1024px){ 
+    .notes-left-panel  {
+        .single-card {
+            padding: 20px 16px;
+            h6 {
+                font-size: 14px;
+            }
+            .layout {
+                h5 + p{
+                    font-size: 12px!important;
+                }     
+            }
+           
+            h5 {
+                margin-bottom: 0;
+                white-space: unset;
+                height: auto;
+                max-width: 100%;
+            }
+
+            .calendar {
+                margin-right: 16px;
+                span {
+                    width: 40px;
+                    height: 40px;
+                }
+                &+div {
+                    width: calc(100% - 20px);
+                }
+            }
+
+            .pinned-icon {
+                top: 47px!important;
+                img {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
+    }
+}

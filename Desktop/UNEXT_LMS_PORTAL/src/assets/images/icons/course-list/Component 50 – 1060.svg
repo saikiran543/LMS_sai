@@ -1,0 +1,16 @@
+<svg id="Component_50_1060" data-name="Component 50 – 1060" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="62" viewBox="0 0 38 62">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_8956" data-name="Rectangle 8956" width="22" height="21.8" fill="#bdbdbd"/>
+    </clipPath>
+  </defs>
+  <g id="Rectangle_8146" data-name="Rectangle 8146" transform="translate(1)" fill="#fff" stroke="#707070" stroke-width="1" opacity="0">
+    <rect width="36" height="36" rx="4" stroke="none"/>
+    <rect x="0.5" y="0.5" width="35" height="35" rx="3.5" fill="none"/>
+  </g>
+  <text id="Config_Settings" data-name="Config &amp;
+Settings" transform="translate(19 47)" fill="#555" font-size="10" font-family="ProximaNova-Regular, Proxima Nova"><tspan x="-18" y="0">Config &amp;</tspan><tspan x="-17" y="12">Settings</tspan></text>
+  <g id="config_and_settings_hover" data-name="config and settings hover" transform="translate(8 7.1)" clip-path="url(#clip-path)">
+    <path id="Path_15315" data-name="Path 15315" d="M21.773,10.5l-2.213-.376a7.856,7.856,0,0,0-.48-1.148l1.295-1.817a.693.693,0,0,0-.063-.877L18.536,4.5a.668.668,0,0,0-.877-.063l-1.816,1.3a7,7,0,0,0-1.148-.48L14.34,3.064a.673.673,0,0,0-.668-.564H11.165a.673.673,0,0,0-.668.564l-.376,2.213a7.856,7.856,0,0,0-1.148.48L7.156,4.463a.693.693,0,0,0-.877.063L4.5,6.3a.668.668,0,0,0-.063.877l1.3,1.817a7,7,0,0,0-.48,1.148L3.064,10.5a.673.673,0,0,0-.564.668v2.506a.673.673,0,0,0,.564.668l2.213.376a7.856,7.856,0,0,0,.48,1.148L4.463,17.68a.693.693,0,0,0,.063.877L6.3,20.332a.668.668,0,0,0,.877.063l1.817-1.3a7,7,0,0,0,1.148.48l.376,2.213a.673.673,0,0,0,.668.564h2.506a.673.673,0,0,0,.668-.564l.355-2.234a7.856,7.856,0,0,0,1.148-.48l1.817,1.295a.693.693,0,0,0,.877-.063l1.775-1.775a.668.668,0,0,0,.063-.877l-1.3-1.816a7,7,0,0,0,.48-1.148l2.213-.376a.673.673,0,0,0,.564-.668V11.165A.712.712,0,0,0,21.773,10.5Zm-9.354,5.492a3.571,3.571,0,1,1,3.571-3.571,3.571,3.571,0,0,1-3.571,3.571Z" transform="translate(-1.429 -1.729)" fill="#bdbdbd"/>
+  </g>
+</svg>

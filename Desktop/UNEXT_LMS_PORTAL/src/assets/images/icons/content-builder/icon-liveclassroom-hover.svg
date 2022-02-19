@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31" height="39" viewBox="0 0 31 39">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.874" y1="0.091" x2="0.055" y2="0.966" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d96662"/>
+      <stop offset="1" stop-color="#9e3f3c"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_6601" data-name="Rectangle 6601" width="13.54" height="13.539" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Path_15355" data-name="Path 15355" d="M522.309-107.692h-7.783A4.689,4.689,0,0,1,510-112.217V-120Z" transform="translate(-509.999 120)" fill="none" clip-rule="evenodd"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <path id="Path_15354" data-name="Path 15354" d="M-50-285.376H196.182V-470H-50Z" transform="translate(50 470)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-live_classroom_hover">
+      <rect width="31" height="39"/>
+    </clipPath>
+  </defs>
+  <g id="live_classroom_hover" data-name="live classroom hover" clip-path="url(#clip-live_classroom_hover)">
+    <g id="Group_29413" data-name="Group 29413" transform="translate(0.195)">
+      <path id="Subtraction_7" data-name="Subtraction 7" d="M20896,14673.607h-24a3.5,3.5,0,0,1-3.5-3.5v-31a3.5,3.5,0,0,1,3.5-3.5h15.861c2.094,2.118,10.23,10.286,11.641,11.7v22.8A3.505,3.505,0,0,1,20896,14673.607Z" transform="translate(-20868.5 -14635.359)" fill="url(#linear-gradient)"/>
+      <g id="Group_29387" data-name="Group 29387" transform="translate(18.4)">
+        <g id="Group_18535" data-name="Group 18535" transform="translate(0 0)" clip-path="url(#clip-path)">
+          <image id="Rectangle_6600" data-name="Rectangle 6600" width="13.54" height="13.539" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAALKADAAQAAAABAAAALAAAAADfpsWZAAABt0lEQVRYCc3YiVLDMAxFUUrZpvz/z7IV3ZYX1EB2yZFnhJ3Udk4UNTPlcHdth5+e7uzG5Yb3JhJWUB2XwwICTFNfHq0MH6/uy9/SaGW2XwZl0QK7BHfDkugxMPJy6ClwOfQccCn0XHAZ9BJwCfRS8O7oNeBd0WvBu6G3gHdBbwU3R0eAm6KjwM3QkeAm6GhwOjoDnIrOAqehM8Ep6GxwOLoFOBTtwf0folwosoX83PJgP46E+r02oz0yO8OCb0J7sP9nijbP6lejAbOYeMjSDey7Cq0Ms5iS0PHANcJPL0YL+GUU4iWcNL3hIrTALPq0eLRoXRrc0mx0/4vGDTxbvLHLDo2yHH1bCaxJ9MpySbTAPpmgnyzI9rv/oOEYg5J4c1kP1gTVE19A6rkU2oN1JwJzTKap6Q8L3iKt259M/wcGBVpBlk8WzOVN4m/IDtPbDXoIjEJgAYG/WpBx6lslZMP01qHHLqpJ4LgxwARjDx7bw6aubpQgT5S3FXF5ugCGmjLLRC2mlgUWWmD1Q/stPa8nzLpu724wsZvm0RN97MTyTR8DV8J+5TO3FFzT+8c6H9nrSbPn+RvNqEq/LGWpPAAAAABJRU5ErkJggg=="/>
+        </g>
+      </g>
+      <g id="Group_29389" data-name="Group 29389" transform="translate(19.016)" clip-path="url(#clip-path-2)">
+        <g id="Group_29388" data-name="Group 29388" transform="translate(-172.326 -107.697)" clip-path="url(#clip-path-3)">
+          <path id="Path_15353" data-name="Path 15353" d="M520.386-109.615H505V-125h15.386Z" transform="translate(-334.211 231.159)" fill="rgba(255,255,255,0.4)"/>
+        </g>
+      </g>
+      <g id="noun_online_graduation_3859294" data-name="noun_online graduation_3859294" transform="translate(6.662 17.092)">
+        <path id="Path_14929" data-name="Path 14929" d="M22,12.79H5.674A.675.675,0,0,0,5,13.464V24.788a.669.669,0,0,0,.67.67H11.5l.016.026-.727,1.55a.261.261,0,0,0,.236.373h5.634a.262.262,0,0,0,.236-.373l-.727-1.55.016-.026h5.826a.675.675,0,0,0,.674-.674V13.464A.678.678,0,0,0,22,12.79Zm-.371,9.783a.171.171,0,0,1-.171.171H6.216a.171.171,0,0,1-.171-.171v-8.5a.171.171,0,0,1,.171-.171H21.464a.171.171,0,0,1,.171.171v8.5Z" transform="translate(-5 -12.79)" fill="#fefeff"/>
+        <path id="Path_14930" data-name="Path 14930" d="M44.037,29.827l-.108.043-1.556.628a.152.152,0,0,1-.1,0l-1.562-.63-.1-.041a.067.067,0,0,0-.094.063v.577a.417.417,0,0,0-.037.412c.112.387.291.424.379.416a2.085,2.085,0,0,0,1.291,1.3h0a.492.492,0,0,0,.169.027.511.511,0,0,0,.171-.027h0a2.088,2.088,0,0,0,1.292-1.3c.09.008.267-.029.379-.416a.409.409,0,0,0-.037-.409v-.579A.063.063,0,0,0,44.037,29.827Z" transform="translate(-33.481 -26.476)" fill="#fefeff"/>
+        <path id="Path_14931" data-name="Path 14931" d="M37.256,21.154l.913.369,1.509.609a.127.127,0,0,0,.1,0l1.5-.609.915-.369a.064.064,0,0,0,0-.118l-2.422-.982a.146.146,0,0,0-.1,0l-2.422.982A.064.064,0,0,0,37.256,21.154Z" transform="translate(-30.888 -18.62)" fill="#fefeff"/>
+        <path id="Path_14932" data-name="Path 14932" d="M59.833,30.666h.2s.008,0,.006-.008l-.114-.6A.437.437,0,0,1,59.922,30v-.045a.318.318,0,0,0,0-.043.514.514,0,0,0,0-.055c0-.022,0-.043,0-.065s0-.049,0-.073,0-.053,0-.079,0-.055,0-.082,0-.055,0-.084,0-.055,0-.084,0-.055,0-.081,0-.051,0-.077,0-.047,0-.071,0-.041,0-.063a.478.478,0,0,0,0-.053c0-.014,0-.049,0-.061s0-.024-.018-.012l-.063.031c-.02.01-.024.016-.024.033v.966a.257.257,0,0,1-.006.053l-.1.6s0,.008.006.008h.084a.005.005,0,0,0,.006-.006l.031-.145c0-.008.012-.006.012,0v.143Z" transform="translate(-48.939 -25.795)" fill="#fefeff"/>
+        <path id="Path_14933" data-name="Path 14933" d="M38.073,46.779c-.181-.039-.293-.051-.293-.051a1.268,1.268,0,0,1-.658-.251.114.114,0,0,0-.175.041l-.929,1.072a.06.06,0,0,1-.09,0L35,46.518a.115.115,0,0,0-.175-.041,1.238,1.238,0,0,1-.658.251s-.112.014-.293.051a1.542,1.542,0,0,0-1.32,1.83s.026.263.063.676H39.33c.039-.412.063-.676.063-.676A1.543,1.543,0,0,0,38.073,46.779Z" transform="translate(-27.134 -39.84)" fill="#fefeff"/>
+      </g>
+    </g>
+  </g>
+</svg>

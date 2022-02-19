@@ -1,0 +1,59 @@
+#accordionFlushExample{
+    .accordion-header {
+        height: 28px;
+        button.accordion-button {
+            padding: 4px 16px;
+            color: #555555;
+            font-size: 14px;
+            line-height: 19px;
+            &:not(.collapsed) {
+                background-color: #FF660017;
+                box-shadow: none;
+            }
+            &:focus {
+                box-shadow: none;
+                border-color: transparent;
+            }
+        }
+    }
+    .accordion-body {
+        padding: 0px !important;
+        ul {
+            padding: 0px;
+            li {
+                color: #555555;
+                font-size: 14px;
+                line-height: 19px;
+                list-style-type: none;  
+            }
+            .term {
+                height: 28px;
+                padding: 4.5px 4px 4.5px 24px;
+            }
+        }
+        #group, #teams {
+            h2  {
+                button {
+                    height: 28px;
+                    padding: 4.5px 16px 4.5px 48px;
+                }
+            }
+        }
+        #group-collapse,  #teams-collapse {
+            ul  {
+                li {
+                    height: 28px;
+                    padding: 4.5px 4px 4.5px 48px;
+                }
+            }
+        }
+    }
+    .accordion-item {
+        .accordion-button::after {
+            width: 8px;
+            height: 5px;
+            background-image: url(../../../../../assets/images/icons/icon-dropdown.svg);
+            background-size: cover;
+        }
+    }
+}

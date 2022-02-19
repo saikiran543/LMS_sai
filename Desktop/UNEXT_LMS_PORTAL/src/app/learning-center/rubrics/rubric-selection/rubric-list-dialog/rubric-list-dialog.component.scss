@@ -1,0 +1,240 @@
+// selection model css
+.selection-modal-header {
+  .modal-header {
+    color: #000000;
+    font-size: 20px;
+    line-height: 24px;
+    font-family: "Proxima Nova W05 Bold";
+    padding: 0.9896vw 1.66666vw 1.093782vw;
+    background: #FFDDB0;
+    max-height: 62px;
+  }
+}
+.modal-content-inner {
+  padding: 0.9896vw 1.66666vw 1.093782vw;
+  .input-group {
+    input {
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+  }
+  .searchbarContainer {
+    margin-bottom: 3.0975%;
+  }
+}
+
+.input-group {
+  width: 20.8333vw;
+}
+.btn-primary {
+  background-color: #FF6600 !important;
+  border-color: #FF6600 !important;
+  border-radius: 0px 4px 4px 0px!important;
+  height: 46px;
+  min-height: 40px;
+}
+.attach-rubric {
+  min-width: 130px;
+  width: 6.8vw;
+  height: 36px;
+  background: #FF6600 0% 0% no-repeat padding-box;
+  border: none;
+  border-radius: 4px;
+  opacity: 1;
+  color: #fff;
+  font-size: 16px;
+  align-items: center;
+}
+.nav-tabs {
+  li {
+    margin-right: 2.71vw;
+    .nav-link  {
+      background: 0 0;
+      border: 1px solid transparent;
+      border-top-left-radius: .25rem;
+      border-top-right-radius: .25rem;
+      border: 0px;
+      color: #AAAAAA;
+      padding: 0px;
+    }
+    .nav-link.active {
+      border-color: transparent; 
+      color: #000;
+      background-color: #fff;
+      border-bottom: 3px solid #FF6600;
+      font-size: 16px;
+      font-family: "Proxima Nova W05 Bold";
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  
+}
+::ng-deep .modal-dialog.rubric-selection-model {  
+  width: 57.291666%;
+  max-width: 57.291666%;
+  ::ng-deep ngx-datatable {
+    .datatable-header {
+      display: flex !important;
+      align-items: center !important;
+      height: 52px !important;
+      background: #EBEEF6 0% 0% no-repeat padding-box;
+      border-radius: 8px 8px 0px 0px !important;
+      opacity: 1;
+      border: 1px solid #CFDAE6;
+      border-bottom: 0;
+      datatable-header-cell {
+        padding: 1.548% 1.548% 1.548% 2.322% !important;
+        padding-left: 0px !important;
+        &:first-child {
+          width: 53px !important;
+          padding: 0px 16px !important;
+        }
+        &:nth-child(2) {
+          width: 35% !important;
+        }
+        &:nth-child(3) {
+          width: 20% !important;
+        }
+        &:nth-child(4) {
+          width: 25% !important;
+        }
+        &:nth-child(5) {
+          width: 15% !important;
+          text-align: end;
+          margin-right: 1.548%;
+        }
+      }
+      .datatable-header-cell-label {
+        font-size: 16px;
+        line-height: 19px;
+        color: #000;
+        font-family: "Proxima Nova W05 Bold";
+      }
+
+
+
+      datatable-header-cell:nth-child(1) {
+        .datatable-header-cell-template-wrap {
+          .datatable-header-cell-wrapper {
+            .datatable-header-cell-label {
+              position: relative;
+              &::before, &::after {
+                content: none !important;
+              }
+            }
+          }
+        }
+      }
+
+        datatable-header-cell:nth-child(2), datatable-header-cell:nth-child(3), datatable-header-cell:nth-child(4) {
+         .datatable-header-cell-template-wrap {
+           .datatable-header-cell-wrapper {
+             .datatable-header-cell-label {
+               position: relative;
+               &::before, &::after {
+                 content: "";
+                 position: absolute;
+                 background-image: url("../../../../../assets/images/icons/discussion-forum/sort-arrow.svg");
+                 background-repeat: no-repeat;
+                 background-size: contain;
+                 width: 10px;
+                 height: 10px;
+                 top: 6px;
+                 opacity: 0.5;
+               }
+               &::before {
+                 right: -16px;
+               }
+               &::after {
+                 right: -28px;
+                 transform: rotate(180deg);
+               }
+             }
+           }
+         }
+       }
+      
+       datatable-header-cell.datatable-header-cell.resizeable.sortable.sort-active.sort-desc .datatable-header-cell-template-wrap .datatable-header-cell-wrapper .datatable-header-cell-label::before {
+         opacity: 1;
+       }
+       datatable-header-cell.datatable-header-cell.resizeable.sortable.sort-active.sort-asc .datatable-header-cell-template-wrap .datatable-header-cell-wrapper .datatable-header-cell-label::after {
+         opacity: 1;
+       }
+      
+
+    
+    }
+    .datatable-body {
+      border: 1px solid #CFDAE6;
+      border-top: 0;
+      border-radius: 0px 0px 8px 8px !important;
+      
+      datatable-body-cell {
+        padding-left: 0px !important;
+        &:first-child {
+          width: 53px !important;
+          padding: 0px 16px !important;
+        }
+        &:nth-child(2) {
+          width: 35% !important;
+        }
+        &:nth-child(3) {
+          width: 20% !important;
+        }
+        &:nth-child(4) {
+          width: 25% !important;
+        }
+        &:nth-child(5) {
+          width: 15% !important;
+          text-align: end;
+          margin-right: 1.548%;
+        }
+      }
+      .datatable-body-cell-label {
+        span {
+          font-size: 16px;
+          color: #555555;
+          white-space: initial;
+        }
+      }
+      .datatable-row-wrapper {
+        border-bottom: 1px solid #CFDAE6;
+        height: auto !important;
+        &:last-child {
+          border-bottom: 0;
+        }
+      }
+      datatable-body-row.datatable-body-row, datatable-body-cell.datatable-body-cell {
+        height: auto !important;
+      }
+    }
+  }
+}
+::ng-deep .rubric-preview-model {
+  width: 75.15625%;
+  max-width: 75.15625%;
+  .modal-content{
+    padding: 32px;
+  }
+}
+
+
+
+
+@media screen and (max-width:767px) {
+  ::ng-deep .modal-dialog.rubric-selection-model, .rubric-preview-model  {
+    width: 90%;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width:768px) and (max-width:1023px) {
+  ::ng-deep .modal-dialog.rubric-selection-model, .rubric-preview-model  {
+    width: 90%;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}

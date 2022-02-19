@@ -1,0 +1,25 @@
+<div class="modalContentInner">
+    <div class="modalInnerHeader">
+        <span translate="qna.answerReply.editTitle"></span>
+    </div>
+    <div class="modalInnercontent">
+        <div>
+            <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+                <div class="form-group mb24">
+                    <label class="form-label" translate="qna.answerReply.title"></label>
+                    <app-ckeditor [ckeditorFormControl]="editForm.controls['reply']"
+                        [config]="{placeholder: 'Type here...'}"></app-ckeditor>
+                    <small class="error-text" *ngIf="editForm.get('reply')?.errors && editForm.get('reply')?.touched"
+                        translate="qna.answerReply.replyErrorMessage"></small>
+                </div>
+                <div class="text-end">
+                    <button class="cancel-btn" type="button" (click)="cancel()"
+                        translate="qna.answerReply.cancelButtonText"></button>
+                    <button class="primary-btn" [disabled]="!editForm.valid"
+                        translate="qna.answerReply.saveButtonText"></button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

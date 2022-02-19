@@ -1,0 +1,9 @@
+::ng-deep button.ck.ck-button.ck-source-editing-button.ck-off.ck-button_with-text {
+    display: none !important;
+}
+::ng-deep span.ck.ck-toolbar__separator:first-of-type {
+    display: none !important;
+}
+::ng-deep .ck.ck-placeholder:before, ::ng-deep .ck .ck-placeholder:before {
+    color: #55555580 !important;
+}

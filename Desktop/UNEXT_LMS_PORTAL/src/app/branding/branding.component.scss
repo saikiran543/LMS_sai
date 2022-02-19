@@ -1,0 +1,490 @@
+/* branding horizontal layout  */
+@import "~src/variables";
+.user-img {
+  // width: 20.35%;
+  width: 30.82%;
+  height: 14.81%;
+  max-width: 160px;
+  max-height: 160px;
+}
+
+.hello-text {
+  font-size: calc(24px + 1.4586vw);
+  font-family: 'Proxima Nova W05 Bold', sans-serif;
+  line-height: calc(24px + 1.4586vw);
+  text-align: center;
+  color: #000000;
+  word-break: break-word;
+}
+
+.branding-text {
+  font-size: calc(18px + 0.730vw);
+  font-family: 'Proxima Nova W05 Bold', sans-serif;
+  line-height: calc(18px + 0.730vw);
+  text-align: center;
+  color: #444444;
+  word-break: break-word;
+}
+
+.announcement-text {
+  font-size: calc(12px + 0.4168vw);
+  line-height: 3.8422vh;
+  text-align: left;
+  color: #444444;
+  padding: 6% 3%;
+  border-radius: 4px;
+  background-color: #fff1dc;
+  overflow-y: auto;
+  word-break: break-word;
+  max-height: 29.2vh;
+  ::ng-deep p {
+    margin-bottom: 0;
+  }
+}
+.powered-by-unext {
+  margin-top: 5.55%;
+  text-align: center;
+}
+.skip {
+  position: absolute;
+  padding-right: 8.166%;
+  padding-bottom: 2.083%;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+}
+.skip-to-dashboard {
+  width: 100%;
+  text-align: right;
+  margin-top: 1.71vh;
+  
+  button {
+    font-size: 16px;
+    line-height: 16px;
+    color: #000000;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: transparent;
+    border: none;
+    svg {
+      margin-left: 4px;
+      vertical-align: baseline;
+    }
+  }
+}
+
+.skip-to-dashboard-disabled{
+  button{
+    &:hover {
+      color: #000000;
+      background: transparent;
+      transition: none;
+      svg path {
+        fill: #000000;
+      }
+    }
+  } 
+}
+
+.branding-horizontal-layout {
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  background-color: #F9FBFF;
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal-img-component {
+  height: 60%;
+}
+
+.horizontal-img-component img {
+  max-width: 100%;
+  width: 100%;
+  max-height: 100%;
+  height: 100%;
+}
+
+.horizontal-content-component {
+  position: relative;
+  justify-content: space-evenly;
+  flex: 1 40%;
+}
+
+.horizontal-content-component-two {
+  position: relative;
+  justify-content: space-evenly;
+  .welcome-msg-and-announcement { 
+    margin: 2.084% 6.25% !important;
+  }
+  .hello-text {
+    margin-left: 6.948% !important;
+    text-align: left;
+  }
+  .branding-text {
+    text-align: left;
+    margin: 4% 0% 5.668% 6.948%;
+  }
+  .welcome-msg {
+    margin-right: 0px;
+  }
+  .announcement-text {
+    max-height: 180px !important;
+  }
+  .announcement-text {
+    padding: 16px !important;
+    flex-basis: 75.19%;
+    margin-left: 4.762%;
+    max-width: 872px;
+  }
+  .powered-by-unext {
+    margin: 0% 0% 0% 6.948% !important;
+  }
+  .skip {
+    padding-right: 6.25%;
+    padding-bottom: 0.5%;
+  }
+}
+
+.welcome-msg-and-announcement {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 13px 120px;
+}
+.custome-radiobutton{
+  font-size: $font-16;
+  color: #000;
+  font-weight: 400;
+  .checkmark{
+    border: 1px solid #DDDDDD;
+    &::after{
+      background: #DDDDDD;
+      display: block;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      -webkit-transform: translate(-50%,-50%);
+    }
+  }
+  input:checked ~ .checkmark{
+    border: 1px solid #FF6600;
+  }
+  input:checked ~ .checkmark::after{
+    background: #FF6600;
+  }
+}
+.horizontal-content-component .welcome-msg-and-announcement {
+  width: 51%;
+}
+
+// .welcome-msg-and-announcement .welcome-msg,
+// .welcome-msg-and-announcement .announcement-text {
+  //   flex: 1;
+  // }
+  
+  .branding-horizontal-layout .hello-text {
+    text-align: left;
+    margin-left: 30px;
+  }
+  
+  .branding-horizontal-layout .powered-by-unext {
+    margin: 24px 0px 0px 30px;
+    text-align: left;
+  }
+  
+  .branding-horizontal-layout .announcement-text {
+    max-height: 150px;
+    overflow-y: auto;
+  }
+  
+  .horizontal-content-component .branding-text {
+    margin-top: 16px;
+    margin-left: 30px;
+    text-align: left;
+  }
+  
+  .div-row {
+    flex-direction: row;
+    display: flex;
+  }
+  
+  .welcome-msg {
+    margin-right: 8px;
+  }
+  
+  /* branding horizontal layout  */
+  
+  /* branding vertical layout */
+  .branding-vertical-layout {
+    overflow: hidden;
+    max-height: 100vh;
+    height: 100vh;
+  }
+  
+  .vertical-img-component {
+    flex: 55%;
+  }
+  
+  .vertical-img-component img {
+    width: 100%;
+  }
+  
+  /* vertical-welcome-component */
+  .vertical-welcome-component, .vertical-welcome-component-two {
+    flex: 45%;
+    width: 100%;
+    padding: 12.5vh 4.166% 2.083% 4.166%;
+    position: relative;
+    justify-content: space-around;
+    background-color: #fff;
+  }
+  
+  .vertical-welcome-component .hello-text, .vertical-welcome-component-two .hello-text {
+    margin-top: 0px;
+    text-align: center;
+    margin-left: 4.1%;
+    margin-bottom: 1.85%;
+  }
+  
+  .vertical-welcome-component .branding-text, .vertical-welcome-component-two .branding-text {
+    margin-left: 4.1%;
+    text-align: center;
+  }
+  .vertical-welcome-component-two {
+    .branding-text, .hello-text {
+      text-align: left !important;
+    }
+  }
+  .vertical-welcome-component-two .announcement-text {
+    margin-top: 7.4%;
+    width: 100%;
+  }
+  .vertical-welcome-component .welcome-msg {
+    text-align: center;
+    flex-direction: column;
+  }
+  /* vertical-welcome-component */
+  
+  /* branding card layout css */
+  .branding-card-layout {
+    flex-direction: row-reverse;
+    overflow: hidden;
+    height: 100vh;
+    max-height: 100vh;
+  }
+  
+  .hero-overlay-component {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    flex-direction: row-reverse;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .card-welcome-component,
+  .card-welcome-component-two {
+    position: relative;
+    width: 33.3%;
+    height: 90%;
+    margin-right: 4.17%;
+    background: #ffffff;
+    opacity: 0.9;
+    border-radius: 8px;
+    background-color: #f9fbff;
+    padding: 2.085% 3.13% 1.045% 3.13%;
+    align-self: center;
+    justify-content: start;
+  }
+  
+  .card-welcome-component .welcome-msg {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .card-welcome-component .hello-text {
+    margin: 16px 0px;
+  }
+  
+  .card-welcome-component .branding-text {
+    margin-left: 0px;
+  }
+  
+  .card-welcome-component-two .hello-text {
+    text-align: left;
+    margin-left: 30px;
+  }
+  
+  .card-welcome-component-two .branding-text {
+    text-align: left;
+    margin-left: 30px;
+  }
+  
+  .card-welcome-component-two .announcement-text {
+    margin: 6.17% 0 7.713%;
+    width: 100%;
+    max-height: 268px;
+  }
+  .card-welcome-component-two .powered-by-unext {
+    margin-top: 0 !important;
+  }
+  .progressbar {
+    width: 38px;
+    height: 38px;
+    position: relative;
+    right: 10px;
+    border-radius: 50%;
+    margin: auto 0 auto auto;
+  }
+  .progressbar-action-btn{
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    border-radius: 50%;
+    top: 16.5%;
+    left: 10.5%;
+  }
+  .progressbar-action-btn img{
+    margin: 9px 12.7px;
+    float: none;
+    display: block;
+    max-width: 13px;
+    background: #fff;
+  }
+  .progressbar-action-btn img:hover{
+    cursor: pointer;
+  }
+  .progressbar-action-btn.play{
+    display: none;
+  }
+  
+  // .horizontal-content-component img, .horizontal-content-component-two img {
+    //   height: auto !important;
+    // }
+    .horizontal-content-component img {
+      height: auto !important;
+    }
+    
+    @media only screen and (max-width: 767px) {
+      .card-welcome-component, .card-welcome-component-two {
+        width: 100%;
+        margin-left: 4.17%;
+      }
+      .branding-vertical-layout {
+        overflow: visible;
+        height: initial;
+        max-height: initial;
+      }
+      .branding-vertical-layout {
+        flex-direction: column;
+      }
+      .skip {
+        position: initial;
+      }
+      .powered-by-unext {
+        img {
+          width: 72px;
+        }
+      }
+      .branding-horizontal-layout {
+        overflow: visible;
+        height: initial;
+        max-height: initial;
+      }
+      .user-img {
+        max-width: 60px;
+      }
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1023px) {
+      .card-welcome-component, .card-welcome-component-two {
+        width: 62.12%;
+      }
+      .vertical-img-component {
+        flex: 50%;
+      }
+      .vertical-welcome-component-two {
+        flex: 50%;
+      }
+      .vertical-img-component img {
+        height: 100%;
+      }
+      .user-img {
+        max-width: 90px;
+      }
+    }
+    @media only screen and (max-width: 1023px) {
+      
+      .welcome-container {
+        flex-direction: column;
+        .hello-text {
+          text-align: center;
+          margin-left: 0;
+        }
+        .branding-text {
+          text-align: center;
+          margin-left: 0;
+        }
+      }
+      
+      .horizontal-content-component .welcome-msg-and-announcement,   .horizontal-content-component-two .welcome-msg-and-announcement {
+        width: 100%;
+        display: initial;
+        margin: 16px;
+      }
+      
+      .horizontal-content-component-two {
+        .welcome-msg {
+          flex-wrap: wrap;
+          margin-right: 0px;
+        }
+        .div-column {
+          display: flex;
+          align-items: center;
+        }
+        .announcement-text {
+          margin: 20px 0px 16px 0px !important;
+          flex: 1;
+        }
+      }
+      
+    }
+    @media only screen and (min-width: 1024px) and (max-width: 1199px) {
+      .card-welcome-component, .card-welcome-component-two {
+        width: 46.58%;
+      }
+      .vertical-img-component {
+        flex: 50%;
+      }
+      .vertical-welcome-component-two {
+        flex: 50%;
+      }
+      .vertical-img-component img {
+        height: 100%;
+      }
+      .welcome-container {
+        flex-direction: column;
+        .hello-text {
+          text-align: center;
+          margin-left: 0;
+        }
+        .branding-text {
+          text-align: center;
+          margin-left: 0;
+        }
+      }
+    }
+    
+    
+    @media only screen  and (max-width: 1500px) {
+      .horizontal-img-component {
+        height: 55%;
+      }
+      .horizontal-content-component {
+        flex: 1 45%;
+      }
+    }

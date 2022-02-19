@@ -1,0 +1,224 @@
+.class-progress-list {
+    margin-top: 32px;
+    .content-title {
+        color: #363436;
+        font-family: "Proxima Nova W05 Bold";
+        font-size: calc(18px + .1042vw);
+        line-height: 18px;
+        width: -webkit-max-content;
+        width: max-content;
+        margin-bottom: 24px;
+        padding-bottom: 8px;
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            width: 100%;
+            background-color: #FF6600;
+            height: 4px;
+            border-radius: 16px;
+        }
+    }
+    .back-btn {
+        margin-right: 16px;
+        cursor: pointer;
+    }
+    .actions-row {
+        margin-bottom: 2.192%;
+        .rows-per-page {
+            margin-right: 0 !important;
+        }
+        .filter-btn {
+            height: 36px;
+            font-family: "Proxima Nova W05 Regular";
+            border: unset;
+            border-radius: 4px;
+            background: #fff;
+            box-shadow: none;
+            width: 100px;
+            &:hover {
+                color: #FF6600;
+                background: #F7F8F9;
+            }
+        }
+        .filter-btn::after {
+            width: 7px;
+            height: 7px;
+            content: "";
+            background-image: url("../../../../../assets/images/icons/icon-dropdown.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        .filter-btn.show::after {
+            transform: rotate(180deg);
+        }
+    }
+    
+    ::ng-deep .progress-list-view-datatable {
+        ngx-datatable .datatable-header {
+            border-top-left-radius: 8px !important;
+            border-top-right-radius: 8px !important;
+            .datatable-header-cell {
+                padding: 16px 10px 16px 24px;
+                &:nth-child(1) {
+                    width: 10% !important;
+                }
+                &:nth-child(2) {
+                    width: 18% !important;
+                }
+                &:nth-child(3) {
+                    width: 18% !important;
+                }
+                &:nth-child(4), &:nth-child(5) {
+                    width: 18% !important;
+                    .datatable-header-cell-template-wrap {     
+                        margin: 0 auto;
+                    }
+                }
+                &:nth-child(6) {
+                    width: 18% !important;
+                }
+                
+                .datatable-header-cell-label {
+                    font-size: 16px !important;
+                }
+       
+                .sort-btn{
+                    position: absolute;
+                    top:50%;
+                    transform: translateY(-50%);
+                    -webkit-transform: translateY(-50%);
+                    -o-transform: translateY(-50%);
+                    
+                    &::before{
+                      position: absolute;
+                      content: "";
+                      background-image: url('../../../../../assets/images/icons/discussion-forum/sort-arrows.svg');
+                      width: 22px;
+                      height: 12px;
+                      right:-25px;
+                      display: block;
+                      top:-5px;
+                    }
+                    &.sort-asc{
+                      &::before{
+                        background-image: url('../../../../../assets/images/icons/discussion-forum/sort-arrows-active.svg');
+                      }
+                    }
+                  }
+            }
+        }
+        ngx-datatable .datatable-body {
+            border-bottom-left-radius: 8px !important;
+            border-bottom-right-radius: 8px !important;
+            .datatable-row-wrapper {
+                height: 84px;
+                datatable-body-cell {
+                    &:nth-child(1) {
+                        width: 10% !important;
+                    }
+                    &:nth-child(2) {
+                        width: 18% !important;
+                    }
+                    &:nth-child(3) {
+                        width: 18% !important;
+                    }
+                    &:nth-child(6) {
+                        width: 18% !important;
+                    }
+                    &:nth-child(4), &:nth-child(5) {
+                        text-align: center;
+                        width: 18% !important;
+                    }
+                    .datatable-body-cell-label {
+                        font-size: 16px !important;
+                        line-height: 24px !important;
+                    }
+                    .learner-profile-img {
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 8px;
+                        display: inline-block;
+                    }
+                    .learner-name {
+                        margin-left: 8px;
+                    }
+                    .status-percentage {
+                        font-size: 12px;
+                        line-height: 15px;
+                        color: #777777;
+                    }
+                    .mat-progress-bar {
+                        border-radius: 2px;
+                        .mat-progress-bar-fill {
+                            &::after {
+                                border-radius: 2px;
+                            }
+                        }
+                        .mat-progress-bar-buffer {
+                            background-color: #E7E7E7;
+                        }
+                    }
+                    
+                    .progress-bar-green {
+                        .mat-progress-bar-fill {
+                            &::after {
+                                background-color: #0BA900;
+                            }
+                        }
+                    }
+                    .progress-bar-orange {
+                        .mat-progress-bar-fill {
+                            &::after {
+                                background-color: #FF7600;
+                            }
+                        }
+                    }
+                    .progress-bar-red {
+                        .mat-progress-bar-fill {
+                            &::after {
+                                background-color: #FF0000;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+        .page-count {
+            display: none;
+        }
+        .pager {
+            li.pages {
+                width: 32px;
+                height: 32px;
+                border-radius: 4px;
+                background: #F5F6FA;
+                a {
+                    color: #555555cc;
+                    display: flex !important;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                }
+            }
+            .pages.active {
+                background: #FF6600;
+                a {
+                    color: #fff;
+                }
+                &:hover {
+                    a {
+                        color: #fff !important;
+                    }
+                }
+            }
+        }
+    }   
+}
+

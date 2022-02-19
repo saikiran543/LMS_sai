@@ -1,0 +1,89 @@
+<div class="recurrence-block">
+    <div class="recurrence-header">
+        <div class="row">
+            <div class="col-10 col-md-10 col-lg-10">
+                <h3 translate="selfTask.creationAndManipulation.repeat"></h3>
+            </div>
+            <div class="col-2 col-md-2 col-lg-2">
+                <span><svg-icon src="./../../../assets/images/icons/calendar/close.svg" (click)="closeRecurrence(false)"></svg-icon></span>
+            </div>
+        </div>
+    </div>
+    <div class="recurrence-content" *ngIf="showRecurrenceForm">
+        <form [formGroup]="params.recurrenceForm">
+            <div class="row">
+                <div class="form-group col-12 col-md-12 col-lg-12">
+                    <label class="form-label" translate="selfTask.creationAndManipulation.startDate"></label>
+                    <div class="position-relative recurrenceFormDatePicker">
+                        <app-date-time-picker className="recurrence-start-time-picker" id="101" (dateTimeEmitter)="dateTimeEmitter($event, 'dtstart')" [defaultDisplayValue]="params.recurrenceForm.value.dtstart"></app-date-time-picker>
+
+                    </div>
+                  </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-12 col-md-12 col-lg-12">
+                    <div class="repeat-block">
+                        <span class="repeater-icon"><svg-icon src="./../../../assets/images/icons/calendar/repeat.svg"></svg-icon></span>
+                        <span translate="selfTask.creationAndManipulation.repeatEvery"></span>
+                        <span class="day-option">
+                            <select formControlName="interval">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                           </span>
+                        <span class="week-option">
+                            <select  formControlName="freq" (change)="changeFreq()">
+                                <option value="3"  translate="selfTask.creationAndManipulation.recurrence.daily"></option>
+                                <option value="2"  translate="selfTask.creationAndManipulation.recurrence.weekly"></option>
+                                <option value="1"  translate="selfTask.creationAndManipulation.recurrence.monthly"></option>
+                            </select>
+                            <svg-icon src="./../../../assets/images/icons/calendar/calendar-dropdown.svg"></svg-icon>
+                        </span> 
+                    </div>
+                    <div class="week-block" *ngIf="params.recurrenceForm.value.freq == 2">                    
+
+                        <div class="week-radio-button" [ngClass]="{'customSelected' : isSelected(day)}" *ngFor="let day of weekDays">
+                            <input type="checkbox" [id]="day"  (click)="byWeekDayRecurrence($event,day)">
+                            <label for="{{day}}">{{day}}</label>
+                        </div> 
+                    </div>
+                    <div class="monthly-block" *ngIf="params.recurrenceForm.value.freq == 1">
+                        <div class="monthly-inner">
+                            <label class="custome-radiobutton">
+                                <input type="radio" name="type" checked="true" (click)="deleteAndCreateControlForMonthView('date')">
+                                <span class="checkmark"></span>
+                                <span><em style="font-style: normal;" translate="selfTask.creationAndManipulation.onDay"></em> {{params.recurrenceForm.value?.dtstart?.date()}}</span>
+                            </label>
+                        </div>
+                        <div class="monthly-inner">
+                            <label class="custome-radiobutton">
+                                <input type="radio" name="type" (click)="deleteAndCreateControlForMonthView('day')">
+                                <span class="checkmark"></span>
+                                <span>{{textForWeekDays()}}</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-12 col-md-12 col-lg-12">
+                    <div class="ocular-block">
+                        <div class="ocular-date">
+                            <span translate="selfTask.creationAndManipulation.occursEveryDayUntil"></span>
+                            <app-date-time-picker className="recurrence-end-time-picker"  (dateTimeEmitter)="dateTimeEmitter($event, 'until')" [defaultDisplayValue]="params.recurrenceForm.value.until"></app-date-time-picker>
+                        </div>
+                        <div class="ocular-inner">
+                            <span (click)="removeRecurrenceEndDate()" translate="selfTask.creationAndManipulation.removeEndDate"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-builder-modal-footer text-end">
+                <button class="no-btn" (click)="closeRecurrence(false)" translate="selfTask.creationAndManipulation.buttons.cancel"></button>
+                <button class="yes-btn" (click)="saveRecurrence(true)" translate="selfTask.creationAndManipulation.buttons.save"></button>
+            </div>
+        </form>
+    </div>
+</div>

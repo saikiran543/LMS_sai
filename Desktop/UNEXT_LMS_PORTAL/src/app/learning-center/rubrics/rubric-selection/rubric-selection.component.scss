@@ -1,0 +1,71 @@
+#rubric-selection{
+    height: 100%;
+  }
+.input-group {
+    width: 20.8333vw;
+}
+.btn-primary {
+    background-color: #FF6600 !important;
+    border-color: #FF6600 !important;
+    border-radius: 0px 4px 4px 0px!important;
+    height: 46px;
+    min-height: 40px;
+}
+.attach-rubric {
+    min-width: 130px;
+    width: 6.8vw;
+    height: 36px;
+    background: #FF6600 0% 0% no-repeat padding-box;
+    border: none;
+    border-radius: 4px;
+    opacity: 1;
+    color: #fff;
+    font-size: 16px;
+    align-items: center;
+}
+.nav-tabs {
+    li {
+        margin-right: 2.71vw;
+        .nav-link  {
+            background: 0 0;
+            border: 1px solid transparent;
+            border-top-left-radius: .25rem;
+            border-top-right-radius: .25rem;
+            border: 0px;
+            color: #AAAAAA;
+            padding: 0px;
+        }
+        .nav-link.active {
+            border-color: transparent; 
+            color: #000;
+            background-color: #fff;
+            border-bottom: 3px solid #FF6600;
+            font-size: 16px;
+            font-family: "Proxima Nova W05 Bold";
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    
+  }
+  .empty-rubrics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    p {
+        margin-top: 3.416vh;
+        margin-bottom: 0;
+        font-size: calc(18px + 0.315vw);
+        font-weight: 600;
+        color: #000000;
+    }
+  }
+  ::ng-deep .modal-dialog {
+    .modal-content {
+     border-radius: 4px !important;
+     border: none !important;
+   }
+ }

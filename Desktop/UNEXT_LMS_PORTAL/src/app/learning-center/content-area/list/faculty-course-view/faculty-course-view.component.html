@@ -1,0 +1,178 @@
+<div class="base-tree-container" id="faculty-course-view-con">
+  <div class="tree-header">
+    <div class="tree-column tree-header-column"><span></span></div>
+    <div class="tree-column tree-header-column"><span translate="admin.learningCenter.title"></span></div>
+    <div class="tree-column tree-header-column"><span translate="admin.learningCenter.createdDate"></span></div>
+    <div class="tree-column tree-header-column"><span translate="admin.learningCenter.status"></span></div>
+    <div class="tree-column tree-header-column"><span></span></div>
+  </div>
+  <mat-tree id="faculty-course-view-tree-con" *ngIf="dataSource" [dataSource]="dataSource" [treeControl]="treeControl">
+    <mat-tree-node
+    *matTreeNodeDef="let node"
+    matTreeNodeToggle
+    [ngClass]="{
+      'drop-above': dragNodeExpandOverArea === 'above' && dragNodeExpandOverNode === node,
+      'drop-below': dragNodeExpandOverArea === 'below' && dragNodeExpandOverNode === node,
+      'drop-center': dragNodeExpandOverArea === 'center' && dragNodeExpandOverNode === node}"
+      draggable="true"
+      (dragstart)="handleDragStart($event, node);"
+      (dragover)="handleDragOver($event, node);"
+      (drop)="handleDrop($event, node);"
+      (dragend)="handleDragEnd($event);"
+    id="node_{{node._id}}">
+    <!-- <div class="" style="position: absolute; left:0px;">asdfsad</div> -->
+    <div class="tree-column-wrapper">
+      <div class="tree-column tree-column-first" >
+        <img src="assets/images/icons/content-builder/icon-draganddrop.svg">
+      </div>
+      <div class="tree-column"  [ngStyle]="applyStyles(node)">
+       
+        <span class=" mr12">
+          <img class="mr8" src="assets/images/icons/content-builder/icon-nothingtoexpand.svg">
+          <img [ngClass]="{'content-icon':node.type!='unit'&&node.type!='folder'}" src="assets/images/icons/content-builder/icon-{{getNodeIconType(node)}}-hover.svg">
+        </span>
+        <div
+        class="checklist-leaf-node title">
+        <div class="d-flex align-items-start">
+          <div class="cursor-pointer me-2 content-header-txt"(click)="clickNode(node)">
+            {{node.name}}
+          </div>
+          <img *ngIf="node.isBookMarked" src="/assets/images/icons/toc/icon-color-bookmark.svg" class="cursor-pointer" (click)="toggleBookmark(node)" />
+        </div>
+          
+          <div class="list-badges mt8">
+            <div class="list-badge">
+              <div class="cursor-pointer"> <img src="assets/images/icons/content-builder/icon-visibilitycriteria.svg"> <span class="adjust-iconTxt" translate="admin.learningCenter.visibilityCriteria"></span></div>
+              <div class="more-info" [ngClass]="{'active-text': moreInfo===node.name}" (click)="toggleMoreInfo(node)" translate="admin.learningCenter.moreInfo"> <img
+                src="assets/images/icons/content-builder/icon-dropdown.svg"></div>            
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tree-column">{{node.createdOn| date:'dd MMM yyyy'}}</div>
+      <div class="tree-column"> 
+        <div class="layout layout-item-flex-start">
+          <label class="form-label mr16 mb-0" [ngClass]="{'draft-node': node.status === 'draft' }">{{node.status | titlecase}}</label>
+          <div class="form-check form-switch" (click)="togglePublish(node)">
+            <input *ngIf="node.status !== 'draft'"  class="form-check-input" [checked]="node.status==='published'?true:null" type="checkbox" id="flexSwitchCheckDefault">
+            <span class="circle-switch d-inline-block"></span>
+          </div>
+        </div>
+      </div>
+      <div class="tree-column tree-column-last" (click)="$event.stopPropagation()" >
+        <span class="layout layout-item-center layout-justify-space-between dropdown-toggle"  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="assets/images/icons/content-builder/icon-ellipses.svg">
+        </span>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li *ngFor="let item of ContextMenuOperation"  >
+
+            <a *ngIf="item.conditionFunc?displayContextMenuItem(item.event,node):true" class="dropdown-item" (click)="treeOperations(item.event,node)">
+              <img [src]="'assets/images/icons/content-builder/'+item.icon+'.svg'">
+              {{item.name}}
+            </a>
+          </li>
+          </ul>
+      </div>
+    </div>
+    <div [ngStyle]="applyStylesForMoreInfo(node)" *ngIf="moreInfo===node.name" class="more-info-container">
+      <div class="layout layout-item-center">
+        <div [innerHTML]="description" class="description-text" [ngClass]="{'active': viewMore}" (click)="clickNode(node)"> </div>
+        <!-- <p *ngIf="viewMore">...<a (click)="clickNode(node)"> View More</a></p> -->
+      </div>
+      <div class="last-accessed" *ngIf="lastAccessedTime"><span>Last accessed on:</span>
+        <span>{{lastAccessedTime}}</span></div>
+    </div>
+  </mat-tree-node>
+
+  
+  <mat-tree-node *matTreeNodeDef="
+  let node; when: hasChild"  
+  id="node_{{node._id}}"
+  [ngClass]="{
+    'drop-above': dragNodeExpandOverArea === 'above' && dragNodeExpandOverNode === node,
+    'drop-below': dragNodeExpandOverArea === 'below' && dragNodeExpandOverNode === node,
+    'drop-center': dragNodeExpandOverArea === 'center' && dragNodeExpandOverNode === node}"
+    draggable="true"
+    (dragstart)="handleDragStart($event, node);"
+    (dragover)="handleDragOver($event, node);"
+    (drop)="handleDrop($event, node);"
+    (dragend)="handleDragEnd($event);"
+    (change)="todoItemSelectionToggle(node)"
+  >
+
+    
+    <div class="tree-column-wrapper">
+      <div class="tree-column tree-column-first">
+        <img src="assets/images/icons/content-builder/icon-draganddrop.svg">
+      </div>
+      <div class="tree-column"  [ngStyle]="applyStyles(node)">
+        <div
+        mat-icon-button
+        matTreeNodeToggle
+        [attr.aria-label]="'toggle ' + node.filename">
+        <div class="cursor-pointer">
+          <img [src]="treeControl.isExpanded(node) ? 'assets/images/icons/content-builder/icon-collapse.svg' : 'assets/images/icons/content-builder/icon-expand.svg'" >
+        </div>
+      </div> 
+      <span class="ml8 mr12" [ngClass]="{'content-icon':node.type!='unit'&&node.type!='folder'}">
+        <img src="assets/images/icons/content-builder/icon-{{getNodeIconType(node)}}-hover.svg">
+      </span>
+    <div class="title">
+      <div class="d-flex align-items-start">
+        <div class="cursor-pointer me-2 content-header-txt" (click)="clickNode(node)">
+          {{node.name}}
+        </div>
+        <img *ngIf="node.isBookMarked" src="/assets/images/icons/toc/icon-color-bookmark.svg" class="cursor-pointer" (click)="toggleBookmark(node)" /> 
+      </div>
+       
+      <div class="list-badges mt8">
+        <div class="list-badge">
+          <div class="cursor-pointer"> <img src="assets/images/icons/content-builder/icon-visibilitycriteria.svg"><span class="adjust-iconTxt" translate="admin.learningCenter.visibilityCriteria"></span></div>
+          <div *ngIf="node.unPublishedContent"> <img src="assets/images/icons/content-builder/icon-unpublishedcontent.svg" ><span class="adjust-iconTxt"  translate="admin.learningCenter.unpublishedContent"></span></div>
+          <div class="more-info" [ngClass]="{'active-text': moreInfo===node.name}" (click)="toggleMoreInfo(node)" translate="admin.learningCenter.moreInfo"> <img
+            src="assets/images/icons/content-builder/icon-dropdown.svg"></div>      
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="tree-column">{{node.createdOn| date:'dd MMM yyyy'}}</div>
+  <div class="tree-column"> 
+    <div class="layout layout-item-flex-start">
+      <label class="form-label mr16 mb-0" [ngClass]="{'draft-node': node.status === 'draft' }">{{node.status | titlecase}} </label>
+      <div class="form-check form-switch" (click)="togglePublish(node)">
+        <input *ngIf="node.status !== 'draft'" class="form-check-input" [checked]="node.status==='published'?true:null" type="checkbox" id="flexSwitchCheckDefault">
+        <span class="circle-switch d-inline-block"></span>
+      </div>
+    </div>
+  </div>
+  <div class="tree-column tree-column-last" (click)="$event.stopPropagation()">
+    <span class="layout layout-item-center layout-justify-space-between dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="assets/images/icons/content-builder/icon-ellipses.svg">
+    </span>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+      <li   *ngFor="let item of ContextMenuOperation" >
+        <a *ngIf="item.conditionFunc?displayContextMenuItem(item.event,node):true" class="dropdown-item" (click)="treeOperations(item.event,node)">
+          <img class="mr8" [src]="'assets/images/icons/content-builder/'+item.icon+'.svg'">
+          {{item.name}}
+        </a>
+      </li>
+      </ul>
+  </div>
+</div>
+<div [ngStyle]="applyStylesForMoreInfo(node)" *ngIf="moreInfo===node.name" class="more-info-container">
+  <div class="layout layout-item-center">
+    <div [innerHTML]="description" class="description-text" [ngClass]="{'active': viewMore}" (click)="clickNode(node)"> </div>
+    <!-- <p *ngIf="viewMore">...<a (click)="clickNode(node)"> View More</a></p> -->
+  </div>
+  <div class="last-accessed" *ngIf="lastAccessedTime"><span>Last accessed on:</span>
+    <span>{{lastAccessedTime}}</span></div>
+</div>
+</mat-tree-node>
+</mat-tree>
+
+<span #emptyItem></span>
+</div>
+
+
+

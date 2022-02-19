@@ -1,0 +1,63 @@
+<div class="rubricEvaluation" *ngIf='rubricData'>
+    <div class="layout layout-justify-space-between rubricHeader">
+        <span>Rubric</span>
+        <span (click)="triggerEvaluationInstructionModal()">i</span>
+    </div>
+    
+    <div class="rubricToggle-container">
+        <div class="rubricToggle layout layout-justify-space-between collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <span>{{rubricData.title}}</span> 
+            <span><img class="collapseImg" src="assets/images/icons/toc/back.svg"></span>
+            <!-- <span><img class="collapseImg" src="./../../../../../assets/images/icons/rubric/icon-e"></span> -->
+        </div>
+        
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <div class="criteria">
+                    <label class="form-label">Criteria</label>
+                    <div class="level-container" *ngFor='let criteria of criterias let index = index;'>
+                        <div class="criteria-header layout layout-justify-space-between">
+                            <span>Number of Levels</span> <span>weightage {{criteria.weightage}}</span>
+                        </div>
+                        <div class="slider-container">
+                            <span  [ngClass]='{"disabled": !criteria.showRightArrow}'class="prev-btn" (click)="scrollRight(criteria)">
+                                <img src="assets/images/icons/rubric/icon-nxt.svg"></span> 
+                            <div class="slider-elements" *ngFor='let key of criteria.levelNumbers let i = index;'>
+                                <div class="slider" *ngIf='i < innerWidth' [ngStyle]="criteria.selectedLevel === key.levelNumber?{'border': '1px solid #FF6600'}:{}">
+                                    <span class="level-element" (click)="onLevelChange(criteria, key, i)"><p>{{key.levelNumber}}</p></span> 
+                                </div>
+                            </div>
+                            <span [ngClass]='{"disabled": !criteria.showLeftArrow}' class="nxt-btn" (click)="scrollLeft(criteria)">   
+                                    <img src="assets/images/icons/rubric/icon-prev.svg"> 
+                                </span>
+                        </div>
+                        
+                        <div class="questionAnswer">
+                            {{criteria.levels['L' + (index + 1)].description}}
+                        </div>
+                        
+                        <div class="levelAndScore layout layout-justify-space-between">
+                            <span class="level">Level {{criteria.selectedLevel}}/{{levelKeys.length}} ({{criteria.selectedLevelPercentage}}%)</span>
+                            <span class="score">Score
+                                <span>
+                                    <input type="text" [ngClass]='{"error": criteria.selectedLevel === null}' (change)="totalScoreCalculation($event, index)" value="{{criteria.score}}">
+                                </span>
+                                <span>/{{criteria.weightage}}</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="totalScore">
+        <span>Total Score:</span><span> {{totalSum}} /</span><span>100</span>
+    </div>
+    
+    <div class="form-group rubric-check-editor">
+        <label class="form-label">Overall Feedback:</label>
+        <app-ckeditor id="discussion-forum-evalution-page-rubrics-feedback" [ckeditorFormControl]="feedback"></app-ckeditor>
+    </div>
+    
+</div>

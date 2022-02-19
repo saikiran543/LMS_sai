@@ -1,0 +1,163 @@
+<div class="content-player-container" id="epub-con">
+  <div class="player-content mb24">
+    <div class="player player-audio epub-player" [ngClass]="{'fullscreen-mode': isFullScreen}">
+
+
+      <div [ngClass]="!showHeaderFooter?'hide-footer':'show-footer'" id="epub-showHeaderFooter-con"
+        class="player-header row m-0" (mouseover)="showHideToolBars(true)" (mouseout)="showHideToolBars(false)">
+        <div class="col-2 col-sm-2 col-md-2 col-lg-4 px-0 empty-container">
+          <a class="cursor-pointer mr-0" id="sidebarToggle" (click)="toggleEpubMenu()"><img
+              src="assets/images/icons/content-player/hamburger.svg"></a>
+        </div>
+        <div class="col-3 col-sm-3 col-md-5 col-lg-4 text-center zoom-btn">
+          <button (click)="zoom('negative')" id="epub-zoom-negative" [disabled]="zoomValue === 25"><img
+              src="assets/images/icons/content-player/icon-zoom-out.svg" /></button>
+          <span class="zoom-percentage">{{zoomValue}}%</span>
+          <button (click)="zoom('positive')" id="epub-zoom-positive" [disabled]="zoomValue === 200"><img
+              src="assets/images/icons/content-player/icon-zoom-in.svg" /></button>
+        </div>
+        <div class="col-7 col-sm-7 col-md-5 col-lg-4 px-0 layout layout-item-center layout-item-end flex-sm-wrap button-container">
+          <button class="download-btn" id="epub-download-btn" *ngIf="elementData?.allowDownload"
+          (click)="downloadFile()"><img src="assets/images/icons/content-player/icon-download.svg">
+          <div>Download</div>
+        </button>
+          <button class="bookmark-btn" id="epub-bookmark-btn" (click)="toggleBookmark()">
+            <img *ngIf="bookmarked; else unBookmarkedState"
+              src="assets/images/icons/content-player/icon-bookmark-filled.svg" />
+            <ng-template #unBookmarkedState>
+              <img src="assets/images/icons/content-player/icon-bookmark.svg">
+            </ng-template>
+            <div translate="admin.learningCenter.bookmark"></div>
+          </button>
+          <button class="prev-btn" mat-raised-button #tooltip="matTooltip"
+            [matTooltip]="elementData?.previousElement !== null ? elementData?.previousElement.title : ''"
+            [matTooltipPosition]="position.value"
+            aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+            (click)="getPreviousElement()" id="epub-getPreviousElement"
+            [disabled]="!elementData?.previousElement">Prev</button>
+          <button class="next-btn" mat-raised-button #tooltip="matTooltip"
+            [matTooltip]="elementData?.nextElement != null ? elementData?.nextElement.title : ''"
+            [matTooltipPosition]="position.value"
+            aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+            (click)="getNextElement()" id="epub-getNextElement" [disabled]="!elementData?.nextElement">Next</button>
+        </div>
+      </div>
+
+      <div class="epub-holder" id="epub-holder" (mouseover)="showHideToolBars(true)"
+        (mouseout)="showHideToolBars(false)">
+        <div class="epub-left-nav" *ngIf="epubToc">
+          <div class="epub-left-nav-toc">
+            <span class="epub-title"><img src="/assets/images/icons/content-builder/icon-folder-hover.svg">
+              {{bookTitle}}</span>
+            <ol *ngFor="let toc of EpubTocContent" class="epub-content-element">
+              <li style="cursor: pointer" (click)="goToEpubLoc((toc.cfi != '') ? toc.cfi : toc.href)"> {{toc.label}}
+              </li>
+              <li *ngFor="let subC of toc.subitems" style="cursor: pointer"
+                (click)="goToEpubLoc((subC.cfi != '') ? subC.cfi : subC.href)">{{subC.label}}</li>
+            </ol>
+          </div>
+        </div>
+        <div #epubHolder class="epubViewer">
+          <angular-epub-viewer id="epub-viewer-con" #epubViewer height="602px"
+            (onPaginationComputed)="pageComputation($event)" (onTOCLoaded)="tocEvent($event)"
+            (onDocumentReady)="epubDocLoaded()" (onChapterDisplayed)="chapterLoaded()"
+            (onLocationFound)="located($event)" class="angular-epub-viewer" [autoPagination]='true'>
+          </angular-epub-viewer>
+        </div>
+      </div>
+      <div [ngClass]="!showHeaderFooter?'hide-footer':'show-footer'" class="player-footer row m-0"
+        (mouseover)="showHideToolBars(true)" (mouseout)="showHideToolBars(false)">
+        <div class="col-4 col-sm-4 col-md-4 col-lg-4 px-0"></div>
+        <div class="col-4 col-sm-4 col-md-4 col-lg-4 text-center">
+          <nav aria-label="pagination" class="text-center">
+            <ul id="epub-viewer-pagination" class="pagination justify-content-center mb-0">
+              <li id="previous" class="page-item" [ngClass]="{
+                  'disabled': currentPage == 1
+                }" (click)="epubViewer.previousPage()">
+                <a class="page-link" aria-label="Previous">
+                  <img src="assets/images/icons/chevron-left-gray.svg">
+                </a>
+              </li>
+
+              <li class="page-item d-flex align-items-center page-no"><a>{{currentPage}}</a> <span>/</span>
+                <a>{{totalPages}}</a>
+              </li>
+              <li id="next" class="page-item" [ngClass]="{
+                  'disabled': pageNumber == totalPages
+                }" (click)="epubViewer.nextPage()">
+                <a class="page-link" aria-label="Next">
+                  <img src="assets/images/icons/chevron-left-gray.svg">
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col-4 col-sm-4 col-md-4 col-lg-4 px-0 layout layout-item-center layout-item-end flex-sm-wrap">
+          <button class="rotate-btn" id="epub-rotate-btn"><img src="assets/images/icons/content-player/icon-rotate.svg"
+              (click)="rotate()">
+            <div>Rotate</div>
+          </button>
+          <button class="fit-btn" id="epub-fit-btn" *ngIf="!isFullScreen" (click)="toggleToWidth()">
+            <img
+              [src]="fitToWidth ? 'assets/images/icons/content-player/icon-fit-to-width.svg ' : 'assets/images/icons/content-player/icon-exit-fit-to-width.svg'">
+            <div>{{fitToWidth ? 'Fit to Width ' : 'Default View'}}</div>
+          </button>
+          <button class="fullscreen-btn" id="epub-fullScreen-btn" (click)="fullScreen()"><img
+              [src]="isFullScreen ? 'assets/images/icons/content-player/icon-exit-full-screen.svg' : 'assets/images/icons/content-player/icon-fullscreen.svg'">
+            <div>{{isFullScreen ? 'Exit Full Screen' : 'Full Screen'}}</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-player-tab">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" [ngClass]="{'show active': activeTab === 'overview'}" id="overview-tab"
+          data-bs-toggle="tab" data-bs-target="#overview" type="button" (click)="changeTab('overview')" role="tab"
+          aria-controls="overview" aria-selected="true" translate="admin.learningCenter.overview"></button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" [ngClass]="{'show active': activeTab === 'notes'}" id="createNote-tab"
+          data-bs-toggle="tab" data-bs-target="#createNote" type="button" (click)="changeTab('notes')" role="tab"
+          aria-controls="createNote" aria-selected="false" translate="admin.learningCenter.notes"></button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="qna-tab" data-bs-toggle="tab" data-bs-target="#shared" type="button" role="tab"
+          (click)="changeTab('shared')" aria-controls="shared" aria-selected="false" translate="admin.learningCenter.qA"
+          [routerLink]="['qna']" routerLinkActive="active" queryParamsHandling="preserve"></button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="rating-tab" data-bs-toggle="tab" data-bs-target="#shared" type="button"
+          (click)="changeTab('shared')" role="tab" aria-controls="shared" aria-selected="false"
+          translate="admin.learningCenter.rating" [routerLink]="['ratings']" routerLinkActive="active"
+          queryParamsHandling="preserve"></button>
+      </li>
+    </ul>
+    <div class="tab-content mt24" id="myTabContent">
+      <div class="tab-pane fade" [ngClass]="{'show active': activeTab === 'overview'}" id="overview" role="tabpanel"
+        aria-labelledby="overview-tab">
+        <div class="course-overview">
+          <div class="course-overview-title">
+            {{elementData?.title}}
+          </div>
+          <div class="course-overview-description">
+            <p [innerHtml]="elementData?.description | safe: 'html'"></p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" [ngClass]="{'show active': activeTab === 'notes'}" id="createNote" role="tabpanel"
+        aria-labelledby="createNote-tab">
+        <app-notes-right-pane
+          [configurationOfNotes]='{isCreateNotesRequired : true, relatedNotesDashboard: false, contentPlayerView: true, contentPlayerRelatedNotes: true, type: contentTypes.EPUB, height: "auto"}'>
+        </app-notes-right-pane>
+      </div>
+      <div class="tab-pane fade" id="notes" role="tabpanel" aria-labelledby="notes-tab">..pr.</div>
+      <div class="tab-pane fade" [ngClass]="{'show active': activeTab === 'shared'}" id="shared" role="tabpanel"
+        aria-labelledby="shared-tab">
+        <router-outlet (activate)="onRouterActivate($event)"></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

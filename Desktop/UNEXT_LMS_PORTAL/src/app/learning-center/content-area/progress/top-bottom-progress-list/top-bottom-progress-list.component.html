@@ -1,0 +1,23 @@
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link" [ngClass]="{'active': listType === 'top'}" type="button" role="tab" aria-controls="top" aria-selected="true" (click)="clickEvent('top')" translate="admin.progress.Top"></button>
+        <button class="nav-link" [ngClass]="{'active': listType === 'bottom'}" type="button" role="tab" aria-controls="bottom" aria-selected="false" (click)="clickEvent('bottom')" translate="admin.progress.Bottom"></button>
+    </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="top" role="tabpanel">
+        
+        <div>
+            <div class="student-list layout layout-item-center layout-justify-space-between" *ngFor="let details of studentList">
+                <div class="layout layout-item-center">
+                    <span class="student-profile-img"><img src="\assets\images\icons\progress\icon-profile.svg"></span>
+                    <span class="student-details" [matTooltip]='details.userName' matTooltipPosition="above">{{details.userName}}</span>
+                </div>
+                <h6>{{details.progress}}%</h6>
+            </div>
+        </div>
+        <div class="text-end" *ngIf="studentList.length > 0" (click)="onClick()"> 
+            <a translate="admin.progress.ViewAll"></a>
+        </div>
+    </div>
+</div>

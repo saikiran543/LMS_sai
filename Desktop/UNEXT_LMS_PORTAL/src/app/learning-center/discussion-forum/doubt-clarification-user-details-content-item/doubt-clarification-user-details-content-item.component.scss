@@ -1,0 +1,116 @@
+.relatedDoubts {
+  border: 1px solid #cfdae6;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  padding: 16px 24px;
+}
+
+.breadcrumb-doubts {
+  font-size: 0.8rem;
+  color: #555555cc;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.info-image {
+  float: left;
+  margin-top: 5px;
+}
+.content-type-image {
+  width: 20px;
+  margin-left: 15px;
+  float: left;
+  margin-right: 15px;
+}
+.relatedDoubts .content-header {
+  font-size: 16px;
+  font-weight: 600;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+  padding-top: 24px !important;
+  border-top: 1px solid #cfdae6;
+  margin-top: 16px;
+}
+span.show {
+  padding-top: 0px !important;
+  border-top: 0px solid #cfdae6;
+  margin-top: 0px;
+}
+.tab-content .show {
+  border-top: 0px;
+}
+.arrow-down {
+  width: 21px;
+  height: 12px;
+  transform: rotate(270deg);
+  cursor: pointer;
+}
+.arrow-up {
+  width: 21px;
+  height: 12px;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+.border-color {
+  border-color: #ff6600;
+}
+#page_back_btn {
+  margin-right: 1.25vw;
+  cursor: pointer;
+}
+.userNameTxt {
+  font-size: calc(16px + 0.1042vw);
+  color: #000;
+  font-weight: 600;
+}
+.question-notifications {
+  span {
+    font-size: 12px;
+    line-height: 15px;
+    color: #707070;
+    padding-left: 0px !important;
+    white-space: nowrap;
+  }
+}
+
+.questionAndAnswerstab  {
+  .tab-pane {
+    margin-top: 0px !important;
+    padding-top: 4.054% !important;
+  }
+}
+::ng-deep .userQuestionThread {
+  border-bottom: 1px solid #cfdae6;
+  margin-bottom: 16px;
+  &:last-child {
+    border-bottom: 0px;
+    margin-bottom: 0px;
+  }
+  ul {
+    li {
+      padding: 0px !important;
+    }
+  }
+}
+.empty-discussion-forum-img-con {
+  padding: 7% 0;
+  h4 {
+    font-family: "Proxima Nova W05 Bold";
+    font-size: calc(18px + 0.315vw);
+    margin-top: 12px;
+    margin-bottom: 0px;
+  }
+}
+
+.overflowing-wrapper {
+  max-height: 350px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+::ng-deep .tab-content .tab-pane .user-threads .question-container ul.question-item-info {
+  margin-left: 56px;
+}

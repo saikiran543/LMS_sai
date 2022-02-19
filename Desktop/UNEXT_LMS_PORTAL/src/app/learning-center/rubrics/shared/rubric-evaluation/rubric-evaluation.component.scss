@@ -1,0 +1,188 @@
+@import "~src/variables";
+.rubricEvaluation {
+    .rubricHeader {
+        margin-bottom: 8px;
+        span {
+            &:first-child {
+                color: #000;
+                font-size: 18px;
+                line-height: 23px;
+                font-family: "Proxima Nova W05 Bold";
+            }
+            &:last-child {
+                cursor: pointer;
+                font-style: italic;
+                font-size: 16px;
+                font-weight: bold;
+                color: #fff;
+                width: 20px;
+                height: 20px;
+                background: #4FA8FF 0% 0% no-repeat padding-box;
+                border-radius: 64px;
+                text-align: center;
+                margin-left: 8px;
+                line-height: 11px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+    .rubricToggle {
+        max-height: 64px;
+        background: #FFFFFF;
+        border: 1px solid #CFDAE6;
+        border-radius: 8px;
+        opacity: 1;
+        display: flex;
+        align-items: center;
+        padding: 3.625%;
+        span {
+            letter-spacing: 0.16px;
+            color: #000000;
+            font-size: 16px;
+            line-height: 19px;
+            font-family: "Proxima Nova W05 Bold";
+        }
+        
+    }
+    .rubricToggle {
+        .collapseImg {
+            width: 21px;
+            height: 12px;
+            transform: rotate( 
+        90deg);
+        }
+    }
+    .rubricToggle.collapsed {
+        .collapseImg {
+            transform: rotate(
+            -90deg);
+        }
+    }
+    .totalScore {
+        height: 48px;
+        background: #FFF2E9;
+        border-radius: 8px;
+        opacity: 1;
+        display: flex;
+        align-items: center;
+        padding: 3.625%;
+        font-family: "Proxima Nova W05 Bold";
+        margin: 4.35% 0%;
+        span {
+            &:nth-child(2) {
+                color: #ff6600;
+                margin-right: 4px;
+                margin-left: 8px;
+            }
+        }
+    }
+}
+::ng-deep .card {
+    border: 0px !important;
+    .criteria {
+        .criteria-header {
+            font-size: 16px;
+            line-height: 19px;
+            color: #000;
+            margin-bottom: 14px;
+        }
+        .levelAndScore {
+            font-size: 14px;
+            color: #000; 
+            .score {
+                span {
+                    input[type="text"] {
+                        border-radius: 8px;
+                        width: 50px;
+                        border: 1px solid #ddd;
+                        margin: 0px 8px;
+                    }
+                    input.error{
+                        border-color: #FF6600 !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.level-container {
+    border-bottom: 1px solid #CFDAE6;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    .slider-container {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        flex-direction: row-reverse;
+        .slider-elements {
+            display: flex;
+            flex-wrap: nowrap;
+            .slider {
+                width: 132px;
+                height: 100px;
+                background: #FFFFFF;
+                border: 1px solid #CFDAE6;
+                border-radius: 8px;
+                opacity: 1;
+                margin: 0px 4px;
+                align-items: center;
+                justify-content: center;
+                display: inline-flex;
+                    span {
+                        width: 54px;
+                        height: 54px;
+                        background: #FFE0CB 0% 0% no-repeat padding-box;
+                        display: inline-flex;
+                        border-radius: 50%;
+                        p {
+                            font-size: 52px;
+                            color: #FF6600;
+                            margin-bottom: 0px;
+                            font-family: "Proxima Nova W05 Bold";
+                            position: absolute;
+                            top: 0;
+                        }
+                    }
+                    span.level-element{
+                        cursor: pointer;
+                    }
+
+            }
+        }
+        .prev-btn, .nxt-btn {
+            width: 36px;
+            height: 36px;
+            background: #fff;
+            box-shadow: -4px 4px 8px #c2c2c229;
+            opacity: 1;
+            color: #ff6600;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .prev-btn {
+            margin-right: 12px;
+        }
+        .nxt-btn {
+            margin-left: 12px;
+        }
+        .disabled{
+            pointer-events: none;
+        }
+    }
+    .questionAnswer {
+        font-size: 14px;
+        line-height: 20px;
+        color: #555555CC;
+        margin: 8px 0px 16px 0px;
+    }
+
+}
+

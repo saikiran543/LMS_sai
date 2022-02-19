@@ -1,0 +1,541 @@
+<div class="desktop course-list-block" id="course-list-block">
+    <h1><span>Course List</span></h1>
+    <div class="row">
+        <div class="col-20" *ngFor = "let course of courseJson"  (click)="goToCourseDashboard(course.id, course)">
+            <div class="course-inner-block" id="course-inner-block">
+                <div class="course-img">
+                    <img src="assets/images/course-img1.png" />
+                </div>
+                <div class="course-content-block" id="course-content-block" >
+                    <h3><a id="course-link">{{course.title}}</a></h3>
+                    <div class="skill-list">
+                        <ul >
+                            <li *ngFor="let tag of course.tags">{{tag}}</li>
+                        </ul>
+                    </div>
+                    <div class="course-designation">
+                        <div class="designation-inner">
+                            <span>Faculty</span> {{course.facultyName}}
+                        </div>
+                        <div class="layout status-block">
+                            <div class="status-bar">
+                                <span [ngStyle]="{'width': course.status + '%'}"></span>
+                            </div>
+                            <span>Status: {{course.status}}%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="curated-block">
+        <div class="cureted-collapse-heading">
+            <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="isCollapsed" aria-controls="collapseExample">
+                <span class="btn-header">Curated Reads</span>
+                <span class="d-inline-block arrow-con">
+                    <svg-icon src="./../../../assets/images/icons/arrow-down.svg"></svg-icon>
+                </span>
+            </button>
+        </div>
+        <div class="cureted-collapse-content" id="collapseExample" [ngbCollapse]="!isCollapsed">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="curated-inner-block">
+                            <div class="curated-title-block">
+                                <div class="curated-img">
+                                    <img src="assets/images/icons/course-list/writing.svg" />
+                                </div>
+                                <div class="curated-title">
+                                    <h2>Why Cloud Data Discovery Matters for Your Business</h2>
+                                    <span>Posted by Laura Jean <br/>February 10, 2021 at 11:30pm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="curated-inner-block finance-account">
+                            <div class="curated-title-block">
+                                <div class="curated-img">
+                                    <img src="assets/images/icons/course-list/Group 27279.svg" />
+                                </div>
+                                <div class="curated-title">
+                                    <img class="center-img" src="assets/images/icons/course-list/Image 202.png" />
+                                    <h2>Financial Accounting For Decision Makers</h2>
+                                    <span>Peter Atrill, Eddie McLaney</span>
+                                    <div class="rating-block">
+                                        <span><img src="assets/images/icons/course-list/star.svg" /></span>
+                                        <span><img src="assets/images/icons/course-list/star.svg" /></span>
+                                        <span><img src="assets/images/icons/course-list/star.svg" /></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="curated-inner-block people-block">
+                            <div class="curated-title-block">
+                                <div class="curated-title">
+                                    <h2>Library</h2>
+                                    <img class="full-width-img" src="assets/images/icons/course-list/undraw_Books_l33t.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="curated-inner-block library-block">
+                            <div class="curated-title-block">
+                                <div class="curated-title">
+                                    <img src="assets/images/icons/course-list/undraw_Questions_re_1fy7.png" />
+                                    <h2>Why do people clear screen multiple times when using a calculator?</h2>
+                                    <span>123 Answers <em>500 Views</em></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          </div>
+    </div>
+</div>
+<div class="portrait-device course-list-portrait">
+    <h2 id="page-title">All Courses</h2>
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide>
+            <div class="slide">
+                <div class="course-portrait-inner" id="course-inner-block">
+                    <div class="course-portrait-img">
+                        <img src="assets/images/course-img.png" />
+                    </div>
+                    <div class="course-portrait-content">
+                        <div class="course-title">
+                            <h2><a id="course-link">Crash Course in Account & Finance</a></h2>
+                        </div>
+                        <div class="faculty-block">
+                            <span>Faculty :</span> Harry Garza
+                        </div>
+                        <div class="status-bar-block">
+                            <div class="circle">
+                                <div class="mask full" style="transform: rotate(126deg);">
+                                  <div class="fill" style="transform: rotate(126deg);"></div>
+                                </div>
+                                <div class="mask half">
+                                  <div class="fill"></div>
+                                </div>
+                                <div class="inside-circle"> 70% </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="slide">
+                <div class="course-portrait-inner" id="course-inner-block">
+                    <div class="course-portrait-img">
+                        <img src="assets/images/course-img.png" />
+                    </div>
+                    <div class="course-portrait-content">
+                        <div class="course-title">
+                            <h2><a id="course-link">Crash Course in Account & Finance</a></h2>
+                        </div>
+                        <div class="faculty-block">
+                            <span>Faculty :</span> Harry Garza
+                        </div>
+                        <div class="status-bar-block">
+                            <div class="circle">
+                                <div class="mask full" style="transform: rotate(144deg);">
+                                  <div class="fill" style="transform: rotate(144deg);"></div>
+                                </div>
+                                <div class="mask half">
+                                  <div class="fill"></div>
+                                </div>
+                                <div class="inside-circle"> 80% </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="slide">
+                <div class="course-portrait-inner" id="course-inner-block">
+                    <div class="course-portrait-img">
+                        <img src="assets/images/course-img.png" />
+                    </div>
+                    <div class="course-portrait-content">
+                        <div class="course-title">
+                            <h2><a id="course-link">Crash Course in Account & Finance</a></h2>
+                        </div>
+                        <div class="faculty-block">
+                            <span>Faculty :</span> Harry Garza
+                        </div>
+                        <div class="status-bar-block">
+                            <div class="circle">
+                                <div class="mask full" style="transform: rotate(108deg);">
+                                  <div class="fill" style="transform: rotate(108deg);"></div>
+                                </div>
+                                <div class="mask half">
+                                  <div class="fill"></div>
+                                </div>
+                                <div class="inside-circle"> 60% </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="slide">
+                <div class="course-portrait-inner" id="course-inner-block">
+                    <div class="course-portrait-img">
+                        <img src="assets/images/course-img.png" />
+                    </div>
+                    <div class="course-portrait-content">
+                        <div class="course-title">
+                            <h2><a id="course-link">Crash Course in Account & Finance</a></h2>
+                        </div>
+                        <div class="faculty-block">
+                            <span>Faculty :</span> Harry Garza
+                        </div>
+                        <div class="status-bar-block">
+                            <div class="circle">
+                                <div class="mask full" style="transform: rotate(144deg);">
+                                  <div class="fill" style="transform: rotate(144deg);"></div>
+                                </div>
+                                <div class="mask half">
+                                  <div class="fill"></div>
+                                </div>
+                                <div class="inside-circle"> 80% </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="slide">
+                <div class="course-portrait-inner" id="course-inner-block">
+                    <div class="course-portrait-img">
+                        <img src="assets/images/course-img.png" />
+                    </div>
+                    <div class="course-portrait-content">
+                        <div class="course-title">
+                            <h2><a id="course-link">Crash Course in Account & Finance</a></h2>
+                        </div>
+                        <div class="faculty-block">
+                            <span>Faculty :</span> Harry Garza
+                        </div>
+                        <div class="status-bar-block">
+                            <div class="circle">
+                                <div class="mask full" style="transform: rotate(162deg);">
+                                  <div class="fill" style="transform: rotate(162deg);"></div>
+                                </div>
+                                <div class="mask half">
+                                  <div class="fill"></div>
+                                </div>
+                                <div class="inside-circle"> 90% </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="slide">
+                <div class="course-portrait-inner" id="course-inner-block">
+                    <div class="course-portrait-img">
+                        <img src="assets/images/course-img.png" />
+                    </div>
+                    <div class="course-portrait-content">
+                        <div class="course-title">
+                            <h2><a id="course-link">Crash Course in Account & Finance</a></h2>
+                        </div>
+                        <div class="faculty-block">
+                            <span>Faculty :</span> Harry Garza
+                        </div>
+                        <div class="status-bar-block">
+                            <div class="circle">
+                                <div class="mask full" style="transform: rotate(126deg);">
+                                  <div class="fill" style="transform: rotate(126deg);"></div>
+                                </div>
+                                <div class="mask half">
+                                  <div class="fill"></div>
+                                </div>
+                                <div class="inside-circle"> 70% </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="slide">
+                <div class="course-portrait-inner" id="course-inner-block">
+                    <div class="course-portrait-img">
+                        <img src="assets/images/course-img.png" />
+                    </div>
+                    <div class="course-portrait-content">
+                        <div class="course-title">
+                            <h2><a id="course-link">Crash Course in Account & Finance</a></h2>
+                        </div>
+                        <div class="faculty-block">
+                            <span>Faculty :</span> Harry Garza
+                        </div>
+                        <div class="status-bar-block">
+                            <div class="circle">
+                                <div class="mask full" style="transform: rotate(144deg);">
+                                  <div class="fill" style="transform: rotate(144deg);"></div>
+                                </div>
+                                <div class="mask half">
+                                  <div class="fill"></div>
+                                </div>
+                                <div class="inside-circle"> 80% </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </owl-carousel-o>
+    <div class="curated-block">
+        <h2>Curated Reads</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="curated-inner-block">
+                    <div class="curated-title-block">
+                        <div class="curated-img">
+                            <img src="assets/images/icons/course-list/portrait-writing.svg" />
+                        </div>
+                        <div class="curated-title">
+                            <h2>Why Cloud Data Discovery Matters For Your Business. The great debate.</h2>
+                            <span>Posted by Laura Jean <br/>February 10, 2021 at 11:30pm</span>
+                            <img class="right-align" src="assets/images/icons/course-list/portrait-Group-29654.svg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="curated-inner-block finance-account">
+                    <div class="curated-title-block">
+                        <div class="curated-img">
+                            <img src="assets/images/icons/course-list/portrait-Group-27279.svg" />
+                        </div>
+                        <div class="curated-title">
+                            <h2>Financial Accounting For Decision Makers</h2>
+                            <span>Peter Atrill, Eddie McLaney</span>
+                            <div class="rating-block">
+                                <span><img src="assets/images/icons/course-list/portrait-star.svg" /></span>
+                                <span><img src="assets/images/icons/course-list/portrait-star.svg" /></span>
+                                <span><img src="assets/images/icons/course-list/portrait-star.svg" /></span>
+                            </div>
+                            <img class="right-align" src="assets/images/icons/course-list/portrait-undraw_Reading_re_29f8.svg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="curated-inner-block people-block">
+                    <div class="curated-title-block">
+                        <div class="curated-title">
+                            <h2>Why do people clear screen multiple times when using a calculator?</h2>
+                            <span>123 Answers <em>500 Views</em></span>
+                            <img class="right-align" src="assets/images/icons/course-list/portrait-Group-29789.svg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="curated-inner-block library-block">
+                    <div class="curated-title-block">
+                        <div class="curated-title">
+                            <h2>Library</h2>
+                            <img class="full-width-img" src="assets/images/icons/course-list/portrait-undraw_Books_l33t.svg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mobile-divice course-list-block course-list-mobile">
+    <h1 id="page-title"><span>All Courses</span></h1>
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide>
+            <div class="slide">
+                <div class="course-inner-block" id="course-inner-block">
+                    <div class="course-img">
+                        <img src="assets/images/course-img1.png" />
+                    </div>
+                    <div class="course-content-block">
+                        <h3><a id="course-link">Crash Course in Account & Finance</a></h3>
+                        <div class="skill-list">
+                            <ul>
+                                <li>UI Design</li>
+                                <li>AutoCad</li>
+                                <li>Photoshop</li>
+                            </ul>
+                        </div>
+                        <div class="course-designation">
+                            <div class="designation-inner">
+                                <span>Faculty</span> Harry Garza
+                            </div>
+                            <div class="layout status-block">
+                                <div class="status-bar">
+                                    <span style="width:70%"></span>
+                                </div>
+                                <span>Status: 70%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="slide">
+                <div class="course-inner-block" id="course-inner-block">
+                    <div class="course-img">
+                        <img src="assets/images/course-img.png" />
+                    </div>
+                    <div class="course-content-block">
+                        <h3><a id="course-link">Crash Course in Account & Finance</a></h3>
+                        <div class="skill-list">
+                            <ul>
+                                <li>UI Design</li>
+                                <li>AutoCad</li>
+                                <li>Photoshop</li>
+                            </ul>
+                        </div>
+                        <div class="course-designation">
+                            <div class="designation-inner">
+                                <span>Faculty</span> Harry Garza
+                            </div>
+                            <div class="layout status-block">
+                                <div class="status-bar">
+                                    <span style="width:45%"></span>
+                                </div>
+                                <span>Status: 45%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="slide">
+                <div class="course-inner-block" id="course-inner-block">
+                    <div class="course-img">
+                        <img src="assets/images/course-img1.png" />
+                    </div>
+                    <div class="course-content-block">
+                        <h3><a id="course-link">Crash Course in Account & Finance</a></h3>
+                        <div class="skill-list">
+                            <ul>
+                                <li>UI Design</li>
+                                <li>AutoCad</li>
+                                <li>Photoshop</li>
+                            </ul>
+                        </div>
+                        <div class="course-designation">
+                            <div class="designation-inner">
+                                <span>Faculty</span> Harry Garza
+                            </div>
+                            <div class="layout status-block">
+                                <div class="status-bar">
+                                    <span style="width:70%"></span>
+                                </div>
+                                <span>Status: 70%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="slide">
+                <div class="course-inner-block" id="course-inner-block">
+                    <div class="course-img">
+                        <img src="assets/images/course-img.png" />
+                    </div>
+                    <div class="course-content-block">
+                        <h3><a id="course-link">Crash Course in Account & Finance</a></h3>
+                        <div class="skill-list">
+                            <ul>
+                                <li>UI Design</li>
+                                <li>AutoCad</li>
+                                <li>Photoshop</li>
+                            </ul>
+                        </div>
+                        <div class="course-designation">
+                            <div class="designation-inner">
+                                <span>Faculty</span> Harry Garza
+                            </div>
+                            <div class="layout status-block">
+                                <div class="status-bar">
+                                    <span style="width:35%"></span>
+                                </div>
+                                <span>Status: 35%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </owl-carousel-o>
+    <div class="curated-block">
+        <h1><span>Curated Reads</span></h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="curated-inner-block">
+                    <div class="curated-title-block">
+                        <div class="curated-img">
+                            <img src="assets/images/icons/course-list/writing.svg" />
+                        </div>
+                        <div class="curated-title">
+                            <h2>Why Cloud Data Discovery Matters for Your Business</h2>
+                            <span>Posted by Laura Jean <br/>February 10, 2021 at 11:30pm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="curated-inner-block finance-account">
+                    <div class="curated-title-block">
+                        <div class="curated-img">
+                            <img src="assets/images/icons/course-list/Group 27279.svg" />
+                        </div>
+                        <div class="curated-title">
+                            <img class="center-img" src="assets/images/icons/course-list/mobile-Image 202.png" />
+                            <h2>Financial Accounting For Decision Makers</h2>
+                            <span>Peter Atrill, Eddie McLaney</span>
+                            <div class="rating-block">
+                                <span><img src="assets/images/icons/course-list/mobile-star.svg" /></span>
+                                <span><img src="assets/images/icons/course-list/mobile-star.svg" /></span>
+                                <span><img src="assets/images/icons/course-list/mobile-star.svg" /></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="curated-inner-block people-block">
+                    <div class="curated-title-block">
+                        <div class="curated-title">
+                            <h2>Library</h2>
+                            <img class="full-width-img" src="assets/images/icons/course-list/mobile-undraw_Books_l33t.svg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="curated-inner-block library-block">
+                    <div class="curated-title-block">
+                        <div class="curated-title">
+                            <img src="assets/images/icons/course-list/mobile-undraw_Questions_re_1fy7.svg" />
+                            <h2>Why do people clear screen multiple times when using a calculator?</h2>
+                            <span>123 Answers <em>500 Views</em></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

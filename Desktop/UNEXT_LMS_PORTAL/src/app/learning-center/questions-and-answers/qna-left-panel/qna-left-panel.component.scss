@@ -1,0 +1,323 @@
+.qa-left-panel {
+    width: 100%;
+    height: calc(100vh - 209px);
+    overflow-y: hidden;
+    background: #cdd4e726 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    opacity: 1;
+    padding: 4.45%;
+    #qa-left-panel-search-btn img {
+        position: relative;
+        top: -2px;
+    }
+    .input-group {
+        margin-bottom: 4.88%;
+        .form-control {
+            height: 4.2596vh;
+            min-height: 40px;
+            border-top-right-radius: 0px !important;
+            border-bottom-right-radius: 0px !important;
+            border-right: 0px !important;
+            &:focus {
+                z-index: 1;
+            }
+        }
+        button {
+            background-color: #ff6600;
+            border-color: #ff6600;
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+    
+    .qa-card.pinned {
+        margin-bottom: 14px;
+    }
+    .unpin {
+        .qa-single-card {
+            .qa-pinned-icon {
+                visibility: hidden;
+            }
+            .single-card-content {
+                flex: 1;
+            }
+        }
+    }
+    .pinned {
+        .qa-single-card {
+            .qa-pinned-icon {
+                visibility: visible;
+                position: absolute;
+                top: -9px;
+                right: -20%;
+                text-align: right;
+            }
+
+        }
+    }
+    .qa-single-card {
+        background: #ffffff 0% 0% no-repeat padding-box;
+        border-radius: 4px;
+        padding: 3.92% 4.89%;
+        margin-bottom: 2px;
+        cursor: pointer;
+        position: relative;
+        
+        .single-card-content {
+            flex: 1;
+        }
+        .qa-preview-content {
+            position: relative;
+            font-family: "Proxima Nova W05 Regular";
+        }
+        
+        h6 {
+            font-size: calc(10px + 0.1042vw);
+            line-height: 16px;
+            color: #55555580;
+            margin-bottom: 12px;
+            font-family: "Proxima Nova W05 Regular";
+        }
+        h5 {
+            font-size: calc(14px + 0.1042vw);
+            color: #000000;
+            margin-bottom: 4px;
+            overflow: hidden;
+            width: 100%;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            line-height: initial;
+            height: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 11.7vw;
+            ::ng-deep p {
+                margin-bottom: 0px;
+                overflow: hidden;
+                width: 100%;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+            }
+        }
+        p {
+            font-size: 0.9rem;
+            line-height: 20px;
+            color: #55555580;
+            margin-bottom: 0px;
+            .time-stamp {
+                margin-right: 12px;
+                text-transform: capitalize;
+            }
+            .count-section {
+                position: relative;
+                &::before {
+                    position: absolute;
+                    content: '';
+                    height: 3px;
+                    width: 3px;
+                    border-radius: 50%;
+                    background-color: #555555;
+                    left: -6px;
+                    top: 9px;
+                }
+                &:last-child {
+                    margin-left: 12px;
+                }
+                svg-icon svg {
+                    margin-left: 4px;
+                }
+                
+            }
+            
+            .count-section.active {
+                svg-icon svg path {
+                    fill: #FF6600;
+                }
+            }
+            .count {
+                font-size: 0.8rem;
+                margin-left: 3px;
+            }
+            .upvote-icon-con {
+                position: relative;
+                top: -2px;
+            }
+        }
+        .qa-calendar {
+            margin-right: 7.755%;
+            svg-icon svg path {
+                fill: #747474;
+                stroke: #747474;
+            }
+            span {
+                display: flex;
+                justify-content: center;
+                width: 38px;
+                height: 38px;
+                background: #ebeef6 0% 0% no-repeat padding-box;
+                border-radius: 4px;
+                img {
+                    align-self: center;
+                }
+            }
+        }
+    }
+    .qa-single-card.active {
+        border-left: 4px solid #ff6600;
+        border-radius: 4px 0px 0px 4px;
+        .qa-calendar svg-icon svg path {
+            color: #FF6600;
+            stroke: #FF6600;
+        }
+    }
+    .qa-list {
+        height: calc(100vh - 319px);
+        overflow-y: auto;
+        width: calc(100% + 10px);
+        padding-right: 8px;
+        scroll-behavior: smooth;
+        .qa-layout {
+            display: flex;
+        }
+        
+        &::-webkit-scrollbar {
+            display: block;
+            width: 3px;
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 2px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background-color: #c7c7c7;
+        }
+    }
+}
+.upvotedColor {
+    svg {
+        path {
+            fill: #FF6600;
+        }
+    }
+}
+@media screen and (max-width: 1450px) {
+    .qa-left-panel{
+        .qa-single-card{
+            .qa-calendar {
+                margin-right: 5.755%;
+                span {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px){
+    .qa-left-panel {
+        .qa-list {
+            .qa-single-card {
+                padding: 12px 16px!important;
+                h6 {
+                    font-size: 9px;
+                }
+                .qa-pinned-icon {
+                    img {
+                        height: 12px;
+                        position: relative;
+                        top: -7px;
+                    }
+                }
+                .qa-layout {
+                    .qa-calendar {
+                        margin-right: 12px;
+                        svg-icon svg {
+                            height: 18px;
+                            width: 11px;
+                        }
+                    }
+                    .qa-preview-content {
+                        width: calc(100% - 15px);
+                        h5 {
+                            max-width: unset;
+                            width: 90%;
+                        }
+                    }
+                    svg-icon svg {
+                        width: 9px;
+                        height: 10px;
+                    }
+                    .qa-preview-content {
+                        h5 {
+                            font-size: 12px;
+                            margin-bottom: 0;
+                        }
+                        h5 + p {
+                            font-size: 10px;
+                            line-height: 13px;
+                            .count-section::before {
+                                height: 2px;
+                                width: 2px;
+                                top: 6px;
+                                left: -4px;
+                            }
+                            .count {
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1024px){ 
+    .qa-left-panel {
+        padding: 16px;
+        #qa-list {
+            .qa-single-card {
+                padding: 16px;
+                h6 {
+                    font-size: 14px;
+                }
+                .qa-layout {
+                    .qa-calendar {
+                        margin-right: 16px;
+                        span {
+                            width: 40px;
+                            height: 40px;
+                        }
+                    }
+                    .qa-preview-content {
+                        width: calc(100% - 20px);
+                        h5 {
+                            font-size: 16px;
+                            width: 90%;
+                            max-width: unset;
+                        }
+                        h5 + p {
+                            span {
+                                font-size: 12px;
+                            }
+                            .count-section {
+                                &::before {
+                                    left: -4px;
+                                }
+                                svg-icon svg {
+                                    width: 10px;
+                                    height: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+<div class="modalContentInner">
+    <div class="modalInnerHeader">
+        <span>{{(type === 'question' ? 'qna.question.questionHeading' : 'qna.question.threadHeading') |
+            translate}}</span>
+    </div>
+    <div class="modalInnercontent">
+        <div>
+            <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label class="form-label required" translate="qna.question.title"></label>
+                    <div class="position-relative">
+                        <input type="text" class="form-control" placeholder="Enter Title" formControlName="title"
+                            maxlength="250">
+                        <span class="char-count layout layout-item-center">{{ titleLengthText }}</span>
+                    </div>
+
+                    <small class="error-text"
+                        *ngIf="questionForm.get('title')?.errors && questionForm.get('title')?.touched">{{(questionForm.get('title')?.errors?.required
+                        ? 'qna.question.titleRequiredErrorMessage' : 'qna.question.titleMaxCharactersErrorMessage') |
+                        translate }}</small>
+                </div>
+                <div class="form-group mb24">
+                    <label class="form-label">Description</label>
+                    <app-ckeditor [ckeditorFormControl]="questionForm.controls['description']"
+                        [config]="{placeholder: 'Type here...'}"></app-ckeditor>
+                </div>
+                <div class="text-end mt8">
+                    <button type="button" class="cancel-btn" (click)="cancel()"
+                        translate="qna.question.cancelButtonText"></button>
+                    <button class="primary-btn" [disabled]="submitted"
+                        translate="qna.question.submitButtonText"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

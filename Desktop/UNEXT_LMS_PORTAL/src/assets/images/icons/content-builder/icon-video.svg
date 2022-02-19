@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31" height="39" viewBox="0 0 31 39">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_6601" data-name="Rectangle 6601" width="13.54" height="13.539" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Path_15355" data-name="Path 15355" d="M522.309-107.692h-7.783A4.689,4.689,0,0,1,510-112.217V-120Z" transform="translate(-509.999 120)" fill="none" clip-rule="evenodd"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <path id="Path_15354" data-name="Path 15354" d="M-50-285.376H196.182V-470H-50Z" transform="translate(50 470)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-4">
+      <path id="Path_15359" data-name="Path 15359" d="M501.016-54.725v2.508l4.647,2.772v-8.045Z" transform="translate(-501.016 57.489)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-5">
+      <path id="Path_15358" data-name="Path 15358" d="M-50-276.652H207.8V-470H-50Z" transform="translate(50 470)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-6">
+      <path id="Path_15362" data-name="Path 15362" d="M480.578-59.986h-9.7a.857.857,0,0,0-.856.856v7.95a.857.857,0,0,0,.856.856h9.711a.857.857,0,0,0,.856-.856v-7.957A.862.862,0,0,0,480.578-59.986Zm-6.857,7.825v-6l4.888,3Z" transform="translate(-470.018 59.986)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-video_normal">
+      <rect width="31" height="39"/>
+    </clipPath>
+  </defs>
+  <g id="video_normal" data-name="video normal" clip-path="url(#clip-video_normal)">
+    <g id="Group_29411" data-name="Group 29411">
+      <path id="Subtraction_7" data-name="Subtraction 7" d="M20896,14673.607h-24a3.5,3.5,0,0,1-3.5-3.5v-31a3.5,3.5,0,0,1,3.5-3.5h15.861c2.094,2.118,10.23,10.286,11.641,11.7v22.8A3.505,3.505,0,0,1,20896,14673.607Z" transform="translate(-20868.5 -14635.359)" fill="#94a7d9"/>
+      <g id="Group_29387" data-name="Group 29387" transform="translate(18.4)">
+        <g id="Group_18535" data-name="Group 18535" transform="translate(0 0)" clip-path="url(#clip-path)">
+          <image id="Rectangle_6600" data-name="Rectangle 6600" width="13.54" height="13.539" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAALKADAAQAAAABAAAALAAAAADfpsWZAAABt0lEQVRYCc3YiVLDMAxFUUrZpvz/z7IV3ZYX1EB2yZFnhJ3Udk4UNTPlcHdth5+e7uzG5Yb3JhJWUB2XwwICTFNfHq0MH6/uy9/SaGW2XwZl0QK7BHfDkugxMPJy6ClwOfQccCn0XHAZ9BJwCfRS8O7oNeBd0WvBu6G3gHdBbwU3R0eAm6KjwM3QkeAm6GhwOjoDnIrOAqehM8Ep6GxwOLoFOBTtwf0folwosoX83PJgP46E+r02oz0yO8OCb0J7sP9nijbP6lejAbOYeMjSDey7Cq0Ms5iS0PHANcJPL0YL+GUU4iWcNL3hIrTALPq0eLRoXRrc0mx0/4vGDTxbvLHLDo2yHH1bCaxJ9MpySbTAPpmgnyzI9rv/oOEYg5J4c1kP1gTVE19A6rkU2oN1JwJzTKap6Q8L3iKt259M/wcGBVpBlk8WzOVN4m/IDtPbDXoIjEJgAYG/WpBx6lslZMP01qHHLqpJ4LgxwARjDx7bw6aubpQgT5S3FXF5ugCGmjLLRC2mlgUWWmD1Q/stPa8nzLpu724wsZvm0RN97MTyTR8DV8J+5TO3FFzT+8c6H9nrSbPn+RvNqEq/LGWpPAAAAABJRU5ErkJggg=="/>
+        </g>
+      </g>
+      <g id="Group_29389" data-name="Group 29389" transform="translate(19.016)" clip-path="url(#clip-path-2)">
+        <g id="Group_29388" data-name="Group 29388" transform="translate(-172.326 -107.697)" clip-path="url(#clip-path-3)">
+          <path id="Path_15353" data-name="Path 15353" d="M520.386-109.615H505V-125h15.386Z" transform="translate(-334.211 231.159)" fill="rgba(255,255,255,0.4)"/>
+        </g>
+      </g>
+      <g id="Group_29391" data-name="Group 29391" transform="translate(17.801 19.211)" clip-path="url(#clip-path-4)">
+        <g id="Group_29390" data-name="Group 29390" transform="translate(-177.563 -132.93)" clip-path="url(#clip-path-5)">
+          <path id="Path_15357" data-name="Path 15357" d="M496.016-62.489h7.869v11.267h-7.869Z" transform="translate(-320.064 193.809)" fill="rgba(255,255,255,0.99)"/>
+        </g>
+      </g>
+      <g id="Group_29393" data-name="Group 29393" transform="translate(7.807 18.407)" clip-path="url(#clip-path-6)">
+        <g id="Group_29392" data-name="Group 29392" transform="translate(-167.574 -132.126)" clip-path="url(#clip-path-5)">
+          <path id="Path_15360" data-name="Path 15360" d="M465.018-64.986h14.646V-52.1H465.018Z" transform="translate(-299.055 195.501)" fill="rgba(255,255,255,0.99)"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

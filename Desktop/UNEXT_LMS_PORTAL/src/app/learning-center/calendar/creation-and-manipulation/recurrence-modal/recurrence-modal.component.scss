@@ -1,0 +1,185 @@
+@import "~src/variables";
+.recurrence-block{
+    padding: 5%;
+    .recurrence-header{
+        margin-bottom: 5%;
+        h3{
+            font-size: $font-20;
+            color: #000;
+            margin-bottom: 0px;
+        }
+        span{
+            text-align: right;
+            display: block;
+            cursor: pointer;
+        }
+    }
+    label{
+        font-size: $font-14;
+        color: #000;
+        font-weight: normal;
+        font-family: "Proxima Nova W05 Regular" !important;
+    }
+    .recurrence-content{
+        input{
+            max-width: 190px;
+            height: 40px;
+            border: 1px solid #DEDEDE;
+            border-radius: 6px;
+            padding: .375rem .75rem !important;
+        }
+        select{
+            width: auto;
+            border: 0px;
+        }
+        .repeat-block{
+            color: #000;
+            font-size: $font-14;
+            span{
+                margin-right: 3%;
+            }
+            em{
+                font-style: normal;
+                padding-right: 8px;
+            }
+            .repeater-icon{
+                cursor: pointer;
+            }
+            .day-option,.week-option{
+                cursor: pointer;
+                svg-icon{
+                    svg{
+                        path{
+                            fill: #555555;
+                            stroke: #555555;
+                        }
+                    }
+                }
+            }
+        }
+        .week-option{
+            position: relative;
+            select{
+                appearance: none;
+                width: 67px;
+                &:focus,&:focus-visible{
+                    outline: 0;
+                    box-shadow: none;
+                }
+            }
+            svg-icon{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 0;
+            }
+        }
+        .ocular-block{
+            color: #555555B3;
+            margin-left: 7%;
+            .ocular-inner{
+                color: #FF6600;
+                font-size: $font-14;
+                margin-top: 2%;
+                span{
+                    margin-right: 4%;
+                    cursor: pointer;
+                }
+                em{
+                    font-style: normal;
+                    padding-right: 8px;
+                }
+                .ocular-option{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .content-builder-modal-footer{
+        button{
+            margin-right: 2.521%;
+        }
+    }
+}
+.week-block{
+    display: flex;
+    margin-top: 3%;
+    margin-left: 7%;
+    .customSelected {
+        label {
+            background-color: #ff6600;
+            color: #fff !important;
+        }
+    }
+    input[type="checkbox"] {
+        display: none;
+    }
+    label{
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        box-shadow: -4px 4px 12px #EBEEF6;
+        transition: all 0.3s;
+        border-radius: 100%;
+        font-size: $font-12;
+        color: #000;
+        font-weight: bold;
+        text-align: center;
+        line-height: 36px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+}
+.monthly-block{
+    margin-top: 3%;
+    margin-left: 7%;
+    .monthly-inner{
+        margin-top: 3%;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .ocular-block{
+        display: flex;
+        width: 100%;
+        flex: 0 0 auto;
+        align-items: center;
+        .ocular-inner{
+            display: contents;
+            span{
+                margin: 20px 0 0 10px !important;
+                margin-right: 0px !important
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .recurrence-block{
+        .content-builder-modal-footer{
+            padding: 16px 0px 16px 16px;
+            button{
+              font-size: $font-14;
+              height: 40px;
+              min-width: 110px !important;
+              width: 110px !important;
+            }
+        }
+        .ocular-block{
+            display: flex;
+            width: 100%;
+            flex: 0 0 auto;
+            align-items: center;
+            .ocular-inner{
+                display: contents;
+                span{
+                    margin: 20px 0 0 10px !important;
+                    margin-right: 0px !important
+                }
+            }
+        }
+        .week-block label{
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+        }
+    }
+}

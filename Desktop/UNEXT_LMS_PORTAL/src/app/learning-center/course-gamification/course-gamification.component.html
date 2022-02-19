@@ -1,0 +1,156 @@
+<div class="course-gamification-block" id="course-gamification-block">
+    <div id="program-header-component">
+        <div class="breadcrumb-component">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">
+                        <a href="">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        <a href="">Learning Center</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        <a href="">BBA</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        <a href="">Semester 1</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        <a href="">Crash Course in Account and Finance</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        <a href="">Content Area</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span>Gamification</span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        <div class="content-title">Gamification</div> 
+    </div>
+    <h4 class="sub-title"><span>Course Level</span></h4>
+    <div class="badges-calculation-block">
+        <h3>Badges Calculation Logic<span class="badges-icon">i</span></h3>
+        <div class="badges-awards-block">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="award-inner platinum">
+                        <img src="../../../assets/images/icons/gamification/Platinum.svg" />
+                        <h6>Platinum: 90-100%ile</h6>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="award-inner gold">
+                        <img src="../../../assets/images/icons/gamification/Gold.svg" />
+                        <h6>Gold: 70-90%ile</h6>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="award-inner silver">
+                        <img src="../../../assets/images/icons/gamification/Silver.svg" />
+                        <h6>Silver: 50-70%ile</h6>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="award-inner bronze">
+                        <img src="../../../assets/images/icons/gamification/Bronze.svg" />
+                        <h6>Bronze: 0-50%ile</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="badges-calculation-block">
+        <h3>Points Calculation Logic<span class="badges-icon">i</span></h3>
+        <div class="points-calculation-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#No.</th>
+                        <th>Category</th>
+                        <th>Criteria</th>
+                        <th>Points Calculation Logic</th>
+                        <th>Points Defined</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="same-tr" *ngFor="let config of courseConfig ; let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{config.category}}</td>
+                        <td>{{config.criteria}}</td>
+                        <td>{{config.logic}}</td>
+                        <td>
+                            <div class="layout layout-item-center rows-per-page me-0">
+                                <label class="records-per-page me-1" translate="discussionForums.forumList.options.recordsPerPage"></label>
+                                <div class="quantity">
+                                    <input [value]="config.points" max="10" min="0"   [readonly]='true'/>
+                                    <div class="quantity__btn quantity__btn--up" (click)="modifyRecordsPerPageForDoubt('+',config)">
+                                        <svg-icon src="assets/images/icons/rubric/arrow-up.svg"></svg-icon>
+                                    </div>
+                                    <div class="quantity__btn quantity__btn--down" (click)="modifyRecordsPerPageForDoubt('-',config)">
+                                        <svg-icon src="assets/images/icons/rubric/arrow-down.svg"></svg-icon>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </td>
+                    </tr>
+                    <!-- <tr class="same-tr">
+                        <td>2</td>
+                        <td>&nbsp;</td>
+                        <td>All Mandatory Content Completion</td>
+                        <td>"Points Defined" would be allotted to learner on completing all the mandatory content</td>
+                        <td><input type="number" /></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Content & Activity</td>
+                        <td>Course Completion Status</td>
+                        <td>"Percentage of Course Completion Status" multiplied by "Points Defined" would be alloted to learner</td>
+                        <td><input type="number" /></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Activity</td>
+                        <td>Graded Quiz Score</td>
+                        <td>"Percentage of Graded Quiz Score" multiplied by "Points Defined" would be alloted to learner on graded quiz completion</td>
+                        <td><input type="number" /></td>
+                    </tr>
+                    <tr class="same-tr">
+                        <td>5</td>
+                        <td>&nbsp;</td>
+                        <td>Graded Quiz Completion</td>
+                        <td>"Points Defined" would be allotted to learner on graded quiz completion</td>
+                        <td><input type="number" /></td>
+                    </tr>
+                    <tr class="same-tr">
+                        <td>6</td>
+                        <td>&nbsp;</td>
+                        <td>Graded Quiz Completion</td>
+                        <td>"Points Defined" would be allotted to learner on graded quiz completion</td>
+                        <td><input type="number" /></td>
+                    </tr>
+                    <tr class="same-tr">
+                        <td>7</td>
+                        <td>&nbsp;</td>
+                        <td>Graded Quiz Completion</td>
+                        <td>"Points Defined" would be allotted to learner on graded quiz completion</td>
+                        <td><input type="number" /></td>
+                    </tr>
+                    <tr class="same-tr">
+                        <td>8</td>
+                        <td>&nbsp;</td>
+                        <td>Graded Quiz Completion</td>
+                        <td>"Points Defined" would be allotted to learner on graded quiz completion</td>
+                        <td><input type="number" /></td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="content-builder-modal-footer">
+        <button class="yes-btn" (click)="savePoints()">Save</button>
+        <button class="no-btn">Cancel</button>
+    </div>
+</div>

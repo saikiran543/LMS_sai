@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="12" viewBox="0 0 15 12">
+  <defs>
+    <clipPath id="clip-unpublished_content">
+      <rect width="15" height="12"/>
+    </clipPath>
+  </defs>
+  <g id="unpublished_content" data-name="unpublished content" clip-path="url(#clip-unpublished_content)">
+    <path id="Path_15144" data-name="Path 15144" d="M17.693,8.74H9.639L8.158,8H5.11A1.111,1.111,0,0,0,4,9.11v9.622a1.111,1.111,0,0,0,1.11,1.11H17.693a1.111,1.111,0,0,0,1.11-1.11V9.85A1.111,1.111,0,0,0,17.693,8.74Zm.37,9.992a.37.37,0,0,1-.37.37H5.11a.37.37,0,0,1-.37-.37V9.11a.37.37,0,0,1,.37-.37H7.984l1.48.74h8.229a.37.37,0,0,1,.37.37ZM5.48,10.22H17.323v.74H5.48Zm7.4,3.331a1.348,1.348,0,0,0-1.48-1.48,1.348,1.348,0,0,0-1.48,1.48v.74h-.74v2.961a.741.741,0,0,0,.74.74h2.961a.741.741,0,0,0,.74-.74V14.291h-.74Zm-2.22,0c0-.533.207-.74.74-.74s.74.207.74.74v.74h-1.48Zm2.22,3.7H9.921v-2.22h2.961Zm-1.11-.74h-.74v-.74h.74Z" transform="translate(-4 -8)" fill="#555"/>
+  </g>
+</svg>

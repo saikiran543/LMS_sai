@@ -1,0 +1,20 @@
+export enum ProgressOperations {
+    _CLASS_PROGRESS = 'classProgress',
+    _CLASS_AVERAGE = 'classAverage',
+    _MY_PROGRESS = 'myProgress',
+    _OVER_ALL_PROGRESS = 'overAllProgress',
+    ARC_COLOR = 'arcColor',
+    BACK = 'back',
+    BOTTOM = 'bottom',
+    CLASS_PROGRESS = 'Class Progress',
+    CLASS_AVERAGE = 'Class Average',
+    MY_PROGRESS = 'My Progress',
+    MINUS = 'minus',
+    MY_COURSE = 'My Course',
+    NEEDLE_COLOR = 'needleColor',
+    OVERALL_PROGRESS = 'Overall Progress',
+    ON_PROGRESS = 'On Progress',
+    PLUS = 'plus',
+    PROGRESS_COLOR = 'progressColor',
+    TOP = 'top'
+}

@@ -1,0 +1,36 @@
+.forum-info-popup {
+  .heading {
+    font-size: 20px;
+    color: #000;
+    font-weight: 600;
+    p {
+      text-align: center;
+    }
+  }
+  ul {
+    padding-left: unset;
+    li {
+      p {
+        font-size: 16px;
+        letter-spacing: 0px;
+        line-height: 30px;
+        margin-bottom: unset;
+        span {
+          color: #ffa000;
+          font-weight: 600;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  .row:last-of-type {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    button {
+      max-width: 140px;
+      height: 60px;
+    }
+  }
+}

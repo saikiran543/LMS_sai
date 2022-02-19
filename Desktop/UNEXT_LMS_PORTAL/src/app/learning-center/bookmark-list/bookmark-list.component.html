@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col-6">
+    <div class="content-title">Bookmark List</div>
+  </div>
+  <div class="col-6 text-end">
+    <div class="dropdown">
+      <button disabled="true"
+        class="filter-btn dropdown-toggle"
+        type="button"
+        id="bookmark-list-filter"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Filter
+      </button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="table-responsive bookmark-list" id="bookmark-list-table-con" *ngIf="bookmarks?.length" >
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th class="align-middle" scope="col">
+              <div class="layout">
+                Title
+              </div>
+            </th>
+            <th class="align-middle" scope="col">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bookmark of bookmarks">
+            <td>
+              <p>
+                {{ bookmark.breadcrum }}
+              </p>
+              <div class="layout p-relative">
+                <div class="layout cursor-pointer" (click)="navigateToBookmark(bookmark)">
+                  <div>
+                    <img
+                      src="assets/images/icons/content-builder/icon-{{
+                        getNodeIconType(bookmark) | lowercase
+                      }}-hover.svg"
+                    />
+                  </div>
+                  <div class="course-title">{{ bookmark.title }}</div>
+                </div>
+                <div class="responsive-close-btn p-absolute">
+                  <img
+                    class="cursor-pointer"
+                    src="assets/images/icons/icon-close.svg"
+                    (click)="removeBookmark(bookmark)"
+                  />
+                </div>
+              </div>
+            </td>
+            <td class="align-middle d-flex align-items-center">
+              <div class="layout bookmark-details row">
+                <div class="col-10">
+                  Bookmarked on:
+                  <span>{{ bookmark.createdOn | date: "dd MMM yyyy" }}</span>
+                </div>
+                <div class="col-2 web-close-btn">
+                  <img
+                    class="cursor-pointer"
+                    src="assets/images/icons/icon-close.svg"
+                    (click)="removeBookmark(bookmark)"
+                  />
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="no-bookmarks-wrapper" *ngIf="!bookmarks?.length">
+      <img src="assets/images/icons/bookmark-list/icon-no-bookmarks.svg" alt="no-bookmarks" />
+      <p>Looks like there are no bookmarks yet!</p>
+    </div>
+  </div>
+</div>

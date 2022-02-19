@@ -1,0 +1,46 @@
+.alert-modal {
+  padding: 50px;
+
+  p {
+    font-size: 20px;
+    line-height: 30px;
+    color: #363436;
+    font-family: "Proxima Nova W05 Bold";
+    text-align: center;
+  }
+
+  button {
+    border: 0px;
+    font-size: 20px;
+    line-height: 29px;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    width: 132px;
+    height: 60px;
+  }
+
+  .success-btn {
+    background: #4AD395 0% 0% no-repeat padding-box;
+
+    &:hover {
+      background: transparent linear-gradient(271deg, #4AD395 0%, #36AE78 100%) 0% 0% no-repeat padding-box;
+    }
+  }
+
+  .error-btn {
+    background: #FF0000 0% 0% no-repeat padding-box;
+
+    &:hover {
+      background: transparent linear-gradient(270deg, #FF0000 0%, #BD0000 100%) 0% 0% no-repeat padding-box;
+    }
+  }
+
+  .warning-btn {
+    background: #FF6600 0% 0% no-repeat padding-box;
+
+    &:hover {
+      background: transparent linear-gradient(270deg, #FF6001 0%, #FF3212 100%) 0% 0% no-repeat padding-box;
+    }
+  }
+}

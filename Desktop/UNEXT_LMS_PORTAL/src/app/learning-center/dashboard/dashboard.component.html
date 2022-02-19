@@ -1,0 +1,207 @@
+<div class="lc-dashboard">
+    <div class="row course-graph-container">
+        <div class="col-12 col-sm-12 col-md-12 col-xl-8 col-xxl-8">
+            <!-- <div class="content-title">{{selectedCourseDetails.title}}</div> -->
+            <div class="content-title">Crash Course in Account & Finance </div>
+            <div class="layout course-card">
+                <div class="layout single-course-card">
+                    <div>
+                        <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/course-placeholder.png">
+                    </div>
+                    <div class="layout flex-column justify-content-between">
+                        <h5>Day 1 - Introduction to Accounting</h5>
+                        <button>Resume Authoring</button>
+                    </div>
+                </div>
+                <div class="layout single-course-card">
+                    <div>
+                        <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/course-placeholder.png">
+                    </div>
+                    <div class="layout flex-column justify-content-between">
+                        <div>
+                            <h5>{{selectedCourseDetails.title}}</h5>
+                            <span class="folders"><img src="../../../assets/images/icons/toc/icon-content-number-play-icon.svg">3 Folders</span> 
+                            <span class="contents"><img src="../../../assets/images/icons/toc/icon-content-number-play-icon.svg">150 Contents</span>
+                        </div>
+                        
+                        <button (click)="goToContentArea()">Go to Content Area</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-xl-4 col-xxl-4">
+            <div class="statistics-container">
+                <div class="graph-placeholder">
+
+                </div>
+                <!-- <div class="statistics-graph">
+                    
+                </div> -->
+                <!-- <div class="student-statistics">
+                    
+                    <div class="enrolled-and-pass-percentage layout">
+                        <div class="students-enrolled">
+                            <div class="layout">
+                                <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-student-enrolled.svg">
+                                <span>Students Enrolled</span>
+                            </div>
+                            <h4>112</h4>
+                        </div>
+                        <div class="pass-percentage">
+                            <div class="layout">
+                                <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-pass-percentage.svg">
+                                <span>Pass Percentage</span>
+                            </div>
+                            <h4>62%</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="student-and-faculty-rating layout">
+                        <div class="student-rating">
+                            <div class="layout">
+                                <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-student-rating.svg">
+                                <span>Students Rating</span>
+                            </div>
+                            <h4>4.5 <span>/10</span></h4>
+                        </div>
+                        <div class="faculty-rating">
+                            <div class="layout">
+                                <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-faculty-rating.svg">
+                                <span>Faculty Rating</span>
+                            </div>
+                            <h4>3 <span>/10</span></h4>
+                        </div>
+                    </div>
+                    
+                </div> -->
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-xl-8 col-xxl-8">
+            <div class="new-notification-card layout">
+                <div class="notification-card layout flex-column layout-justify-space-between">
+                    <div>
+                        <h1>Announcement</h1>
+                        <div class="text-center">
+                            <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-announcement.svg">
+                        </div>
+                    </div>
+                    <div class="notification">
+                        <div class="notification-count layout layout-item-center layout-justify-center">06</div>
+                        <div class="notification-msg">New Announcements</div>
+                    </div>
+                </div>
+                <div class="notification-card  layout flex-column layout-justify-space-between">
+                    <div>
+                        <h1>What's New</h1>
+                        <div class="text-center">
+                            <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-whats-new.svg">
+                        </div>
+                    </div>
+                    <div class="notification">
+                        <div class="notification-count layout layout-item-center layout-justify-center">06</div>
+                        <div class="notification-msg">New Notifications</div>
+                    </div>
+                </div>
+                <div class="notification-card  layout flex-column layout-justify-space-between">
+                    <div>
+                        <h1>Things To Do</h1>
+                        <div class="text-center">
+                            <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-things-to-do.svg">
+                        </div>
+                    </div>
+                    <div class="notification">
+                        <div class="notification-count layout layout-item-center layout-justify-center">06</div>
+                        <div class="notification-msg">Pending Task</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-xl-4 col-xxl-4">
+            <div class="calendar-placeholder">
+                <h4>Calendar</h4>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="lc-tile-container layout">
+                <div class="tile">
+                    <div class="tile-img-container">
+                        <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-assignments.svg">
+                    </div>
+                    <h5>
+                        Assignments
+                    </h5>
+                </div>
+                <div class="tile">
+                    <div class="tile-img-container">
+                        <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-blogs.svg">
+                    </div>
+                    <h5>
+                        Blogs
+                    </h5>
+                </div>
+                <div class="tile">
+                    <div class="tile-img-container">
+                        <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-quizzes.svg">
+                    </div>
+                    <h5>
+                        Quizzes
+                    </h5>
+                </div>
+                <div class="tile">
+                    <div class="tile-img-container">
+                        <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-surveys.svg">
+                    </div>
+                    <h5>
+                        Surveys
+                    </h5>
+                </div>
+                <div class="tile">
+                    <div class="tile-img-container">
+                        <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-recorded-sessions.svg">
+                    </div>
+                    <h5>
+                        Recorded Sessions
+                    </h5>
+                </div>
+                <div class="tile">
+                    <div class="tile-img-container">
+                        <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-recorded-sessions.svg">
+                    </div>
+                    <h5>
+                        Discussion Forums
+                    </h5>
+                </div>
+                <div class="tile">
+                    <div class="tile-img-container">
+                        <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-programming-lab.svg">
+                    </div>
+                    <h5>
+                        Programming Lab
+                    </h5>
+                </div>
+                <div class="tile">
+                    <div class="tile-img-container">
+                        <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-rubrics.svg">
+                    </div>
+                    <h5>
+                        Rubrics
+                    </h5>
+                </div>
+                <div class="tile">
+                    <div class="tile-img-container">
+                        <img class="img-fluid" src="../../../assets/images/icons/lc-dashboard/icon-goals.svg">
+                    </div>
+                    <h5>
+                        Goals
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

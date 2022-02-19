@@ -1,0 +1,102 @@
+<div class="content-title" translate="calendar.calendar"></div>
+<div class="calendar-main-block" id="calendar-main-block">
+    <div class="row calendar-row">
+        <div class="col-12 col-md-9 col-lg-9 desktop-calendar">
+            <app-angular-calendar (emitCalendarEvents)="displayEvents($event)" [$calendarEvents]="$calendarEvents"></app-angular-calendar>
+            <router-outlet></router-outlet>
+        </div>
+        <div class="col-12 col-md-3 col-lg-3 desktop-sidebar">
+            <div class="calendar-sidebar">
+                <div class="self-task-block">
+                    <button (click)="click()"><span>+</span>Create Self Task</button>
+                </div>
+                <div class="legend-filter-block">
+                    <div class="legend-collapse-heading">
+                        <button type="button" class="btn btn-outline-primary" (click)="isCollapsed =!isCollapsed" [attr.aria-expanded]="isCollapsed" aria-controls="collapseExample">
+                            <span class="btn-header" translate="calendar.legendandfilter"></span>
+                            <span class="d-inline-block arrow-con">
+                                <svg-icon src="./../../../assets/images/icons/arrow-down.svg"></svg-icon>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="legend-collapse-content" id="collapseExample" [ngbCollapse]="!isCollapsed">
+                        <div class="filter-checkbox select-all">
+                            <input type="checkbox" [checked]="isSelectedAll" (change)="filterEvents($event ,'selectAll')">
+                            <span class="checkfilter" translate="calendar.selectAll"></span>
+                        </div>
+                        <div class="filter-checkbox quiz">
+                            <input type="checkbox" [checked]="eventTypes['quiz']" (change)="filterEvents($event ,'quiz')" >
+                            <span class="checkfilter" translate="calendar.quiz"></span>
+                        </div>
+                        <div class="filter-checkbox assignment">
+                            <input type="checkbox" [checked]="eventTypes['assignment']" (change)="filterEvents($event ,'assignment')">
+                            <span class="checkfilter" translate="calendar.assignment"></span>
+                        </div>
+                        <div class="filter-checkbox discussion">
+                            <input type="checkbox" [checked]="eventTypes['discussion-forum']" (change)="filterEvents($event ,'discussion-forum')">
+                            <span class="checkfilter" translate="calendar.discussionForum"></span>
+                        </div>
+                        <div class="filter-checkbox survey">
+                            <input type="checkbox" [checked]="eventTypes['survey']" (change)="filterEvents($event ,'survey')">
+                            <span class="checkfilter" translate="calendar.survey"></span>
+                        </div>
+                        <div class="filter-checkbox classroom">
+                            <input type="checkbox"  [checked]="eventTypes['live-classroom']"(change)="filterEvents($event ,'live-classroom')">
+                            <span class="checkfilter" translate="calendar.liveClassroom"></span>
+                        </div>
+                        <div class="filter-checkbox self">
+                            <input type="checkbox" [checked]="eventTypes['self-task']" (change)="filterEvents($event ,'self-task')">
+                            <span class="checkfilter" translate="calendar.selfTask"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="legend-filter-block">
+                    <div class="legend-collapse-heading">
+                        <button type="button" class="btn btn-outline-primary" (click)="isCollapsedone =!isCollapsedone" [attr.aria-expanded]="isCollapsedone" aria-controls="collapseExampleone">
+                            <span class="btn-header">{{dayEvent?.payload?.date | calendarDate:('day' + 'ViewTitle'):'en'}}</span>
+                            <span class="d-inline-block arrow-con">
+                                <svg-icon src="./../../../assets/images/icons/arrow-down.svg"></svg-icon>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="legend-collapse-content event-list-block" id="collapseExampleone" [ngbCollapse]="!isCollapsedone">
+                        <div class="event-inner-block {{event.meta.type}}" *ngFor = "let event of dayEvent?.payload?.events"
+                        [ngbPopover]="popContent"
+                        triggers="manual" #p1="ngbPopover" placement="left" [popoverTitle]="popTitle" (mouseenter)='togglePopover(p1, event,"over")'  (click)="$event.stopPropagation();togglePopover(p1, event,'click')">
+                            <h3>{{event.title}}</h3>
+                            <span *ngIf="!event.allDay">{{event.start | date :'hh.mm a'}} - {{event.end | date :'hh.mm a'}} until {{event.end | date}}</span>
+                            <span *ngIf="event.allDay">All Day until {{event.end | date}}</span>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #popTitle let-event="event">
+    <div class="popup-event-detail {{event.meta.type}}">
+      <h5 (click)="$event.stopPropagation();goToPopup(event)">{{event.title}}</h5>
+      <div class="event-date">Validity: {{event.start|date}} {{event.start| date:"hh:mm a"}} - {{event.end|date}} {{event.end| date:"hh:mm a"}}</div>
+    </div>
+  </ng-template>
+  <ng-template #popContent let-event="event">
+    <div class="popup-event-detail {{event.meta.type}}">
+      <div *ngIf="event.meta.eventDescription !== undefined" class="description">
+        <div class="inner-description" >
+          <p [innerHtml]="event.meta.eventDescription | safe: 'html'"></p>
+        </div>
+      </div>
+      <div *ngIf="event.meta.reminder" class="reminder">
+        {{'calendar.reminder' | translate: charactersRemaining(event.meta.reminder)}} 
+      </div>
+      <div class="events-action-btn">
+          <a id="calendar-popover-editIcon" (click)="$event.stopPropagation();editSelfTask(event.id)"  *ngIf="event.meta.type === 'self-task'">
+            <svg-icon class="editIcon" src="assets/images/icons/icon-edit.svg"></svg-icon>
+          </a>
+          <a id="calendar-popover-deleteIcon" (click)="$event.stopPropagation();deleteSelfTask(event.id)" *ngIf="event.meta.type === 'self-task'">
+            <svg-icon class="deleteIcon" src="assets/images/icons/icon-delete.svg"></svg-icon>
+          </a>
+      </div>
+    </div>
+  </ng-template>

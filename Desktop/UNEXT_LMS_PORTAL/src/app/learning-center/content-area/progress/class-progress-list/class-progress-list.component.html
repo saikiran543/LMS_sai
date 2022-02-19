@@ -1,0 +1,74 @@
+
+<div id="class-progress-list" class="class-progress-list">
+    
+    <div class="row">
+        <div class="col-12 layout">
+            <div (click)='clickEvent("back")'><img class="back-btn" src="./../../../../assets/images/icons/discussion-forum/Back-arrow.svg" alt=""></div>
+            <div class="content-title" translate="admin.progress.ClassProgress"></div>
+        </div>
+    </div>
+    
+    <div class="actions-row align-items-center justify-content-between">
+        <div _ngcontent-wor-c204="" class="lms-input-group input-group">
+            <input _ngcontent-wor-c204="" type="search" placeholder="Search..." aria-describedby="button-addon5" class="form-control">
+            <div _ngcontent-wor-c204="" class="input-group-append">
+                <button _ngcontent-wor-c204="" id="button-addon5" type="submit" class="btn btn-primary d-flex align-items-center">
+                    <img _ngcontent-wor-c204="" src="assets/images/icons/icon-search-white.svg">
+                </button>
+            </div>
+        </div>
+        <div class="layout layout-item-center">
+            <span *ngIf="lastUpdated">Last updated at {{lastUpdated  | date: "dd/MMM/yyyy hh.mm a"}}</span>
+            <div class="dropdown">
+                <button disabled type="button" id="dropdownMenu3" data-bs-toggle="dropdown" aria-expanded="false" class="arrow-btn dropdown-toggle">Filter</button>
+                <ul aria-labelledby="dropdownMenu3" class="dropdown-menu">
+                    <li><button type="button" class="dropdown-item" translate="admin.progress.option1"></button></li>
+                    <li><button type="button" class="dropdown-item" translate="admin.progress.option2"></button></li>
+                    <li><button type="button" class="dropdown-item" translate="admin.progress.option3"></button></li>
+                </ul>
+            </div>
+            <div class="layout layout-item-center rows-per-page">
+                <label translate="admin.progress.RecordsPerPage"></label>
+                <div class="quantity">
+                    <input [readonly]='true' [value]='rowsPerPage' >
+                    <div class="quantity__btn quantity__btn--up" (click)="modifyRecordsPerPage('plus')">
+                        <svg-icon src="../../../../../assets/images/icons/rubric/arrow-up.svg"></svg-icon>
+                    </div>
+                    <div class="quantity__btn quantity__btn--down" (click)="modifyRecordsPerPage('minus')">
+                        <svg-icon src="../../../../../assets/images/icons/rubric/arrow-down.svg"></svg-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="rows.length > 0" id="progress-list-view-datatable" class="progress-list-view-datatable">
+        <ngx-datatable class="material" [rows]="rows" [columns]="columns" columnMode="force"  [headerHeight]="61" [footerHeight]="61" [externalPaging]="true" [count]="totalRecords" [offset]="page.pageNumber" [limit]="page.size"  (page)="setPage($event)">
+            <ngx-datatable-column prop="s.No" [sortable]=false>
+                <ngx-datatable-column prop="s.No" [sortable]=false>
+                    <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                    <span>{{getSerialNumber(rowIndex)}}</span>
+                    </ng-template>
+                </ngx-datatable-column>
+            </ngx-datatable-column>
+            <ngx-datatable-column prop="userName"[sortable]=false>
+                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                    <span class="learner-profile-img">
+                    <img src="assets\images\icons\progress\icon-profile 2.svg">
+                </span>
+                <span class="learner-name">  {{value}}</span>
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column prop="emailId" [sortable]=false></ngx-datatable-column>
+            <ngx-datatable-column name="No. Of Contents Accessible" prop="contentsAccessible" [sortable]=false></ngx-datatable-column>
+            <ngx-datatable-column name="No. Of Activities Accessible" prop="activitiesAccessible" [sortable]=false></ngx-datatable-column>
+            <ngx-datatable-column name="Course Progress %" prop="progress" [sortable]=true>
+                <ng-template  ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                   <span class="status-percentage">{{value}}% Completed</span>
+                   <mat-progress-bar mode="determinate" [value]='value' [ngClass]="getClass(value)"></mat-progress-bar>
+                  </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </div>
+    
+</div>
